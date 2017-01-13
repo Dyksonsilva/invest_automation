@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{% static "ml_tool/vendor/bootstrap/css/bootstrap.min.css" %}" >
+
+    <!-- MetisMenu CSS -->
+    <link rel="stylesheet" href="{% static "ml_tool/vendor/metisMenu/metisMenu.min.css" %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static "ml_tool/dist/css/sb-admin-2.css" %}">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" type="text/css" href="{% static "ml_tool/vendor/font-awesome/css/font-awesome.min.css" %}">
+
+</head>
+<body>
+
+
+
+<form method="post" enctype="multipart/form-data" class="basic-grey">
+    <div align="center">
+        <h1>HDI Investment Report Generator</h1>
+    </div>
+    <p>
+        <h1 style="font-size:25px">Generate Reports</h1>
+    </p>
+    <p>
+        <label>Quadro 90</label>
+        {% csrf_token %}<button id="1" name="quadro_90" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+    <p>
+        <label>Quadro 419</label>
+        {% csrf_token %}<button id="2" name="quadro_419" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+    <p>
+        <label>VaR</label>
+        {% csrf_token %}<button id="3" name="var" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+    <p>
+        <label>Risco de Mercado</label>
+        {% csrf_token %}<button id="4" name="risco_mercado" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+    <p>
+        <label>Resumo de VaR por Fundo</label>
+        {% csrf_token %}<button id="5" name="resumo_var_fundo" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+
+
+
+</form>
+
+</body>
+</html>
