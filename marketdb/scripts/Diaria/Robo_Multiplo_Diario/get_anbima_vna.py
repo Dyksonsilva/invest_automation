@@ -1,7 +1,14 @@
 def get_anbima_vna():
-#    endereco_vna = "C:/Users/Thiago.Mazieiro/Downloads/vna_20161230.html"
-#'QUERY PARA SABER SE TEM VNA NA DATA DA POSICAO - IMPORTANTEEEEEEEEEE!!!! MAIS QUE O PALMEIRAS!!!!'
-#SELECT * FROM projeto_inv.anbima_vna where data_referencia = "2016-11-30 00:00:00" and data_bd=(select max(data_bd) from projeto_inv.anbima_vna where data_referencia = "2016-11-30 00:00:00");
+    #    endereco_vna = "C:/Users/Thiago.Mazieiro/Downloads/vna_20161230.html"
+    #'QUERY PARA SABER SE TEM VNA NA DATA DA POSICAO
+    #SELECT * FROM projeto_inv.anbima_vna where data_referencia = "2016-11-30 00:00:00" and data_bd=(select max(data_bd) from projeto_inv.anbima_vna where data_referencia = "2016-11-30 00:00:00");
+
+    import pandas as pd
+    import pymysql as db
+    import datetime
+
+    # Conexão com Banco de Dados
+    connection = db.connect('localhost', user='root', passwd="root", db='projeto_inv')
 
     endereco_vna = "http://www.anbima.com.br/vna/vna.asp"
     ############################################################
@@ -9,8 +16,8 @@ def get_anbima_vna():
     # Leitura de página
     #
     ###########################################################
-    
-    pagina_vna = pd.read_html(endereco_vna,thousands=".")
+
+    pagina_vna = pd.read_html(endereco_vna, thousands=".")
     
     #Separacao de abas
     coluna1_ntn_b = pagina_vna[4][0][0:6]
@@ -52,5 +59,3 @@ def get_anbima_vna():
     # Importar dados MySQL
     
     pd.io.sql.to_sql(dados_vna, name='anbima_vna', con=connection,if_exists="append", flavor='mysql', index=0)
-
-##################################################################################################

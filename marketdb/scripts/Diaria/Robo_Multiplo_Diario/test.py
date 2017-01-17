@@ -1,69 +1,118 @@
-
-import urllib
+import pymysql as db
 import pandas as pd
 import datetime
-import pymysql as db
+import zipfile
+# import warnings
+from invest_automation.settings import BASE_DIR
 
-import pandas
+# warnings.simplefilter(action="ignore")
 
+# exec(open("diretorios.py").read())
 
-ano = "2017"
-mes = "01"
-dia = "13"
+# hoje = datetime.datetime.now()
 
-connection = db.connect('localhost', user='root', passwd="root", db='projeto_inv')
+# dia = str(hoje.day)
+# mes = str(hoje.month)
+# ano = str(hoje.year)
 
-pagina_debentures_anbima = "http://www.anbima.com.br/merc_sec_debentures/arqs/db" + ano[2:] + mes + dia + ".txt"
+# Adiciona um zero se mes ou dia possuirem um caracter apenas
+# if len(mes) == 1:
+#    mes = "0" + mes
 
-pagina_debentures = urllib.request.urlopen(pagina_debentures_anbima)
-dados_debentures = pd.read_table(pagina_debentures, sep='@', header=1, encoding="iso-8859-1")
+# if len(dia) == 1:
+#    dia = "0" + dia
 
-## Criar coluna com data_bd para a data de inserção no BD
+# Conexão com Banco de Dados
+connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
 
-horario_bd = datetime.datetime.now()
-dados_debentures["data_bd"] = horario_bd
+path_isinp = pd.read_sql_query(
+    'SELECT path from projeto_inv.paths where filename = "isinp"', connection)
 
-## Padronizar nomes das colunas
-dados_debentures.columns = [
-    "codigo",
-    "nome",
-    "repac_vencimento",
-    "indice_correcao",
-    "taxa_compra",
-    "taxa_venda",
-    "taxa_indicativa",
-    "desvio_padrao",
-    "intervalo_indicativo_minimo",
-    "intervalo_indicativo_maximo",
-    "pu",
-    "perc_pu_par",
-    "duration",
-    "perc_reunie",
-    "referencia_ntnb",
-    "data_bd"
+BASE_DIR = BASE_DIR.replace('\\', '/')
+
+full_path = BASE_DIR + str(path_isinp["path"].iloc[0])
+
+z = zipfile.ZipFile(full_path + "isinp.zip", "r")
+z.extractall(path=full_path)
+z.close()
+
+# Ler arquivos TXT
+arquivo_numeraca = full_path + "NUMERACA.TXT"
+arquivo_emissor = full_path + "EMISSOR.TXT"
+
+# Lê os arquivos com a biblioteca pandas
+dados_numeraca = pd.read_csv(arquivo_numeraca, header=None, encoding="iso-8859-1")
+dados_emissor = pd.read_csv(arquivo_emissor, header=None, encoding="iso-8859-1")
+
+# Colocar nomes nas colunas
+dados_numeraca.columns = [
+    "data_geracao_arquivo",
+    "acao_sofrida",
+    "codigo_isin",
+    "codigo_emissor",
+    "codigo_cfi",
+    "descricao",
+    "ano_emissao",
+    "data_emissao",
+    "ano_expiracao",
+    "data_expiracao",
+    "taxa_juros",
+    "moedas",
+    "valor_nominal",
+    "preco_exercicio",
+    "indexador",
+    "percentual_indexador",
+    "data_da_acao",
+    "codigo_cetip",
+    "codigo_selic",
+    "codigo_pais",
+    "tipo_ativo",
+    "codigo_categoria",
+    "codigo_especie",
+    "data_base",
+    "numero_emissao",
+    "numero_serie",
+    "tipo_emissao",
+    "tipo_ativo_objeto",
+    "tipo_de_entrega",
+    "tipo_de_fundo",
+    "tipo_de_garantia",
+    "tipo_de_juros",
+    "tipo_de_mercado",
+    "tipo_status_isin",
+    "tipo_vencimento",
+    "tipo_protecao",
+    "tipo_politica_distribuicao_fundos",
+    "tipo_ativos_investidos",
+    "tipo_forma",
+    "tipo_estilo_opcao",
+    "numero_serie_opcao",
+    "cod_frequencia_juros",
+    "situacao_isin",
+    "data_primeiro_pagamento_juros"
 ]
 
-## Trocar virgula por ponto e "--" por None
-dados_debentures = dados_debentures.replace({np.nan: None}, regex=True)
-dados_debentures = dados_debentures.replace({',': '.'}, regex=True)
-dados_debentures = dados_debentures.replace({'--': None}, regex=True)
-dados_debentures = dados_debentures.replace({'N/D': None}, regex=True)
+dados_emissor.columns = [
+    "codigo_emissor",
+    "nome_emissor",
+    "cnpj_emissor",
+    "data_criacao_emissor"
+]
 
-# Converter formato data
-dados_debentures["repac_vencimento"] = pd.to_datetime(dados_debentures["repac_vencimento"], format="%d/%m/%Y")
-dados_debentures["referencia_ntnb"] = pd.to_datetime(dados_debentures["referencia_ntnb"], format="%d/%m/%Y")
+# Substituis nan por None
 
-# Colocar data de referência
-dados_debentures["data_referencia"] = ano + '-' + mes + '-' + dia
-dados_debentures["data_referencia"] = pd.to_datetime(dados_debentures["data_referencia"], format="%Y-%m-%d")
+dados_numeraca = dados_numeraca.where((pd.notnull(dados_numeraca)), None)
+dados_emissor = dados_emissor.where((pd.notnull(dados_emissor)), None)
 
-dados_debentures = dados_debentures.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
+## Criar coluna com data_bd para a data de inserção no BD
+horario_bd = datetime.datetime.now()
+dados_numeraca["data_bd"] = horario_bd
+dados_emissor["data_bd"] = horario_bd
 
-pd.io.sql.to_sql(dados_debentures, name='anbima_debentures',
-                 con=connection,
-                 if_exists="append",
-                 flavor='mysql',
-                 index=0)
+# dados_emissor.to_excel('C:/Users/Cora.Santos/Desktop/HDI-Investimentos/Base de Dados/dados_emissor.xlsx')
+
+pd.io.sql.to_sql(dados_numeraca, name='bmf_numeraca', con=connection, if_exists="append", flavor='mysql', index=0)
+pd.io.sql.to_sql(dados_emissor, name='bmf_emissor', con=connection, if_exists="append", flavor='mysql', index=0)
 
 # Fecha conexão com o banco de dados
 connection.close()

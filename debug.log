@@ -1128,3 +1128,335 @@ urllib.error.HTTPError: HTTP Error 500: Internal Server Error
 "GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
 "GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
 "GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Not Found: /
+"GET / HTTP/1.1" 404 2135
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2168
+"GET /generator/ HTTP/1.1" 200 2895
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"POST /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 42, in dashboard
+    get_anbima_vna(array_data[0], array_data[1], array_data[2])
+TypeError: get_anbima_vna() takes 0 positional arguments but 3 were given
+"POST /marketdb/ HTTP/1.1" 500 69462
+"GET /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 42, in dashboard
+    get_anbima_vna(array_data[0], array_data[1], array_data[2])
+TypeError: get_anbima_vna() takes 0 positional arguments but 3 were given
+"POST /marketdb/ HTTP/1.1" 500 69330
+"GET /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 42, in dashboard
+    get_anbima_vna(array_data[0], array_data[1], array_data[2])
+TypeError: get_anbima_vna() takes 0 positional arguments but 3 were given
+"POST /marketdb/ HTTP/1.1" 500 69330
+"GET /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 42, in dashboard
+    get_anbima_vna()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py", line 13, in get_anbima_vna
+    pagina_vna = pd.read_html(endereco_vna,thousands=".")
+NameError: name 'pd' is not defined
+"POST /marketdb/ HTTP/1.1" 500 72810
+"GET /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"POST /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"POST /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"POST /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"POST /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /marketdb/ HTTP/1.1" 200 3279
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"POST /marketdb/ HTTP/1.1" 200 3279
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 61, in dashboard
+    get_anbima_carteiras(array_data[0], array_data[1], array_data[2])
+TypeError: get_anbima_carteiras() takes 0 positional arguments but 3 were given
+"POST /marketdb/ HTTP/1.1" 500 69392
+"GET /marketdb/ HTTP/1.1" 200 3279
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"POST /marketdb/ HTTP/1.1" 200 3279
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"POST /marketdb/ HTTP/1.1" 200 3279
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /marketdb/ HTTP/1.1" 200 719
+"GET /marketdb/diario HTTP/1.1" 200 2782
+"GET /marketdb/mensal HTTP/1.1" 200 2531
+"POST /marketdb/mensal HTTP/1.1" 200 2531
+"POST /marketdb/mensal HTTP/1.1" 200 2531
+"POST /marketdb/mensal HTTP/1.1" 200 2531
+"GET /marketdb/mensal HTTP/1.1" 200 2531
+"GET /generator/ HTTP/1.1" 200 2363
+"GET /marketdb/ HTTP/1.1" 200 719
+"GET /marketdb/mensal HTTP/1.1" 200 2531
+"GET /marketdb/diario HTTP/1.1" 200 2782
+Internal Server Error: /marketdb/diario
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 89, in dashboard_diario
+    return render(request, 'marketdb/dashboard_diario.html', {"success_flag" : success_flag})
+UnboundLocalError: local variable 'success_flag' referenced before assignment
+"GET /marketdb/diario HTTP/1.1" 500 68417
+"GET /marketdb/diario HTTP/1.1" 200 3184
+"POST /marketdb/diario HTTP/1.1" 200 3184
+"GET /marketdb/diario HTTP/1.1" 200 3191
+"GET /marketdb/diario HTTP/1.1" 200 3193
+"GET /marketdb/diario HTTP/1.1" 200 3193
+"GET /marketdb/diario HTTP/1.1" 200 3193
+"GET /marketdb/diario HTTP/1.1" 200 3193
+"GET /marketdb/diario HTTP/1.1" 200 3193
+"GET /marketdb/diario HTTP/1.1" 200 3201
+"GET /marketdb/diario HTTP/1.1" 200 2993
+"GET /marketdb/ HTTP/1.1" 200 719
+"GET /marketdb/mensal HTTP/1.1" 200 2558
+Internal Server Error: /marketdb/mensal
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 90, in dashboard_mensal
+    get_numeraca()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Mensal\BVMF\get_numeraca.py", line 26, in get_numeraca
+    z = zipfile.ZipFile("./dependencias/Manual_Download/isinp/isinp.zip", "r")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\zipfile.py", line 1009, in __init__
+    self.fp = io.open(file, filemode)
+FileNotFoundError: [Errno 2] No such file or directory: './dependencias/Manual_Download/isinp/isinp.zip'
+"POST /marketdb/mensal HTTP/1.1" 500 78712
+"GET /marketdb/mensal HTTP/1.1" 200 2558
+Internal Server Error: /marketdb/mensal
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 90, in dashboard_mensal
+    get_numeraca()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Mensal\BVMF\get_numeraca.py", line 35, in get_numeraca
+    z = zipfile.ZipFile(BASE_DIR + path_isinp + "/isinp.zip", "r")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\zipfile.py", line 1026, in __init__
+    self._RealGetContents()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\zipfile.py", line 1089, in _RealGetContents
+    endrec = _EndRecData(fp)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\zipfile.py", line 241, in _EndRecData
+    fpin.seek(0, 2)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\generic.py", line 2672, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'seek'
+"POST /marketdb/mensal HTTP/1.1" 500 89828
+"GET /marketdb/mensal HTTP/1.1" 200 2558
+Internal Server Error: /marketdb/mensal
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 90, in dashboard_mensal
+    get_numeraca()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Mensal\BVMF\get_numeraca.py", line 35, in get_numeraca
+    z = zipfile.ZipFile(BASE_DIR + path_isinp + "/isinp.zip", "r")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\zipfile.py", line 1026, in __init__
+    self._RealGetContents()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\zipfile.py", line 1089, in _RealGetContents
+    endrec = _EndRecData(fp)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\zipfile.py", line 241, in _EndRecData
+    fpin.seek(0, 2)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\generic.py", line 2672, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'seek'
+"POST /marketdb/mensal HTTP/1.1" 500 90181
+"GET /marketdb/mensal HTTP/1.1" 200 2558
+Internal Server Error: /marketdb/mensal
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 90, in dashboard_mensal
+    get_numeraca()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Mensal\BVMF\get_numeraca.py", line 35, in get_numeraca
+    full_path = BASE_DIR + str(path_isinp["path"].iloc[1])
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\indexing.py", line 1296, in __getitem__
+    return self._getitem_axis(key, axis=0)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\indexing.py", line 1612, in _getitem_axis
+    self._is_valid_integer(key, axis)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\indexing.py", line 1526, in _is_valid_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
+"POST /marketdb/mensal HTTP/1.1" 500 86188
+"GET /marketdb/mensal HTTP/1.1" 200 2558
+Internal Server Error: /marketdb/mensal
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 90, in dashboard_mensal
+    get_numeraca()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Mensal\BVMF\get_numeraca.py", line 39, in get_numeraca
+    z = zipfile.ZipFile(full_path + "/isinp.zip", "r")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\zipfile.py", line 1009, in __init__
+    self.fp = io.open(file, filemode)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/Caio.Deutsch/Documents/Trabalho_EY/Projetos/HDI_automacao_relatorios/invest_automation/dependencias/Manual_Download/isinp//isinp.zip'
+"POST /marketdb/mensal HTTP/1.1" 500 79979
+"GET /marketdb/mensal HTTP/1.1" 200 2558
+Internal Server Error: /marketdb/mensal
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 90, in dashboard_mensal
+    get_numeraca()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Mensal\BVMF\get_numeraca.py", line 39, in get_numeraca
+    z = zipfile.ZipFile(full_path + "isinp.zip", "r")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\zipfile.py", line 1009, in __init__
+    self.fp = io.open(file, filemode)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/Caio.Deutsch/Documents/Trabalho_EY/Projetos/HDI_automacao_relatorios/invest_automation/dependencias/Manual_Download/isinp/isinp.zip'
+"POST /marketdb/mensal HTTP/1.1" 500 79971
+"GET /marketdb/mensal HTTP/1.1" 200 2558
+"GET /marketdb/mensal HTTP/1.1" 200 2558
+"POST /marketdb/mensal HTTP/1.1" 200 2558
+"GET /marketdb/mensal HTTP/1.1" 200 2601
+Internal Server Error: /marketdb/mensal
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 97, in dashboard_mensal
+    get_bmf_cotacoes_hist()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Mensal\BVMF\get_bmf_cotacoes_hist.py", line 26, in get_bmf_cotacoes_hist
+    dados_acoes = pd.read_fwf(arquivo_bovespa, widths = tamanho_campos, header=0)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\parsers.py", line 593, in read_fwf
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\parsers.py", line 315, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\parsers.py", line 645, in __init__
+    self._make_engine(self.engine)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\parsers.py", line 805, in _make_engine
+    self._engine = klass(self.f, **self.options)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\parsers.py", line 2619, in __init__
+    PythonParser.__init__(self, f, **kwds)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\parsers.py", line 1590, in __init__
+    compression=self.compression)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\common.py", line 424, in _get_handle
+    f = open(path, mode, errors='replace')
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/Caio.Deutsch/Documents/Trabalho_EY/Projetos/HDI_automacao_relatorios/invest_automation/dependencias/Manual_Downloads/cotacoes/COTAHIST_D30122016/COTAHIST_D30122016.txt'
+"POST /marketdb/mensal HTTP/1.1" 500 113578
+"GET /marketdb/mensal HTTP/1.1" 200 2601
+"POST /marketdb/mensal HTTP/1.1" 200 2601

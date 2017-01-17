@@ -6,7 +6,6 @@ def calculo_data_atual():
 	import bizdays
 	import logging
 
-	# Create your views here.
 	from invest_automation.settings import BASE_DIR
 
 	# Get an instance of a logger

@@ -71,3 +71,6 @@ def get_anbima_titpublico(ano, mes, dia):
                      if_exists='append',
                      flavor='mysql',
                      index=0)
+
+    # Fecha conexão com o banco de dados
+    connection.close()
