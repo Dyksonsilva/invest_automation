@@ -21,4 +21,5 @@ from django.conf.urls import include
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^generator/', include('generator.urls')),
+    url(r'^marketdb/', include('marketdb.urls')),
 ]

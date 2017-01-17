@@ -1,0 +1,1130 @@
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\views.py", line 25, in dashboard
+    if bad_mojo:
+NameError: name 'bad_mojo' is not defined
+"GET /marketdb/ HTTP/1.1" 500 65953
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\views.py", line 20, in dashboard
+    robo_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\scripts\Diaria\Robo_Multiplo_Diario\robo_multiplo_diario_robo_precos_futuros.py", line 11, in robo_precos_futuros
+    dadospd=pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 896, in read_html
+    keep_default_na=keep_default_na)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 723, in _parse
+    parser = _parser_dispatch(flav)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 683, in _parser_dispatch
+    raise ImportError("lxml not found, please install it")
+ImportError: lxml not found, please install it
+"POST /marketdb/ HTTP/1.1" 500 86726
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\views.py", line 20, in dashboard
+    robo_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\scripts\Diaria\Robo_Multiplo_Diario\robo_multiplo_diario_robo_precos_futuros.py", line 11, in robo_precos_futuros
+    dadospd=pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 896, in read_html
+    keep_default_na=keep_default_na)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 723, in _parse
+    parser = _parser_dispatch(flav)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 683, in _parser_dispatch
+    raise ImportError("lxml not found, please install it")
+ImportError: lxml not found, please install it
+"POST /marketdb/ HTTP/1.1" 500 86724
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\views.py", line 20, in dashboard
+    robo_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\scripts\Diaria\Robo_Multiplo_Diario\robo_multiplo_diario_robo_precos_futuros.py", line 11, in robo_precos_futuros
+    dadospd=pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 896, in read_html
+    keep_default_na=keep_default_na)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 723, in _parse
+    parser = _parser_dispatch(flav)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 683, in _parser_dispatch
+    raise ImportError("lxml not found, please install it")
+ImportError: lxml not found, please install it
+"POST /marketdb/ HTTP/1.1" 500 86876
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\views.py", line 20, in dashboard
+    robo_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\scripts\Diaria\Robo_Multiplo_Diario\robo_multiplo_diario_robo_precos_futuros.py", line 11, in robo_precos_futuros
+    dadospd=pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 896, in read_html
+    keep_default_na=keep_default_na)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 723, in _parse
+    parser = _parser_dispatch(flav)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 683, in _parser_dispatch
+    raise ImportError("lxml not found, please install it")
+ImportError: lxml not found, please install it
+"POST /marketdb/ HTTP/1.1" 500 86724
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\views.py", line 20, in dashboard
+    robo_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\scripts\Diaria\Robo_Multiplo_Diario\robo_multiplo_diario_robo_precos_futuros.py", line 11, in robo_precos_futuros
+    dadospd=pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 896, in read_html
+    keep_default_na=keep_default_na)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 723, in _parse
+    parser = _parser_dispatch(flav)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 683, in _parser_dispatch
+    raise ImportError("lxml not found, please install it")
+ImportError: lxml not found, please install it
+"POST /marketdb/ HTTP/1.1" 500 86726
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.016) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\views.py", line 20, in dashboard
+    robo_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\scripts\Diaria\Robo_Multiplo_Diario\robo_multiplo_diario_robo_precos_futuros.py", line 11, in robo_precos_futuros
+    dadospd=pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 896, in read_html
+    keep_default_na=keep_default_na)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 723, in _parse
+    parser = _parser_dispatch(flav)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 683, in _parser_dispatch
+    raise ImportError("lxml not found, please install it")
+ImportError: lxml not found, please install it
+"POST /marketdb/ HTTP/1.1" 500 86726
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.031) SHOW FULL TABLES; args=None
+(0.016) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\views.py", line 16, in dashboard
+    array_data = current_date()
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\scripts\Diaria\Robo_Multiplo_Diario\current_date.py", line 18, in current_date
+    logging.INFO("Conexão com DB - OK")
+TypeError: 'int' object is not callable
+"POST /marketdb/ HTTP/1.1" 500 73093
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.016) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\views.py", line 16, in dashboard
+    array_data = current_date()
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\scripts\Diaria\Robo_Multiplo_Diario\current_date.py", line 18, in current_date
+    logging.INFO("Conexão com DB - OK")
+TypeError: 'int' object is not callable
+"POST /marketdb/ HTTP/1.1" 500 73093
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.047) SHOW FULL TABLES; args=None
+(0.016) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.016) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\views.py", line 16, in dashboard
+    array_data = current_date()
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\invest_automation-master\marketdb\scripts\Diaria\Robo_Multiplo_Diario\current_date.py", line 18, in current_date
+    logging.INFO("Conexão com DB - OK")
+TypeError: 'int' object is not callable
+"POST /marketdb/ HTTP/1.1" 500 73094
+"POST /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /generator/ HTTP/1.1" 200 2895
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2168
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 16, in dashboard
+    array_data = current_date()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\current_date.py", line 6, in current_date
+    import bizdays
+ImportError: No module named 'bizdays'
+"POST /marketdb/ HTTP/1.1" 500 72826
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 16, in dashboard
+    array_data = current_date()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\current_date.py", line 17, in current_date
+    connection=db.connect('localhost', user = 'root', passwd = 'root123', db = 'projeto_inv')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 688, in __init__
+    self.connect()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 906, in connect
+    self._request_authentication()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 1114, in _request_authentication
+    auth_packet = self._read_packet()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 981, in _read_packet
+    packet.check_error()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+"POST /marketdb/ HTTP/1.1" 500 110850
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 16, in dashboard
+    array_data = current_date()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\current_date.py", line 17, in current_date
+    connection=db.connect('localhost', user = 'root', passwd = 'root123', db = 'projeto_inv')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 688, in __init__
+    self.connect()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 906, in connect
+    self._request_authentication()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 1114, in _request_authentication
+    auth_packet = self._read_packet()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 981, in _read_packet
+    packet.check_error()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+"POST /marketdb/ HTTP/1.1" 500 110887
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 16, in dashboard
+    array_data = current_date()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\current_date.py", line 17, in current_date
+    connection=db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 688, in __init__
+    self.connect()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 906, in connect
+    self._request_authentication()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 1114, in _request_authentication
+    auth_packet = self._read_packet()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 981, in _read_packet
+    packet.check_error()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+"POST /marketdb/ HTTP/1.1" 500 110881
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 1401, in execute
+    cur.execute(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\cursors.py", line 166, in execute
+    result = self._query(query)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 835, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 1019, in _read_query_result
+    result.read()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 1302, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 981, in _read_packet
+    packet.check_error()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'projeto_inv.paths' doesn't exist")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 16, in dashboard
+    array_data = current_date()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\current_date.py", line 21, in current_date
+    path_feriados_nacionais = pd.read_sql_query('SELECT path from projeto_inv.paths where filename="feriados_nacionais"', connection)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 331, in read_sql_query
+    parse_dates=parse_dates, chunksize=chunksize)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 1436, in read_query
+    cursor = self.execute(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 1413, in execute
+    raise_with_traceback(ex)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\compat\__init__.py", line 339, in raise_with_traceback
+    raise exc.with_traceback(traceback)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 1401, in execute
+    cur.execute(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\cursors.py", line 166, in execute
+    result = self._query(query)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 835, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 1019, in _read_query_result
+    result.read()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 1302, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 981, in _read_packet
+    packet.check_error()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pandas.io.sql.DatabaseError: Execution failed on sql 'SELECT path from projeto_inv.paths where filename="feriados_nacionais"': (1146, "Table 'projeto_inv.paths' doesn't exist")
+"POST /marketdb/ HTTP/1.1" 500 164679
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 16, in dashboard
+    array_data = current_date()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\current_date.py", line 28, in current_date
+    calendario_anbima=pd.read_excel(path_feriados_nacionais)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\excel.py", line 191, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\excel.py", line 220, in __init__
+    import xlrd  # throw an ImportError if we need to
+ImportError: No module named 'xlrd'
+"POST /marketdb/ HTTP/1.1" 500 85945
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"POST /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"POST /marketdb/ HTTP/1.1" 200 1716
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /marketdb/ HTTP/1.1" 200 1799
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 20, in dashboard
+    robo_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\robo_multiplo_diario_robo_precos_futuros.py", line 14, in robo_precos_futuros
+    dadospd = pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 896, in read_html
+    keep_default_na=keep_default_na)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 723, in _parse
+    parser = _parser_dispatch(flav)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 683, in _parser_dispatch
+    raise ImportError("lxml not found, please install it")
+ImportError: lxml not found, please install it
+"POST /marketdb/ HTTP/1.1" 500 89206
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /marketdb/ HTTP/1.1" 200 1789
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 20, in dashboard
+    robo_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\robo_multiplo_diario_robo_precos_futuros.py", line 14, in robo_precos_futuros
+    dadospd = pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 896, in read_html
+    keep_default_na=keep_default_na)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 723, in _parse
+    parser = _parser_dispatch(flav)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 668, in _parser_dispatch
+    raise ImportError("html5lib not found, please install it")
+ImportError: html5lib not found, please install it
+"POST /marketdb/ HTTP/1.1" 500 89779
+"GET /marketdb/ HTTP/1.1" 200 1715
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 20, in dashboard
+    robo_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\robo_multiplo_diario_robo_precos_futuros.py", line 71, in robo_precos_futuros
+    index = 0)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 460, in to_sql
+    pandas_sql = pandasSQL_builder(con, schema=schema, flavor=flavor)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 525, in pandasSQL_builder
+    _validate_flavor_parameter(flavor)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 58, in _validate_flavor_parameter
+    "supported".format(flavor=flavor))
+ValueError: database flavor mysql is not supported
+"POST /marketdb/ HTTP/1.1" 500 96470
+"GET /marketdb/ HTTP/1.1" 200 1715
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 20, in dashboard
+    robo_precos_futuros(array_data[0], array_data[1], array_data[2])
+NameError: name 'robo_precos_futuros' is not defined
+"POST /marketdb/ HTTP/1.1" 500 69304
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /marketdb/ HTTP/1.1" 200 1715
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 20, in dashboard
+    calculo_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_precos_futuros.py", line 70, in calculo_precos_futuros
+    index = 0)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 460, in to_sql
+    pandas_sql = pandasSQL_builder(con, schema=schema, flavor=flavor)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 525, in pandasSQL_builder
+    _validate_flavor_parameter(flavor)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 58, in _validate_flavor_parameter
+    "supported".format(flavor=flavor))
+ValueError: database flavor mysql is not supported
+"POST /marketdb/ HTTP/1.1" 500 96452
+"GET /marketdb/ HTTP/1.1" 200 1715
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 20, in dashboard
+    calculo_precos_futuros(int(array_data[0]), int(array_data[1]), int(array_data[2]))
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_precos_futuros.py", line 10, in calculo_precos_futuros
+    dataBusca = dia+"/"+mes+"/"+ano
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+"POST /marketdb/ HTTP/1.1" 500 74565
+"GET /marketdb/ HTTP/1.1" 200 1715
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 20, in dashboard
+    calculo_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_precos_futuros.py", line 72, in calculo_precos_futuros
+    index = 0)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 460, in to_sql
+    pandas_sql = pandasSQL_builder(con, schema=schema, flavor=flavor)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 525, in pandasSQL_builder
+    _validate_flavor_parameter(flavor)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 58, in _validate_flavor_parameter
+    "supported".format(flavor=flavor))
+ValueError: database flavor mysql is not supported
+"POST /marketdb/ HTTP/1.1" 500 96425
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 1401, in execute
+    cur.execute(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\cursors.py", line 164, in execute
+    query = self.mogrify(query, args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\cursors.py", line 143, in mogrify
+    query = query % self._escape_args(args, conn)
+TypeError: not all arguments converted during string formatting
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 20, in dashboard
+    calculo_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_precos_futuros.py", line 73, in calculo_precos_futuros
+    index = 0)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 470, in to_sql
+    chunksize=chunksize, dtype=dtype)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 1502, in to_sql
+    table.create()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 584, in create
+    if self.exists():
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 572, in exists
+    return self.pd_sql.has_table(self.name, self.schema)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 1514, in has_table
+    return len(self.execute(query, [name, ]).fetchall()) > 0
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 1413, in execute
+    raise_with_traceback(ex)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\compat\__init__.py", line 339, in raise_with_traceback
+    raise exc.with_traceback(traceback)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 1401, in execute
+    cur.execute(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\cursors.py", line 164, in execute
+    query = self.mogrify(query, args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\cursors.py", line 143, in mogrify
+    query = query % self._escape_args(args, conn)
+pandas.io.sql.DatabaseError: Execution failed on sql 'SELECT name FROM sqlite_master WHERE type='table' AND name=?;': not all arguments converted during string formatting
+"POST /marketdb/ HTTP/1.1" 500 143486
+"GET /marketdb/ HTTP/1.1" 200 1715
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"POST /marketdb/ HTTP/1.1" 200 1715
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"POST /marketdb/ HTTP/1.1" 200 1715
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /marketdb/ HTTP/1.1" 200 1715
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 29, in dashboard
+    pega_anbima_titpublico(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\pega_anbima_titpublico.py", line 39, in pega_anbima_titpublico
+    anbima_tpf['dt_vencto2']=anbima_tpf['dt_vencto']-DateOffset(months=0, days=1)
+NameError: name 'DateOffset' is not defined
+"POST /marketdb/ HTTP/1.1" 500 80776
+"GET /marketdb/ HTTP/1.1" 200 1715
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"POST /marketdb/ HTTP/1.1" 200 1715
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"POST /marketdb/ HTTP/1.1" 200 1715
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /marketdb/ HTTP/1.1" 200 2049
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"POST /marketdb/ HTTP/1.1" 200 2049
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1254, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1106, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1151, in _send_request
+    self.endheaders(body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1102, in endheaders
+    self._send_output(message_body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 849, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 711, in create_connection
+    raise err
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 702, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 52, in dashboard
+    get_anbima_debentures(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py", line 12, in get_anbima_debentures
+    pagina_debentures = urllib.request.urlopen(pagina_debentures_anbima)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 163, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 466, in open
+    response = self._open(req, data)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 484, in _open
+    '_open', req)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 444, in _call_chain
+    result = func(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1282, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1256, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond>
+"POST /marketdb/ HTTP/1.1" 500 144555
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1254, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1106, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1151, in _send_request
+    self.endheaders(body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1102, in endheaders
+    self._send_output(message_body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 849, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 711, in create_connection
+    raise err
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 702, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 24, in dashboard
+    get_bmf_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py", line 14, in get_bmf_precos_futuros
+    dadospd = pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 874, in read_html
+    parse_dates, tupleize_cols, thousands, attrs, encoding)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 736, in _parse
+    raise_with_traceback(retained)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\compat\__init__.py", line 333, in raise_with_traceback
+    raise exc.with_traceback(traceback)
+urllib.error.URLError: <urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond>
+"POST /marketdb/ HTTP/1.1" 500 132400
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1254, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1106, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1151, in _send_request
+    self.endheaders(body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1102, in endheaders
+    self._send_output(message_body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 849, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 711, in create_connection
+    raise err
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 702, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 52, in dashboard
+    get_anbima_debentures(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py", line 12, in get_anbima_debentures
+    pagina_debentures = urllib.request.urlopen(pagina_debentures_anbima)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 163, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 466, in open
+    response = self._open(req, data)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 484, in _open
+    '_open', req)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 444, in _call_chain
+    result = func(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1282, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1256, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond>
+"POST /marketdb/ HTTP/1.1" 500 145223
+"GET /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1254, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1106, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1151, in _send_request
+    self.endheaders(body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1102, in endheaders
+    self._send_output(message_body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 849, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 711, in create_connection
+    raise err
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 702, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 52, in dashboard
+    get_anbima_debentures(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py", line 12, in get_anbima_debentures
+    pagina_debentures = urllib.request.urlopen(pagina_debentures_anbima)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 163, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 466, in open
+    response = self._open(req, data)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 484, in _open
+    '_open', req)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 444, in _call_chain
+    result = func(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1282, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1256, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond>
+"POST /marketdb/ HTTP/1.1" 500 145118
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 52, in dashboard
+    get_anbima_debentures(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py", line 41, in get_anbima_debentures
+    dados_debentures = dados_debentures.replace({np.nan: None}, regex=True)
+NameError: name 'np' is not defined
+"POST /marketdb/ HTTP/1.1" 500 79988
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 52, in dashboard
+    get_anbima_debentures(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py", line 61, in get_anbima_debentures
+    con=connection,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 571, in to_sql
+    chunksize=chunksize, dtype=dtype)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 1662, in to_sql
+    table.insert(chunksize)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 770, in insert
+    self._execute_insert(conn, keys, chunk_iter)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\sql.py", line 1445, in _execute_insert
+    conn.executemany(self.insert_statement(), data_list)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\cursors.py", line 193, in executemany
+    self._get_db().encoding)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\cursors.py", line 230, in _do_execute_many
+    rows += self.execute(sql + postfix)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\cursors.py", line 166, in execute
+    result = self._query(query)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 835, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 1019, in _read_query_result
+    result.read()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 1302, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 981, in _read_packet
+    packet.check_error()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.DataError: (1406, "Data too long for column 'nome' at row 35")
+"POST /marketdb/ HTTP/1.1" 500 192954
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 52, in dashboard
+    get_anbima_debentures(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py", line 14, in get_anbima_debentures
+    pagina_debentures = urllib.request.urlopen(pagina_debentures_anbima)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 163, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 472, in open
+    response = meth(req, response)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 582, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 510, in error
+    return self._call_chain(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 444, in _call_chain
+    result = func(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 590, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 500: Internal Server Error
+"POST /marketdb/ HTTP/1.1" 500 105866
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"POST /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 52, in dashboard
+    get_anbima_debentures(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py", line 14, in get_anbima_debentures
+    pagina_debentures = urllib.request.urlopen(pagina_debentures_anbima)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 163, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 472, in open
+    response = meth(req, response)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 582, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 510, in error
+    return self._call_chain(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 444, in _call_chain
+    result = func(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 590, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 500: Internal Server Error
+"POST /marketdb/ HTTP/1.1" 500 105932
+"GET /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+Internal Server Error: /marketdb/
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 52, in dashboard
+    get_anbima_debentures(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py", line 14, in get_anbima_debentures
+    pagina_debentures = urllib.request.urlopen(pagina_debentures_anbima)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 163, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 472, in open
+    response = meth(req, response)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 582, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 510, in error
+    return self._call_chain(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 444, in _call_chain
+    result = func(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 590, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 500: Internal Server Error
+"POST /marketdb/ HTTP/1.1" 500 105866
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"POST /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"POST /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"POST /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"POST /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769
+"POST /marketdb/ HTTP/1.1" 200 3276
+"GET /static/ml_tool/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 404 1751
+"GET /static/ml_tool/dist/css/sb-admin-2.css HTTP/1.1" 404 1706
+"GET /static/ml_tool/vendor/metisMenu/metisMenu.min.css HTTP/1.1" 404 1739
+"GET /static/ml_tool/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 404 1769

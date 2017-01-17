@@ -27,14 +27,18 @@
 </head>
 <body>
 
-
-
 <form method="post" enctype="multipart/form-data" class="basic-grey">
     <div align="center">
         <h1>HDI Investment Report Generator</h1>
     </div>
     <p>
         <h1 style="font-size:25px">Generate Reports</h1>
+    </p>
+    <p>
+        <a href="/marketdb/"><label>Atualizações de Mercado</label></a>
+        {% csrf_token %}<button id="0" name="atualizacoes" class="button" type="submit">
+            <span>Send</span>
+        </button>
     </p>
     <p>
         <label>Quadro 90</label>
