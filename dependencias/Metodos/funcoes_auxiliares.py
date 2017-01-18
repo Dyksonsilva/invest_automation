@@ -1,5 +1,6 @@
 import pymysql as db
 import pandas as pd
+import datetime
 from invest_automation.settings import BASE_DIR
 
 def get_data_ultimo_dia_util_mes_anterior():
@@ -34,3 +35,19 @@ def full_path_from_database(filename):
 
     connection.close()
     return full_path
+
+def get_current_date_in_array():
+
+    hoje = datetime.datetime.now()
+
+    dia = str(hoje.day)
+    mes = str(hoje.month)
+    ano = str(hoje.year)
+
+    if len(mes) == 1:
+        mes = "0" + mes
+
+    if len(dia) == 1:
+        dia = "0" + dia
+
+    return ano, mes, dia

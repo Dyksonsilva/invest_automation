@@ -1460,3 +1460,57 @@ FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/Caio.Deutsch/D
 "POST /marketdb/mensal HTTP/1.1" 500 113578
 "GET /marketdb/mensal HTTP/1.1" 200 2601
 "POST /marketdb/mensal HTTP/1.1" 200 2601
+"GET /marketdb HTTP/1.1" 301 0
+"GET /marketdb/ HTTP/1.1" 200 719
+"GET /marketdb/diario HTTP/1.1" 200 2993
+"GET /marketdb/mensal HTTP/1.1" 200 2601
+"GET /marketdb/diario HTTP/1.1" 200 2993
+"GET /marketdb/mensal HTTP/1.1" 200 2601
+"GET /marketdb/diario HTTP/1.1" 200 2993
+Not Found: /
+"GET / HTTP/1.1" 404 2135
+"GET /marketdb/ HTTP/1.1" 200 719
+"GET /marketdb/diario HTTP/1.1" 200 2993
+Internal Server Error: /marketdb/diario
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1254, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1106, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1151, in _send_request
+    self.endheaders(body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1102, in endheaders
+    self._send_output(message_body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 849, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 711, in create_connection
+    raise err
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 702, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 32, in dashboard_diario
+    get_bmf_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py", line 14, in get_bmf_precos_futuros
+    dadospd = pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 874, in read_html
+    parse_dates, tupleize_cols, thousands, attrs, encoding)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 736, in _parse
+    raise_with_traceback(retained)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\compat\__init__.py", line 333, in raise_with_traceback
+    raise exc.with_traceback(traceback)
+urllib.error.URLError: <urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond>
+"POST /marketdb/diario HTTP/1.1" 500 132525

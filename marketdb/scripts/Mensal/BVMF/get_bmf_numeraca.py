@@ -4,8 +4,10 @@ def get_bmf_numeraca():
     import pandas as pd
     import datetime
     import zipfile
-    from invest_automation.settings import BASE_DIR
+    from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
 
+    # Retorna o path utilizado para acesso aos dados baixados
+    full_path = full_path_from_database("isinp")
 
     z = zipfile.ZipFile(full_path + "isinp.zip", "r")
     z.extractall(path = full_path)
@@ -82,6 +84,8 @@ def get_bmf_numeraca():
     horario_bd = datetime.datetime.now()
     dados_numeraca["data_bd"] = horario_bd
     dados_emissor["data_bd"] = horario_bd
+
+    connection = db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv',use_unicode=True, charset="utf8")
 
     pd.io.sql.to_sql(dados_numeraca, name='bmf_numeraca', con=connection, if_exists="append", flavor='mysql', index=0)
     pd.io.sql.to_sql(dados_emissor, name='bmf_emissor', con=connection, if_exists="append", flavor='mysql', index=0)
