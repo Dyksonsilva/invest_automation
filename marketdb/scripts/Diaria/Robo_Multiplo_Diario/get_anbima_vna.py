@@ -14,9 +14,9 @@ def get_anbima_vna():
 
     pagina_vna = pd.read_html(endereco_vna, thousands=".")
 
-    logging.info("Leitura da página executada com sucesso")
+    logger.info("Leitura da página executada com sucesso")
 
-    logging.info("Tratando dados")
+    logger.info("Tratando dados")
 
     #Separacao de abas
     coluna1_ntn_b = pagina_vna[4][0][0:6]
@@ -53,19 +53,19 @@ def get_anbima_vna():
     # Substituir eventuais nan por none
     dados_vna=dados_vna.where((pd.notnull(dados_vna)), None)
 
-    logging.info("Conectando no Banco de dados")
+    logger.info("Conectando no Banco de dados")
 
     connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
 
-    logging.info("Conexão com DB executada com sucesso")
+    logger.info("Conexão com DB executada com sucesso")
 
-    logging.info("Salvando base de dados")
+    logger.info("Salvando base de dados")
 
     # Salva dados MySQL
     
     pd.io.sql.to_sql(dados_vna, name='anbima_vna', con=connection,if_exists="append", flavor='mysql', index=0)
 
-    logging.info("Dados salvos no DB com sucesso")
+    logger.info("Dados salvos no DB com sucesso")
 
     # Fecha conexão
     connection.close()

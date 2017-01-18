@@ -5,8 +5,12 @@ def get_bmf_cotacoes_hist():
     import pymysql as db
     import datetime
     import zipfile
+    import logging
+
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+
+    logger = logging.getLogger(__name__)
 
     # Retorna um array (ano, mes e dia) referente ao útimo dia útil do mês anterior configurado no banco de dados
     array_data = get_data_ultimo_dia_util_mes_anterior()
@@ -20,10 +24,16 @@ def get_bmf_cotacoes_hist():
     z = zipfile.ZipFile(full_path + ".zip","r")
     z.extractall(path = full_path)
 
+    logger.info("Arquivos extraidos com sucesso em :"+full_path)
+
     # Fechamento diário
     tamanho_campos = [2,8,2,12,3,12,10,3,4,13,13,13,13,13,13,13,5,18,18,13,1,8,7,13,12,3]
     arquivo_bovespa = full_path + "/COTAHIST_D" + str(array_data[2]) + str(array_data[1]) + str(array_data[0]) +".txt"
     dados_acoes = pd.read_fwf(arquivo_bovespa, widths = tamanho_campos, header=0)
+
+    logger.info("Leitura da página executada com sucesso")
+
+    logger.info("Tratando dados")
 
     #Padronizar nomes das colunas
     dados_acoes.columns = [
@@ -84,8 +94,13 @@ def get_bmf_cotacoes_hist():
 
     dados_acoes['data_bd'] = horario_bd
 
-    # Salvar informacoes no banco de dados
-    connection = db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv')
+    logger.info("Conectando no Banco de dados")
+
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+
+    logger.info("Conexão com DB executada com sucesso")
+
+    logger.info("Salvando base de dados")
 
     pd.io.sql.to_sql(dados_acoes, name='bovespa_cotahist',
                      con=connection,
@@ -93,5 +108,7 @@ def get_bmf_cotacoes_hist():
                      flavor='mysql',
                      index=0,
                      chunksize=5000)
+
+    logger.info("Dados salvos no DB com sucesso")
 
     connection.close()

@@ -6,16 +6,17 @@ def get_anbima_curvas():
     import logging
 
     logger = logging.getLogger(__name__)
+
     # Url da Anbima
     pagina_curvas_anbima="http://www.anbima.com.br/est_termo/CZ.asp"
 
     # Lê página da Anbima
     dados_curvas_anbima = pd.read_html(pagina_curvas_anbima, thousands=".")
 
-    logging.info("Leitura da página executada com sucesso")
+    logger.info("Leitura da página executada com sucesso")
     dados_curvas_anbima = dados_curvas_anbima[4]
 
-    logging.info("Tratando dados")
+    logger.info("Tratando dados")
     #Padronizar nomes das colunas e colocar data_referencia
     data_referencia = dados_curvas_anbima.columns[0]
     
@@ -41,13 +42,13 @@ def get_anbima_curvas():
 
     #Conexão com Banco de Dados
 
-	logging.info("Conectando no Banco de dados")
+    logger.info("Conectando no Banco de dados")
 	
     connection = db.connect('localhost', user = 'root', passwd = "root", db = 'projeto_inv')
 
-    logging.info("Conexão com DB executada com sucesso")
+    logger.info("Conexão com DB executada com sucesso")
 
-    logging.info("Salvando base de dados")
+    logger.info("Salvando base de dados")
     # Salvar na base de dados
     pd.io.sql.to_sql(dados_curvas_anbima,
                      name = 'anbima_parametros_nss',
@@ -55,6 +56,8 @@ def get_anbima_curvas():
                      if_exists = "append",
                      flavor = 'mysql',
                      index = 0)
+
+    logger.info("Dados salvos no DB com sucesso")
 
     # Fecha conexão com o banco de dados
     connection.close()
