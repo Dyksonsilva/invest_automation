@@ -37,7 +37,7 @@ LOGGING = {
                       'Path: %(pathname)s\nMensagem: %(message)s\n\n============== LOG============== \n'
         },
         'format4db': {
-            'format': '%(asctime)s\t%(levelname)s\t%(pathname)s\t%(message)s'
+            'format': '%(asctime)s\t%(message)s\t%(levelname)s\t%(pathname)s'
         },
     },
     'handlers': {

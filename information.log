@@ -1,0 +1,321 @@
+2017-01-18 10:39:55,862	WARNING	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py	Not Found: /
+2017-01-18 10:39:55,956	WARNING	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py	Not Found: /favicon.ico
+2017-01-18 10:40:18,551	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Conexão com DB executada com sucesso
+2017-01-18 10:40:18,571	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Leitura do DB executada com sucesso
+2017-01-18 10:40:18,572	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Definindo calendário Anbima
+2017-01-18 10:40:19,129	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Calculando último dia útil
+2017-01-18 10:40:19,138	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Ajustando se o dia anterior não for dia útil
+2017-01-18 10:40:19,147	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Calculo data base executado com sucesso
+2017-01-18 10:40:27,304	ERROR	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py	Internal Server Error: /marketdb/diario
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\views.py", line 32, in dashboard_diario
+    get_bmf_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py", line 15, in get_bmf_precos_futuros
+    dadospd = pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 896, in read_html
+    keep_default_na=keep_default_na)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 723, in _parse
+    parser = _parser_dispatch(flav)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\html.py", line 671, in _parser_dispatch
+    "BeautifulSoup4 (bs4) not found, please install it")
+ImportError: BeautifulSoup4 (bs4) not found, please install it
+2017-01-18 10:46:18,080	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Conexão com DB executada com sucesso
+2017-01-18 10:46:18,087	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Leitura do DB executada com sucesso
+2017-01-18 10:46:18,088	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Definindo calendário Anbima
+2017-01-18 10:46:18,665	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Calculando último dia útil
+2017-01-18 10:46:18,685	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Ajustando se o dia anterior não for dia útil
+2017-01-18 10:46:18,709	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Calculo data base executado com sucesso
+2017-01-18 10:46:21,867	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Leitura da página executada com sucesso
+2017-01-18 10:46:21,879	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Tratando dados
+2017-01-18 10:46:22,009	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Conectando no Banco de dados
+2017-01-18 10:46:22,023	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Conexão com DB executada com sucesso
+2017-01-18 10:46:22,033	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Salvando base de dados
+2017-01-18 10:46:22,047	ERROR	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py	Internal Server Error: /marketdb/diario
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\views.py", line 32, in dashboard_diario
+    get_bmf_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py", line 79, in get_bmf_precos_futuros
+    index = 0)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\sql.py", line 460, in to_sql
+    pandas_sql = pandasSQL_builder(con, schema=schema, flavor=flavor)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\sql.py", line 525, in pandasSQL_builder
+    _validate_flavor_parameter(flavor)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python36-32\lib\site-packages\pandas\io\sql.py", line 58, in _validate_flavor_parameter
+    "supported".format(flavor=flavor))
+ValueError: database flavor mysql is not supported
+2017-01-18 15:21:10,098	Not Found: /	WARNING	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-18 15:21:10,241	Not Found: /favicon.ico	WARNING	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-18 15:21:18,682	Internal Server Error: /marketdb/diario	ERROR	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\views.py", line 28, in dashboard_diario
+    array_data = calculo_data_atual()
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py", line 4, in calculo_data_atual
+    import pymysql as db
+ImportError: No module named 'pymysql'
+2017-01-18 15:22:14,502	Internal Server Error: /marketdb/diario	ERROR	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\views.py", line 28, in dashboard_diario
+    array_data = calculo_data_atual()
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py", line 25, in calculo_data_atual
+    connection.close()
+NameError: name 'connection' is not defined
+2017-01-18 15:22:55,566	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:22:55,576	Internal Server Error: /marketdb/diario	ERROR	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\views.py", line 28, in dashboard_diario
+    array_data = calculo_data_atual()
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py", line 28, in calculo_data_atual
+    path_feriados_nacionais = BASE_DIR + str(path_feriados_nacionais["path"].iloc[0])
+UnboundLocalError: local variable 'path_feriados_nacionais' referenced before assignment
+2017-01-18 15:23:54,318	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:23:54,328	Definindo calendário Anbima	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:23:54,340	Internal Server Error: /marketdb/diario	ERROR	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\views.py", line 28, in dashboard_diario
+    array_data = calculo_data_atual()
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py", line 34, in calculo_data_atual
+    calendario_anbima=pd.read_excel(full_path)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\excel.py", line 170, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\excel.py", line 198, in __init__
+    import xlrd  # throw an ImportError if we need to
+ImportError: No module named 'xlrd'
+2017-01-18 15:25:59,071	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:25:59,071	Definindo calendário Anbima	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:25:59,090	Internal Server Error: /marketdb/diario	ERROR	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\views.py", line 28, in dashboard_diario
+    array_data = calculo_data_atual()
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py", line 34, in calculo_data_atual
+    calendario_anbima=pd.read_excel(full_path)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\excel.py", line 170, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\excel.py", line 227, in __init__
+    self.book = xlrd.open_workbook(io)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\xlrd\__init__.py", line 395, in open_workbook
+    with open(filename, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'C:/Users/arthur.marcal/Documents/EY/Projects/LAFSA/HDI/Estruturação do Software HDI/Current Project/dependencias/Excels/feriados_nacionais.xlsferiados_nacionais.xls'
+2017-01-18 15:26:46,479	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:26:46,492	Definindo calendário Anbima	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:26:47,161	Calculando último dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:26:47,174	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:26:47,187	Calculo data base executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:26:47,243	Internal Server Error: /marketdb/diario	ERROR	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\views.py", line 32, in dashboard_diario
+    get_bmf_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py", line 15, in get_bmf_precos_futuros
+    dadospd = pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 874, in read_html
+    parse_dates, tupleize_cols, thousands, attrs, encoding)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 726, in _parse
+    parser = _parser_dispatch(flav)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 685, in _parser_dispatch
+    raise ImportError("lxml not found, please install it")
+ImportError: lxml not found, please install it
+2017-01-18 15:28:24,575	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:28:24,575	Definindo calendário Anbima	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:28:25,096	Calculando último dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:28:25,096	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:28:25,097	Calculo data base executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:28:27,349	Internal Server Error: /marketdb/diario	ERROR	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\views.py", line 32, in dashboard_diario
+    get_bmf_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py", line 15, in get_bmf_precos_futuros
+    dadospd = pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 874, in read_html
+    parse_dates, tupleize_cols, thousands, attrs, encoding)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 726, in _parse
+    parser = _parser_dispatch(flav)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 670, in _parser_dispatch
+    raise ImportError("html5lib not found, please install it")
+ImportError: html5lib not found, please install it
+2017-01-18 15:30:04,409	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:04,410	Definindo calendário Anbima	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:04,937	Calculando último dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:04,937	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:04,938	Calculo data base executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:14,527	Leitura da página executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-18 15:30:14,543	Tratando dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-18 15:30:14,698	Conectando no Banco de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-18 15:30:14,711	Conexão com DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-18 15:30:14,721	Salvando base de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-18 15:30:14,793	Dados salvos no DB com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-18 15:30:26,200	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:26,211	Definindo calendário Anbima	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:26,777	Calculando último dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:26,798	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:26,816	Calculo data base executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:26,921	Conexão com URL executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:30:26,942	Leitura da página executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:30:26,962	Tratando dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:30:27,020	Conectando no Banco de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:30:27,043	Conexão com DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:30:27,062	Salvando dados no DB	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:30:27,124	Dados salvos no DB com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:30:37,343	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:37,355	Definindo calendário Anbima	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:38,000	Calculando último dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:38,017	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:30:38,034	Calculo data base executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:32:39,286	Leitura da página executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py
+2017-01-18 15:32:39,287	Tratando dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py
+2017-01-18 15:32:39,302	Conectando no Banco de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py
+2017-01-18 15:32:39,305	Conexão com DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py
+2017-01-18 15:32:39,305	Salvando base de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py
+2017-01-18 15:32:39,324	Dados salvos no DB com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py
+2017-01-18 15:33:41,776	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:33:41,777	Definindo calendário Anbima	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:33:42,347	Calculando último dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:33:42,362	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:33:42,378	Calculo data base executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:33:43,005	Conexão com URL executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py
+2017-01-18 15:33:43,036	Leitura da página executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py
+2017-01-18 15:33:43,045	Tratando dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py
+2017-01-18 15:33:43,077	Conectando no Banco de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py
+2017-01-18 15:33:43,091	Conexão com DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py
+2017-01-18 15:33:43,100	Salvando base de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_debentures.py
+2017-01-18 15:35:21,089	Leitura da página executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_curvas.py
+2017-01-18 15:35:21,099	Tratando dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_curvas.py
+2017-01-18 15:35:21,122	Conectando no Banco de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_curvas.py
+2017-01-18 15:35:21,137	Conexão com DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_curvas.py
+2017-01-18 15:35:21,147	Salvando base de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_curvas.py
+2017-01-18 15:35:36,916	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:35:36,925	Definindo calendário Anbima	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:35:37,666	Calculando último dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:35:37,678	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:35:37,689	Calculo data base executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:35:43,443	Leitura da página executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:35:43,457	Tratando dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:35:44,251	Tratamento IMA-IRFM - OK	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:35:44,266	Tratamento IMA-IMAB - OK	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:35:44,285	Tratamento IMA-IMAC - OK	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:35:44,301	Tratamento IMA-IMAS - OK	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:35:44,313	Conectando no Banco de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:35:44,328	Conexão com DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:35:44,340	Salvando base de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:17,952	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:38:17,963	Definindo calendário Anbima	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:38:18,521	Calculando último dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:38:18,530	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:38:18,541	Calculo data base executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:38:27,070	Leitura da página executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:27,080	Tratando dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:27,845	Tratamento IMA-IRFM - OK	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:27,859	Tratamento IMA-IMAB - OK	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:27,876	Tratamento IMA-IMAC - OK	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:27,891	Tratamento IMA-IMAS - OK	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:27,901	Conectando no Banco de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:27,916	Conexão com DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:27,928	Salvando base de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:27,968	Tabela ima_geral salva no DB com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:28,017	Tabela ima_irfm salva no DB com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:28,048	Tabela ima_imab salva no DB com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:28,087	Tabela ima_imac salva no DB com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:28,114	Tabela ima_imas salva no DB com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:28,124	Todos os dados foram salvos no DB com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_carteiras.py
+2017-01-18 15:38:55,518	Arquivo extraido com sucesso em: C:/Users/arthur.marcal/Documents/EY/Projects/LAFSA/HDI/Estruturação do Software HDI/Current Project/dependencias/Manual_Downloads/isinp/	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Mensal\BVMF\get_bmf_numeraca.py
+2017-01-18 15:38:57,483	Leitura dos arquivos executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Mensal\BVMF\get_bmf_numeraca.py
+2017-01-18 15:38:57,491	Tratando dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Mensal\BVMF\get_bmf_numeraca.py
+2017-01-18 15:38:58,541	Conectando no Banco de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Mensal\BVMF\get_bmf_numeraca.py
+2017-01-18 15:38:58,567	Conexão com DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Mensal\BVMF\get_bmf_numeraca.py
+2017-01-18 15:38:58,586	Salvando base de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Mensal\BVMF\get_bmf_numeraca.py
+2017-01-18 15:40:16,597	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\views.py", line 97, in dashboard_mensal
+    get_bmf_cotacoes_hist()
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Mensal\BVMF\get_bmf_cotacoes_hist.py", line 16, in get_bmf_cotacoes_hist
+    array_data = get_data_ultimo_dia_util_mes_anterior()
+  File "C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\dependencias\Metodos\funcoes_auxiliares.py", line 13, in get_data_ultimo_dia_util_mes_anterior
+    dtbase = str(dtbase["variable_value"].iloc[0])
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\indexing.py", line 1296, in __getitem__
+    return self._getitem_axis(key, axis=0)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\indexing.py", line 1612, in _getitem_axis
+    self._is_valid_integer(key, axis)
+  File "C:\Users\arthur.marcal\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\indexing.py", line 1526, in _is_valid_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
+2017-01-18 15:44:13,487	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:44:13,487	Definindo calendário Anbima	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:44:14,039	Calculando último dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:44:14,052	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:44:14,063	Calculo data base executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:44:14,994	Leitura da página executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-18 15:44:15,005	Tratando dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-18 15:44:15,150	Conectando no Banco de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-18 15:44:15,162	Conexão com DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-18 15:44:15,170	Salvando base de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-18 15:44:15,227	Dados salvos no DB com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-18 15:44:19,817	Leitura do DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:44:19,823	Definindo calendário Anbima	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:44:20,337	Calculando último dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:44:20,346	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:44:20,356	Calculo data base executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-18 15:44:20,459	Conexão com URL executado com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:44:20,472	Leitura da página executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:44:20,480	Tratando dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:44:20,513	Conectando no Banco de dados	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:44:20,525	Conexão com DB executada com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:44:20,537	Salvando dados no DB	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-18 15:44:20,574	Dados salvos no DB com sucesso	INFO	C:\Users\arthur.marcal\Documents\EY\Projects\LAFSA\HDI\Estruturação do Software HDI\Current Project\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py

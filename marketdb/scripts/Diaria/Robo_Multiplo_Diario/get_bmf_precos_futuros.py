@@ -14,9 +14,9 @@ def get_bmf_precos_futuros(ano, mes, dia):
 
     dadospd = pd.read_html(endereco_data, thousands=".")
 
-    logging.info("Leitura da página executada com sucesso")
+    logger.info("Leitura da página executada com sucesso")
 
-    logging.info("Tratando dados")
+    logger.info("Tratando dados")
 
     #Pegar a última tabela
     dadospd = dadospd[len(dadospd)-1]
@@ -63,13 +63,13 @@ def get_bmf_precos_futuros(ano, mes, dia):
     horario_bd = datetime.datetime.now()
     dadospd["data_bd"] = horario_bd
 
-    logging.info("Conectando no Banco de dados")
+    logger.info("Conectando no Banco de dados")
 
     connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
 
-    logging.info("Conexão com DB executada com sucesso")
+    logger.info("Conexão com DB executada com sucesso")
 
-    logging.info("Salvando base de dados")
+    logger.info("Salvando base de dados")
 
     # Salvar na base de dados
     pd.io.sql.to_sql(dadospd, name='bmf_ajustes_pregao',
@@ -78,8 +78,7 @@ def get_bmf_precos_futuros(ano, mes, dia):
                      flavor = 'mysql',
                      index = 0)
 
-
-    logging.info("Dados salvos no DB com sucesso")
+    logger.info("Dados salvos no DB com sucesso")
 
     #Fecha conexão
     connection.close()

@@ -4,7 +4,11 @@ def get_bmf_numeraca():
     import pandas as pd
     import datetime
     import zipfile
+    import logging
+
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+
+    logger = logging.getLogger(__name__)
 
     # Retorna o path utilizado para acesso aos dados baixados
     full_path = full_path_from_database("isinp")
@@ -13,6 +17,8 @@ def get_bmf_numeraca():
     z.extractall(path = full_path)
     z.close()
 
+    logger.info("Arquivo extraido com sucesso em: "+str(full_path))
+
     # Ler arquivos TXT
     arquivo_numeraca = full_path + "NUMERACA.TXT"
     arquivo_emissor = full_path + "EMISSOR.TXT"
@@ -20,6 +26,10 @@ def get_bmf_numeraca():
     # Lê os arquivos com a biblioteca pandas
     dados_numeraca = pd.read_csv(arquivo_numeraca, header = None, encoding = "iso-8859-1")
     dados_emissor = pd.read_csv(arquivo_emissor, header = None, encoding = "iso-8859-1")
+
+    logger.info("Leitura dos arquivos executada com sucesso")
+
+    logger.info("Tratando dados")
 
     # Colocar nomes nas colunas
     dados_numeraca.columns =[
@@ -85,10 +95,20 @@ def get_bmf_numeraca():
     dados_numeraca["data_bd"] = horario_bd
     dados_emissor["data_bd"] = horario_bd
 
-    connection = db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv',use_unicode=True, charset="utf8")
+    logger.info("Conectando no Banco de dados")
+
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+
+    logger.info("Conexão com DB executada com sucesso")
+
+    logger.info("Salvando base de dados")
 
     pd.io.sql.to_sql(dados_numeraca, name='bmf_numeraca', con=connection, if_exists="append", flavor='mysql', index=0)
+    logger.info("Tabela bmf_numeraca salva no DB com sucesso")
     pd.io.sql.to_sql(dados_emissor, name='bmf_emissor', con=connection, if_exists="append", flavor='mysql', index=0)
+    logger.info("Tabela bmf_emissor salva no DB com sucesso")
+
+    logger.info("Todos os dados foram salvos no DB com sucesso")
 
     # Fecha conexão com o banco de dados
     connection.close()

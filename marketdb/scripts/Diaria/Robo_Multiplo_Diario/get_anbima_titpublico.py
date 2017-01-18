@@ -23,14 +23,14 @@ def get_anbima_titpublico(ano, mes, dia):
     
     paginaTitulosPublicos = urllib.request.urlopen("http://www.anbima.com.br/merc_sec/arqs/ms"+ str(ano)[2:4]+str(mes)+str(dia)+".txt")
 
-    logging.info("Conexão com URL executado com sucesso")
+    logger.info("Conexão com URL executado com sucesso")
 
     #fonte anbima='anb'
     anbima_tpf = pd.read_table(paginaTitulosPublicos, sep='@', header=1)
 
-    logging.info("Leitura da página executada com sucesso")
+    logger.info("Leitura da página executada com sucesso")
 
-    logging.info("Tratando dados")
+    logger.info("Tratando dados")
     #renomear colunas
     old_names = ['Index', 'Titulo','Data Referencia','Codigo SELIC', 'Data Base/Emissao','Data Vencimento', 'Tx. Compra', 'Tx. Venda', 'Tx. Indicativas', 'PU'	, 'Desvio padrao', 'Interv. Ind. Inf. (D0)', 'Interv. Ind. Sup. (D0)', 'Interv. Ind. Inf. (D+1)', 'Interv. Ind. Sup. (D+1)', 'Criterio'] 
     new_names = ['Index', 'titulo', 'dt_referencia', 'cod_selic', 'dt_emissao', 'dt_vencto', 'tx_maxima', 'tx_minima', 'tx_indicativa', 'pu', 'desv_pad', 'inter_min_d0', 'inter_max_d0', 'inter_min_d1', 'inter_max_d1','criterio'] 
@@ -69,14 +69,14 @@ def get_anbima_titpublico(ano, mes, dia):
     horario_bd = datetime.datetime.now()
     anbima_tpf["dt_carga"] = horario_bd
 
-    logging.info("Conectando no Banco de dados")
+    logger.info("Conectando no Banco de dados")
 
     # Conexão com Banco de Dados
     connection = db.connect('localhost', user='root', passwd="root", db='projeto_inv')
 
-    logging.info("Conexão com DB executada com sucesso")
+    logger.info("Conexão com DB executada com sucesso")
 
-    logging.info("Salvando dados no DB")
+    logger.info("Salvando dados no DB")
     #Salvar no MySQL
     pd.io.sql.to_sql(anbima_tpf,
                      name='anbima_tpf',

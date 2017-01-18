@@ -3,6 +3,9 @@ def get_anbima_carteiras(ano, mes, dia):
     import pandas as pd
     import pymysql as db
     import datetime
+    import logging
+
+    logger = logging.getLogger(__name__)
 
     pagina_anbima_carteira_xml = "http://www.anbima.com.br/ima/arqs/ima_completo.xls"
 
@@ -13,7 +16,11 @@ def get_anbima_carteiras(ano, mes, dia):
     ima_imab = pd.read_excel(pagina_anbima_carteira_xml, sheetname="IMA-B", header=2)
     ima_imac = pd.read_excel(pagina_anbima_carteira_xml, sheetname="IMA-C", header=2)
     ima_imas = pd.read_excel(pagina_anbima_carteira_xml, sheetname="IMA-S", header=2)
-    
+
+    logger.info("Leitura da página executada com sucesso")
+
+    logger.info("Tratando dados")
+
     ###TRATAMENTO DO DATAFRAME IMA GERAL
     ima_geral = ima_geral.drop([3,5,7,11,13,14,16,18,19,20,21])
     
@@ -79,9 +86,13 @@ def get_anbima_carteiras(ano, mes, dia):
     ima_irfm["data_bd"] = horario_bd
     ima_irfm["data_ref"] = ano+mes+dia
     ima_irfm = ima_irfm.replace({'--': None}, regex=True)
+
+    logger.info("Tratamento IMA-IRFM - OK")
+
     ##################################################################################################
     #####                                 Tratamento IMA-IMAB
     #################################################################################################
+
     ima_imab = ima_imab.drop([0,1,2,3,4])
     del ima_imab["Indice"]
     ima_imab = ima_imab.where((pd.notnull(ima_imab)), None)
@@ -109,9 +120,13 @@ def get_anbima_carteiras(ano, mes, dia):
     ima_imab["data_bd"] = horario_bd
     ima_imab["data_ref"] = ano+mes+dia
     ima_irfm = ima_irfm.replace({'--': None}, regex=True)
+
+    logger.info("Tratamento IMA-IMAB - OK")
+
     ##################################################################################################
     #####                                 Tratamento IMA-IMAC
     #################################################################################################
+
     ima_imac = ima_imac.drop([0,1,2,3,4])
     del ima_imac["Indice"]
     ima_imac = ima_imac.where((pd.notnull(ima_imac)), None)
@@ -139,9 +154,13 @@ def get_anbima_carteiras(ano, mes, dia):
     ima_imac["data_bd"] = horario_bd
     ima_imac["data_ref"] = ano+mes+dia
     ima_imac = ima_imac.replace({'--': None}, regex=True)
+
+    logger.info("Tratamento IMA-IMAC - OK")
+
     ##################################################################################################
     #####                                 Tratamento IMA-IMAS
     #################################################################################################
+
     ima_imas = ima_imas.drop([0,1,2])
     del ima_imas["Indice"]
     ima_imas = ima_imas.where((pd.notnull(ima_imas)), None)
@@ -169,18 +188,31 @@ def get_anbima_carteiras(ano, mes, dia):
     ima_imas["data_bd"] = horario_bd
     ima_imas["data_ref"] = ano + mes + dia
     ima_imas = ima_imas.replace({'--': None}, regex=True)
-    
-    #Conexão com Banco de Dados
-    connection = db.connect('localhost', user = 'root', passwd = "root", db = 'projeto_inv')
+
+    logger.info("Tratamento IMA-IMAS - OK")
+
+    #############################################################
+
+    logger.info("Conectando no Banco de dados")
+
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+
+    logger.info("Conexão com DB executada com sucesso")
+
+    logger.info("Salvando base de dados")
 
     pd.io.sql.to_sql(ima_geral, name='anbima_ima_geral', con=connection,if_exists="append", flavor='mysql', index=0)
+    logger.info("Tabela ima_geral salva no DB com sucesso")
     pd.io.sql.to_sql(ima_irfm, name='anbima_ima_irfm', con=connection,if_exists="append", flavor='mysql', index=0)
+    logger.info("Tabela ima_irfm salva no DB com sucesso")
     pd.io.sql.to_sql(ima_imab, name='anbima_ima_imab', con=connection,if_exists="append", flavor='mysql', index=0)
+    logger.info("Tabela ima_imab salva no DB com sucesso")
     pd.io.sql.to_sql(ima_imac, name='anbima_ima_imac', con=connection,if_exists="append", flavor='mysql', index=0)
+    logger.info("Tabela ima_imac salva no DB com sucesso")
     pd.io.sql.to_sql(ima_imas, name='anbima_ima_imas', con=connection,if_exists="append", flavor='mysql', index=0)
+    logger.info("Tabela ima_imas salva no DB com sucesso")
+
+    logger.info("Todos os dados foram salvos no DB com sucesso")
 
     # Fecha conexão com o banco de dados
     connection.close()
-
-
-#################################################################################
