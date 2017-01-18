@@ -1,0 +1,101 @@
+2017-01-18 10:52:07,626	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py	Not Found: /
+2017-01-18 10:52:07,986	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py	Not Found: /favicon.ico
+2017-01-18 10:55:22,721	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py	Internal Server Error: /marketdb/mensal
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 103, in dashboard_mensal
+    get_debentures_caracteristicas_hist()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Mensal\ANBIMA\get_debentures_caracteristicas_hist.py", line 25, in get_debentures_caracteristicas_hist
+    os.rename(nome_total[0], nome_total[0].replace("xls", "csv"))
+IndexError: list index out of range
+2017-01-18 11:00:09,258	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py	Internal Server Error: /marketdb/mensal
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 103, in dashboard_mensal
+    get_debentures_caracteristicas_hist()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Mensal\ANBIMA\get_debentures_caracteristicas_hist.py", line 25, in get_debentures_caracteristicas_hist
+    os.rename(nome_total[0], nome_total[0].replace("xls", "csv"))
+IndexError: list index out of range
+2017-01-18 12:50:32,488	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Conexão com DB executada com sucesso
+2017-01-18 12:50:32,515	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Leitura do DB executada com sucesso
+2017-01-18 12:50:32,517	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Definindo calendário Anbima
+2017-01-18 12:50:33,423	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Calculando último dia útil
+2017-01-18 12:50:33,423	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Ajustando se o dia anterior não for dia útil
+2017-01-18 12:50:33,424	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Calculo data base executado com sucesso
+2017-01-18 12:50:34,846	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Leitura da página executada com sucesso
+2017-01-18 12:50:34,846	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Tratando dados
+2017-01-18 12:50:35,045	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Conectando no Banco de dados
+2017-01-18 12:50:35,051	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Conexão com DB executada com sucesso
+2017-01-18 12:50:35,052	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Salvando base de dados
+2017-01-18 12:50:35,217	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Dados salvos no DB com sucesso
+2017-01-18 12:51:20,564	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Conexão com DB executada com sucesso
+2017-01-18 12:51:20,605	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Leitura do DB executada com sucesso
+2017-01-18 12:51:20,605	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Definindo calendário Anbima
+2017-01-18 12:51:21,223	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Calculando último dia útil
+2017-01-18 12:51:21,224	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Ajustando se o dia anterior não for dia útil
+2017-01-18 12:51:21,224	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Calculo data base executado com sucesso
+2017-01-18 12:51:21,457	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py	Internal Server Error: /marketdb/diario
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 50, in dashboard_diario
+    get_anbima_vna()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py", line 15, in get_anbima_vna
+    pagina_vna = pd.read_html(endereco_vna, thousands=".")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 874, in read_html
+    parse_dates, tupleize_cols, thousands, attrs, encoding)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 736, in _parse
+    raise_with_traceback(retained)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\compat\__init__.py", line 333, in raise_with_traceback
+    raise exc.with_traceback(traceback)
+urllib.error.HTTPError: HTTP Error 500: Internal Server Error
+2017-01-18 12:58:59,371	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Conexão com DB executada com sucesso
+2017-01-18 12:58:59,405	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Leitura do DB executada com sucesso
+2017-01-18 12:58:59,406	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Definindo calendário Anbima
+2017-01-18 12:59:00,008	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Calculando último dia útil
+2017-01-18 12:59:00,008	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Ajustando se o dia anterior não for dia útil
+2017-01-18 12:59:00,009	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py	Calculo data base executado com sucesso
+2017-01-18 12:59:07,028	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Leitura da página executada com sucesso
+2017-01-18 12:59:07,028	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Tratando dados
+2017-01-18 12:59:07,246	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Conectando no Banco de dados
+2017-01-18 12:59:07,254	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Conexão com DB executada com sucesso
+2017-01-18 12:59:07,255	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Salvando base de dados
+2017-01-18 12:59:07,326	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py	Dados salvos no DB com sucesso
+2017-01-18 13:41:45,896	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py	Internal Server Error: /marketdb/mensal
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 110, in dashboard_mensal
+    get_bmf_curvas_historico()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Mensal\BVMF\get_bmf_curvas_historico.py", line 18, in get_bmf_curvas_historico
+    print("Executando para o dia: " + i)
+TypeError: Can't convert 'datetime.date' object to str implicitly
+2017-01-18 16:43:22,752	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py	Internal Server Error: /marketdb/mensal
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 117, in dashboard_mensal
+    get_bc_series_hist()
+NameError: name 'get_bc_series_hist' is not defined

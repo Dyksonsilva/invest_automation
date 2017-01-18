@@ -7,7 +7,7 @@ def get_anbima_debentures(ano, mes, dia):
     import numpy as np
     import logging
 
-	logger = logging.getLogger(__name__)
+    logger = logging.getLogger(__name__)
 	
     pagina_debentures_anbima = "http://www.anbima.com.br/merc_sec_debentures/arqs/db"+ano[2:]+mes+dia+".txt"
 

@@ -41,7 +41,7 @@ def get_anbima_curvas():
 
     #Conexão com Banco de Dados
 
-	logging.info("Conectando no Banco de dados")
+    logging.info("Conectando no Banco de dados")
 	
     connection = db.connect('localhost', user = 'root', passwd = "root", db = 'projeto_inv')
 

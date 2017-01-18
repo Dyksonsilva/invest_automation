@@ -1,4 +1,3 @@
-
 # Imports do Django
 from django.shortcuts import render
 
@@ -15,6 +14,9 @@ from .scripts.Diaria.Robo_Multiplo_Diario.get_anbima_projecoes import *
 # Imports de Scripts para atualizações Mensais
 from .scripts.Mensal.BVMF.get_bmf_numeraca import *
 from .scripts.Mensal.BVMF.get_bmf_cotacoes_hist import *
+from .scripts.Mensal.ANBIMA.get_debentures_caracteristicas_hist import *
+from .scripts.Mensal.BVMF.get_bmf_curvas_historico import *
+from .scripts.Mensal.BACEN.get_bacen_series_hist import *
 
 def dashboard_escolha(request):
 
@@ -96,6 +98,24 @@ def dashboard_mensal(request):
         # Atualiza as cotações históricas de BMF no banco
         get_bmf_cotacoes_hist()
         print("BMF Cotações Históricas OK!")
+
+    if "anbima_debentures" in request.POST:
+
+        # Atualiza Debentures do Site da Anbima no banco de dados
+        get_debentures_caracteristicas_hist()
+        print("Anbima Debentures OK!")
+
+    if "bmf_curvas_historicas" in request.POST:
+
+        # Atualiza as curvas do
+        get_bmf_curvas_historico()
+        print("BMF Curvas Históricas OK!")
+
+    if "bacen_series_historicas" in request.POST:
+
+        # Atualiza Séries históricas do Bacen
+        get_bacen_series_hist()
+        print("BACEN Séries Históricas OK!")
 
     return render(request, 'marketdb/dashboard_mensal.html')
 

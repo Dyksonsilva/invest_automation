@@ -6,7 +6,7 @@ import os
 from dependencias.Metodos.funcoes_auxiliares import get_current_date_in_array
 from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
 
-def get_debentures_caracteristacas():
+def get_debentures_caracteristicas_hist():
 
     # Cria um array com a data de hoje (ano, mes e dia)
     array_current_day = get_current_date_in_array()
@@ -22,7 +22,7 @@ def get_debentures_caracteristacas():
     nome_total = glob.glob(full_path + nome_arquivo_parcial + "*.xls")
 
     # Mudança de extensão para corrigir BOF/arquivo corrompido durante a leitura
-    os.rename(nome_total[0], nome_total[0].replace("xls","csv"))
+    os.rename(nome_total[0], nome_total[0].replace("xls", "csv"))
 
     debentures_caracteristicas = pd.read_csv(nome_total[0].replace("xls", "csv"), skiprows=2, sep ="\t", encoding ="iso-8859-1")
 
@@ -128,16 +128,16 @@ def get_debentures_caracteristacas():
 
     # Arrumar pontuação
     for coluna in colunas:
-        debentures_caracteristicas[coluna]=debentures_caracteristicas[coluna].apply(lambda x: str(x).replace('.', ''))
-        debentures_caracteristicas[coluna]=debentures_caracteristicas[coluna].apply(lambda x: str(x).replace(',', '.'))
+        debentures_caracteristicas[coluna] = debentures_caracteristicas[coluna].apply(lambda x: str(x).replace('.', ''))
+        debentures_caracteristicas[coluna] = debentures_caracteristicas[coluna].apply(lambda x: str(x).replace(',', '.'))
 
     # Tirar casos onde Empresa = "None"
-    debentures_caracteristicas= debentures_caracteristicas[debentures_caracteristicas["empresa"]!="None"]
+    debentures_caracteristicas = debentures_caracteristicas[debentures_caracteristicas["empresa"]!="None"]
 
     # Colocar data de carga no BD
     debentures_caracteristicas["data_bd"] = datetime.datetime.now()
 
-    connection = db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv',use_unicode=True, charset="utf8")
+    connection = db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv', use_unicode=True, charset="utf8")
 
     #Salvar informação no BD
     pd.io.sql.to_sql(debentures_caracteristicas,

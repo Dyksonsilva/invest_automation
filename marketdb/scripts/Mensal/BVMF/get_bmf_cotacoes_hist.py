@@ -1,4 +1,3 @@
-
 def get_bmf_cotacoes_hist():
 
     import pandas as pd
