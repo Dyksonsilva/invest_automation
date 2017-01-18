@@ -5,18 +5,22 @@ def get_anbima_debentures(ano, mes, dia):
     import datetime
     import pymysql as db
     import numpy as np
+    import logging
 
-    connection = db.connect('localhost', user = 'root', passwd = "root", db = 'projeto_inv')
-
+	logger = logging.getLogger(__name__)
+	
     pagina_debentures_anbima = "http://www.anbima.com.br/merc_sec_debentures/arqs/db"+ano[2:]+mes+dia+".txt"
 
     # Pega o .txt e joga em uma variável
     pagina_debentures = urllib.request.urlopen(pagina_debentures_anbima)
 
+    logging.info("Conexão com URL executado com sucesso")
     # Parsea os dados com o pandas
     dados_debentures = pd.read_table(pagina_debentures, sep='@', header=1, encoding="iso-8859-1")
     
+    logging.info("Leitura da página executada com sucesso")
     ## Criar coluna com data_bd para a data de inserção no BD
+    logging.info("Tratando dados")
     
     horario_bd=datetime.datetime.now()
     dados_debentures["data_bd"] = horario_bd
@@ -56,7 +60,13 @@ def get_anbima_debentures(ano, mes, dia):
     dados_debentures["data_referencia"] = pd.to_datetime(dados_debentures["data_referencia"], format="%Y-%m-%d")
 
     dados_debentures = dados_debentures.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
+    logging.info("Conectando no Banco de dados")
 
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+
+    logging.info("Conexão com DB executada com sucesso")
+
+    logging.info("Salvando base de dados")
     pd.io.sql.to_sql(dados_debentures, name='anbima_debentures',
                      con=connection,
                      if_exists="append",

@@ -26,6 +26,41 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Config Logs:
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'format4bash': {
+            'format': '\n\n============== LOG============== \nData: %(asctime)s\nNível: %(levelname)s\n'
+                      'Path: %(pathname)s\nMensagem: %(message)s\n\n============== LOG============== \n'
+        },
+        'format4db': {
+            'format': '%(asctime)s\t%(levelname)s\t%(pathname)s\t%(message)s'
+        },
+    },
+    'handlers': {
+        'default': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'format4bash'
+        },
+        'information': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR+'/information.log',
+            'formatter': 'format4db'
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['default','information'],
+            'level': 'DEBUG',
+            'propagate': True
+        },
+    },
+}
 
 # Application definition
 
@@ -125,28 +160,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Config Logs:
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters' :{
-        'standard' : {
-            'format': '%(levelname)s] %(message)s'
-        },
-    },
-    'handlers': {
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': BASE_DIR+'/debug.log',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-    },
-}

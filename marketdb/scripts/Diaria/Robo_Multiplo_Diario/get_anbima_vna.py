@@ -6,19 +6,18 @@ def get_anbima_vna():
     import pandas as pd
     import pymysql as db
     import datetime
+    import logging
 
-    # Conexão com Banco de Dados
-    connection = db.connect('localhost', user='root', passwd="root", db='projeto_inv')
+    logger = logging.getLogger(__name__)
 
     endereco_vna = "http://www.anbima.com.br/vna/vna.asp"
-    ############################################################
-    # 
-    # Leitura de página
-    #
-    ###########################################################
 
     pagina_vna = pd.read_html(endereco_vna, thousands=".")
-    
+
+    logging.info("Leitura da página executada com sucesso")
+
+    logging.info("Tratando dados")
+
     #Separacao de abas
     coluna1_ntn_b = pagina_vna[4][0][0:6]
     coluna2_ntn_b = pagina_vna[4][1][0:6]
@@ -29,7 +28,6 @@ def get_anbima_vna():
     
     #Data referencia
     data_referencia = datetime.datetime.strptime(coluna2_ntn_b[1], "%d/%m/%Y").strftime('%Y-%m-%d')
-    
     
     #Separar valores
     colunas =["data_referencia", "codigo_selic" , "titulo" , "vna"]
@@ -48,14 +46,26 @@ def get_anbima_vna():
     # Correção valores vna
     dados_vna["vna"] = [i.replace(".","") for i in dados_vna["vna"]] 
     dados_vna["vna"] = [float(i.replace(",",".")) for i in dados_vna["vna"]] 
-    
-    
+
     # Colocar data_bd
     dados_vna["data_bd"] = datetime.datetime.now()
     
     # Substituir eventuais nan por none
     dados_vna=dados_vna.where((pd.notnull(dados_vna)), None)
-    
-    # Importar dados MySQL
+
+    logging.info("Conectando no Banco de dados")
+
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+
+    logging.info("Conexão com DB executada com sucesso")
+
+    logging.info("Salvando base de dados")
+
+    # Salva dados MySQL
     
     pd.io.sql.to_sql(dados_vna, name='anbima_vna', con=connection,if_exists="append", flavor='mysql', index=0)
+
+    logging.info("Dados salvos no DB com sucesso")
+
+    # Fecha conexão
+    connection.close()

@@ -3,8 +3,9 @@ def get_bmf_precos_futuros(ano, mes, dia):
     import pandas as pd
     import pymysql as db
     import datetime
+    import logging
 
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+    logger = logging.getLogger(__name__)
 
     #Robo BMF PREÇOS FUTUROS
     dataBusca = dia+"/"+mes+"/"+ano
@@ -12,6 +13,10 @@ def get_bmf_precos_futuros(ano, mes, dia):
     endereco_data = endereco + dataBusca
 
     dadospd = pd.read_html(endereco_data, thousands=".")
+
+    logging.info("Leitura da página executada com sucesso")
+
+    logging.info("Tratando dados")
 
     #Pegar a última tabela
     dadospd = dadospd[len(dadospd)-1]
@@ -28,9 +33,7 @@ def get_bmf_precos_futuros(ano, mes, dia):
         if dadospd["Mercadoria"].iloc[i]=='nan' :
             dadospd["Mercadoria"].iloc[i]=dadospd["Mercadoria"].iloc[i-1]
 
-
     #Padronizar nomes das colunas
-
     dadospd.columns=[
     "mercadoria",
     "vencimento",
@@ -41,7 +44,6 @@ def get_bmf_precos_futuros(ano, mes, dia):
     ]
 
     # Trocar virgula por ponto
-
     lista_virgula=[
     "preco_ajuste_anterior",
     "preco_ajuste_atual",
@@ -58,10 +60,16 @@ def get_bmf_precos_futuros(ano, mes, dia):
     dadospd["data_referencia"] = ano + mes + dia
 
     ## Criar coluna com data_bd para a data de inserção no BD
-
     horario_bd = datetime.datetime.now()
     dadospd["data_bd"] = horario_bd
 
+    logging.info("Conectando no Banco de dados")
+
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+
+    logging.info("Conexão com DB executada com sucesso")
+
+    logging.info("Salvando base de dados")
 
     # Salvar na base de dados
     pd.io.sql.to_sql(dadospd, name='bmf_ajustes_pregao',
@@ -69,3 +77,9 @@ def get_bmf_precos_futuros(ano, mes, dia):
                      if_exists = "append",
                      flavor = 'mysql',
                      index = 0)
+
+
+    logging.info("Dados salvos no DB com sucesso")
+
+    #Fecha conexão
+    connection.close()
