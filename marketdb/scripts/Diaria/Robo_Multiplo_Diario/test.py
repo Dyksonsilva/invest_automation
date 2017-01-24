@@ -1,3 +1,0 @@
-from marketdb.scripts.Diaria.Robo_Multiplo_Diario.calculo_data_atual import calculo_data_atual
-
-calculo_data_atual()

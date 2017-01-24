@@ -1,0 +1,65 @@
+<!DOCUMENT html>
+
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="stylesheet" href="{% static "/marketdb/reset.css" %}">
+        <link rel="stylesheet" href="{% static "/marketdb/style.css" %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
+        <!-- Bootstrap Core CSS -->
+        <link href="{% static "/marketdb/css/bootstrap.css" %}" rel="stylesheet">
+        <link href="{% static "/marketdb/css/bootstrap.min.css" %}" rel="stylesheet">
+        <link href="{% static "/marketdb/css/bootstrap-theme.css" %}" rel="stylesheet">
+        <link href="{% static "/marketdb/css/bootstrap-theme.min.css" %}" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="{% static "/marketdb/css/simple-sidebar.css" %}" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <main>
+
+            <h2 class="ey-h2-style">Atualizações de Mercado</h2>
+
+
+            <div class="ey-header-style"></div>
+                 <div class="ey-subheader-style"></div>
+            <h1 class="ey-h1-style">HDI Investment Report Generator</h1>
+            <img class="ey-logo" src="{% static "/marketdb/EYNewLogo.png" %}"/>
+            <!--<a href="/logout" class="logout">Login teste</a>-->
+            <p class="welcome">Welcome, Fulano</p>
+
+
+            {% block content %}
+            {% endblock %}
+
+            <!-- jQuery -->
+            <script src="{% static "/marketdb/js/jquery.js" %}"></script>
+
+            <!-- Bootstrap Core JavaScript -->
+            <script src="{% static "/marketdb/js/bootstrap.min.js" %}"></script>
+
+            <!-- Menu Toggle Script -->
+            <script>
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+
+            </script>
+        </main>
+    </body>
+
+
+    <footer class="ey-footer-style">
+        <p class="p-footer-style">EY Brasil - Proof of Concept Tool</p>
+        <p class="p-footer-style version-style">Version 0.2.0</p>
+    </footer>
+
+
+</html>

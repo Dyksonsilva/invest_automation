@@ -65,6 +65,8 @@ LOGGING = {
 # Application definition
 
 INSTALLED_APPS = [
+    'quadro90.apps.Quadro90Config',
+    'quadro419.apps.Quadro419Config',
     'marketdb.apps.MarketdbConfig',
     'generator.apps.GeneratorConfig',
     'django.contrib.admin',
@@ -159,4 +161,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+
 

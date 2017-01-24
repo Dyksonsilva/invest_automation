@@ -22,4 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^generator/', include('generator.urls')),
     url(r'^marketdb/', include('marketdb.urls')),
+    url(r'^quadro90/', include('quadro90.urls')),
+    url(r'^quadro419/', include('quadro419.urls')),
 ]

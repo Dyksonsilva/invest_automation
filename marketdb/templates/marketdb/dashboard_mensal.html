@@ -1,25 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
 
-{% load static %}
+{% extends 'marketdb/Template EY.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% block content %}
 
-</head>
-<body>
+    <div align="center">
+        <table class="table table-hover table-bordered table-condensed" align="center">
+            <thead style = "color:black;background-color:#e0e0e0">
+                <tr>
+                    <td>Rotina</td>
+                    <td>Tempo Execução (Minutos)</td>
+                    <td>Tempo Execução (Minutos)</td>
+                    <td>Data da Última Execução</td>
+                    <td>Execução</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>BMF - Numeraca</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>X</td>
+                    <td>{% csrf_token %}<button id="0" name="bmf_numeraca" class="button" type="submit">
+                            <span>Send</span></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 <form method="post" enctype="multipart/form-data" class="basic-grey">
     <div align="center">
         <h1>HDI Investment Report Generator</h1>
     </div>
-    <p>
-        <h1 style="font-size:25px">Atualizações de Mercado - Mensal</h1>
-    </p>
+
+
+
     <p>
         <label>BMF - Numeraca</label>
         {% csrf_token %}<button id="0" name="bmf_numeraca" class="button" type="submit">
@@ -56,20 +71,40 @@
     </p>
 
     <p>
-        <label>XXXX</label>
-        {% csrf_token %}<button id="5" name="XXXX" class="button" type="submit">
+        <label>BACEN - Séries Índices</label>
+        {% csrf_token %}<button id="5" name="bacen_series_indices" class="button" type="submit">
             <span>Send</span>
         </button>
     </p>
 
     <p>
-        <label>XXXX</label>
-        {% csrf_token %}<button id="6" name="XXXX" class="button" type="submit">
+        <label>BLOOMBERG - Cotas Valor Econômico</label>
+        {% csrf_token %}<button id="6" name="bloomberg_cotas_valor" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+
+    <p>
+        <label>BLOOMBERG - Cotas FIDC</label>
+        {% csrf_token %}<button id="7" name="bloomberg_cotas_fidc" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+
+    <p>
+        <label>BLOOMBERG - Importação Rating</label>
+        {% csrf_token %}<button id="8" name="bloomberg_importacao_rating" class="button" type="submit">
             <span>Send</span>
         </button>
     </p>
 
 </form>
 
+{% endblock %}
+
+<!--
+
 </body>
 </html>
+
+-->

@@ -1,12 +1,11 @@
-import pandas as pd
-import glob
-import pymysql as db
-import datetime 
-import os
-from dependencias.Metodos.funcoes_auxiliares import get_current_date_in_array
-from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
-
 def get_debentures_caracteristicas_hist():
+    import pandas as pd
+    import glob
+    import pymysql as db
+    import datetime
+    import os
+    from dependencias.Metodos.funcoes_auxiliares import get_current_date_in_array
+    from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
 
     # Cria um array com a data de hoje (ano, mes e dia)
     array_current_day = get_current_date_in_array()

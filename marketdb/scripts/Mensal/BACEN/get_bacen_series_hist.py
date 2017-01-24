@@ -11,12 +11,14 @@ def get_bacen_series_hist():
 
     lista_arquivos = listdir(base_dir)
 
-    connection = db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv',use_unicode=True, charset="utf8")
-
     output = pd.DataFrame(columns=['data_referencia','valor','codigo','nome','frequencia','data_bd'])
 
     # Apenda os arquivos em uma estrutura utilizada a posteriori
     for i in lista_arquivos:
+
+        connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True,
+                                charset="utf8")
+
         aux = pd.DataFrame(columns=['data_referencia', 'valor', 'codigo', 'nome', 'frequencia', 'data_bd'])
         tabela = pd.read_csv(base_dir+i, skiprows=0, sep =";",header=0, encoding ="iso-8859-1")
 

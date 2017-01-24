@@ -99,3 +99,1566 @@ Traceback (most recent call last):
   File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 117, in dashboard_mensal
     get_bc_series_hist()
 NameError: name 'get_bc_series_hist' is not defined
+2017-01-18 18:58:27,200	Not Found: /marketd/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-19 11:24:42,156	Not Found: /	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-19 11:24:42,533	Not Found: /favicon.ico	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-20 14:13:10,388	Not Found: /	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-20 14:13:10,646	Not Found: /favicon.ico	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-20 14:53:03,337	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-20 14:53:03,337	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-20 14:53:04,039	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-20 14:53:04,041	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-20 14:53:04,042	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-20 14:53:42,585	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-20 14:53:42,586	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-20 14:53:43,217	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-20 14:53:43,217	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-20 14:53:43,218	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-20 14:53:50,220	Internal Server Error: /marketdb/diario	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1254, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1106, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1151, in _send_request
+    self.endheaders(body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1102, in endheaders
+    self._send_output(message_body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 849, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 711, in create_connection
+    raise err
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 702, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 37, in dashboard_diario
+    get_bmf_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py", line 15, in get_bmf_precos_futuros
+    dadospd = pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 874, in read_html
+    parse_dates, tupleize_cols, thousands, attrs, encoding)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 736, in _parse
+    raise_with_traceback(retained)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\compat\__init__.py", line 333, in raise_with_traceback
+    raise exc.with_traceback(traceback)
+urllib.error.URLError: <urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond>
+2017-01-20 14:54:29,923	Internal Server Error: /marketdb/diario	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1254, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1106, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1151, in _send_request
+    self.endheaders(body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1102, in endheaders
+    self._send_output(message_body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 849, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 711, in create_connection
+    raise err
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 702, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 45, in dashboard_diario
+    get_anbima_titpublico(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py", line 24, in get_anbima_titpublico
+    paginaTitulosPublicos = urllib.request.urlopen("http://www.anbima.com.br/merc_sec/arqs/ms"+ str(ano)[2:4]+str(mes)+str(dia)+".txt")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 163, in urlopen
+    return opener.open(url, data, timeout)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 466, in open
+    response = self._open(req, data)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 484, in _open
+    '_open', req)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 444, in _call_chain
+    result = func(*args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1282, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1256, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond>
+2017-01-20 18:46:37,574	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 1013, in find_library
+    return parser.libraries[name]
+KeyError: 'app_filters'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loaders\base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 1070, in load
+    lib = find_library(parser, name)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 1017, in find_library
+    name, "\n".join(sorted(parser.libraries.keys())),
+django.template.exceptions.TemplateSyntaxError: 'app_filters' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_static
+admin_urls
+cache
+i18n
+l10n
+log
+static
+staticfiles
+tz
+2017-01-20 18:46:55,195	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loaders\base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 584, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 5: 'block'. Looking for one of: endblock.
+2017-01-20 18:47:48,943	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loaders\base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 584, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 5: 'block'. Looking for one of: endblock.
+2017-01-20 18:53:30,163	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 152, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 149, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 129, in find_template
+    template_name, skip=history,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 146, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: project/Template EY.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 152, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 149, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 129, in find_template
+    template_name, skip=history,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 146, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: project/Template EY.html
+2017-01-20 19:28:47,599	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 152, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 149, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 129, in find_template
+    template_name, skip=history,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 146, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: Template EY.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 152, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 149, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 129, in find_template
+    template_name, skip=history,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 146, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: Template EY.html
+2017-01-20 19:35:48,215	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 152, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 149, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 129, in find_template
+    template_name, skip=history,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loaders\base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 945, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 568, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until], 'or'),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 9: 'static', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+2017-01-20 19:44:00,803	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+KeyError: 'else'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 152, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 149, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 129, in find_template
+    template_name, skip=history,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loaders\base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 574, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 67: 'else'. Did you forget to register or load this tag?
+2017-01-20 19:44:18,080	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 439, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2017-01-20 19:44:58,566	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 439, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2017-01-20 19:44:59,889	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 439, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2017-01-20 19:45:00,506	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 439, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2017-01-20 19:45:52,081	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 439, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2017-01-20 19:46:54,789	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 439, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2017-01-20 19:47:11,836	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 439, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2017-01-20 19:47:34,296	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 439, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2017-01-20 19:48:07,810	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 439, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2017-01-20 19:48:15,671	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 439, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2017-01-20 19:49:32,739	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 439, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2017-01-20 19:52:16,398	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 157, in dashboard_mensal
+    return render(request, 'marketdb/dashboard_mensal.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 439, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\base.py", line 91, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\urls\resolvers.py", line 392, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns)
+django.urls.exceptions.NoReverseMatch: Reverse for 'change_password' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+2017-01-23 10:09:26,940	Not Found: /favicon.ico	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-23 18:42:28,396	Not Found: /	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-23 19:04:16,278	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 25, in dashboard_escolha
+    xml_parser()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py", line 4, in xml_parser
+    import xmltodict
+ImportError: No module named 'xmltodict'
+2017-01-23 19:06:50,688	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:06:50,725	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:06:50,725	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:06:50,726	Lendo DB	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:06:50,829	Lendo XML CTLZHDIGERLING_20161230_20170103172404_LZHDIGERLING.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:06:50,970	Lendo XML CTLZHDIPORTFOLIO_20161230_20170103172404_LZHDIPORTFOLIO.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:06:51,774	Lendo XML FD00322699000106_20161230_20161230221440_BRADESCO H FI RF REF DI CRED PRIV LP EXECUTIVO.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:02,671	Lendo XML FD00885762000112_20161230_20161230221518_BRADESCO H FI RF REF DI LP TÍTULOS PÚBLICOS.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:03,237	Lendo XML FD01597187000115_20161230_20170104130736_SPECIAL DI 192.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:09,829	Lendo XML FD02296928000190_20161230_20170103121503_PosicaoFundo_4086.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:11,462	Lendo XML FD03069104000140_20161230_20170104112102_SantanderFICFICorporateRendaFixaReferenciadoDI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:11,645	Lendo XML FD03399411000190_20161230_20161231004222_BRADESCO+FI+RF+REFERENCIADO+DI+PREMIUM.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:13,502	Lendo XML FD04931948000111_20161230_20170102153017_BRAM H FUNDO DE INVESTIMENTO RENDA FIXA REFERENCIADO DI CASH.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:13,593	Lendo XML FD05207090000100_20161230_20161230221604_BRAM H FI RF REF DI CASH II.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:13,751	Lendo XML FD05314815000169_20161230_20170103172404_LZINTRHSBC60317.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:15,043	Lendo XML FD05902521000158_20161230_20170104130707_XZTOPDI51210.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:15,146	Lendo XML FD07096435000120_20161230_20170104130635_INVEGRADERF1625.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:16,029	Lendo XML FD07541281000139_20161230_17 12333_BB INST FEDERAL FIC RF LP.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:16,071	Lendo XML FD07561993000110_20161230_20170103172404_LZINTRCSHG60315.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:16,781	Lendo XML FD07892335000100_20161230_20161231021941_PosicaoFundo_18533205.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:19,005	Lendo XML FD07907396000102_20161229_20170106145748_SantanderFICFIRendaFixaReferenc....xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:19,059	Lendo XML FD07907396000102_20161230_20170104112212_SantanderFICFIRendaFixaReferenciadoDI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:19,123	Lendo XML FD07966986000106_20161230_20170104113032_SANTANDERFITITULOSPUBLICOSRENDAFIXAREFERENCIADODI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:19,531	Lendo XML FD08623582000174_20161230_20170103172404_LZINTRABTG60314.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:20,768	Lendo XML FD08915927000163_20161230_20170103192535_BEM FI RF REFERENCIADO DI TPF.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:21,697	Lendo XML FD09093883000104_20161230_20170104130634_XZFICFI50351.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:21,764	Lendo XML FD09577447000100_20161230_20170104112406_SantanderFICFISoberanoRendaFixaReferenciadoDI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:22,004	Lendo XML FD09636393000107_20161230_20170103154055_BNPParibasMatchDIFIRFReferenciadoCréditoPrivado.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:27,721	Lendo XML FD09639924000107_20161230_20170105230957_LZHGRIFFO47848.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:27,843	Lendo XML FD10408947000190_20161230_20170103154323_BNPParibasTermoFIRendaFixa.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:28,596	Lendo XML FD10474513000198_20161230_0 - ITAU INSTITUCIONAL RENDA FIXA INFLAÇÃO FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:28,698	Lendo XML FD10813716000161_20161230_20161230205518_BRADESCO H FI RF CRED PRIV LP PERFORMANCE INST.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:30,761	Lendo XML FD11046618000109_20161230_20170105114759_PosicaoFundo.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:31,647	Lendo XML FD11122001000125_20161230_20170103172404_LZINTRABNP60313.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:32,237	Lendo XML FD11419792000150_20161230_0 - ITAÚ CUSTÓDIA RF CURTO PRAZO FI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:32,811	Lendo XML FD11419818000160_20161230_1 - ITAÚ RENDA FIXA IMAB5+ FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:07:52,196	Lendo XML FD11419818000160_20161230_20170104130655_XZFIDELILCMM771.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:16,093	Lendo XML FD13028340000172_20161230_1 - ITAÚ RENDA FIXA IMAB5+ FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:29,880	Lendo XML FD14437684000106_20161230_0 - ITAÚ RENDA FIXA IMAB5+ FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:29,971	Lendo XML FD14507681000193_20161230_20161230114947.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:31,322	Lendo XML FD14507711000161_20161230_20161230114937.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:31,495	Lendo XML FD15348108000147_20161230_20170105081612_FIRFBRLREFERENCIADODILP.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:32,360	Lendo XML FD15477891000149_20161230_20161231022648_PosicaoFundo_34840125.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:36,241	Lendo XML FD17136970000111_20161230_20161231004433_VINCI FI RF IMOBILIARIO - CRED PRIV.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:36,621	Lendo XML FD17138474000105_20161230_20170104110815_SANTANDERFIMASTERRENDAFIXACREDITOPRIVADOLONGOPRAZO.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:39,288	Lendo XML FD20977554000150_20161229_20170106145416_SANTANDERFIIIRENDAFIXAREFERENCI....xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:42,022	Lendo XML FD20977554000150_20161230_20170104111318_SANTANDERFIIIRENDAFIXAREFERENCIADODI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:44,829	Lendo XML FD21320420000125_20161230_20170102093239_TB_ITACARE_FI_RF_LP.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:45,387	Lendo XML FD21624715000195_20161230_20170103172404_LZINTRATAG61298.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:45,547	Lendo XML FIC_PERFORMANCE.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:45,687	Lendo XML FIRF_INSTITUCIO.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:46,347	Lendo XML FI_TIT_PUBLICOS.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:46,793	Lendo XML FI_TIT_PUB_ALOC.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:48,113	Lendo XML hannover.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:48,515	Corrigindo tabela Título Privado	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:48,541	Corrigindo tabela debenture	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:48,566	Salvando fundos	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:50,648	Salvando tabela header no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:50,873	Salvando tabela partplanprev no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:08:59,021	Salvando tabela titpublico no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:02,408	Salvando tabela titprivado no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:04,060	Salvando tabela debenture no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:04,513	Salvando tabela acoes no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:04,583	Salvando tabela opcoesacoes no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:04,610	Salvando tabela opcoesderiv no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:04,638	Salvando tabela opcoesflx no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:04,697	Salvando tabela termorv no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:04,781	Salvando tabela termorf no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:04,866	Salvando tabela futuros no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:04,986	Salvando tabela swap no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:05,219	Salvando tabela caixa no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:05,361	Salvando tabela cotas no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:05,490	Salvando tabela despesas no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:05,656	Salvando tabela outrasdespesas no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:06,002	Salvando tabela provisao no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:06,157	Salvando tabela corretagem no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:09:06,212	Base de dados salva com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-23 19:11:36,433	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\indexes\base.py", line 1945, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\index.pyx", line 137, in pandas.index.IndexEngine.get_loc (pandas\index.c:4066)
+  File "pandas\index.pyx", line 159, in pandas.index.IndexEngine.get_loc (pandas\index.c:3930)
+  File "pandas\hashtable.pyx", line 675, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12408)
+  File "pandas\hashtable.pyx", line 683, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12359)
+KeyError: 'cnpjfundo'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 30, in dashboard_escolha
+    xml_quadro_operacoes_org()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1258, in xml_quadro_operacoes_org
+    parametrizacao(dt_base, cnpj)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 957, in parametrizacao
+    quadro_operacoes['cnpjfundo_xml']=quadro_operacoes['cnpjfundo']
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\frame.py", line 1997, in __getitem__
+    return self._getitem_column(key)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\frame.py", line 2004, in _getitem_column
+    return self._get_item_cache(key)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\generic.py", line 1350, in _get_item_cache
+    values = self._data.get(item)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\internals.py", line 3290, in get
+    loc = self.items.get_loc(item)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\indexes\base.py", line 1947, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\index.pyx", line 137, in pandas.index.IndexEngine.get_loc (pandas\index.c:4066)
+  File "pandas\index.pyx", line 159, in pandas.index.IndexEngine.get_loc (pandas\index.c:3930)
+  File "pandas\hashtable.pyx", line 675, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12408)
+  File "pandas\hashtable.pyx", line 683, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12359)
+KeyError: 'cnpjfundo'
+2017-01-23 19:18:24,407	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\indexes\base.py", line 1945, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\index.pyx", line 137, in pandas.index.IndexEngine.get_loc (pandas\index.c:4066)
+  File "pandas\index.pyx", line 159, in pandas.index.IndexEngine.get_loc (pandas\index.c:3930)
+  File "pandas\hashtable.pyx", line 675, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12408)
+  File "pandas\hashtable.pyx", line 683, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12359)
+KeyError: 'cnpjfundo'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 30, in dashboard_escolha
+    xml_quadro_operacoes_org()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1258, in xml_quadro_operacoes_org
+    parametrizacao(dt_base, cnpj)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 957, in parametrizacao
+    quadro_operacoes['cnpjfundo_xml']=quadro_operacoes['cnpjfundo']
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\frame.py", line 1997, in __getitem__
+    return self._getitem_column(key)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\frame.py", line 2004, in _getitem_column
+    return self._get_item_cache(key)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\generic.py", line 1350, in _get_item_cache
+    values = self._data.get(item)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\internals.py", line 3290, in get
+    loc = self.items.get_loc(item)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\indexes\base.py", line 1947, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\index.pyx", line 137, in pandas.index.IndexEngine.get_loc (pandas\index.c:4066)
+  File "pandas\index.pyx", line 159, in pandas.index.IndexEngine.get_loc (pandas\index.c:3930)
+  File "pandas\hashtable.pyx", line 675, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12408)
+  File "pandas\hashtable.pyx", line 683, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12359)
+KeyError: 'cnpjfundo'
+2017-01-23 19:19:37,710	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\indexes\base.py", line 1945, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\index.pyx", line 137, in pandas.index.IndexEngine.get_loc (pandas\index.c:4066)
+  File "pandas\index.pyx", line 159, in pandas.index.IndexEngine.get_loc (pandas\index.c:3930)
+  File "pandas\hashtable.pyx", line 675, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12408)
+  File "pandas\hashtable.pyx", line 683, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12359)
+KeyError: 'cnpjfundo'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 30, in dashboard_escolha
+    xml_quadro_operacoes_org()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1258, in xml_quadro_operacoes_org
+    parametrizacao(dt_base, cnpj)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 957, in parametrizacao
+    quadro_operacoes['cnpjfundo_xml']=quadro_operacoes['cnpjfundo']
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\frame.py", line 1997, in __getitem__
+    return self._getitem_column(key)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\frame.py", line 2004, in _getitem_column
+    return self._get_item_cache(key)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\generic.py", line 1350, in _get_item_cache
+    values = self._data.get(item)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\internals.py", line 3290, in get
+    loc = self.items.get_loc(item)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\indexes\base.py", line 1947, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\index.pyx", line 137, in pandas.index.IndexEngine.get_loc (pandas\index.c:4066)
+  File "pandas\index.pyx", line 159, in pandas.index.IndexEngine.get_loc (pandas\index.c:3930)
+  File "pandas\hashtable.pyx", line 675, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12408)
+  File "pandas\hashtable.pyx", line 683, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12359)
+KeyError: 'cnpjfundo'
+2017-01-23 19:37:31,711	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\indexes\base.py", line 1945, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\index.pyx", line 137, in pandas.index.IndexEngine.get_loc (pandas\index.c:4066)
+  File "pandas\index.pyx", line 159, in pandas.index.IndexEngine.get_loc (pandas\index.c:3930)
+  File "pandas\hashtable.pyx", line 675, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12408)
+  File "pandas\hashtable.pyx", line 683, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12359)
+KeyError: 'cnpjfundo'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 30, in dashboard_escolha
+    xml_quadro_operacoes_org()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1258, in xml_quadro_operacoes_org
+    parametrizacao(dt_base, cnpj)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 957, in parametrizacao
+    quadro_operacoes['cnpjfundo_xml']=quadro_operacoes['cnpjfundo']
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\frame.py", line 1997, in __getitem__
+    return self._getitem_column(key)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\frame.py", line 2004, in _getitem_column
+    return self._get_item_cache(key)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\generic.py", line 1350, in _get_item_cache
+    values = self._data.get(item)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\internals.py", line 3290, in get
+    loc = self.items.get_loc(item)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\indexes\base.py", line 1947, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\index.pyx", line 137, in pandas.index.IndexEngine.get_loc (pandas\index.c:4066)
+  File "pandas\index.pyx", line 159, in pandas.index.IndexEngine.get_loc (pandas\index.c:3930)
+  File "pandas\hashtable.pyx", line 675, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12408)
+  File "pandas\hashtable.pyx", line 683, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12359)
+KeyError: 'cnpjfundo'
+2017-01-23 19:40:38,018	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\indexes\base.py", line 1945, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas\index.pyx", line 137, in pandas.index.IndexEngine.get_loc (pandas\index.c:4066)
+  File "pandas\index.pyx", line 159, in pandas.index.IndexEngine.get_loc (pandas\index.c:3930)
+  File "pandas\hashtable.pyx", line 675, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12408)
+  File "pandas\hashtable.pyx", line 683, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12359)
+KeyError: 'cnpjfundo'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 30, in dashboard_escolha
+    xml_quadro_operacoes_org()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1258, in xml_quadro_operacoes_org
+    parametrizacao(dt_base, cnpj)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 957, in parametrizacao
+    quadro_operacoes['cnpjfundo_xml']=quadro_operacoes['cnpjfundo']
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\frame.py", line 1997, in __getitem__
+    return self._getitem_column(key)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\frame.py", line 2004, in _getitem_column
+    return self._get_item_cache(key)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\generic.py", line 1350, in _get_item_cache
+    values = self._data.get(item)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\core\internals.py", line 3290, in get
+    loc = self.items.get_loc(item)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\indexes\base.py", line 1947, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas\index.pyx", line 137, in pandas.index.IndexEngine.get_loc (pandas\index.c:4066)
+  File "pandas\index.pyx", line 159, in pandas.index.IndexEngine.get_loc (pandas\index.c:3930)
+  File "pandas\hashtable.pyx", line 675, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12408)
+  File "pandas\hashtable.pyx", line 683, in pandas.hashtable.PyObjectHashTable.get_item (pandas\hashtable.c:12359)
+KeyError: 'cnpjfundo'
+2017-01-24 08:32:23,662	Not Found: /	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-24 08:32:24,077	Not Found: /favicon.ico	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-24 08:36:12,250	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 30, in dashboard_escolha
+    xml_quadro_operacoes_org()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1258, in xml_quadro_operacoes_org
+    parametrizacao(dt_base, cnpj)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1166, in parametrizacao
+    du['data_ref']=per.dias(3)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\findt\FinDt.py", line 246, in dias
+    return [dia for dia in self.dias(opt=2) if
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\findt\FinDt.py", line 247, in <listcomp>
+    dia not in self.lista_feriados()]
+TypeError: argument of type 'NoneType' is not iterable
+2017-01-24 08:43:23,064	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 30, in dashboard_escolha
+    xml_quadro_operacoes_org()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1258, in xml_quadro_operacoes_org
+    parametrizacao(dt_base, cnpj)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1166, in parametrizacao
+    du['data_ref']=per.dias(3)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\findt\FinDt.py", line 246, in dias
+    return [dia for dia in self.dias(opt=2) if
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\findt\FinDt.py", line 247, in <listcomp>
+    dia not in self.lista_feriados()]
+TypeError: argument of type 'NoneType' is not iterable
+2017-01-24 09:10:55,151	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 30, in dashboard_escolha
+    xml_quadro_operacoes_org()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1258, in xml_quadro_operacoes_org
+    parametrizacao(dt_base, cnpj)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1166, in parametrizacao
+    du['data_ref']=per.dias(3)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\findt\FinDt.py", line 246, in dias
+    return [dia for dia in self.dias(opt=2) if
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\findt\FinDt.py", line 247, in <listcomp>
+    dia not in self.lista_feriados()]
+TypeError: argument of type 'NoneType' is not iterable
+2017-01-24 09:33:03,578	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:03,584	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:03,585	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:03,585	Lendo DB	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:03,645	Lendo XML CTLZHDIGERLING_20161230_20170103172404_LZHDIGERLING.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:03,847	Lendo XML CTLZHDIPORTFOLIO_20161230_20170103172404_LZHDIPORTFOLIO.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:04,755	Lendo XML FD00322699000106_20161230_20161230221440_BRADESCO H FI RF REF DI CRED PRIV LP EXECUTIVO.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:14,479	Lendo XML FD00885762000112_20161230_20161230221518_BRADESCO H FI RF REF DI LP TÍTULOS PÚBLICOS.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:15,078	Lendo XML FD01597187000115_20161230_20170104130736_SPECIAL DI 192.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:21,240	Lendo XML FD02296928000190_20161230_20170103121503_PosicaoFundo_4086.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:23,292	Lendo XML FD03069104000140_20161230_20170104112102_SantanderFICFICorporateRendaFixaReferenciadoDI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:23,480	Lendo XML FD03399411000190_20161230_20161231004222_BRADESCO+FI+RF+REFERENCIADO+DI+PREMIUM.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:24,989	Lendo XML FD04931948000111_20161230_20170102153017_BRAM H FUNDO DE INVESTIMENTO RENDA FIXA REFERENCIADO DI CASH.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:25,061	Lendo XML FD05207090000100_20161230_20161230221604_BRAM H FI RF REF DI CASH II.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:25,189	Lendo XML FD05314815000169_20161230_20170103172404_LZINTRHSBC60317.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:26,057	Lendo XML FD05902521000158_20161230_20170104130707_XZTOPDI51210.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:26,159	Lendo XML FD07096435000120_20161230_20170104130635_INVEGRADERF1625.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:26,984	Lendo XML FD07541281000139_20161230_17 12333_BB INST FEDERAL FIC RF LP.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:27,046	Lendo XML FD07561993000110_20161230_20170103172404_LZINTRCSHG60315.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:27,840	Lendo XML FD07892335000100_20161230_20161231021941_PosicaoFundo_18533205.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:29,757	Lendo XML FD07907396000102_20161229_20170106145748_SantanderFICFIRendaFixaReferenc....xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:29,836	Lendo XML FD07907396000102_20161230_20170104112212_SantanderFICFIRendaFixaReferenciadoDI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:29,920	Lendo XML FD07966986000106_20161230_20170104113032_SANTANDERFITITULOSPUBLICOSRENDAFIXAREFERENCIADODI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:30,378	Lendo XML FD08623582000174_20161230_20170103172404_LZINTRABTG60314.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:31,604	Lendo XML FD08915927000163_20161230_20170103192535_BEM FI RF REFERENCIADO DI TPF.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:32,395	Lendo XML FD09093883000104_20161230_20170104130634_XZFICFI50351.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:32,488	Lendo XML FD09577447000100_20161230_20170104112406_SantanderFICFISoberanoRendaFixaReferenciadoDI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:32,830	Lendo XML FD09636393000107_20161230_20170103154055_BNPParibasMatchDIFIRFReferenciadoCréditoPrivado.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:37,893	Lendo XML FD09639924000107_20161230_20170105230957_LZHGRIFFO47848.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:38,015	Lendo XML FD10408947000190_20161230_20170103154323_BNPParibasTermoFIRendaFixa.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:38,844	Lendo XML FD10474513000198_20161230_0 - ITAU INSTITUCIONAL RENDA FIXA INFLAÇÃO FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:38,997	Lendo XML FD10813716000161_20161230_20161230205518_BRADESCO H FI RF CRED PRIV LP PERFORMANCE INST.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:40,766	Lendo XML FD11046618000109_20161230_20170105114759_PosicaoFundo.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:41,870	Lendo XML FD11122001000125_20161230_20170103172404_LZINTRABNP60313.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:42,457	Lendo XML FD11419792000150_20161230_0 - ITAÚ CUSTÓDIA RF CURTO PRAZO FI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:33:42,934	Lendo XML FD11419818000160_20161230_1 - ITAÚ RENDA FIXA IMAB5+ FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:01,267	Lendo XML FD11419818000160_20161230_20170104130655_XZFIDELILCMM771.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:24,379	Lendo XML FD13028340000172_20161230_1 - ITAÚ RENDA FIXA IMAB5+ FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:38,034	Lendo XML FD14437684000106_20161230_0 - ITAÚ RENDA FIXA IMAB5+ FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:38,127	Lendo XML FD14507681000193_20161230_20161230114947.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:39,250	Lendo XML FD14507711000161_20161230_20161230114937.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:39,377	Lendo XML FD15348108000147_20161230_20170105081612_FIRFBRLREFERENCIADODILP.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:40,425	Lendo XML FD15477891000149_20161230_20161231022648_PosicaoFundo_34840125.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:44,061	Lendo XML FD17136970000111_20161230_20161231004433_VINCI FI RF IMOBILIARIO - CRED PRIV.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:44,441	Lendo XML FD17138474000105_20161230_20170104110815_SANTANDERFIMASTERRENDAFIXACREDITOPRIVADOLONGOPRAZO.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:46,806	Lendo XML FD20977554000150_20161229_20170106145416_SANTANDERFIIIRENDAFIXAREFERENCI....xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:49,382	Lendo XML FD20977554000150_20161230_20170104111318_SANTANDERFIIIRENDAFIXAREFERENCIADODI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:52,375	Lendo XML FD21320420000125_20161230_20170102093239_TB_ITACARE_FI_RF_LP.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:52,835	Lendo XML FD21624715000195_20161230_20170103172404_LZINTRATAG61298.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:52,957	Lendo XML FIC_PERFORMANCE.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:53,062	Lendo XML FIRF_INSTITUCIO.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:53,882	Lendo XML FI_TIT_PUBLICOS.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:54,442	Lendo XML FI_TIT_PUB_ALOC.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:55,747	Lendo XML hannover.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:56,130	Corrigindo tabela Título Privado	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:56,151	Corrigindo tabela debenture	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:56,165	Salvando fundos	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:58,010	Salvando tabela header no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:34:58,182	Salvando tabela partplanprev no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:05,704	Salvando tabela titpublico no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:08,882	Salvando tabela titprivado no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:10,314	Salvando tabela debenture no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:10,659	Salvando tabela acoes no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:10,705	Salvando tabela opcoesacoes no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:10,721	Salvando tabela opcoesderiv no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:10,739	Salvando tabela opcoesflx no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:10,793	Salvando tabela termorv no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:10,861	Salvando tabela termorf no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:10,931	Salvando tabela futuros no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:11,023	Salvando tabela swap no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:11,120	Salvando tabela caixa no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:11,280	Salvando tabela cotas no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:11,413	Salvando tabela despesas no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:11,592	Salvando tabela outrasdespesas no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:11,947	Salvando tabela provisao no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:12,195	Salvando tabela corretagem no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:35:12,221	Base de dados salva com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 09:38:37,675	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 30, in dashboard_escolha
+    xml_quadro_operacoes_org()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1256, in xml_quadro_operacoes_org
+    parametrizacao(dt_base, cnpj)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1164, in parametrizacao
+    du['data_ref']=per.dias(3)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\findt\FinDt.py", line 246, in dias
+    return [dia for dia in self.dias(opt=2) if
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\findt\FinDt.py", line 247, in <listcomp>
+    dia not in self.lista_feriados()]
+TypeError: argument of type 'NoneType' is not iterable
+2017-01-24 10:20:19,041	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:19,047	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:19,048	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:19,048	Lendo DB	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:19,154	Lendo XML CTLZHDIGERLING_20161230_20170103172404_LZHDIGERLING.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:19,311	Lendo XML CTLZHDIPORTFOLIO_20161230_20170103172404_LZHDIPORTFOLIO.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:20,351	Lendo XML FD00322699000106_20161230_20161230221440_BRADESCO H FI RF REF DI CRED PRIV LP EXECUTIVO.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:33,705	Lendo XML FD00885762000112_20161230_20161230221518_BRADESCO H FI RF REF DI LP TÍTULOS PÚBLICOS.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:34,678	Lendo XML FD01597187000115_20161230_20170104130736_SPECIAL DI 192.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:42,136	Lendo XML FD02296928000190_20161230_20170103121503_PosicaoFundo_4086.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:43,960	Lendo XML FD03069104000140_20161230_20170104112102_SantanderFICFICorporateRendaFixaReferenciadoDI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:44,104	Lendo XML FD03399411000190_20161230_20161231004222_BRADESCO+FI+RF+REFERENCIADO+DI+PREMIUM.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:45,803	Lendo XML FD04931948000111_20161230_20170102153017_BRAM H FUNDO DE INVESTIMENTO RENDA FIXA REFERENCIADO DI CASH.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:45,934	Lendo XML FD05207090000100_20161230_20161230221604_BRAM H FI RF REF DI CASH II.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:46,140	Lendo XML FD05314815000169_20161230_20170103172404_LZINTRHSBC60317.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:47,527	Lendo XML FD05902521000158_20161230_20170104130707_XZTOPDI51210.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:47,693	Lendo XML FD07096435000120_20161230_20170104130635_INVEGRADERF1625.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:49,061	Lendo XML FD07541281000139_20161230_17 12333_BB INST FEDERAL FIC RF LP.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:49,135	Lendo XML FD07561993000110_20161230_20170103172404_LZINTRCSHG60315.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:50,042	Lendo XML FD07892335000100_20161230_20161231021941_PosicaoFundo_18533205.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:52,147	Lendo XML FD07907396000102_20161229_20170106145748_SantanderFICFIRendaFixaReferenc....xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:52,239	Lendo XML FD07907396000102_20161230_20170104112212_SantanderFICFIRendaFixaReferenciadoDI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:52,343	Lendo XML FD07966986000106_20161230_20170104113032_SANTANDERFITITULOSPUBLICOSRENDAFIXAREFERENCIADODI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:52,928	Lendo XML FD08623582000174_20161230_20170103172404_LZINTRABTG60314.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:54,710	Lendo XML FD08915927000163_20161230_20170103192535_BEM FI RF REFERENCIADO DI TPF.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:55,739	Lendo XML FD09093883000104_20161230_20170104130634_XZFICFI50351.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:55,799	Lendo XML FD09577447000100_20161230_20170104112406_SantanderFICFISoberanoRendaFixaReferenciadoDI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:20:56,059	Lendo XML FD09636393000107_20161230_20170103154055_BNPParibasMatchDIFIRFReferenciadoCréditoPrivado.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:21:02,849	Lendo XML FD09639924000107_20161230_20170105230957_LZHGRIFFO47848.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:21:03,040	Lendo XML FD10408947000190_20161230_20170103154323_BNPParibasTermoFIRendaFixa.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:21:04,102	Lendo XML FD10474513000198_20161230_0 - ITAU INSTITUCIONAL RENDA FIXA INFLAÇÃO FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:21:04,270	Lendo XML FD10813716000161_20161230_20161230205518_BRADESCO H FI RF CRED PRIV LP PERFORMANCE INST.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:21:06,236	Lendo XML FD11046618000109_20161230_20170105114759_PosicaoFundo.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:21:07,163	Lendo XML FD11122001000125_20161230_20170103172404_LZINTRABNP60313.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:21:07,885	Lendo XML FD11419792000150_20161230_0 - ITAÚ CUSTÓDIA RF CURTO PRAZO FI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:21:08,587	Lendo XML FD11419818000160_20161230_1 - ITAÚ RENDA FIXA IMAB5+ FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:21:29,507	Lendo XML FD11419818000160_20161230_20170104130655_XZFIDELILCMM771.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:21:52,090	Lendo XML FD13028340000172_20161230_1 - ITAÚ RENDA FIXA IMAB5+ FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:05,495	Lendo XML FD14437684000106_20161230_0 - ITAÚ RENDA FIXA IMAB5+ FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:05,610	Lendo XML FD14507681000193_20161230_20161230114947.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:06,526	Lendo XML FD14507711000161_20161230_20161230114937.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:06,642	Lendo XML FD15348108000147_20161230_20170105081612_FIRFBRLREFERENCIADODILP.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:07,489	Lendo XML FD15477891000149_20161230_20161231022648_PosicaoFundo_34840125.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:11,861	Lendo XML FD17136970000111_20161230_20161231004433_VINCI FI RF IMOBILIARIO - CRED PRIV.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:12,275	Lendo XML FD17138474000105_20161230_20170104110815_SANTANDERFIMASTERRENDAFIXACREDITOPRIVADOLONGOPRAZO.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:14,802	Lendo XML FD20977554000150_20161229_20170106145416_SANTANDERFIIIRENDAFIXAREFERENCI....xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:17,843	Lendo XML FD20977554000150_20161230_20170104111318_SANTANDERFIIIRENDAFIXAREFERENCIADODI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:20,358	Lendo XML FD21320420000125_20161230_20170102093239_TB_ITACARE_FI_RF_LP.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:20,798	Lendo XML FD21624715000195_20161230_20170103172404_LZINTRATAG61298.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:20,905	Lendo XML FIC_PERFORMANCE.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:20,986	Lendo XML FIRF_INSTITUCIO.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:21,771	Lendo XML FI_TIT_PUBLICOS.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:22,248	Lendo XML FI_TIT_PUB_ALOC.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:23,678	Lendo XML hannover.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:24,039	Corrigindo tabela Título Privado	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:24,057	Corrigindo tabela debenture	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:24,072	Salvando fundos	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:25,801	Salvando tabela header no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:25,988	Salvando tabela partplanprev no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:34,200	Salvando tabela titpublico no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:37,053	Salvando tabela titprivado no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:38,461	Salvando tabela debenture no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:38,856	Salvando tabela acoes no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:38,951	Salvando tabela opcoesacoes no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:38,976	Salvando tabela opcoesderiv no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:38,999	Salvando tabela opcoesflx no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:39,087	Salvando tabela termorv no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:39,193	Salvando tabela termorf no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:39,284	Salvando tabela futuros no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:39,385	Salvando tabela swap no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:39,495	Salvando tabela caixa no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:39,620	Salvando tabela cotas no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:39,725	Salvando tabela despesas no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:39,843	Salvando tabela outrasdespesas no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:40,074	Salvando tabela provisao no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:40,185	Salvando tabela corretagem no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:22:40,224	Base de dados salva com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-01-24 10:26:13,300	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 28, in dashboard_escolha
+    xml_quadro_operacoes_org()
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1258, in xml_quadro_operacoes_org
+    parametrizacao(dt_base, cnpj)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_quadro_operacoes_org\xml_quadro_operacoes_org.py", line 1166, in parametrizacao
+    du['data_ref']=per.dias(3)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\findt\FinDt.py", line 246, in dias
+    return [dia for dia in self.dias(opt=2) if
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\findt\FinDt.py", line 247, in <listcomp>
+    dia not in self.lista_feriados()]
+TypeError: argument of type 'NoneType' is not iterable
+2017-01-24 10:41:22,799	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 39, in dashboard_escolha
+    quadro90(array_data, get_global_var('cnpj_hdi'))
+NameError: name 'get_global_var' is not defined
+2017-01-24 10:47:06,440	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_oper.py
+2017-01-24 10:47:06,451	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_oper.py
+2017-01-24 10:47:06,531	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_oper.py
+2017-01-24 10:47:10,851	Leitura do banco de dados executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_oper.py
+2017-01-24 10:47:10,857	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:47:10,862	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:47:10,943	Leitura do banco de dados executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:47:11,284	Leitura do arquivo executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:47:11,284	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:47:11,778	Internal Server Error: /quadro90/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\views.py", line 39, in dashboard_escolha
+    quadro90(array_data, get_global_var('cnpj_hdi'))
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py", line 189, in quadro90
+    writer = pd.ExcelWriter(output_path+'resultado_'+cnpj+"-"+data_relat+'_.xlsx', engine='xlsxwriter')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\excel.py", line 1431, in __init__
+    import xlsxwriter
+ImportError: No module named 'xlsxwriter'
+2017-01-24 10:49:46,739	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_oper.py
+2017-01-24 10:49:46,776	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_oper.py
+2017-01-24 10:49:46,849	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_oper.py
+2017-01-24 10:49:59,104	Leitura do banco de dados executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_oper.py
+2017-01-24 10:49:59,112	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:49:59,121	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:49:59,183	Leitura do banco de dados executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:49:59,374	Leitura do arquivo executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:49:59,376	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:07,699	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:07,738	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:11,248	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:11,327	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:11,454	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:11,487	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:12,269	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:12,661	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:12,722	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:12,775	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:12,821	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:12,906	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:18,522	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:18,576	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:18,587	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py
+2017-01-24 10:50:18,630	Arquivos salvos com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\quadro90_228\quadro_90.py

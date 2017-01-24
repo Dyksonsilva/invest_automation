@@ -1,0 +1,85 @@
+
+{% extends 'marketdb/Template EY.html' %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data" class="basic-grey">
+    <div align="center">
+        <h1>HDI Investment Report Generator</h1>
+    </div>
+    <p>
+        <h1 style="font-size:25px">Atualizações de Mercado - Mensal</h1>
+    </p>
+    <p>
+        <label>BMF - Numeraca</label>
+        {% csrf_token %}<button id="0" name="bmf_numeraca" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+
+    <p>
+        <label>BMF - Cotações Históricas</label>
+        {% csrf_token %}<button id="1" name="bmf_cotacoes_historicas" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+
+    <p>
+        <label>Anbima - Debentures</label>
+        {% csrf_token %}<button id="2" name="anbima_debentures" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+
+    <p>
+        <label>BMF - Curvas Históricas</label>
+        {% csrf_token %}<button id="3" name="bmf_curvas_historicas" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+
+    <p>
+        <label>BACEN - Séries Históricas</label>
+        {% csrf_token %}<button id="4" name="bacen_series_historicas" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+
+    <p>
+        <label>BACEN - Séries Índices</label>
+        {% csrf_token %}<button id="5" name="bacen_series_indices" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+
+    <p>
+        <label>BLOOMBERG - Cotas Valor Econômico</label>
+        {% csrf_token %}<button id="6" name="bloomberg_cotas_valor" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+
+    <p>
+        <label>BLOOMBERG - Cotas FIDC</label>
+        {% csrf_token %}<button id="7" name="bloomberg_cotas_fidc" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+
+    <p>
+        <label>BLOOMBERG - Importação Rating</label>
+        {% csrf_token %}<button id="8" name="bloomberg_importacao_rating" class="button" type="submit">
+            <span>Send</span>
+        </button>
+    </p>
+
+</form>
+
+{% endblock %}
+
+<!--
+
+</body>
+</html>
+
+-->

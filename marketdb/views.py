@@ -1,5 +1,6 @@
 # Imports do Django
 from django.shortcuts import render
+#from django.contrib.auth.decorators import login_required
 
 # Imports de Scripts para atualizações Diárias
 from .scripts.Diaria.Robo_Multiplo_Diario.calculo_data_atual import *
@@ -17,11 +18,16 @@ from .scripts.Mensal.BVMF.get_bmf_cotacoes_hist import *
 from .scripts.Mensal.ANBIMA.get_debentures_caracteristicas_hist import *
 from .scripts.Mensal.BVMF.get_bmf_curvas_historico import *
 from .scripts.Mensal.BACEN.get_bacen_series_hist import *
+from .scripts.Mensal.BACEN.get_bacen_indices import *
+from .scripts.Mensal.BLOOMBERG.upload_manual_cotas import *
+from .scripts.Mensal.BLOOMBERG.importacao_rating_bloomberg import *
 
+#@login_required(login_url="/login/")
 def dashboard_escolha(request):
 
     return render(request, 'marketdb/dashboard_escolha.html')
 
+#@login_required(login_url="/login/")
 def dashboard_diario(request):
 
     if "bmf_precos_futuros" in request.POST:
@@ -85,6 +91,7 @@ def dashboard_diario(request):
 
     return render(request, 'marketdb/dashboard_diario.html')
 
+#@login_required(login_url="/login/")
 def dashboard_mensal(request):
 
     if "bmf_numeraca" in request.POST:
@@ -116,6 +123,36 @@ def dashboard_mensal(request):
         # Atualiza Séries históricas do Bacen
         get_bacen_series_hist()
         print("BACEN Séries Históricas OK!")
+
+    if "bacen_series_indices" in request.POST:
+
+        # Atualiza Séries históricas do Bacen
+        get_bacen_indices()
+        print("BACEN Séries Indices OK!")
+
+    if "bloomberg_cotas_valor" in request.POST:
+
+        # Atualiza Cotas do Valor Econômico retirados da Bloomberg
+        upload_manual_cotas(
+        'SELECT DISTINCT isin, cnpjfundo_outros, cnpjfundo_1nivel from projeto_inv.xml_quadro_operacoes where produto = "fundo"',
+        {'cnpj': 'cnpj_fundo'},
+        'valoreconomico_cotas')
+        print("BLOOMBERG Cotas Valor Econômico OK!")
+
+    if "bloomberg_cotas_fidc" in request.POST:
+
+        # Atualiza Cotas do FIDC retirados da Bloomberg
+        upload_manual_cotas(
+        'SELECT DISTINCT isin, fundo, cnpjfundo_outros, cnpjfundo_1nivel from projeto_inv.xml_quadro_operacoes where produto = "fundo"',
+        {'Cap. Líquida': 'cap_liq', 'Num. Cotistas': 'num_cotista', 'pl': 'patrimonio', 'Var% em 12 meses': 'var_perc_12_meses', 'Var% no ano': 'var_perc_ano', 'Var% no dia': 'var_perc_dia', 'Var% no mês': 'var_perc_mes', 'fundo': 'nome_cota', 'isin_fundo': 'codigo_isin', 'cnpj_fundo': 'cnpj'},
+        'fidc_cotas')
+        print("BLOOMBERG Cotas FIDC OK!")
+
+    if "bloomberg_importacao_rating" in request.POST:
+
+        # Importação dos ratings da Bloomberg
+        importacao_rating_bloomberg()
+        print("BLOOMBERG Rating OK!")
 
     return render(request, 'marketdb/dashboard_mensal.html')
 

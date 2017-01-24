@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+</head>
+<body>
+
+    <form method="post" enctype="multipart/form-data" class="basic-grey">
+        <div align="center">
+            <h1>HDI Investment Report Generator</h1>
+        </div>
+        <p>
+            <h1 style="font-size:25px">Quadro 419</h1>
+        </p>
+        <p>
+            <label>Títulos Públicos - Fluxos</label>
+            {% csrf_token %}<button id="0" name="fluxo_titpublicos" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Títulos Públicos - Market do Market</label>
+            {% csrf_token %}<button id="1" name="mtm_titpublicos" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Anbima - Ajustes de Cadastros das Debentures</label>
+            {% csrf_token %}<button id="2" name="anbima_debentures_ajustes_cadastro" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+                <p>
+            <label>XXXX</label>
+            {% csrf_token %}<button id="3" name="xxxxx" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+                <p>
+            <label>XXXX</label>
+            {% csrf_token %}<button id="4" name="xxxxx" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+
+    </form>
+
+</body>
+
+</html>

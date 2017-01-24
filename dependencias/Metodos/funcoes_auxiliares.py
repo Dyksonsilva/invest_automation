@@ -51,3 +51,16 @@ def get_current_date_in_array():
         dia = "0" + dia
 
     return ano, mes, dia
+
+def get_global_var(var):
+
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+
+    # Query que retorna variavel global
+    global_var = pd.read_sql_query(
+        'SELECT variable_value from projeto_inv.global_variables where variable_name = "'+var+'"', connection)
+
+    global_var = str(global_var["variable_value"].iloc[0])
+
+    connection.close()
+    return global_var
