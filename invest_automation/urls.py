@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^marketdb/', include('marketdb.urls')),
     url(r'^quadro90/', include('quadro90.urls')),
     url(r'^quadro419/', include('quadro419.urls')),
+    url(r'^var/', include('var.urls')),
 ]

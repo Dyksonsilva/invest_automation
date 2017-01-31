@@ -21,14 +21,14 @@
             <h1 style="font-size:25px">Quadro 419</h1>
         </p>
         <p>
-            <label>Títulos Públicos - Fluxos</label>
+            <label>Títulos Públicos - Atualização de Fluxos</label>
             {% csrf_token %}<button id="0" name="fluxo_titpublicos" class="button" type="submit">
                 <span>Send</span>
             </button>
         </p>
 
         <p>
-            <label>Títulos Públicos - Market do Market</label>
+            <label>Títulos Públicos - Atualização de Market do Market</label>
             {% csrf_token %}<button id="1" name="mtm_titpublicos" class="button" type="submit">
                 <span>Send</span>
             </button>
@@ -41,16 +41,95 @@
             </button>
         </p>
 
-                <p>
-            <label>XXXX</label>
-            {% csrf_token %}<button id="3" name="xxxxx" class="button" type="submit">
+        <p>
+            <label>BMF - Ajustes de Cadastros do Numeraca</label>
+            {% csrf_token %}<button id="3" name="bmf_numeraca_ajustes_cadastro" class="button" type="submit">
                 <span>Send</span>
             </button>
         </p>
 
-                <p>
-            <label>XXXX</label>
-            {% csrf_token %}<button id="4" name="xxxxx" class="button" type="submit">
+        <p>
+            <label>Debentures - Atualização de Fluxos</label>
+            {% csrf_token %}<button id="4" name="fluxo_debentures" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Títulos Privados - Atualização de Fluxos</label>
+            {% csrf_token %}<button id="5" name="fluxo_titprivado" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>BMF - Interpolação de Curvas</label>
+            {% csrf_token %}<button id="6" name="interpolacao_curvas_bmf" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Debentures - Títulos Market do Market</label>
+            {% csrf_token %}<button id="7" name="mtm_titulo_debenture" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Titulos Privados - Curva Market to Market</label>
+            {% csrf_token %}<button id="8" name="mtm_curva_titiprivado" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Debentures - Curva Market to Market</label>
+            {% csrf_token %}<button id="9" name="mtm_curva_debenture" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>FIDC - Finalização</label>
+            {% csrf_token %}<button id="10" name="finalizacao_fidc" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Tabelas XML Final</label>
+            {% csrf_token %}<button id="11" name="tabelas_xml_final" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+
+        <p>
+            <label>Gera Quadro Operações - HDI</label>
+            {% csrf_token %}<button id="12" name="xml_quadro_operacoes_hdi" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Gera Quadro Operações - Gerling</label>
+            {% csrf_token %}<button id="13" name="xml_quadro_operacoes_gerling" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+
+        <p>
+            <label>Gera Quadro Operações Final - HDI</label>
+            {% csrf_token %}<button id="14" name="quadro_operacoes_hdi" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Gera Quadro Operações Final - Gerling</label>
+            {% csrf_token %}<button id="15" name="quadro_operacoes_gerling" class="button" type="submit">
                 <span>Send</span>
             </button>
         </p>

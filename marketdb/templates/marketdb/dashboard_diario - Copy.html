@@ -1,0 +1,68 @@
+
+{% extends 'marketdb/Template EY.html' %}
+
+{% block content %}
+
+    <div align="center">
+        
+    <form method="post" enctype="multipart/form-data" class="basic-grey">
+        <div align="center">
+            <h1>HDI Investment Report Generator</h1>
+        </div>
+        <p>
+            <h1 style="font-size:25px">Atualizações de Mercado - Diário</h1>
+        </p>
+        <p>
+            <label>BMF - Preços Futuros</label>
+            {% csrf_token %}<button id="0" name="bmf_precos_futuros" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Anbima - Títulos Públicos</label>
+            {% csrf_token %}<button id="1" name="anbima_titulos_publicos" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Anbima - Valor Nominal Atualizado (VNA)</label>
+            {% csrf_token %}<button id="2" name="anbima_vna" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Anbima - Debentures</label>
+            {% csrf_token %}<button id="3" name="anbima_debentures" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Anbima - Curvas</label>
+            {% csrf_token %}<button id="4" name="anbima_curvas" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Anbima - Carteiras</label>
+            {% csrf_token %}<button id="5" name="anbima_carteiras" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+        <p>
+            <label>Anbima - Projeções (Necessita reescrita de Scrapping)</label>
+            {% csrf_token %}<button id="6" name="anbima_projecoes" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+
+    </form>
+
+</body>
+
+</html>

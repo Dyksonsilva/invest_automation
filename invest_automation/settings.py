@@ -65,6 +65,7 @@ LOGGING = {
 # Application definition
 
 INSTALLED_APPS = [
+    'var.apps.VarConfig',
     'quadro90.apps.Quadro90Config',
     'quadro419.apps.Quadro419Config',
     'marketdb.apps.MarketdbConfig',

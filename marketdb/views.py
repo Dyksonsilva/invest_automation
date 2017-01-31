@@ -1,5 +1,9 @@
+# Imports comuns
+import datetime
+
 # Imports do Django
 from django.shortcuts import render
+from generator.models import ExecutionDashboard, ExecutionLog
 #from django.contrib.auth.decorators import login_required
 
 # Imports de Scripts para atualizações Diárias
@@ -30,7 +34,11 @@ def dashboard_escolha(request):
 #@login_required(login_url="/login/")
 def dashboard_diario(request):
 
+    control_status = 0
+
     if "bmf_precos_futuros" in request.POST:
+
+        start_time = datetime.datetime.now()
 
         # Retorna array de datas bases atualizadas: dia, mes e ano
         array_data = calculo_data_atual()
@@ -40,13 +48,21 @@ def dashboard_diario(request):
         get_bmf_precos_futuros(array_data[0], array_data[1], array_data[2])
         print("BMF Preços Futuros OK!")
 
+        end_time = datetime.datetime.now()
+        ExecutionLog(start_time=start_time, end_time=end_time, execution_id=1).save()
+        control_status = 1
+
     if "anbima_titulos_publicos" in request.POST:
+        start_time = datetime.datetime.now()
 
         array_data = calculo_data_atual()
         print("Array de datas ok!" + str(array_data))
 
         get_anbima_titpublico(array_data[0], array_data[1], array_data[2])
         print("Preços Títulos Públicos Anbima OK!" + str(array_data))
+
+        end_time = datetime.datetime.now()
+        ExecutionLog(start_time=start_time, end_time=end_time, execution_id=2).save()
 
     if "anbima_vna" in request.POST:
 
@@ -89,7 +105,7 @@ def dashboard_diario(request):
     # get_anbima_titpublico(array_data[0], array_data[1], array_data[2])
     # print("Preços Títulos Públicos Anbima OK!" + str(array_data))
 
-    return render(request, 'marketdb/dashboard_diario.html')
+    return render(request, 'marketdb/dashboard_diario.html', {'ExecutionDashboard': ExecutionDashboard.objects.raw('SELECT exec_dash.*, exec_log.end_time, (exec_log.end_time - exec_log.start_time) AS tempo_execucao FROM generator_executiondashboard AS exec_dash LEFT JOIN ( SELECT MAX(id) AS id, MAX(start_time) AS start_time, MAX(end_time) AS end_time, MAX(execution_id) AS execution_id  FROM generator_executionlog  GROUP BY execution_id ) AS exec_log ON exec_dash.id = exec_log.execution_id WHERE report_type_id = 1'), 'control_status' : control_status})
 
 #@login_required(login_url="/login/")
 def dashboard_mensal(request):

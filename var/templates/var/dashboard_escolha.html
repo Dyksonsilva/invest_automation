@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+</head>
+<body>
+
+<form method="post" enctype="multipart/form-data" class="basic-grey">
+    <div align="center">
+        <h1>HDI Investment Report Generator</h1>
+    </div>
+    <p>
+        <h1 style="font-size:25px">Relatório de Risco de Mercado - VaR</h1>
+    </p>
+
+    <p>
+        <p>
+            <label>Simulação de Crédito</label>
+            {% csrf_token %}<button id="1" name="simulacao_credito" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+    </p>
+
+    <p>
+        <p>
+            <label>Matriz Gerencial - Var</label>
+            {% csrf_token %}<button id="2" name="matriz_gerencial" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+    </p>
+
+    <p>
+        <p>
+            <label>Relatório Encadeado - Processo QuadroID Exposições - Var</label>
+            {% csrf_token %}<button id="3" name="re_expo_var" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+    </p>
+
+    <p>
+        <p>
+            <label>Relatório Encadeado - Gerar Relatório de Risco de Mercado</label>
+            {% csrf_token %}<button id="4" name="re_relatorio" class="button" type="submit">
+                <span>Send</span>
+            </button>
+        </p>
+    </p>
+
+</form>
+</body>
+</html>

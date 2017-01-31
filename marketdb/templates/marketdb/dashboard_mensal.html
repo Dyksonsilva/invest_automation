@@ -4,101 +4,32 @@
 {% block content %}
 
     <div align="center">
+
         <table class="table table-hover table-bordered table-condensed" align="center">
             <thead style = "color:black;background-color:#e0e0e0">
                 <tr>
-                    <td>Rotina</td>
-                    <td>Tempo Execução (Minutos)</td>
-                    <td>Tempo Execução (Minutos)</td>
+                    <td>ID Rotina</td>
+                    <td>Nome Rotina</td>
+                    <td>Descrição Rotina</td>
+                    <td>Tempo Execução</td>
                     <td>Data da Última Execução</td>
                     <td>Execução</td>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>BMF - Numeraca</td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td>X</td>
-                    <td>{% csrf_token %}<button id="0" name="bmf_numeraca" class="button" type="submit">
+                    <td>{{dict_dashboard.id}}</td>
+                    <td>{{dict_dashboard.nome_rotina}}</td>
+                    <td>{{dict_dashboard.descricao_rotina}}</td>
+                    <td>xxxx</td>
+                    <td>xxxx</td>
+                    <td>{% csrf_token %}<button id="0" name={{dict_dashboard.nome_execucao_rotina}} class="button" type="submit">
                             <span>Send</span></button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-
-<form method="post" enctype="multipart/form-data" class="basic-grey">
-    <div align="center">
-        <h1>HDI Investment Report Generator</h1>
-    </div>
-
-
-
-    <p>
-        <label>BMF - Numeraca</label>
-        {% csrf_token %}<button id="0" name="bmf_numeraca" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-
-    <p>
-        <label>BMF - Cotações Históricas</label>
-        {% csrf_token %}<button id="1" name="bmf_cotacoes_historicas" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-
-    <p>
-        <label>Anbima - Debentures</label>
-        {% csrf_token %}<button id="2" name="anbima_debentures" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-
-    <p>
-        <label>BMF - Curvas Históricas</label>
-        {% csrf_token %}<button id="3" name="bmf_curvas_historicas" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-
-    <p>
-        <label>BACEN - Séries Históricas</label>
-        {% csrf_token %}<button id="4" name="bacen_series_historicas" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-
-    <p>
-        <label>BACEN - Séries Índices</label>
-        {% csrf_token %}<button id="5" name="bacen_series_indices" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-
-    <p>
-        <label>BLOOMBERG - Cotas Valor Econômico</label>
-        {% csrf_token %}<button id="6" name="bloomberg_cotas_valor" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-
-    <p>
-        <label>BLOOMBERG - Cotas FIDC</label>
-        {% csrf_token %}<button id="7" name="bloomberg_cotas_fidc" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-
-    <p>
-        <label>BLOOMBERG - Importação Rating</label>
-        {% csrf_token %}<button id="8" name="bloomberg_importacao_rating" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-
-</form>
 
 {% endblock %}
 

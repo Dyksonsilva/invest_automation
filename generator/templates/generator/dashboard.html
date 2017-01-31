@@ -27,7 +27,7 @@
         </button>
     </p>
     <p>
-        <label>Quadro 90</label>
+        <a href="/quadro90/"><label>Quadro 90</label>
         {% csrf_token %}<button id="1" name="quadro_90" class="button" type="submit">
             <span>Send</span>
         </button>
@@ -39,25 +39,11 @@
         </button>
     </p>
     <p>
-        <label>VaR</label>
+        <a href="/var/"><label>VaR</label>
         {% csrf_token %}<button id="3" name="var" class="button" type="submit">
             <span>Send</span>
         </button>
     </p>
-    <p>
-        <label>Risco de Mercado</label>
-        {% csrf_token %}<button id="4" name="risco_mercado" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-    <p>
-        <label>Resumo de VaR por Fundo</label>
-        {% csrf_token %}<button id="5" name="resumo_var_fundo" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-
-
 
 </form>
 
