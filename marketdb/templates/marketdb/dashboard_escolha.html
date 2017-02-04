@@ -1,32 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'generator/Template EY.html' %}
 
-{% load static %}
+{% block content %}
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<a href="/marketdb/diario">
+		<div class="dia">
+			<p class="p-alignment">Diário</p>
+		</div>
+	</a>
 
-</head>
-<body>
+	<a href="/marketdb/mensal">
+		<div class="mes">
+			<p class="p-alignment">Mensal</p>
+		</div>
+	</a>
 
-<form method="post" enctype="multipart/form-data" class="basic-grey">
-    <div align="center">
-        <h1>HDI Investment Report Generator</h1>
-    </div>
-    <p>
-        <h1 style="font-size:25px">Periodicidade de Atualização</h1>
-    </p>
-    <p>
-        <a href="/marketdb/diario"><label>Diário</label></a>
-    </p>
-    <p>
-        <a href="/marketdb/mensal"><label>Mensal</label></a>
-    </p>
-</form>
 
-</body>
-</html>
+{% endblock %}

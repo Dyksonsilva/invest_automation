@@ -1,41 +1,78 @@
 
-{% extends 'marketdb/Template EY.html' %}
+{% extends 'generator/Template EY.html' %}
 
 {% block content %}
 
+<style>
+
+div#popupbox{
+	height: 400px;
+	width: 300px;
+	padding: 40px;
+	background-color: white;
+	position:absolute;
+	left:1020px;
+	bottom:40px;
+
+	/* outer shadows  (note the rgba is red, green, blue, alpha) */
+	-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+
+	/* rounded corners */
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 7px;
+	border-radius: 10px;
+
+	/* gradients */
+	background: -webkit-gradient(linear, left top, left bottom,
+	color-stop(0%, white), color-stop(15%, white), color-stop(100%, #bcbfb5));
+	background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%);
+	}
+
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+</style>
+
+<div style="padding-right:400px;padding-top: 20px;padding-bottom: 20px" class="container-fluid">
+
+<form method="post">
     <div align="center">
 
-        <table class="table table-hover table-bordered table-condensed" align="center">
+        <table id="popupbox_list" class="table table-hover table-bordered table-condensed" align="center">
             <thead style = "color:black;background-color:#e0e0e0">
                 <tr>
                     <td>ID Rotina</td>
                     <td>Nome Rotina</td>
                     <td>Descrição Rotina</td>
-                    <td>Tempo Execução</td>
+                    <td>Tempo Execução (s)</td>
                     <td>Data da Última Execução</td>
                     <td>Execução</td>
                 </tr>
             </thead>
             <tbody>
+                {% for rotine in ExecutionDashboard %}
                 <tr>
-                    <td>{{dict_dashboard.id}}</td>
-                    <td>{{dict_dashboard.nome_rotina}}</td>
-                    <td>{{dict_dashboard.descricao_rotina}}</td>
-                    <td>xxxx</td>
-                    <td>xxxx</td>
-                    <td>{% csrf_token %}<button id="0" name={{dict_dashboard.nome_execucao_rotina}} class="button" type="submit">
+                    <td>{{ rotine.id }}<div id="popupbox">{{ rotine.passo_a_passo_execucao }}</div></td>
+                    <td>{{ rotine.nome_rotina }}</td>
+                    <td>{{ rotine.descricao_rotina }}</td>
+                    <td>{{ rotine.tempo_execucao }}</td>
+                    <td>{{ rotine.end_time }}</td>
+                    <td>{% csrf_token %}<button onclick="showDivAttid()" id={{ forloop.counter0 }} name={{ rotine.nome_execucao_rotina }} type="submit">
                             <span>Send</span></button>
                     </td>
                 </tr>
+            {% endfor%}
+
+            {% if control_status == 1 %}
+                <script>
+                    alert("Rotina executada com sucesso!");
+                </script>
+            {% endif %}
             </tbody>
         </table>
     </div>
-
+</form>
 {% endblock %}
-
-<!--
-
-</body>
-</html>
-
--->

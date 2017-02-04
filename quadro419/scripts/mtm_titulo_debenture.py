@@ -4,18 +4,19 @@ def mtm_titulo_debenture():
     import pandas as pd
     import numpy as np
     import pymysql as db
+    import logging
+
     from findt import FinDt
     from pandas import ExcelWriter
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
 
-    ###############################################################################
-    # 1 - Declaração de caminhos
-    ###############################################################################
+    logger = logging.getLogger(__name__)
 
+    # 1 - Declaração de caminhos
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
-    dtbase_concat = dtbase[0] + dtbase[1] + dtbase[2]
+    dtbase_concat = dtbase[0]+dtbase[1]+dtbase[2]
 
     # Diretório de dependencias
     depend_path_manual_fidc = full_path_from_database('excels') + 'fluxo_manual_fidc.xlsx'
@@ -25,12 +26,12 @@ def mtm_titulo_debenture():
     save_path_erros = full_path_from_database('get_output_quadro419') + 'erros_mtm_titprivado.xlsx'
     save_path_mtm_titprivado = full_path_from_database('get_output_quadro419') + 'mtm_titprivado_debentures.xlsx'
 
-    ###############################################################################
     # 2 - Cria conexão e importação: base de dados fluxo_titprivado
-    ###############################################################################
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
     # Data base de cálculo
-    # dt_base = "20160831"
     ano = str(dtbase_concat)[0:4]
     mes = str(dtbase_concat)[4:6]
     dia = str(dtbase_concat)[6:8]
@@ -38,11 +39,8 @@ def mtm_titulo_debenture():
 
     # Query para puxar apenas os papéis que ainda não venceram
     query = 'SELECT * FROM projeto_inv.fluxo_titprivado WHERE data_expiracao>=' + '"' + dtbase_concat + '";'
-
-    # Importação dos dados
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
     base_fluxo = pd.read_sql(query, con=connection)
-    connection.close()
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     base_fluxo['dtrel'] = base_fluxo['id_papel'].str.split('_')
     base_fluxo['dtrel'] = base_fluxo['dtrel'].str[0]
@@ -61,6 +59,7 @@ def mtm_titulo_debenture():
 
     # Puxa os fluxos de FIDC - BASE ESTÁTICA
     fluxo_fidc = pd.read_excel(depend_path_manual_fidc)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     fluxo_fidc['id_papel'] = base_fluxo['dtrel'].iloc[0] + '_' + fluxo_fidc['cod_frequencia_juros'].astype(str)
 
@@ -70,7 +69,6 @@ def mtm_titulo_debenture():
     fluxo_fidc['data_primeiro_pagamento_juros'] = pd.to_datetime(fluxo_fidc['data_primeiro_pagamento_juros'])
     fluxo_fidc['dt_inicio_rentab'] = pd.to_datetime(fluxo_fidc['dt_inicio_rentab'])
     fluxo_fidc['dt_ref'] = pd.to_datetime(fluxo_fidc['dt_ref'])
-
     fluxo_fidc['valor_nominal'] = fluxo_fidc['valor_nominal'].astype(float)
 
     # Força a data de operação à data de emissao do fidc - não impacta a conta pq não há o campo característica para cotas
@@ -85,49 +83,33 @@ def mtm_titulo_debenture():
     base_fluxo['indexador'] = base_fluxo['indexador'].str.replace('ANB', 'DI1')
     base_fluxo['indexador'] = base_fluxo['indexador'].str.replace('ANBID', 'DI1')
 
-    ###############################################################################
     # PAPÉIS TJLP
     base_fluxo['indexador'] = np.where(base_fluxo['codigo_isin'].isin(['BRBNDPDBS0B9']), 'TJLP', base_fluxo['indexador'])
-    ###############################################################################
 
-    ###############################################################################
     # Redução da base
-    # base_fluxo = base_fluxo[base_fluxo.codigo_isin.isin(['BRMGIPDBS000'])].copy()
-    ###############################################################################
 
-    ###############################################################################
     # 3 - Criação das linhas: data-base de cálculo, dtoperacao e, para debentures, dtspread
-    ###############################################################################
-
     # Puxa as informações de negociação em mercado secuindário da Anbima para debentures -> linha dtspread
+
     query = 'select * from projeto_inv.anbima_debentures'
-
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
-
     anbima_deb = pd.read_sql(query, con=connection)
-
-    connection.close()
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     anbima_deb = anbima_deb[anbima_deb.data_referencia <= dtbase_mtm]
-
     anbima_deb = anbima_deb.sort(['codigo', 'data_referencia', 'data_bd'], ascending=[True, True, True])
     anbima_deb = anbima_deb.drop_duplicates(subset=['codigo'], take_last=True)
-
     anbima_deb = anbima_deb[['codigo', 'data_referencia']].copy()
-
     anbima_deb['codigo'] = anbima_deb['codigo'].astype(str)
 
     # Puxa informações da debentures_caracteristicas para cruzar isin com codigo_ativo
     query = 'select * from projeto_inv.debentures_caracteristicas'
-
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
-
     deb_carac = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
+    #Fecha conexão
     connection.close()
 
     deb_carac = deb_carac[['isin', 'codigo_do_ativo', 'data_bd', 'registro_cvm_da_emissao']].copy()
-
     deb_carac = deb_carac.sort(['isin', 'codigo_do_ativo', 'data_bd'], ascending=[True, True, True])
     deb_carac = deb_carac.drop_duplicates(subset=['isin', 'codigo_do_ativo'], take_last=True)
 
@@ -181,7 +163,6 @@ def mtm_titulo_debenture():
     base_data2 = base_data.copy()
 
     # Preenche as colunas relacionadas com tipo/característica de evento como se não houvesse nenhum evento
-    ###############################################################################
     # accrue1 = para não deletar as linhas com dt_ref duplicadas por causa do fluxo desconpassado da amortização com relação aos pagamentos de juros
     base_data['dt_ref'] = dtbase_mtm
     base_data['juros_tipo'] = 'accrue'
@@ -204,7 +185,6 @@ def mtm_titulo_debenture():
 
     base_data = base_data.append(base_data1)
     base_data = base_data.append(base_data2)
-    ###############################################################################
 
     # Cria no data frame do fluxo a coluna de flag de inclusão de linha de data base de cálculo
     #   flag_inclusão = 1 -> linha inserida
@@ -228,31 +208,8 @@ def mtm_titulo_debenture():
 
     del base_mtm['codigo_isin_temp']
 
-    ###############################################################################
+    logger.info("Tratamento das datas de início e fim dos períodos de capitalização")
     # 4 - Tratamento das datas de início e fim dos períodos de capitalização
-    ###############################################################################
-
-    # AJUSTES
-    # --Acertar o gerador de fluxo numeraca - percentual de amortização - fluxo ainda tem problemas
-    # Chamber: deleta linha extra além da data de expiração
-    # base_mtm = base_mtm[base_mtm.dt_ref1<=base_mtm.data_expiracao]
-    # TypeError: Cannot change data-type for object array.
-
-    ###############################################################################
-    # Seleciona amostra da bd
-    # data_aux_aux = base_mtm.copy()
-    # del base_mtm
-    # rows = np.random.choice(data_aux_aux.index.values, 10)
-    #
-    # data_aux_aux = data_aux_aux.ix[rows]
-    #
-    # data_aux = data_aux_aux.ix[rows]
-    ##data_aux = data_aux.drop_duplicates(subset=['codigo_isin'],take_last=False)
-    #
-    # base_mtm = data_aux.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
-    #
-    # del data_aux_aux
-    ###############################################################################
 
     # Preenche com tipo_capitalizacao com Exponencial quando não está especificado
     base_mtm['tipo_capitalizacao'] = np.where(base_mtm['tipo_capitalizacao'].isnull(), 'Exponencial',
@@ -289,12 +246,6 @@ def mtm_titulo_debenture():
                                 pd.to_datetime(mtm['dt_inicio_rentab']))
     mtm['dt_inicio'].iloc[0] = mtm['dt_inicio_rentab'].iloc[0]
 
-    # mtm['dt_fim'] = mtm['dt_fim'].dt.date
-    # aux1 = mtm[(mtm.dt_fim==mtm.dtoperacao)&(mtm.flag!='O')]
-    # aux2 = mtm[(mtm.dt_ref==dt_base_mtm)&(mtm.flag!='O')]
-
-
-
     # Quando é DI, a data de cálculo é exclusive
     # Toma cuidado com a data de cálculo
     mtm['dt_inicio'] = np.where(mtm['indexador'] == 'DI1', mtm['dt_inicio'] - pd.DateOffset(months=0, days=1),
@@ -311,10 +262,8 @@ def mtm_titulo_debenture():
     mtm['mes_fim'] = mtm['dt_fim'].dt.month
     mtm['dia_fim'] = mtm['dt_fim'].dt.day
 
-    ###############################################################################
+    logger.info("Tratamento da base de indexadores de atualização de Valor Nominal")
     # 5 - Tratamento da base de indexadores de atualização de Valor Nominal
-    ###############################################################################
-
     # Criação de uma lista diária (dias corridos) com as datas desde o início do mês da primeira data de accrual até o fim do mês da última data de evento
     dt_min = min(mtm['dt_inicio'])
     dt_min = dt_min.replace(day=1)
@@ -336,7 +285,6 @@ def mtm_titulo_debenture():
     serie_dias['mes'] = mes
     serie_dias['dia'] = dias
 
-    ###############################################################################
     ##Criação de uma lista diária (dias uteis) com as datas desde o início do mês da primeira data de accrual até o fim do mês da última data de eventodt_max = max(serie_dias['dt_ref'])
     per = FinDt.DatasFinanceiras(dt_min, dt_max, path_arquivo=depend_path_feriados_nacionais)
 
@@ -344,18 +292,6 @@ def mtm_titulo_debenture():
     du['dt_ref'] = per.dias(3)
     du['du_1'] = 1
 
-    # Auxiliar para não ficar rodando o FinDt
-    # pd.io.sql.to_sql(du, name='du', con=connection, if_exists='replace', flavor='mysql')
-
-    # x = 'select * from projeto_inv.du'
-    # du = pd.read_sql(x, con=connection)
-    # del du['index']
-    ###############################################################################
-
-    # Unifica as tabelas de dias úteis e dias corridos
-    # --du['du_1'] = 1 -> DU
-    # --du['du_1'] = 0 -> DC
-    # --du['dc_1'] = 1 -> DC
     serie_dias = serie_dias.merge(du, on=['dt_ref'], how='left')
     # Preenche as linhas que não são dia útil com flag = 0 para dia útil
     serie_dias['du_1'] = serie_dias['du_1'].fillna(0)
@@ -386,16 +322,21 @@ def mtm_titulo_debenture():
     serie_dias = serie_dias.merge(temp1, on=['ano', 'mes'], how='left')
     del temp, temp1
 
+    #Cria conexão
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
+
     # Criação da série de índice
-
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
-
-    query = 'SELECT * FROM projeto_inv.bc_series'
+    query = 'SELECT * FROM projeto_inv.bacen_series_fatores'
     bc_series = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     query = 'SELECT * FROM projeto_inv.anbima_projecao_indices'
     proj = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
+    #Fecha conexão
     connection.close()
 
     proj['ano'] = proj['data_coleta'].astype(str).str[0:4]
@@ -454,13 +395,8 @@ def mtm_titulo_debenture():
 
     bc_series = bc_series.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    ###############################################################################
-
-
-    # Como estamos calculando numa data que não há proj, usamos o observado. Depois da data base de cálculo, não atualiza
+    # Como estamos calculando em uma data que não há proj, usamos o observado. Depois da data base de cálculo, não atualiza
     bc_series['valor'] = bc_series['valor'].fillna(0)
-    ###############################################################################
-
     bc_series['valor'] = bc_series['valor'].astype(float)
 
     # Separa os indexadores em séries diferentes
@@ -479,8 +415,6 @@ def mtm_titulo_debenture():
     series_ipca['tx_acum_dc'] = np.cumprod(series_ipca.tx_dia_dc)
     series_ipca['indice_dc'] = np.cumsum(series_ipca['dc_1'])
     series_ipca['indice_du'] = np.cumsum(series_ipca['du_1'])
-
-    # series_ipca.to_excel(save_path+'/ipca_mtm.xlsx')
 
     # IGP-M
     series_igpm = series_igpm.merge(serie_dias, on=['ano', 'mes', 'dia'], how='right')
@@ -515,8 +449,6 @@ def mtm_titulo_debenture():
     series_cdi['indice_dc'] = 0
     series_cdi['indice_du'] = np.cumsum(series_cdi['du_1'])
 
-    # series_cdi.to_excel(save_path+'/cdi_mtm.xlsx')
-
     # PRE
     series_pre = series_ipca.copy()
     series_pre['tx_acum_du'] = 1
@@ -534,13 +466,8 @@ def mtm_titulo_debenture():
     series_fim['indexador'] = series_fim['indice']
     series_fim = series_fim.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    # Salva um excel com a sequencia dos indices e taxas
-    # series_fim.to_excel(save_path+'/series.xlsx')
-
-    ###############################################################################
+    logger.info("União da base de indexadores com a base de mtm")
     # 6 - União da base de indexadores com a base de mtm
-    ###############################################################################
-
     inicio = series_fim.copy()
     del inicio['du_1']
     del inicio['dc_1']
@@ -553,11 +480,6 @@ def mtm_titulo_debenture():
     del inicio['dc']
     del inicio['dt_ref']
     del inicio['flag']
-
-    ###############################################################################
-    # Aparentemente, não há esta coluna - só pq eu não rodei o esquema...
-    # del inicio['id_bc_series']
-    ###############################################################################
 
     fim = inicio.copy()
 
@@ -576,20 +498,14 @@ def mtm_titulo_debenture():
         ascending=[True, True, True, True, True, True, True, True, True, True, True, True])
     mtm = mtm.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    ###############################################################################
-    # 7.0 - Criação do arquivo erros de divisão
-    ###############################################################################
+    logger.info("Criação do arquivo erros de divisão")
+    # 7 - Criação do arquivo erros de divisão
     writer = ExcelWriter(save_path_erros)
 
-    ###############################################################################
-    # 7 - Inicialização das contas
-    ###############################################################################
-
-    # --Just in case...
+    #Inicialização das contas
     mtm['juros_dc_du'] = mtm['juros_dc_du'].astype(int)
     mtm['indexador_dc_du'] = mtm['indexador_dc_du'].astype(int)
 
-    ###############################################################################
     # Taxa acumulada inicio vazia
     erros = mtm[(mtm.tx_acum_du_inicio.isnull()) | (mtm.tx_acum_du_inicio == 0)]
     erros.to_excel(writer, 'tx_acum_du_inicio')
@@ -599,7 +515,6 @@ def mtm_titulo_debenture():
     erros = mtm[(mtm.tx_acum_du_fim.isnull()) | (mtm.tx_acum_du_fim == 0)]
     erros.to_excel(writer, 'tx_acum_du_fim')
     mtm = mtm[(mtm.tx_acum_du_fim.notnull()) | (mtm.tx_acum_du_fim != 0)]
-    ###############################################################################
 
     # --Taxa acumulada
     mtm['fator_index_per'] = 0
@@ -611,6 +526,7 @@ def mtm_titulo_debenture():
     # --Número de dias entre as datas de inicio e fim
     mtm['du_per'] = mtm['indice_du_fim'] - mtm['indice_du_inicio']
     mtm['dc_per'] = mtm['indice_dc_fim'] - mtm['indice_dc_inicio']
+
     # --Preenche as taxas de juros
     mtm['taxa_juros'] = mtm['taxa_juros'].fillna(0)
     mtm['taxa_juros'] = mtm['taxa_juros'].astype(float)
@@ -651,14 +567,11 @@ def mtm_titulo_debenture():
     # Linha de pagamento final
     mtm['codigo_isin_final'] = mtm['codigo_isin'].shift(-1)
 
-    ###############################################################################
+    logger.info("Papéis CDI - Err ~ 0,00001%")
     # 8 - Papéis CDI - Err ~ 0,00001%
-    ###############################################################################
 
     mtm_aux = mtm[mtm['indexador'] == 'DI1'].copy()
     mtm_aux = mtm_aux.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
-
-    ###############################################################################
 
     # Gera novamente a coluna de codigo_isin_lag já que agora há uma nova lista
     mtm_aux['codigo_isin_lag'] = mtm_aux['codigo_isin'].shift(1)
@@ -686,8 +599,6 @@ def mtm_titulo_debenture():
 
     mtm_aux['perc_amortizacao'][(mtm_aux.total_amortizacao == 0) & (mtm_aux.codigo_isin_final != mtm_aux.codigo_isin)] = 1
 
-    # Will, ressalta na documentação esse isin manual aqui
-    # Tem que colocar aqui todos os isins que tem fluxo manual e que tem percentual de amortização não estático
     mtm_aux['perc_amortizacao'] = np.where(mtm_aux['id_papel'].isin(['BRMGIPDBS000']), mtm_aux['perc_amortizacao1'] / 100,
                                            mtm_aux['perc_amortizacao'])
 
@@ -697,6 +608,7 @@ def mtm_titulo_debenture():
     mtm_aux['perc_amortizacao_acum_dt'][mtm_aux.codigo_isin_final != mtm_aux.codigo_isin] = 1
 
     del mtm_aux['perc_amortizacao1']
+
     # Cálculo do FatorDI
     cdi_inicio = series_cdi.copy()
 
@@ -765,7 +677,6 @@ def mtm_titulo_debenture():
     # Calcula os juros na primeira data de evento financeiro
     idx = mtm_aux['valor_nominal'][mtm_aux['codigo_isin'] != mtm_aux['codigo_isin_lag']].index.tolist()
 
-    ###############################################################################
     # Taxa acumulada inicio vazia
     erros = mtm_aux[(mtm_aux.tx_acum_fator_di_inicio.isnull()) | (mtm_aux.tx_acum_fator_di_inicio == 0)]
     erros.to_excel(writer, 'tx_acum_fator_di_inicio')
@@ -775,10 +686,7 @@ def mtm_titulo_debenture():
     erros = mtm_aux[(mtm_aux.tx_acum_fator_di_fim.isnull()) | (mtm_aux.tx_acum_fator_di_fim == 0)]
     erros.to_excel(writer, 'tx_acum_fator_di_fim')
     mtm_aux = mtm_aux[(mtm_aux.tx_acum_du_fim.notnull()) | (mtm_aux.tx_acum_du_fim != 0)]
-    ###############################################################################
-
     mtm_aux['fator_index_per'] = mtm_aux['tx_acum_fator_di_fim'] / mtm_aux['tx_acum_fator_di_inicio']
-
     mtm_aux['juros_per'][idx] = mtm_aux['vne'][idx] * (
     mtm_aux['fator_juros_per'][idx] * mtm_aux['tx_acum_fator_di_fim'][idx] / mtm_aux['tx_acum_fator_di_inicio'][idx] - 1)
     mtm_aux['pagto_juros'][idx] = mtm_aux['juros_per'][idx] * mtm_aux['juros_tipo1'][idx] * mtm_aux['percentual_juros'][idx]
@@ -803,17 +711,14 @@ def mtm_titulo_debenture():
 
     mtm_aux_todos = mtm_aux.copy()
 
-    ###############################################################################
+    logger.info("Papéis amortizados via VNE")
     # 9 - Papéis amortizados via VNE
-    ###############################################################################
-
     mtm_aux = mtm[(mtm['tipo'] == 'vne') & (mtm['indexador'] != 'DI1')].copy()
     mtm_aux = mtm_aux.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    ###############################################################################
-
     # Gera novamente a coluna de codigo_isin_lag já que agora há uma nova lista
     mtm_aux['codigo_isin_lag'] = mtm_aux['codigo_isin'].shift(1)
+
     # Cria colunas LAG - fator indexador acumulado
     mtm_aux['fator_index_acum'] = mtm_aux[['codigo_isin', 'fator_index_per']].groupby(['codigo_isin']).agg(['cumprod'])
     mtm_aux['fator_index_acum_lag'] = mtm_aux['fator_index_acum'].shift(1)
@@ -883,15 +788,14 @@ def mtm_titulo_debenture():
 
     mtm_aux_todos = mtm_aux_todos.append(mtm_aux)
 
-    ###############################################################################
+    logger.info("Papéis amortizados via VNA")
     # 10 - Papéis amortizados via VNA
-    ###############################################################################
-
     mtm_aux = mtm[(mtm['tipo'] == 'vna') & (mtm['indexador'] != 'DI1')].copy()
     mtm_aux = mtm_aux.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
     # Gera novamente a coluna de codigo_isin_lag já que agora há uma nova lista
     mtm_aux['codigo_isin_lag'] = mtm_aux['codigo_isin'].shift(1)
+
     # Cria colunas LAG - fator indexador acumulado
     mtm_aux['fator_index_acum'] = mtm_aux[['codigo_isin', 'fator_index_per']].groupby(['codigo_isin']).agg(['cumprod'])
     mtm_aux['fator_index_acum_lag'] = mtm_aux['fator_index_acum'].shift(1)
@@ -975,10 +879,8 @@ def mtm_titulo_debenture():
 
     mtm_aux_todos = mtm_aux_todos.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    ###############################################################################
+    logger.info("Criação e preenchimento tabela FV")
     # 11 - Criação e preenchimento tabela FV
-    ###############################################################################
-
     fv = pd.DataFrame(columns=['id_bmf_numeraca',
                                'id_anbima_debentures',
                                'data_bd',
@@ -1133,14 +1035,11 @@ def mtm_titulo_debenture():
     fv['valor_nominal_data'] = mtm_aux_todos['valor_nominal_data']
     fv['fv'] = mtm_aux_todos['fv']
 
-    ###############################################################################
+    logger.info("Criação das ETTJS")
     # 12 - Criação das ETTJS
-    ###############################################################################
 
-
-    ###############################################################################
+    logger.info("Valor presente")
     # 13 - Valor presente
-    ###############################################################################
     tp_mtm = fv.copy()
 
     dtbase_mtm = str(dtbase_mtm)
@@ -1152,8 +1051,6 @@ def mtm_titulo_debenture():
     tp_mtm['ano_mtm'] = int(ano)
     tp_mtm['mes_mtm'] = int(mes)
     tp_mtm['dia_mtm'] = int(dia)
-
-    # del inicio['id_bc_series']
 
     mtm_dia = inicio.copy()
     mtm_dia = mtm_dia.rename(columns={'ano_inicio': 'ano_mtm', 'mes_inicio': 'mes_mtm', 'dia_inicio': 'dia_mtm',
@@ -1179,11 +1076,8 @@ def mtm_titulo_debenture():
     tp_mtm['prazo_du'] = tp_mtm['indice_du_dt_ref2'] - tp_mtm['indice_du_mtm']
     tp_mtm['prazo_dc'] = tp_mtm['indice_dc_dt_ref2'] - tp_mtm['indice_dc_mtm']
 
-    ###############################################################################
     # Volta indexador dos papéis TJLP para PRE para poder trazer a valor presente
     tp_mtm['indexador'] = np.where(tp_mtm['codigo_isin'].isin(['BRBNDPDBS0B9']), 'PRE', tp_mtm['indexador'])
-    ###############################################################################
-
 
     if len(tp_mtm[tp_mtm.indexador == 'PRE']) != 0:
         maximo_tp_PRE = max(tp_mtm['prazo_du'][tp_mtm.indexador == 'PRE'])
@@ -1194,10 +1088,18 @@ def mtm_titulo_debenture():
     if len(tp_mtm[tp_mtm.indexador == 'IPCA']) != 0:
         maximo_tp_IPCA = max(tp_mtm['prazo_du'][tp_mtm.indexador == 'IPCA'])
 
-    ###############################################################################
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
-    query = 'select * from projeto_inv.curva_ettj_interpol_' + ano + "_" + mes + ' where indexador_cod in("PRE","DIM","DIC");'
+    #Cria conexão
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
+
+    query = 'select * from projeto_inv.curva_ettj_interpol_' + ano + "_" + mes + ' where day(dt_ref) = ' + dia + ' AND indexador_cod in("PRE","DIM","DIC");'
     ettj = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
+
+    #Fecha conexão
+    connection.close()
+
     # Seleciona a última carga
     ettj = ettj.sort(['indexador_cod', 'dt_ref', 'data_bd'], ascending=[True, False, False])
     ettj = ettj.drop_duplicates(subset=['prazo', 'tx_spot', 'tx_spot_ano', 'tx_termo_dia', 'indexador_cod'],
@@ -1206,7 +1108,6 @@ def mtm_titulo_debenture():
                                  np.where(ettj['indexador_cod'] == 'DIM', 'IGP', 'PRE'))
     ettj = ettj.rename(columns={'prazo': 'prazo_du'})
     ettj_filtro = ettj[['prazo_du', 'tx_spot', 'tx_spot_ano', 'indexador']]
-    ###############################################################################
 
     # Extrapolação PRE, se necessário
     if len(tp_mtm[tp_mtm.indexador == 'PRE']) != 0:
@@ -1309,17 +1210,14 @@ def mtm_titulo_debenture():
     mtm = tp_mtm[['codigo_isin', 'pv_DV100']].copy()
     mtm_pv = mtm.groupby(['codigo_isin']).sum().reset_index()
     mtm_pv = mtm_pv.rename(columns={'pv_DV100': 'mtm_DV100'})
+
     tp_mtm = tp_mtm.merge(mtm_pv, on=['codigo_isin'], how='left')
-
     tp_mtm['mtm_DV100'] = tp_mtm['mtm_DV100'].fillna(0)
-
     tp_mtm['perc_mtm'] = np.where(tp_mtm['mtm'] != 0, tp_mtm['pv'] / tp_mtm['mtm'], 0)
     tp_mtm['perc_mtm'] = tp_mtm['perc_mtm'].fillna(0)
 
-    ###############################################################################
+    logger.info("Duration. DV100")
     # 14 - Duration. DV100
-    ###############################################################################
-
     # Cálculo da Duration
     tp_mtm['vertices_positivo'] = np.where(tp_mtm['prazo_du'] > 0, tp_mtm['prazo_du'], 0)
     tp_mtm['fluxo_positivo'] = np.where(tp_mtm['prazo_du'] > 0, tp_mtm['pv'], 0)
@@ -1344,10 +1242,8 @@ def mtm_titulo_debenture():
     mtm_isin = tp_mtm[['codigo_isin', 'mtm']].copy()
     mtm_isin = mtm_isin.drop_duplicates()
 
-    ###############################################################################
+    logger.info("Impressão")
     # 15 - Impressão
-    ###############################################################################
-
     tp_mtm['tx_acum_fator_di_inicio'] = tp_mtm['tx_acum_fator_di_inicio'].fillna(0)
     tp_mtm['tx_acum_fator_di_fim'] = tp_mtm['tx_acum_fator_di_fim'].fillna(0)
     tp_mtm['fator_amortizacao_acum_dt'] = tp_mtm['fator_amortizacao_acum_dt'].fillna(0)
@@ -1377,6 +1273,11 @@ def mtm_titulo_debenture():
     tp_mtm['data_bd'] = datetime.datetime.today()
 
     ##Conexão com Banco de Dados
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
+
+    logger.info("Salvando base de dados - mtm_titprivado")
     pd.io.sql.to_sql(tp_mtm, name='mtm_titprivado', con=connection, if_exists='append', flavor='mysql', index=0)
+
     connection.close()

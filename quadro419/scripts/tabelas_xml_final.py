@@ -4,9 +4,12 @@ def tabelas_xml_final():
     import pymysql as db
     import numpy as np
     import datetime
+    import logging
     from pandas import ExcelWriter
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+
+    logger = logging.getLogger(__name__)
 
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
@@ -18,16 +21,16 @@ def tabelas_xml_final():
     # Diretório de dependencias
     depend_path_caracteristica_contratos = full_path_from_database('excels') + 'caracteristica_contratos.xlsx'
 
-    ###############################################################################
     # ----Leitura do HEADER para pegar a data de referencia do relatório
-    ###############################################################################
-
     # Informações XML
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', charset='utf8')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
     query = 'SELECT * FROM projeto_inv.xml_header_org'
-
     xml_header = pd.read_sql(query, con=connection)
+    logger.info("Salvando base de dados")
 
     # Seleção última carga com a data da posicao
     xml_header = xml_header[xml_header.dtposicao == dt_base]
@@ -38,14 +41,11 @@ def tabelas_xml_final():
     xml_header = xml_header[['header_id']].copy()
     xml_header['marker'] = 1
 
-    ###############################################################################
     # ----Preenchimento RENDA VARIÁVEL
-    ###############################################################################
-
     # Informações XML
     query = 'SELECT * FROM projeto_inv.xml_acoes_org'
-
     xml_acoes = pd.read_sql(query, con=connection)
+    logger.info("Salvando base de dados")
 
     # Seleção última carga
     xml_acoes = xml_acoes.merge(xml_header, on=['header_id'])
@@ -61,11 +61,10 @@ def tabelas_xml_final():
 
     # --MTM Mercado
     query = 'SELECT * FROM projeto_inv.bovespa_cotahist'
-
     base_bovespa_virgem = pd.read_sql(query, con=connection)
+    logger.info("Salvando base de dados")
 
     base_bovespa = base_bovespa_virgem[base_bovespa_virgem.data_pregao <= dt_base]
-
     base_bovespa = base_bovespa.sort(['codigo_isin', 'data_pregao', 'data_bd'], ascending=[True, False, False])
     base_bovespa = base_bovespa.drop_duplicates(subset=['codigo_isin'], take_last=False)
     base_bovespa = base_bovespa[['codigo_isin', 'preco_medio', 'data_pregao']]
@@ -73,23 +72,18 @@ def tabelas_xml_final():
         columns={'codigo_isin': 'isin', 'preco_medio': 'pu_regra_xml', 'data_pregao': 'data_referencia'})
 
     xml_acoes = xml_acoes.merge(base_bovespa, on=['isin'], how='left')
-
     xml_acoes['mtm_regra_xml'] = xml_acoes['pu_regra_xml'] * (xml_acoes['qtdisponivel'] + xml_acoes['qtgarantia'])
-
     xml_acoes['data_bd'] = horario_bd
 
     # Carrega na base
-
+    logger.info("Salvando base de dados - xml_acoes")
     pd.io.sql.to_sql(xml_acoes, name='xml_acoes', con=connection, if_exists="append", flavor='mysql', index=0)
 
-    ###############################################################################
     # ----Preenchimento Futuros
-    ###############################################################################
-
     # ----TABELA XML
     query = 'select * from projeto_inv.xml_futuros_org'
-
     xml_futuros = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     xml_futuros = xml_futuros.merge(xml_header, on=['header_id'])
     xml_futuros = xml_futuros[xml_futuros.marker == 1].copy()
@@ -110,6 +104,7 @@ def tabelas_xml_final():
     # -----\TABELA BMF
     query = 'SELECT * FROM projeto_inv.bmf_ajustes_pregao'
     bmf_ajustes_pregao = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     bmf_ajustes_pregao = bmf_ajustes_pregao.sort(['mercadoria', 'data_referencia', 'data_bd'], ascending=[True, True, True])
 
@@ -127,6 +122,8 @@ def tabelas_xml_final():
 
     # ----TABELA TAMANHO DO CONTRATO
     tamanho_contrato = pd.read_excel(depend_path_caracteristica_contratos, header=0, skiprows=1)
+    logger.info("Arquivos lidos com sucesso")
+
     tamanho_contrato.columns = ['ref', 'moeda', 'tamanho']
 
     tamanho_contrato['ref'] = tamanho_contrato['ref'].str.replace(' ', '')
@@ -137,7 +134,6 @@ def tabelas_xml_final():
     base_input['ref'] = base_input['ref'] + base_input['vencimento']
 
     # ----UNIÃO DAS TABELAS
-
     xml_futuros = xml_futuros.merge(base_input, on=['ref'], how='left')
     xml_futuros = xml_futuros.sort(['ref'])
 
@@ -162,46 +158,40 @@ def tabelas_xml_final():
     xml_futuros['data_bd'] = datetime.datetime.today()
 
     # Carrega na base
-
+    logger.info("Salvando base de dados - xml_futuros")
     pd.io.sql.to_sql(xml_futuros, name='xml_futuros', con=connection, if_exists="append", flavor='mysql', index=0)
 
-    ###############################################################################
     # ----Preenchimento Cotas
-    ###############################################################################
-
     # ----TABELA XML
     query = 'SELECT * FROM projeto_inv.xml_cotas_org'
-
     xml_cotas = pd.read_sql(query, con=connection)
+    logger.info("Salvando base de dados")
 
     xml_cotas = xml_cotas.merge(xml_header, on=['header_id'])
     xml_cotas = xml_cotas[xml_cotas.marker == 1].copy()
     xml_cotas = xml_cotas[xml_cotas.data_bd == max(xml_cotas.data_bd)]
-
     xml_cotas['data_referencia'] = dt_base
-
     del xml_cotas['id_xml_cotas']
     del xml_cotas['pu_regra_xml']
     del xml_cotas['data_bd']
 
     # ----TABELA CVM_COTAS
     query = 'SELECT * FROM projeto_inv.cvm_cotas'
-
     cvm_cotas = pd.read_sql(query, con=connection)
+    logger.info("Salvando base de dados")
 
     cvm_cotas = cvm_cotas.sort(['cnpj_fundo', 'dt_ref', 'data_bd'], ascending=[True, True, False])
     cvm_cotas = cvm_cotas.drop_duplicates(['cnpj_fundo', 'dt_ref'], take_last=False)
 
     # ----TABELA FIDCs
     query = 'SELECT * FROM projeto_inv.fidc_cotas'
-
     fidc_cotas = pd.read_sql(query, con=connection)
+    logger.info("Salvando base de dados")
 
     fidc_cotas = fidc_cotas.sort(['codigo_isin', 'dt_ref', 'data_bd'], ascending=[True, True, False])
     fidc_cotas = fidc_cotas.drop_duplicates(['codigo_isin', 'dt_ref'], take_last=False)
 
     # ----Preenchimento com as informações - CVM_COTAS
-
     # Seleção das colunas necessárias
     cvm_cotas = cvm_cotas[['cnpj_fundo', 'dt_ref', 'quota']].copy()
 
@@ -212,7 +202,6 @@ def tabelas_xml_final():
     xml_cotas = xml_cotas.merge(cvm_cotas, on=['cnpjfundo', 'data_referencia'], how='left')
 
     # ----Preenchimento com as informações - CVM_FIDC
-
     # Seleção das colunas necessárias
     fidc_cotas = fidc_cotas[['codigo_isin', 'dt_ref', 'cota']].copy()
 
@@ -223,7 +212,6 @@ def tabelas_xml_final():
     xml_cotas = xml_cotas.merge(fidc_cotas, on=['isin', 'data_referencia'], how='left')
 
     # ----PREENCHIMENTO XML
-
     # Preenchimento do PU
     xml_cotas['pu_regra_xml'] = np.where(xml_cotas['quota'].notnull(), xml_cotas['quota'], xml_cotas['cota'])
     xml_cotas['pu_regra_xml'] = np.where(xml_cotas['pu_regra_xml'].isnull(), xml_cotas['puposicao'],
@@ -239,12 +227,10 @@ def tabelas_xml_final():
     del xml_cotas['cota']
     del xml_cotas['quota']
 
+    logger.info("Salvando base de dados - xml_cotas")
     pd.io.sql.to_sql(xml_cotas, name='xml_cotas', con=connection, if_exists="append", flavor='mysql', index=0)
 
-    ###############################################################################
     # ----Outras tabelas
-    ###############################################################################
-
     lista = ['outrasdespesas',
              'caixa',
              'corretagem',
@@ -266,8 +252,10 @@ def tabelas_xml_final():
 
     horario_bd = datetime.datetime.today()
     for i in range(len(lista)):
-        x = 'select * from projeto_inv.xml_' + lista[i] + '_org'
-        tabela = pd.read_sql(x, con=connection)
+        query = 'select * from projeto_inv.xml_' + lista[i] + '_org'
+        tabela = pd.read_sql(query, con=connection)
+        logger.info("Leitura do banco de dados executada com sucesso")
+
         if (len(tabela) != 0):
             print('xml_' + lista[i])
             tabela = tabela.merge(xml_header, on=['header_id'])
@@ -287,6 +275,8 @@ def tabelas_xml_final():
             if id_xml in tabela.columns:
                 del tabela[id_xml]
                 del tabela['marker']
+
+            logger.info("Salvando base de dados")
             pd.io.sql.to_sql(tabela, name='xml_' + lista[i], con=connection, if_exists="append", flavor='mysql', index=0)
 
     writer = ExcelWriter(save_path_verificacao_xmls)
@@ -316,14 +306,17 @@ def tabelas_xml_final():
              'cotas',
              'futuros']
 
-    horario_bd = datetime.datetime.today()
     for i in range(len(lista)):
-        x = 'select * from projeto_inv.xml_' + lista[i]
-        tabela = pd.read_sql(x, con=connection)
+        query = 'select * from projeto_inv.xml_' + lista[i]
+        tabela = pd.read_sql(query, con=connection)
+        logger.info("Leitura do banco de dados executada com sucesso")
+
         if len(tabela) != 0:
             tabela = tabela[tabela.data_bd == max(tabela.data_bd)].copy()
         tabela.to_excel(writer, lista[i])
 
     writer.save()
+    logger.info("Arquivos salvos com sucesso")
 
+    #Fecha conexão
     connection.close()

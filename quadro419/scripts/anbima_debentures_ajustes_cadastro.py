@@ -3,43 +3,43 @@ def anbima_debentures_ajustes_cadastro():
     import datetime
     import pymysql as db
     import numpy as np
+    import logging
+
     from pandas import ExcelWriter
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
 
     # Definições de paths utilizados no script
-    xlsx_path_controle_debentures = full_path_from_database('mtm_titpublico_output') + 'controle_debentures.xlsx'
+    logger = logging.getLogger(__name__)
+    xlsx_path_controle_debentures = full_path_from_database('get_output_quadro419') + 'controle_debentures.xlsx'
     xlsx_path_lista_debentures = full_path_from_database('excels') + 'LISTA_debenture_fluxo_manual.xlsx'
     xlsx_path_caracteristicas_debentures = full_path_from_database('excels') + 'caracteristicas_debenture.xlsx'
     xlsx_path_eventos_financeiros = full_path_from_database('excels') + 'eventos_financeiros.xlsx'
 
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
+    #dtbase = ['2016', '11', '30']
     dtbase_concat = dtbase[0] + dtbase[1] + dtbase[2]
-
     horario_bd = datetime.datetime.now()
 
-    '''------------------------------------------------------------------------
-
-                        Leitura e tratamento das tabelas
-
-    ------------------------------------------------------------------------'''
-
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+    #Leitura e tratamento das tabelas
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
     query = 'SELECT * FROM projeto_inv.anbima_debentures_caracteristicas'
-
     debenture_anbima = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
+    logger.info("Tratando dados")
     debenture_anbima = debenture_anbima.sort(['isin', 'data_bd'], ascending=[True, False])
     debenture_anbima = debenture_anbima.drop_duplicates(subset=['isin'], take_last=True)
 
     # Criação do flag 'O' - existe nas caracteristicas anbima
     debenture_anbima['flag'] = 'O'
 
-    ###########################################################################
     # ----Tratamento da tabela anbima
-    ###########################################################################
 
     # Substitui nan por None
     debenture_anbima = debenture_anbima.where((pd.notnull(debenture_anbima)), None)
@@ -148,35 +148,28 @@ def anbima_debentures_ajustes_cadastro():
     del debenture_anbima['data_bd']
     del debenture_anbima['id_anbima_debentures_caracteristicas']
 
-    ###########################################################################
     # ----Leitura da tabela xml
-    ###########################################################################
-
-    # connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
 
     query = 'SELECT * FROM projeto_inv.xml_debenture_org'
-
     debenture_xml = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     # Seleciona última carga com dtposicao = data_base
     debenture_xml['dtrel'] = debenture_xml['id_papel'].str.split('_')
     debenture_xml['dtrel'] = debenture_xml['dtrel'].str[0]
-
     debenture_xml = debenture_xml[debenture_xml.dtrel == dtbase_concat].copy()
     debenture_xml = debenture_xml[debenture_xml.data_bd == max(debenture_xml.data_bd)]
 
     query = 'SELECT * FROM projeto_inv.xml_header_org '
-
     header_xml = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     # Seleciona última carga com dtposicao = data_base
     header_xml = header_xml[
         header_xml.dtposicao == datetime.date(int(dtbase[0]), int(dtbase[1]), int(dtbase[2]))].copy()
     header_xml = header_xml[header_xml.data_bd == max(header_xml.data_bd)]
 
-    ###########################################################################
     # ----Tratamento da tabela xml
-    ###########################################################################
 
     # Seleção das colunas necessárias
     debenture_xml = debenture_xml[['isin',
@@ -192,12 +185,9 @@ def anbima_debentures_ajustes_cadastro():
 
     # Renomeação de colunas
     debenture_xml = debenture_xml.rename(columns={'indexador': 'indice_xml', 'coddeb': 'codigo_do_ativo_xml'})
-
     debenture_xml['codigo_do_ativo_xml'] = debenture_xml['codigo_do_ativo_xml'].str.replace(' ', '')
 
-    ###########################################################################
     # ----Criação da tabela xml + anbima
-    ###########################################################################
 
     # Constrói base xml+anbima
     debenture = debenture_xml.merge(debenture_anbima, on=['isin'], how='left')
@@ -208,11 +198,7 @@ def anbima_debentures_ajustes_cadastro():
     # Transforma isin-> codigo_isin
     debenture = debenture.rename(columns={'isin': 'codigo_isin'})
 
-    '''------------------------------------------------------------------------
-
-                    Manipulação das informações cadastrais
-
-    ------------------------------------------------------------------------'''
+    #Manipulação das informações cadastrais
 
     # Criação de excel com a lista de manipulações
     writer = ExcelWriter(xlsx_path_controle_debentures)
@@ -220,14 +206,10 @@ def anbima_debentures_ajustes_cadastro():
     # Relatório de situação isin
     relatorio = debenture[['codigo_isin', 'situacao']].copy()
     relatorio.to_excel(writer, 'situacao_isin')
-    writer.save()
+    logger.info("Arquivos salvos com sucesso")
 
-    ###########################################################################
     # ----Criação papéis AS BULLET
-    ###########################################################################
-
     debenture_criacao = debenture[debenture.flag.isnull()].copy()
-
     debenture_criacao['codigo_do_ativo'] = debenture_criacao['codigo_do_ativo_xml']
     debenture_criacao['data_de_emissao'] = debenture_criacao['dtemissao']
     debenture_criacao['data_de_vencimento'] = debenture_criacao['dtvencimento']
@@ -242,17 +224,14 @@ def anbima_debentures_ajustes_cadastro():
 
     # União das tabelas
     debenture = debenture[debenture.flag.notnull()]
-
     debenture = debenture.append(debenture_criacao)
 
     # Salva as alterações num excel
     alteracao = debenture[debenture.flag == 'C0'].copy()
     alteracao.to_excel(writer, 'criados_0')
-    writer.save()
+    logger.info("Arquivos salvos com sucesso")
 
-    ###########################################################################
     # ----Alteração dos papéis na carteira fora do Padrão - SND na base da anbima e tem padrão de pagamento uniforme
-    ###########################################################################
 
     # Salva os papéis na carteira que foram alterados de Não Padrão - SND -> Padrão SND
     alteracao = debenture[debenture.flag == 'CP'].copy()
@@ -411,10 +390,7 @@ def anbima_debentures_ajustes_cadastro():
     alteracao = debenture[debenture.flag == 'C1'].copy()
     alteracao.to_excel(writer, 'criados_1')
 
-    ###########################################################################
     # ----Papéis com fluxo de amortização/juros não uniforme
-    ###########################################################################
-
     # Lista de papéis com plano de amortização não uniforme
     a1 = 'Percentual fixo sobre o valor nominal atualizado em períodos não uniformes'
     a2 = 'Percentual variável sobre o valor nominal atualizado em períodos não uniformes'
@@ -428,6 +404,7 @@ def anbima_debentures_ajustes_cadastro():
 
     # Verificação de fluxo manual
     amt_plan = pd.read_excel(xlsx_path_lista_debentures, header=0)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     amt_nu = amt_nu.merge(amt_plan, on=['codigo_isin'], how='left')
 
@@ -444,10 +421,7 @@ def anbima_debentures_ajustes_cadastro():
     debenture['flag'] = np.where(debenture['flag1'].notnull(), debenture['flag1'], debenture['flag'])
     del debenture['flag1']
 
-    ###############################################################################
     # ----Criação dos papéis que são Dispensa ICVM 476 e que tem padrão de pagamento não uniforme
-    ###############################################################################
-
     debenture_criacao = debenture[debenture.flag == 'C2'].copy()
 
     carac = pd.read_excel(xlsx_path_caracteristicas_debentures, header=0)
@@ -493,10 +467,7 @@ def anbima_debentures_ajustes_cadastro():
     debenture = debenture[debenture.flag != 'C2']
     debenture = debenture.append(debenture_criacao)
 
-    ###########################################################################
     # ----Resolve papéis que não tem tipo_de_amortizacao
-    ###########################################################################
-
     debenture_criacao = debenture[(debenture.tipo_de_amortizacao.isnull())].copy()
 
     # Puxa informação da planilha com eventos financeiros para verificação se o papel de fato é bullet no pagamento de amortização
@@ -526,12 +497,7 @@ def anbima_debentures_ajustes_cadastro():
         debenture_criacao['data_de_vencimento'],
         debenture_criacao['amortizacao_carencia'])
 
-    '''
-
-        ALTERAÇÕES ESPECÍFICAS DA RODADA
-
-    '''
-
+    #ALTERAÇÕES ESPECÍFICAS DA RODADA
     # Alteração default - todos pagam mensalmente - VERIFICAR SEMPRE ANTES DE CONTINUAR COM ESTE COMANDO
     debenture_criacao['juros_criterio_novo_unidade'] = debenture_criacao['juros_criterio_novo_unidade'].fillna('MES')
 
@@ -927,10 +893,7 @@ def anbima_debentures_ajustes_cadastro():
     debenture = debenture[(debenture.tipo_de_amortizacao.notnull())].copy()
     debenture = debenture.append(debenture_criacao)
 
-    ###############################################################################
     # ----Criação de papéis que estão apenas ruins com as informações que vem da anbima_debentures
-    ###############################################################################
-
     # Alteração específica isin = BRENGTDBS009
     debenture['amortizacao_carencia'] = np.where(debenture['codigo_isin'].isin(['BRENGTDBS009']),
                                                  datetime.date(2016, 4, 20), debenture['amortizacao_carencia'])
@@ -1048,9 +1011,7 @@ def anbima_debentures_ajustes_cadastro():
     debenture['juros_criterio_novo_taxa'] = np.where(debenture.codigo_isin.isin(['BRUNIDDBS021']), '4.5',
                                                      debenture['juros_criterio_novo_taxa'])
 
-    ###########################################################################
     # ----Finalização e carregamento na bd
-    ###########################################################################
 
     # Conversão codigo_isin -> isin
     debenture = debenture.rename(columns={'codigo_isin': 'isin'})
@@ -1108,29 +1069,12 @@ def anbima_debentures_ajustes_cadastro():
 
     # Salva excel com todas as abas
     writer.save()
+    logger.info("Arquivos salvos com sucesso")
 
     # Cria a coluna com a data da carga
     debenture['data_bd'] = horario_bd
 
-    connection = db.connect('localhost', user='root', passwd="root", db='projeto_inv')
-    pd.io.sql.to_sql(debenture, name='debentures_caracteristicas', con=connection, if_exists="append", flavor='mysql',
-                     index=False)
+    logger.info("Salvando base de dados - debentures_caracteristicas")
+    pd.io.sql.to_sql(debenture, name='debentures_caracteristicas', con=connection, if_exists="append", flavor='mysql', index=False)
+
     connection.close()
-
-
-# Função ainda sendo trabalhada...
-def debenture_manipulacao_df(data_frame, column, isin_code, juros_crit=None, year=None,
-                             month=None, day=None):
-    if column == 'juros_criterio_novo_cada' or column == 'amortizacao_cada' or column == 'juros_criterio_novo_taxa':
-        data_frame[column] = np.where(data_frame.codigo_isin.isin([isin_code]), juros_crit,
-                                      data_frame[column])
-
-    if column == 'juros_criterio_novo_unidade' or column == 'amortizacao_unidad' or column == 'data_do_inicio_da_rentabilidade':
-        data_frame[column] = np.where(data_frame.codigo_isin.isin([isin_code]), 'MES',
-                                      data_frame[column])
-
-    if column == 'juros_criterio_novo_carencia' or column == 'amortizacao_carencia':
-        data_frame[column] = np.where(data_frame.codigo_isin.isin([isin_code]),
-                                      datetime.date(year, month, day),
-                                      data_frame[column])
-    return data_frame

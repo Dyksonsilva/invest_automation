@@ -3,20 +3,23 @@ def interpolacao_curvas_bmf():
     import pymysql as db
     import pandas as pd
     import datetime
+    import logging
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
-    from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+
+    logger = logging.getLogger(__name__)
 
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
+    #dtbase = ['2016','11','30']
     #dtbase_concat = dtbase[0] + dtbase[1] + dtbase[2]
 
     #Conexão com Banco de Dados
-    connection = db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
     def interpolacao(tp_curva, dt_ref):
-
-        #dt_ref = '2016-12-19'
-        #tp_curva = 'PRE'
 
         global curva_ettj
         global curva_ettj_fim
@@ -32,7 +35,9 @@ def interpolacao_curvas_bmf():
             query = 'select * from projeto_inv.bmf_curvas_' + str(ano) + '_' + str(mes) + ' where data_ref='+'"'+dt_ref+'" and codigo='+'"'+tp_curva+'";'
             #query = "select * from projeto_inv.bmf_curvas where data_ref='2016-12-07' and codigo='PRE'"
             amostra = pd.read_sql(query, con=connection)
-            amostra = amostra.rename(columns={'id_bmf_curva_' + str(ano) + '_' + str(mes): 'id_bmf_curva'})
+            logger.info("Leitura do banco de dados executada com sucesso")
+
+            #amostra = amostra.rename(columns={'id_bmf_curva_' + str(ano) + '_' + str(mes): 'id_bmf_curva'})
 
             if tp_curva=='DP':
                 ref_data=360
@@ -41,8 +46,6 @@ def interpolacao_curvas_bmf():
                 ref_data=252
                 ref_data_txt='252'
             #listar as colunas da tabela:  tp_mtm.columns.tolist()
-
-
             #amostra=curvas[curvas['Codigo']==tp_curva]
             amostra=amostra.reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill='')
             amostra.index = amostra.index + 1
@@ -119,16 +122,15 @@ def interpolacao_curvas_bmf():
             curva_ettj_fim=curva_ettj[curva_ettj['prazo'].isin(list_of_values)]
 
             #Salvar no MySQL
-            print("inserting into curva_ettj_vertices_fixos.......... ")
+            logger.info("Salvando base de dados - curva_ettj_vertices_fixos")
             pd.io.sql.to_sql(curva_ettj_fim, name='curva_ettj_vertices_fixos', con=connection, if_exists='append', flavor='mysql', index=0)
-            print("inserting into curva_ettj_interpol_ano_mes.......... ")
+
+            logger.info("Salvando base de dados - curva_ettj_interpol_"+str(ano)+'_'+str(mes))
             pd.io.sql.to_sql(curva_ettj, name='curva_ettj_interpol_' + str(ano) + '_' + str(mes), con=connection, if_exists='append', flavor='mysql', index=0)
 
         except:
-            print('Deu ruim...')
+            logger.info("Interpolação não executada")
             return None
-
-        # se for rodar a base diária
 
     dt_ref = pd.date_range (start=datetime.date(int(dtbase[0]),int(dtbase[1]),1), end=datetime.date(int(dtbase[0]),int(dtbase[1]),int(dtbase[2])), freq='D').date
     for dt in dt_ref:
@@ -136,25 +138,29 @@ def interpolacao_curvas_bmf():
         dt = str(dt)
 
         try:
-            print("Fazendo interpolacao para PRE, data --> " + str(dt))
+            logger.info("Fazendo interpolacao para PRE, data --> " + str(dt))
             interpolacao('PRE', dt)
-            print("Finalizado PRE")
-            print("Fazendo interpolacao para DIC, data --> " + str(dt))
-            interpolacao('DIC', dt)
-            print("Finalizado DIC")
-            print("Fazendo interpolacao para DIM, data --> " + str(dt))
-            interpolacao('DIM', dt)
-            print("Finalizado DIM")
-            interpolacao('DP', dt)
-            print("Fazendo interpolacao para DP, data --> " + str(dt))
-            print("Finalizado DP")
-            interpolacao('TP', dt)
-            print("Finalizado TP")
+            logger.info("Finalizado PRE")
 
-            print(dt, 'feito')
+            logger.info("Fazendo interpolacao para DIC, data --> " + str(dt))
+            interpolacao('DIC', dt)
+            logger.info("Finalizado DIC")
+
+            logger.info("Fazendo interpolacao para DIM, data --> " + str(dt))
+            interpolacao('DIM', dt)
+            logger.info("Finalizado DIM")
+
+            logger.info("Fazendo interpolacao para DP, data --> " + str(dt))
+            interpolacao('DP', dt)
+            logger.info("Finalizado DP")
+
+            logger.info("Fazendo interpolacao para TP, data --> " + str(dt))
+            interpolacao('TP', dt)
+            logger.info("Finalizado TP")
+
+            logger.info("Interpolações completas")
 
         except:
-
-            print(dt)
+            logger.info(dt)
 
     connection.close()

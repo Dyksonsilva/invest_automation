@@ -3,47 +3,51 @@ def bmf_numeraca_ajustes_cadastro():
     import pandas as pd
     import datetime
     import pymysql as db
+    import logging
+
     from pandas import ExcelWriter
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
 
+    logger = logging.getLogger(__name__)
+
     # Diretório de dependencias
     depend_path_carat = full_path_from_database('excels') + 'caracteristicas.xlsx'
-    depend_path_bullet = full_path_from_database('excels') + 'bullet_12meses.xlsx'
+    depend_path_bullet_B0 = full_path_from_database('excels') + 'bullet_12meses.xlsx'
+    depend_path_bullet_B1 = full_path_from_database('excels') + '12meses_bullet.xlsx'
 
     # Diretório de save de planilhas
     xlsx_path = full_path_from_database('get_output_quadro419') + 'controle_titprivado.xlsx'
 
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
+    #dtbase = ['2016','11','30']
     dtbase_concat = dtbase[0] + dtbase[1] + dtbase[2]
 
     manual = pd.read_excel(depend_path_carat)
+    logger.info("Arquivos lidos com sucesso")
 
     horario_bd = datetime.datetime.now()
 
     writer = ExcelWriter(xlsx_path)
 
-    '''------------------------------------------------------------------------
+    #Leitura e tratamento das tabelas
 
-                        Leitura e tratamento das tabelas
-
-    ------------------------------------------------------------------------'''
-
-    ###########################################################################
     # ----Leitura da base numeraca
-    ###########################################################################
 
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
     query = 'SELECT t.* FROM (SELECT codigo_isin, MAX(data_bd) AS max_data FROM bmf_numeraca GROUP BY codigo_isin ) AS m INNER JOIN bmf_numeraca AS t ON t.codigo_isin = m.codigo_isin AND t.data_bd = m.max_data'
-
     titprivado_bmf = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
-    ###########################################################################
     # ----Tratamento da tabela bmf
-    ###########################################################################
 
+
+    logger.info("Tratando dados")
     # Criação do flag 'O' - existe na numeraca
     titprivado_bmf['flag'] = 'O'
 
@@ -54,13 +58,11 @@ def bmf_numeraca_ajustes_cadastro():
     # Deleta colunas não necessárias
     del titprivado_bmf['data_bd']
 
-    ###########################################################################
     # ----Leitura da tabela xml
-    ###########################################################################
 
     query = 'SELECT * FROM projeto_inv.xml_titprivado_org '
-
     titprivado_xml = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     # Seleciona última carga com dtposicao = data_base
     titprivado_xml['dtrel'] = titprivado_xml['id_papel'].str.split('_')
@@ -70,17 +72,15 @@ def bmf_numeraca_ajustes_cadastro():
     titprivado_xml = titprivado_xml[titprivado_xml.data_bd == max(titprivado_xml.data_bd)]
 
     query = 'SELECT * FROM projeto_inv.xml_header_org '
-
     header_xml = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     # Seleciona última carga com dtposicao = data_base
     header_xml = header_xml[
         header_xml.dtposicao == datetime.date(int(dtbase[0]), int(dtbase[1]), int(dtbase[2]))].copy()
     header_xml = header_xml[header_xml.data_bd == max(header_xml.data_bd)]
 
-    ###########################################################################
     # ----Tratamento da tabela xml
-    ###########################################################################
 
     # Renomeação de colunas
     titprivado_xml = titprivado_xml.rename(columns={'isin': 'codigo_isin', 'indexador': 'indexador_xml'})
@@ -97,9 +97,7 @@ def bmf_numeraca_ajustes_cadastro():
                                      'percindex',
                                      'id_papel']]
 
-    ###########################################################################
     # ----Criação da tabela xml + numeraca
-    ###########################################################################
 
     # Constrói base xml+numeraca
     titprivado = pd.merge(titprivado_xml, titprivado_bmf, left_on=['codigo_isin'], right_on=['codigo_isin'], how='left')
@@ -129,28 +127,23 @@ def bmf_numeraca_ajustes_cadastro():
     # Contatena tabelas
     titprivado_original_bmf['id_papel'] = titprivado_original_bmf['id_papel'] + '_' + titprivado_original_bmf['flag']
 
+    logger.info("Salvando base de dados - titprivado_caracteristicas")
     pd.io.sql.to_sql(titprivado_original_bmf, name='titprivado_caracteristicas', con=connection, if_exists="append",
                      flavor='mysql', index=False)
+    logger.info("Salvando base de dados - titprivado_caracteristicas")
 
+    #Fecha conexão
     connection.close()
 
     del titprivado_original_bmf
 
-    '''------------------------------------------------------------------------
+    #Manipulação das informações cadastrais
 
-                    Manipulação das informações cadastrais
-
-    ------------------------------------------------------------------------'''
-
-    ###############################################################################
     # Verificação dos papéis não existentes na numeraca
-    ###############################################################################
     erros = titprivado[titprivado.flag.isnull()].copy()
     erros.to_excel(writer, 'fora_numeraca')
 
-    ###############################################################################
     # Criação de informações  - fonte: xml - ASSUME BULLET, joga fora papéis já vencidos
-    ###############################################################################\
     idx = titprivado[(titprivado.flag.isnull()) & (titprivado.dtvencimento >= datetime.date(int(dtbase[0]), int(dtbase[1]), int(dtbase[2])))].index.tolist()
 
     titprivado['data_emissao'][idx] = titprivado['dtemissao'][idx]
@@ -168,9 +161,7 @@ def bmf_numeraca_ajustes_cadastro():
     erros = titprivado[titprivado.flag == 'C0'].copy()
     erros.to_excel(writer, 'criados_0')
 
-    ###############################################################################
     # Criação de informações  - fonte: fluxo manual
-    ###############################################################################
 
     manual['data_primeiro_pagamento_juros1'] = pd.to_datetime(manual['data_primeiro_pagamento_juros1']).dt.date
 
@@ -198,9 +189,7 @@ def bmf_numeraca_ajustes_cadastro():
     erros = titprivado[titprivado.flag == 'C1'].copy()
     erros.to_excel(writer, 'criados_1')
 
-    ###############################################################################
     # Manipulação V - Preenche valor nominal com info do xml
-    ###############################################################################
 
     # Papéis que tem informação diferente do xml
     titprivado['flag'][(titprivado.flag != 'C0') & (titprivado.flag != 'C1')] = 'V'
@@ -209,9 +198,7 @@ def bmf_numeraca_ajustes_cadastro():
     erros = titprivado[titprivado.flag == 'V'].copy()
     erros.to_excel(writer, 'valor_nominal')
 
-    ###############################################################################
     # Manipulação I - Preenche percentual indexador com info do xml
-    ###############################################################################
 
     # Caso o percentual_indexador seja missing, preenche com a inforção do xml
     titprivado['flag'][
@@ -221,9 +208,7 @@ def bmf_numeraca_ajustes_cadastro():
     erros = titprivado[titprivado.flag == 'I'].copy()
     erros.to_excel(writer, 'percentual_indexador')
 
-    ###############################################################################
     # Manipulação J0 - Preenche taxa de juros com info do xml, quando percentual indexador = 100
-    ###############################################################################
 
     # Caso o taxa_juros seja missing, preenche com a inforção do xml
     titprivado['flag'][(titprivado.flag != 'C0') & (titprivado.flag != 'C1') & (
@@ -233,9 +218,7 @@ def bmf_numeraca_ajustes_cadastro():
     erros = titprivado[titprivado.flag == 'J0'].copy()
     erros.to_excel(writer, 'taxa_juros_0')
 
-    ###############################################################################
     # Manipulação J0 - Preenche taxa de juros com info do xml, quando percentual indexador != 100
-    ###############################################################################
 
     # Caso o taxa_juros seja missing, preenche com a inforção do xml
     titprivado['flag'][(titprivado.flag != 'C0') & (titprivado.flag != 'C1') & (
@@ -275,12 +258,11 @@ def bmf_numeraca_ajustes_cadastro():
     erros = titprivado[titprivado.flag == 'D'].copy()
     erros.to_excel(writer, 'data_primeiro_pagamento_juros')
 
-    ###############################################################################
     # Faz substituição do código de frequência de juros para os isins especificados no excel
-    ###############################################################################
-
     # Lista de papéis na transformação: JUROS '' bullet -> 'A' anual
-    isin_list = pd.read_excel(depend_path_bullet)
+    isin_list = pd.read_excel(depend_path_bullet_B0)
+    logger.info("Arquivos lidos com sucesso")
+
     titprivado = titprivado.merge(isin_list, on=['codigo_isin'], how='left')
     titprivado['cod_frequencia_juros'][titprivado.flag_err == 1] = 'A'
     titprivado['flag'][titprivado.flag_err == 1] = 'B0'
@@ -290,7 +272,9 @@ def bmf_numeraca_ajustes_cadastro():
     erros.to_excel(writer, 'cod_frequencia_juros_bullet')
 
     # Lista de papéis na transformação: JUROS '' bullet -> 'A' anual
-    isin_list = pd.read_excel(depend_path_bullet)
+    isin_list = pd.read_excel(depend_path_bullet_B1)
+    logger.info("Arquivos lidos com sucesso")
+
     titprivado = titprivado.merge(isin_list, on=['codigo_isin'], how='left')
     titprivado['cod_frequencia_juros'][titprivado.flag_err == 1] = None
     titprivado['flag'][titprivado.flag_err == 1] = 'B1'
@@ -299,10 +283,7 @@ def bmf_numeraca_ajustes_cadastro():
     erros = titprivado[titprivado.flag == 'B1'].copy()
     erros.to_excel(writer, 'cod_frequencia_juros_12meses')
 
-    ###############################################################################
     # Correção ultra-manual
-    ###############################################################################
-
     titprivado['valor_nominal'][titprivado.codigo_isin == 'BRBCXGDP00J9'] = 2062500.0
     titprivado['flag'][titprivado.codigo_isin == 'BRBCXGDP00J9'] = 'M'
     titprivado['valor_nominal'][titprivado.codigo_isin == 'BRCSCSDP0075'] = 1000000.0
@@ -323,10 +304,7 @@ def bmf_numeraca_ajustes_cadastro():
     erros = titprivado[titprivado.flag == 'M'].copy()
     erros.to_excel(writer, 'manual')
 
-    ###############################################################################
     # Finalização
-    ###############################################################################
-
     # Retira papéis que estão fora da numeraca e que não foram criados
     titprivado = titprivado[titprivado.flag.notnull()].copy()
 
@@ -337,6 +315,7 @@ def bmf_numeraca_ajustes_cadastro():
     titprivado.to_excel(writer, 'todos')
 
     # Salva excel com todas as abas
+    logger.info("Arquivos salvos com sucesso")
     writer.save()
 
     # Deleta columnas não existentes na bd bmf_numeraca
@@ -348,13 +327,15 @@ def bmf_numeraca_ajustes_cadastro():
     del titprivado['indexador_xml']
     del titprivado['codativo']
 
-    ###############################################################################
     # Salvar informacoes alteradas no banco de dados
-    ###############################################################################
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
-
+    logger.info("Salvando base de dados - titprivado_caracteristicas")
     pd.io.sql.to_sql(titprivado, name='titprivado_caracteristicas', con=connection, if_exists="append", flavor='mysql',
                      index=False)
 
+    # Fecha conexão
     connection.close()

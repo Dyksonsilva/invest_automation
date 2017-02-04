@@ -4,9 +4,12 @@ def mtm_titpublico():
     import pandas as pd
     import numpy as np
     import pymysql as db
+    import logging
     from findt import FinDt
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
+
+    logger = logging.getLogger(__name__)
 
     # Diretório de save de planilhas
     save_path = full_path_from_database('mtm_titpublico_output') + 'erro.xlsx'
@@ -14,20 +17,30 @@ def mtm_titpublico():
 
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
+    #dtbase = ['2016','11','30']
     dt_base = dtbase[0] + '-' + dtbase[1] + '-' + dtbase[2]
+
     # Data formatada como Dia-Mes-Ano
     data_inicio = dtbase[2] + '-' + dtbase[1] + '-' + dtbase[0]
 
     # Conexão com Banco de Dados
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
     query = 'SELECT a.* FROM projeto_inv.anbima_tpf a right join (select dt_referencia, max(dt_carga) as dt_carga from projeto_inv.anbima_tpf where dt_referencia="' + dt_base + '" group by 1) b on a.dt_referencia=b.dt_referencia and a.dt_carga=b.dt_carga;'
     basetaxa = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
+
     basetaxa = basetaxa.reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill='')
     basetaxa1 = basetaxa[["titulo", "cod_selic", "dt_emissao", "dt_vencto", "dt_referencia", "tx_indicativa", "pu"]]
 
     query = 'SELECT a.* FROM projeto_inv.anbima_fluxo_tpf a right join (select titulo, cod_selic, dt_emissao, dt_vencto, max(data_bd) as data_bd from projeto_inv.anbima_fluxo_tpf group by 1,2,3,4) b on a.titulo=b.titulo and a.cod_selic=b.cod_selic and a.dt_emissao=b.dt_emissao and a.dt_vencto=b.dt_vencto and a.data_bd=b.data_bd;'
     baseref1 = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
+
+    logger.info("Tratando dados")
 
     baseref1 = pd.merge(baseref1, basetaxa1, left_on=['titulo', 'cod_selic', 'dt_emissao', 'dt_vencto'],
                         right_on=['titulo', 'cod_selic', 'dt_emissao', 'dt_vencto'], how='right')
@@ -53,14 +66,9 @@ def mtm_titpublico():
     anbima_fluxomtm_tpf = pd.merge(anbima_fluxomtm_tpf, controle_du, left_on=['dt_ref'], right_on=['dt_ref'], how='left')
 
     dt_base1 = dt_base + ' 00:00:00'
-    ###############################################################################
-    '20161228'
-    # CHAMBER DE ULTIMO CASO SE POR ACASO NAO TIVER O VNA DA DATA BASE. PEGAR O DIA MAIS PROXIMO QUE TIVER NA BASE
-    # UUUUUUULTIMO CASO
-    # dt_base1 = "2016-11-29 00:00:00"
-    ###############################################################################
     query = 'select a.codigo_selic, a.titulo, a.vna from projeto_inv.anbima_vna a right join (select titulo, codigo_selic, data_referencia, max(data_bd) as data_bd from projeto_inv.anbima_vna where data_referencia="' + dt_base1 + '" group by 1,2,3) b on a.titulo=b.titulo and a.codigo_selic=b.codigo_selic and a.data_referencia=b.data_referencia and a.data_bd=b.data_bd;'
     vna = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     anbima_fluxomtm_tpf['titulo'] = np.where(anbima_fluxomtm_tpf['titulo'] == 'LFT', 'lft', anbima_fluxomtm_tpf['titulo'])
     anbima_fluxomtm_tpf['titulo'] = np.where(anbima_fluxomtm_tpf['titulo'] == 'LTN', 'ltn', anbima_fluxomtm_tpf['titulo'])
@@ -143,8 +151,11 @@ def mtm_titpublico():
     anbima_fluxomtm_tpf['data_bd'] = datetime.datetime.today()
 
     # Salvar no MySQL
+    logger.info("Salvando base de dados - anbima_fluxomtm_tpf")
     pd.io.sql.to_sql(anbima_fluxomtm_tpf, name='anbima_fluxomtm_tpf', con=connection, if_exists='append', flavor='mysql',
                      index=0)
+
+    connection.close()
 
     # validacao
     basetaxa1['titulo'] = np.where(basetaxa1['titulo'] == 'LFT', 'lft', basetaxa1['titulo'])
@@ -155,5 +166,8 @@ def mtm_titpublico():
 
     anbima_mtm_sum_tpf = anbima_mtm_sum_tpf.merge(basetaxa1, on=['titulo', 'dt_vencto'], how='left')
     anbima_mtm_sum_tpf['erro'] = anbima_mtm_sum_tpf['pu'] - anbima_mtm_sum_tpf['pu_calc']
+
     anbima_mtm_sum_tpf.to_excel(save_path, sheet_name='titpublico')
+    logger.info("Arquivos salvos com sucesso")
+
     # obs.: não bate 100% pq o truncamento deveria ser feito na soma e não por pagamento. No entanto, como aqui só queremos saber o % do MtM correspondente ao pagamento, fizemos uma aproximação

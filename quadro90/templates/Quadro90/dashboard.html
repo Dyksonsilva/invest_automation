@@ -36,17 +36,19 @@ div#popupbox{
 }
 </style>
 
+
 <div style="padding-right:400px;padding-top: 20px;padding-bottom: 20px" class="container-fluid">
 
 <form method="post">
+    <div align="center">
 
-        <table id="popupbox_list" class="table table-hover table-bordered table-condensed" align="center">
+       <table id="popupbox_list" class="table table-hover table-bordered table-condensed" align="center">
             <thead style = "color:black;background-color:#e0e0e0">
                 <tr>
                     <td>ID Rotina</td>
                     <td>Nome Rotina</td>
                     <td>Descrição Rotina</td>
-                    <td>Tempo Execução</td>
+                    <td>Tempo Execução (s)</td>
                     <td>Data da Última Execução</td>
                     <td>Execução</td>
                 </tr>
@@ -59,7 +61,7 @@ div#popupbox{
                     <td>{{ rotine.descricao_rotina }}</td>
                     <td>{{ rotine.tempo_execucao }}</td>
                     <td>{{ rotine.end_time }}</td>
-                    <td>{% csrf_token %}<button onclick="showDivAttid()" id={{ forloop.counter0 }} name={{ rotine.nome_execucao_rotina }}  type="submit">
+                    <td>{% csrf_token %}<button onclick="showDivAttid()" id={{ forloop.counter0 }} name={{ rotine.nome_execucao_rotina }} type="submit">
                             <span>Send</span></button>
                     </td>
                 </tr>
@@ -70,8 +72,11 @@ div#popupbox{
                     alert("Rotina executada com sucesso!");
                 </script>
             {% endif %}
+
             </tbody>
         </table>
     </div>
+
 </form>
 {% endblock %}
+

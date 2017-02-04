@@ -1,51 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
 
-{% load static %}
+{% extends 'generator/Template EY.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% block content %}
 
-</head>
-<body>
+<a href="/marketdb/">
+	<div class="database">
+		<p class="p-alignment">Atualizações de Mercado</p>
+	</div>
+</a>
 
-<form method="post" enctype="multipart/form-data" class="basic-grey">
-    <div align="center">
-        <h1>HDI Investment Report Generator</h1>
-    </div>
-    <p>
-        <h1 style="font-size:25px">Generate Reports</h1>
-    </p>
-    <p>
-        <a href="/marketdb/"><label>Atualizações de Mercado</label></a>
-        {% csrf_token %}<button id="0" name="atualizacoes" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-    <p>
-        <a href="/quadro90/"><label>Quadro 90</label>
-        {% csrf_token %}<button id="1" name="quadro_90" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-    <p>
-        <a href="/quadro419/"><label>Quadro 419</label></a>
-        {% csrf_token %}<button id="2" name="quadro_419" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
-    <p>
-        <a href="/var/"><label>VaR</label>
-        {% csrf_token %}<button id="3" name="var" class="button" type="submit">
-            <span>Send</span>
-        </button>
-    </p>
+<a href="/quadro90/">
+	<div class="susep90">
+		<p class="p-alignment">Quadro 90</p>
+	</div>
+</a>
 
-</form>
+<a href="/quadro419/">
+	<div class="susep419">
+		<p class="p-alignment">Quadro 419</p>
+	</div>
+</a>
 
-</body>
-</html>
+<a href="/var/">
+	<div class="var">
+		<p class="p-alignment">Value at Risk</p>
+	</div>
+</a>
+
+{% endblock %}
+

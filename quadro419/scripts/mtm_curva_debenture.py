@@ -4,10 +4,13 @@ def mtm_curva_debenture():
     import pandas as pd
     import pymysql as db
     import numpy as np
+    import logging
     from findt import FinDt
     from pandas import ExcelWriter
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+
+    logger = logging.getLogger(__name__)
 
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
@@ -16,37 +19,29 @@ def mtm_curva_debenture():
     # Diretório de save de planilhas
     save_path_puposicao_final = full_path_from_database('get_output_quadro419') + 'puposicao_final_deb.xlsx'
     save_path_teste_dif_deb = full_path_from_database('get_output_quadro419') + 'teste_dif_deb.xlsx'
-
     feriados_sheet = full_path_from_database('feriados_nacionais') + 'feriados_nacionais.csv'
 
-    horario_inicio = datetime.datetime.now()
     tol = 0.20
 
     writer = ExcelWriter(save_path_puposicao_final)
 
-    horario_bd = datetime.datetime.today()
-
     dt_base_rel = datetime.date(int(dtbase[0]), int(dtbase[1]), int(dtbase[2]))
 
-    ###############################################################################
     # 1 - Leitura e criação de tabelas
-    ###############################################################################
-
     # Informações do cálculo de MTM
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+    , use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
     query = "SELECT * FROM projeto_inv.mtm_titprivado WHERE tipo_ativo = 'DBS'"
     #query = "SELECT * FROM projeto_inv.mtm_titprivado"
-
     mtm_titprivado0 = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     mtm_titprivado = mtm_titprivado0.copy()
 
-    # mtm_titprivado = mtm_titprivado.sort(['codigo_isin','id_papel','flag','data_fim','data_bd'],ascending=[True,True,True,True,False])
-    # mtm_titprivado = mtm_titprivado.drop_duplicates(subset=['codigo_isin','id_papel','flag','taxa_juros','perc_amortizacao','data_fim'],take_last=False)
-
     # Seleciona debentures
-    #mtm_titprivado = mtm_titprivado[mtm_titprivado.tipo_ativo.isin(['DBS'])]
 
     # Seleciona a última carga de debentures da data da posicao
     mtm_titprivado['dtrel'] = mtm_titprivado['id_papel'].str.split('_')
@@ -75,8 +70,8 @@ def mtm_curva_debenture():
     del mtm_titprivado['dtrel']
 
     query = 'SELECT * FROM projeto_inv.xml_debenture_org'
-
     xml_titprivado = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     # Seleciona a última carga de debentures da data da posicao
     xml_titprivado['dtrel'] = xml_titprivado['id_papel'].str.split('_')
@@ -93,24 +88,20 @@ def mtm_curva_debenture():
 
     # Puxa as informações de negociação em mercado secuindário da Anbima para debentures -> linha dtspread
     query = 'SELECT * FROM projeto_inv.anbima_debentures'
-
     anbima_deb = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
+
+    #Fecha conexão
+    connection.close()
 
     anbima_deb = anbima_deb[anbima_deb.data_referencia <= dt_base_rel]
-
     anbima_deb = anbima_deb.sort(['codigo', 'data_referencia', 'data_bd'], ascending=[True, True, True])
     anbima_deb = anbima_deb.drop_duplicates(subset=['codigo'], take_last=True)
-
     anbima_deb = anbima_deb[['codigo', 'data_referencia', 'pu']].copy()
-
     anbima_deb['codigo'] = anbima_deb['codigo'].astype(str)
-
     anbima_deb = anbima_deb.rename(columns={'codigo': 'coddeb', 'data_referencia': 'data_spread'})
-
     anbima_deb.coddeb.unique().tolist()
     xml_titprivado.coddeb.unique().tolist()
-
-    xml_titprivado.columns
 
     # Criação da tabela xml + anbima
     xml_titprivado = xml_titprivado.merge(anbima_deb, on=['coddeb'], how='left')
@@ -141,9 +132,8 @@ def mtm_curva_debenture():
 
     titprivado.caracteristica.unique()
 
-    ###############################################################################
+    logger.info("Cálculo marcação na curva")
     # 2 - Cálculo marcação na curva
-    ###############################################################################
 
     ###### AQUI ZERA!!################# Verificar
     titprivado_curva = titprivado[titprivado.caracteristica == 'V'].copy()
@@ -170,7 +160,6 @@ def mtm_curva_debenture():
     titprivado_curva['principal_perc_acum'] = 1 - titprivado_curva['principal_perc']
     titprivado_curva['principal_perc_acum'] = titprivado_curva[['id_papel_old', 'principal_perc_acum']].groupby(
         ['id_papel_old']).agg(['cumprod'])
-
     titprivado_curva['vne'] = titprivado_curva['vne'] * titprivado_curva['principal_perc_acum']
     titprivado_curva['pagto_juros'] = titprivado_curva['vne'] * titprivado_curva['pagto_juros_perc']
     titprivado_curva['vna'] = titprivado_curva['vne'] * titprivado_curva['fator_index_per']
@@ -179,27 +168,20 @@ def mtm_curva_debenture():
     titprivado_curva['saldo_dev_juros'] = titprivado_curva['vna'] * titprivado_curva['saldo_dev_juros_perc']
     titprivado_curva['pupar'] = titprivado_curva['vna'] + titprivado_curva['saldo_dev_juros'] + titprivado_curva[
         'pagto_juros']
-
     titprivado_curva['dif_curva'] = titprivado_curva['pupar'] / titprivado_curva['puposicao'] - 1
     titprivado_curva['dif_curva'] = titprivado_curva['dif_curva'].abs()
-
     titprivado_curva = titprivado_curva[titprivado_curva.dt_ref == titprivado_curva.data_referencia].copy()
-
     titprivado_curva = titprivado_curva[['id_papel_old', 'id_papel', 'codigo_isin', 'dif_curva', 'pupar']].copy()
-
     titprivado_curva = titprivado_curva.sort(['dif_curva'], ascending=[True])
     titprivado_curva = titprivado_curva.drop_duplicates(subset=['id_papel'], take_last=False)
 
     titprivado = titprivado.merge(titprivado_curva, on=['id_papel_old', 'id_papel', 'codigo_isin'], how='left')
-
     titprivado = titprivado[
         ((titprivado.caracteristica == 'V') & (titprivado.dif_curva.notnull())) | (titprivado.caracteristica == 'N')].copy()
-
     titprivado = titprivado.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    ###############################################################################
-    # 4 - Cálculo do mtm na data_spread; a) prazo_du_spread
-    ###############################################################################
+    logger.info("Cálculo do mtm na data_spread; a)prazo_du_spread")
+    # 3 - Cálculo do mtm na data_spread; a) prazo_du_spread
 
     # Verificação de papéis sem a data de referência
     titprivado[titprivado.dt_ref.isnull()].to_excel(writer, 'dt_ref_NaN')
@@ -252,9 +234,8 @@ def mtm_curva_debenture():
     # Calcula o prazo_du_spread
     titprivado['prazo_du_spread'] = titprivado['indice_du_fim_spread'] - titprivado['indice_du_inicio_spread']
 
-    ###############################################################################
+    logger.info("Cálculo do mtm na data_spread; b) taxa_spot")
     # 4 - Cálculo do mtm na data_spread; b) taxa_spot
-    ###############################################################################
 
     if len(titprivado[titprivado.indexador == 'PRE']) != 0:
         maximo_tp_PRE = max(titprivado['prazo_du_spread'][titprivado.indexador == 'PRE'])
@@ -265,14 +246,35 @@ def mtm_curva_debenture():
     if len(titprivado[titprivado.indexador == 'IPCA']) != 0:
         maximo_tp_IPCA = max(titprivado['prazo_du_spread'][titprivado.indexador == 'IPCA'])
 
-    ###############################################################################
+
     # ----Base de interpolações para cálculo do spread
-    ###############################################################################
     dt_min_interpol = str(min(titprivado['data_spread']))
 
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
-    x = 'select * from projeto_inv.curva_ettj_interpol where dt_ref<=' + '"' + dtbase_concat + '" and dt_ref>=' + '"' + dt_min_interpol + '" and indexador_cod in("PRE","DIM","DIC");'
-    ettj = pd.read_sql(x, con=connection)
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+    , use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
+
+    # Data de 2020 limite para a criacao das tabelas
+    dt_ref = pd.date_range(start=datetime.date(int(dt_min_interpol[0:4]), int(dt_min_interpol[5:7]), 1),
+                           end=datetime.date(int(2020), int(10), 31), freq='M').date
+
+    # Uniao das tabelas criadas com union all
+    query = ''
+    for dt in dt_ref:
+        month = '0' + str(dt.month) if len(str(dt.month)) == 1 else str(dt.month)
+        year = '0' + str(dt.year) if len(str(dt.year)) == 1 else str(dt.year)
+        query = query + 'SELECT * FROM projeto_inv.curva_ettj_interpol_' + year + "_" + month + " UNION ALL "
+    query = query[:-11]
+
+    query = 'select * from (' + query + ') AS a where dt_ref<=' + '"' + dtbase_concat + '" and dt_ref>=' + '"' + dt_min_interpol + '" and indexador_cod in("PRE","DIM","DIC");'
+
+    ettj = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
+
+    #Fecha conexão
+    connection.close()
+
     # Seleciona a última carga
     ettj = ettj.sort(['indexador_cod', 'dt_ref', 'data_bd'], ascending=[True, False, False])
     ettj = ettj.drop_duplicates(subset=['prazo', 'tx_spot', 'tx_spot_ano', 'tx_termo_dia', 'indexador_cod'],
@@ -281,8 +283,6 @@ def mtm_curva_debenture():
                                  np.where(ettj['indexador_cod'] == 'DIM', 'IGP', 'PRE'))
     ettj = ettj.rename(columns={'prazo': 'prazo_du'})
     ettj_filtro = ettj[['prazo_du', 'tx_spot', 'tx_spot_ano', 'indexador']]
-    ###############################################################################
-
     ettj_filtro = ettj_filtro.rename(columns={'prazo_du': 'prazo_du_spread'})
 
     # Extrapolação PRE, se necessário
@@ -368,12 +368,10 @@ def mtm_curva_debenture():
     titprivado['tx_spot_spread'] = titprivado['tx_spot_spread'].fillna(0)
     titprivado['tx_spot_ano_spread'] = titprivado['tx_spot_ano_spread'].fillna(0)
 
-    ###############################################################################
-    # 4 - Cálculo do mtm na data_spread; c) valor presente e mtm
-    ###############################################################################
+    logger.info("Cálculo do mtm na data_spread; b) valor presente e mtm")
+    # 5 - Cálculo do mtm na data_spread; c) valor presente e mtm
 
     titprivado['fator_desconto_spread'] = 1 / (1 + titprivado['tx_spot_spread'])
-
     titprivado['pv_spread'] = titprivado['fv'] * titprivado['fator_desconto_spread']
     titprivado['pv_spread'] = np.where(titprivado['prazo_du_spread'] < 0, 0, titprivado['pv_spread'])
 
@@ -383,7 +381,6 @@ def mtm_curva_debenture():
     x1['id_papel'] = x['id_papel']
     x1['mtm_spread'] = x['pv_spread']
     titprivado = titprivado.merge(x1, on=['id_papel'], how='left')
-
     titprivado['dif'] = titprivado['mtm_spread'] / titprivado['pu'] - 1
 
     writer = ExcelWriter(save_path_puposicao_final)
@@ -392,9 +389,8 @@ def mtm_curva_debenture():
     aux[['id_papel_old', 'codigo_isin', 'flag', 'indexador', 'puemissao', 'data_emissao', 'data_expiracao', 'puposicao',
          'percentual_indexador', 'taxa_juros', 'pu', 'mtm_spread', 'dif']].to_excel(writer, 'dif')
 
-    ###############################################################################
-    # 4 - Cálculo spread de crédito
-    ###############################################################################
+    logger.info("Cálculo spread de crédito")
+    # 6 - Cálculo spread de crédito
 
     titprivado_spread = \
     titprivado[['id_papel', 'codigo_isin', 'data_spread', 'pu', 'dt_ref', 'prazo_du_spread', 'pv_spread']][
@@ -402,15 +398,11 @@ def mtm_curva_debenture():
 
     # Seleciona apenas o fluxo com prazo_du positivo
     titprivado_spread = titprivado_spread[titprivado_spread.dt_ref >= titprivado_spread.data_spread]
-
     titprivado_spread = titprivado_spread.drop_duplicates(subset=['id_papel', 'prazo_du_spread'])
-
     titprivado_spread['pv_pv_fluxo'] = np.where(titprivado_spread['dt_ref'] == titprivado_spread['data_spread'],
                                                 -titprivado_spread['pu'], titprivado_spread['pv_spread'])
-
     tp_spread = titprivado_spread[['id_papel', 'dt_ref', 'prazo_du_spread', 'pv_pv_fluxo']].copy()
     tp_spread['prazo_du'] = tp_spread['prazo_du_spread'].astype(float)
-
     tp_spread = tp_spread.drop_duplicates(subset=['id_papel', 'prazo_du_spread'], take_last=True)
 
     id_papel = titprivado_spread['id_papel'].unique()
@@ -448,9 +440,8 @@ def mtm_curva_debenture():
     aux[['id_papel_old', 'codigo_isin', 'valor_nominal', 'puposicao', 'mtm_spread', 'pu', 'spread']].to_excel(
         save_path_teste_dif_deb)
 
-    ###############################################################################
-    # 5 - Seleção dos papéis cuja marcação não ficou boa
-    ###############################################################################
+    logger.info("Seleção dos papéis cuja marcação não ficou boa")
+    # 7 - Seleção dos papéis cuja marcação não ficou boa
 
     tp_bigdif = titprivado[['data_spread',
                             'codigo_isin',
@@ -489,9 +480,8 @@ def mtm_curva_debenture():
         (tp_bigdif.dif > tol) | (tp_bigdif.dif < -tol) | (tp_bigdif.spread > tol) | (tp_bigdif.spread < -tol)].to_excel(
         writer, 'bigdif')
 
-    ###############################################################################
-    # 6 - Atualização do fluxo de percentual de mtm com o spread e carregamento da tabela para preenchimento do quadro 419
-    ###############################################################################
+    logger.info("Atualização do fluxo de percentual de mtm com o spread e carregamento da tabela")
+    # 8 - Atualização do fluxo de percentual de mtm com o spread e carregamento da tabela para preenchimento do quadro 419
 
     titprivado_perc = titprivado.copy()
 
@@ -621,11 +611,7 @@ def mtm_curva_debenture():
 
     writer.save()
 
-    '''
-
-        Alteração de formato das colunas que são int e foram lidas como float (sabe lá pq...)
-
-    '''
+    #    Alteração de formato das colunas que são int e foram lidas como float (sabe lá pq...)
 
     # id_mtm_titprivado
     titprivado_perc['id_mtm_titprivado'] = titprivado_perc['id_mtm_titprivado'].astype(int)
@@ -780,13 +766,19 @@ def mtm_curva_debenture():
     del titprivado_perc['flag']
     titprivado_perc = titprivado_perc.rename(columns={'flag1': 'flag'})
 
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+    , use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
+
+    logger.info("Salvando base de dados - mtm_renda_fixa")
     pd.io.sql.to_sql(titprivado_perc, name='mtm_renda_fixa', con=connection, if_exists='append', flavor='mysql', index=0)
+
+    #Fecha conexão
     connection.close()
 
-    ###############################################################################
-    # 6 - Preenchimento tabela xml
-    ###############################################################################
+    logger.info("Preenchimento tabela xml")
+    # 9 - Preenchimento tabela xml
 
     del original['id_xml_debenture']
     del original['pu_mercado']
@@ -802,39 +794,29 @@ def mtm_curva_debenture():
     titprivado = titprivado.merge(finalizacao, on=['codigo_isin'], how='left')
 
     titprivado_xml = titprivado[titprivado.dt_ref == titprivado.data_referencia].copy()
-
     titprivado_xml = titprivado_xml.drop_duplicates(subset=['id_papel'], take_last=True)
-
     titprivado_xml = titprivado_xml.rename(columns={'mtm': 'mtm_calculado'})
 
     anbima_deb = anbima_deb.rename(columns={'pu': 'pu_n'})
 
     titprivado_xml = titprivado_xml.merge(anbima_deb, on=['coddeb', 'data_spread'], how='left')
-
     titprivado_xml['pu'] = np.where(titprivado_xml['pu_n'].notnull(), titprivado_xml['pu_n'],
                                     titprivado_xml['mtm_calculado'])
-
     titprivado_xml['pu_mercado'] = np.where(titprivado_xml['caracteristica'] == 'N', titprivado_xml['pu'], 0)
     titprivado_xml['pu_curva'] = np.where(titprivado_xml['caracteristica'] == 'V', titprivado_xml['pupar'], 0)
-
     titprivado_xml = titprivado_xml[['id_papel', 'pu_mercado', 'pu_curva', 'data_referencia']].copy()
 
     final = original.merge(titprivado_xml, on=['id_papel'], how='left')
-
     final['data_referencia'] = dt_base_rel
-
     final['pu_mercado'] = np.where((final['pu_mercado'].isnull()) | (final['pu_mercado'] == 0), final['puposicao'],
                                    final['pu_mercado'])
     final['pu_mercado'] = np.where(final['dtretorno'].notnull(), final['puposicao'], final['pu_mercado'])
     final['mtm_mercado'] = final['pu_mercado'] * (final['qtdisponivel'] + final['qtgarantia'])
-
     final['pu_curva'] = np.where(final['pu_curva'].isnull(), final['puposicao'], final['pu_curva'])
     final['pu_curva'] = np.where(final['dtretorno'].notnull(), final['puposicao'], final['pu_curva'])
     final['mtm_curva'] = final['pu_curva'] * (final['qtdisponivel'] + final['qtgarantia'])
-
     final['pu_regra_xml'] = np.where(final['caracteristica'] == 'N', final['pu_mercado'], final['pu_curva'])
     final['mtm_regra_xml'] = np.where(final['caracteristica'] == 'N', final['mtm_mercado'], final['mtm_curva'])
-
     final['data_bd'] = datetime.datetime.today()
 
     del final['dtrel']
@@ -847,7 +829,14 @@ def mtm_curva_debenture():
     final['indexador'] = final['indexador'].str.replace('CDI', 'DI1')
     final['indexador'] = final['indexador'].str.replace('IPCA', 'IPC')
 
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+    , use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
+
+    logger.info("Salvando base de dados - xml_debenture")
     pd.io.sql.to_sql(final, name='xml_debenture', con=connection, if_exists='append', flavor='mysql', index=0)
+
+    #Fecha conexão
     connection.close()
 

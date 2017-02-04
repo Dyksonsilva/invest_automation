@@ -4,13 +4,12 @@ def fluxo_debentures():
     import numpy as np
     import datetime
     import pymysql as db
+    import logging
     from pandas import ExcelWriter
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
 
-    ###############################################################################
-    #1 - Declaração de constantes
-    ###############################################################################
+    logger = logging.getLogger(__name__)
 
     # Diretório de dependencias
     depend_path_carat = full_path_from_database('excels') + 'debenture_fluxo_manual.xlsx'
@@ -24,22 +23,22 @@ def fluxo_debentures():
 
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
+    #dtbase = ['2016','11','30']
     dtbase_concat = dtbase[0] + dtbase[1] + dtbase[2]
 
-    ###############################################################################
-
-
-    ###############################################################################
-    #
     #---------------------------Importa dados crus
-    #
-    ###############################################################################
+
     #Conexão com Banco de Dados
-    connection = db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
     query = 'SELECT * FROM projeto_inv.debentures_caracteristicas WHERE data_de_vencimento >' + '"' + dtbase_concat + '";'
-
     data_aux = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
+
+    logger.info("Tratando dados")
 
     # Seleciona apenas papéis da data do relatório
     data_aux['dtrel'] = data_aux['id_papel'].str.split('_')
@@ -53,11 +52,7 @@ def fluxo_debentures():
     aux_final = data_aux[['id_papel','isin','dtoperacao','amortizacao_carencia']].copy()
     aux_final = aux_final.rename(columns={'amortizacao_carencia':'data_do_primeiro_pagamento_amortizacao'})
 
-    ###############################################################################
-    #
     #---------------------------Data Quality
-    #
-    ###############################################################################
 
     # Tira os papéis com fluxo manual
     data_aux = data_aux[data_aux.flag!='FM']
@@ -89,7 +84,6 @@ def fluxo_debentures():
     data_aux = data_aux[data_aux.unidade_monetaria_1 != 'NCz$']
     data_aux = data_aux[data_aux.unidade_monetaria_1 != 'CR$']
     data_aux = data_aux[data_aux.unidade_monetaria_1 != 'Cr$']
-
 
     # Substitui o <tipo_de_amortizacao"
     data_aux = data_aux.replace(['Percentual fixo sobre o valor nominal atualizado em períodos uniformes'],['vna1'])
@@ -177,12 +171,7 @@ def fluxo_debentures():
     #Reseta os índices do dataframe
     data_aux = data_aux.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    ###############################################################################
-    #
     #---------------------------TABELA INFO
-    #
-    ###############################################################################
-
     fx_r0 = pd.DataFrame(columns=['id_andima_debentures',
                                   'codigo_isin',
                                   'id_papel',
@@ -231,12 +220,7 @@ def fluxo_debentures():
     fx_r0['amortizacao_unidade'] = data_aux['amortizacao_unidade'].copy()
     fx_r0['taxa_amortizacao'] = data_aux['amortizacao_taxa'].copy()
 
-    ###############################################################################
-    #
     #---------------------------INICIALIZA TABELA FLUXO
-    #
-    ###############################################################################
-
     anbima_fluxo_debenture = pd.DataFrame(columns=['id_papel',
                                                    'codigo_isin',
                                                    'flag',
@@ -272,17 +256,12 @@ def fluxo_debentures():
     #Cria a data da carga na base de dados
     horario_bd = datetime.datetime.now()
 
-    ###############################################################################
-    #
     #---------------------------PREENCHE BULLETS
-    #
-    ###############################################################################
-
     #Cria vetor de indexadores
     idx = fx_r0[fx_r0.data_expiracao == fx_r0.data_primeiro_pagamento_juros].index.tolist()
 
     if len(idx)!=0:
-    #    print('BULLET')
+
         anbima_fluxo_debenture['codigo_isin'] = fx_r0['codigo_isin'][idx].copy()
         anbima_fluxo_debenture['id_papel'] = fx_r0['id_papel'][idx].copy()
         anbima_fluxo_debenture['flag'] = fx_r0['flag'][idx].copy()
@@ -321,11 +300,7 @@ def fluxo_debentures():
         fx_r0 = fx_r0.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
 
-    #############################################################################################################################################################
-
     #---------------------------PREENCHE PAPÉIS MENSAIS SEM AMORTIZAÇÃO
-
-    #############################################################################################################################################################
     # Cria lista de indexadores
     idx = fx_r0[(fx_r0.juros_unidade == 'MES') & (
     fx_r0.data_do_primeiro_pagamento_amortizacao == fx_r0.data_expiracao)].index.tolist()
@@ -334,7 +309,6 @@ def fluxo_debentures():
     afd_count = len(anbima_fluxo_debenture)
     afd_idx = 0
     for i in idx:
-        #    print('MENSAL')
         # Preenche a primeira linha do novo papel
         anbima_fluxo_debenture.loc[afd_count] = [fx_r0['id_papel'][i],  # 'id_papel',
                                                  fx_r0['codigo_isin'][i],  # 'codigo_isin'
@@ -371,7 +345,6 @@ def fluxo_debentures():
                                                  '01'  # 'flag_tipo'
                                                  ]
 
-        # Cada_ofst = DateOffset(months = int(fx_r0['juros_cada'][i]))
         ofset = 1
         while anbima_fluxo_debenture['dt_ref'][afd_count] >= anbima_fluxo_debenture['data_primeiro_pagamento_juros'][
             afd_count]:
@@ -420,12 +393,8 @@ def fluxo_debentures():
     # Reseta os índices do dataframe tabela info
     fx_r0 = fx_r0.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    #############################################################################################################################################################
 
     #---------------------------PREENCHE PAPÉIS MENSAIS COM AMORTIZAÇÃO PAGANDO JUNTO COM JUROS
-
-    #############################################################################################################################################################
-
     #Cria lista de indexadores
     idx = fx_r0[(fx_r0.juros_unidade == 'MES') & (fx_r0.data_do_primeiro_pagamento_amortizacao == fx_r0.data_primeiro_pagamento_juros) & (fx_r0.amortizacao_cada == fx_r0.juros_cada)].index.tolist()
 
@@ -433,7 +402,6 @@ def fluxo_debentures():
     afd_count = len(anbima_fluxo_debenture)
     afd_idx = 0
     for i in idx:
-    #    print('MENSAL')
         #Preenche a primeira linha do novo papel
         anbima_fluxo_debenture.loc[afd_count] = [fx_r0['id_papel'][i],                                      #'id_papel',
                                                  fx_r0['codigo_isin'][i],                                   #'codigo_isin'
@@ -469,7 +437,6 @@ def fluxo_debentures():
                                                  '1'                                                        #'flag_tipo'
                                                  ]
 
-        #Cada_ofst = DateOffset(months = int(fx_r0['juros_cada'][i]))
         ofset = 1
         while anbima_fluxo_debenture['dt_ref'][afd_count] >= anbima_fluxo_debenture['data_primeiro_pagamento_juros'][afd_count]:
 
@@ -516,12 +483,7 @@ def fluxo_debentures():
     #Reseta os índices do dataframe tabela info
     fx_r0 = fx_r0.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    ##############################################################################################################################################################
-    #
     #---------------------------PREENCHE PAPÉIS MENSAIS COM AMORTIZAÇÃO PAGANDO SEPARADO DOS JUROS
-    #
-    ##############################################################################################################################################################
-
     afd_count = len(anbima_fluxo_debenture)
 
     #Cria lista de indexadores
@@ -531,7 +493,6 @@ def fluxo_debentures():
     afd_count = afd_count + 1
     #afd_idx = len(anbima_fluxo_debenture) - 1
     for i in idx:
-    #    print('MENSAL_AMORTIZACAO')
         #Preenche a primeira linha do novo papel - JUROS
         anbima_fluxo_debenture.loc[afd_count] = [fx_r0['id_papel'][i],                                      #'id_papel',
                                                  fx_r0['codigo_isin'][i],                                   #'codigo_isin'
@@ -690,12 +651,7 @@ def fluxo_debentures():
     #Reseta os índices do dataframe tabela info
     fx_r0 = fx_r0.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    ##############################################################################################################################################################
-    #
     #---------------------------PREENCHE PAPÉIS DIÁRIOS SEM AMORTIZAÇÃO
-    #
-    ##############################################################################################################################################################
-
     afd_count = len(anbima_fluxo_debenture)
 
     #Cria lista de indexadores
@@ -789,11 +745,8 @@ def fluxo_debentures():
 
     #Reseta os índices do dataframe tabela info
     fx_r0 = fx_r0.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
-    ##############################################################################################################################################################
-    #
+
     # ---------------------------PREENCHE PAPÉIS DIARIOS COM AMORTIZAÇÃO MENSAL
-    #
-    ##############################################################################################################################################################
     afd_count = len(anbima_fluxo_debenture)
 
     # Cria lista de indexadores
@@ -967,10 +920,7 @@ def fluxo_debentures():
     # Reseta os índices do dataframe tabela info
     fx_r0 = fx_r0.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    ###############################################################################
     # Ultimas correções bd
-    ###############################################################################
-
     #Ajustes
     anbima_fluxo_debenture = anbima_fluxo_debenture.where((pd.notnull(anbima_fluxo_debenture)), None)
     anbima_fluxo_debenture['tipo_ativo'] = anbima_fluxo_debenture['tipo_ativo'].fillna('DBS')
@@ -991,7 +941,7 @@ def fluxo_debentures():
 
 
     ##Retira dt_ref de amortizacao muito anteriores à primeira data de pagamento de amortizacao
-    '''NESTA RODADA, NENHUM PAGAMENTO DE AMT ESTÁ ANTES DA DATA DO PRIMEIRO PAGAMENTO'''
+    #'NESTA RODADA, NENHUM PAGAMENTO DE AMT ESTÁ ANTES DA DATA DO PRIMEIRO PAGAMENTO'''
 
     #Recalcula os percentuais de amortização para somar 100%
     aux = anbima_fluxo_debenture[['id_papel', 'amt_tipo']].copy()
@@ -1008,7 +958,6 @@ def fluxo_debentures():
     aux = aux.rename(columns={'perc_amortizacao':'perc_amortizacao1','amt_tipo':'amt_tipo1'})
 
     anbima_fluxo_debenture = anbima_fluxo_debenture.merge(aux,on=['id_papel','codigo_isin','dt_ref'],how='left')
-
     anbima_fluxo_debenture['perc_amortizacao'] = np.where(anbima_fluxo_debenture['perc_amortizacao1'].notnull(),anbima_fluxo_debenture['perc_amortizacao1'],anbima_fluxo_debenture['perc_amortizacao'])
     anbima_fluxo_debenture['amt_tipo'] = np.where(anbima_fluxo_debenture['amt_tipo1'].notnull(),anbima_fluxo_debenture['amt_tipo1'],anbima_fluxo_debenture['amt_tipo'])
 
@@ -1017,11 +966,9 @@ def fluxo_debentures():
     #Salva o arquivo de controle
     anbima_fluxo_debenture.to_excel(writer,'fluxo')
     writer.save()
+    logger.info("Arquivos salvos com sucesso")
 
-    ###############################################################################
     # Agregação ao fluxo manual
-    ###############################################################################
-
     fluxo_manual = pd.read_excel(depend_path_carat, header=0)
 
     id_papel = aux_final[['isin','id_papel']].copy()
@@ -1035,10 +982,7 @@ def fluxo_debentures():
 
     anbima_fluxo_debenture = anbima_fluxo_debenture.append(fluxo_manual)
 
-    ###############################################################################
     # Finalização
-    ###############################################################################
-
     aux_dtoperacao = aux_final[['id_papel','dtoperacao']]
     anbima_fluxo_debenture = anbima_fluxo_debenture.merge(aux_dtoperacao,on=['id_papel'],how='left')
 
@@ -1058,6 +1002,6 @@ def fluxo_debentures():
     #Ajusta as datas para ficar na ordem crescente
     anbima_fluxo_debenture = anbima_fluxo_debenture.sort(['codigo_isin','id_papel','dt_ref'], ascending=[True,True,True])
 
-    connection = db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv')
+    logger.info("Salvando base de dados - fluxo_titprivado")
     pd.io.sql.to_sql(anbima_fluxo_debenture, name='fluxo_titprivado', con=connection, if_exists='append', flavor='mysql', index=False)
     connection.close()

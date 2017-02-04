@@ -1,23 +1,40 @@
 def xml_quadro_operacoes(cnpj):
 
+    import pandas as pd
+    import pymysql as db
+    import numpy as np
+    import datetime
+    import logging
+    from findt import FinDt
+    from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
+    from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+
+    logger = logging.getLogger(__name__)
+
     def header_xml(dt_base, cnpj):
 
-        query = 'select * from projeto_inv.xml_header where cnpjcpf="' + cnpj + '" and dtposicao=' + '"' + dt_base + '";'
+        global header_id_carteira
 
+        query = 'select * from projeto_inv.xml_header where cnpjcpf="' + cnpj + '" and dtposicao=' + '"' + dt_base + '";'
         df = pd.read_sql(query, con=connection)
+        logger.info("Leitura do banco de dados executada com sucesso")
+
         if len(df) == 0:
             query = 'select * from projeto_inv.xml_header where cnpj="' + cnpj + '" and dtposicao=' + '"' + dt_base + '";'
             df = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
         df = df.sort(['cnpj', 'cnpjcpf', 'data_bd'], ascending=[True, True, False])
         df = df.drop_duplicates(subset=['cnpj', 'cnpjcpf'], take_last=False)
         df = df.reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill='')
         del df['index']
-        global header_id_carteira
+
         header_id_carteira = df.get_value(0, 'header_id').astype(str)
 
     def tratamento_xml(dt_base, cnpjcpf):
 
         global quadro_oper
+
         quadro_oper = pd.DataFrame(
             columns=['mtm_info', 'produto', 'dt_emissao', 'dt_compra', 'a_p_op', 'quantidade', 'dt_vencto', 'indexador',
                      'perc_index', 'tx_operacao', 'principal', 'fundo', 'isin', 'cnpj', 'caracteristica', 'ativo',
@@ -29,9 +46,13 @@ def xml_quadro_operacoes(cnpj):
 
             # selecionar a carga mais recente
             df = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             if len(df) == 0:
                 query = 'select * from projeto_inv.xml_header where cnpj=' + cnpjcpf + ' and dtposicao=' + '"' + dt_base + '";'
                 df = pd.read_sql(query, con=connection)
+                logger.info("Leitura do banco de dados executada com sucesso")
+
             df = df.sort(['cnpj', 'cnpjcpf', 'data_bd'], ascending=[True, True, False])
             df = df.drop_duplicates(subset=['cnpj', 'cnpjcpf'], take_last=False)
             df = df.reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill='')
@@ -49,6 +70,7 @@ def xml_quadro_operacoes(cnpj):
         try:
             query = 'select isin, pu_mercado, pu_curva, pu_regra_xml, puposicao, dtemissao, dtoperacao, coddeb, classeoperacao, qtdisponivel, qtgarantia, dtvencimento, indexador, percindex, coupom, caracteristica, cnpjemissor , dtretorno,	puretorno,	indexadorcomp,	perindexcomp,	txoperacao,	classecomp from projeto_inv.xml_debenture a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_debenture where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             deb1 = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             deb = deb1[deb1.dtretorno.isnull()].copy()
 
@@ -117,6 +139,8 @@ def xml_quadro_operacoes(cnpj):
         try:
             query = 'select sum(tributos) as tributos from projeto_inv.xml_debenture a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_debenture where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             deb_tributos = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             deb_tributos['mtm_info'] = -1 * deb_tributos['tributos']
             del deb_tributos['tributos']
             deb_tributos['produto'] = 'tributos'
@@ -132,6 +156,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select isin,  pu_mercado, pu_curva, pu_regra_xml, puposicao, dtemissao, dtoperacao, codativo,	classeoperacao, qtdisponivel, qtgarantia, dtvencimento, indexador, percindex, coupom, caracteristica, cnpjemissor from projeto_inv.xml_titprivado a right join (select header_id,max(data_bd) as data_bd1 from projeto_inv.xml_titprivado where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             titprivado = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             titprivado['quantidade'] = titprivado['qtdisponivel'].astype(float) + titprivado['qtgarantia'].astype(float)
             titprivado['mtm_info'] = titprivado['puposicao'].astype(float) * titprivado['quantidade']
@@ -159,6 +184,8 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select sum(tributos) as tributos from projeto_inv.xml_titprivado a right join (select header_id,max(data_bd) as data_bd1 from projeto_inv.xml_titprivado where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             titprivado_tributos = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             titprivado_tributos['mtm_info'] = -1 * titprivado_tributos['tributos']
             del titprivado_tributos['tributos']
             titprivado_tributos['produto'] = 'tributos'
@@ -174,9 +201,9 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select isin, pu_mercado, pu_curva, pu_regra_xml, puposicao, dtemissao, dtoperacao, codativo,	classeoperacao, qtdisponivel, qtgarantia, dtvencimento, indexador, percindex, caracteristica, coupom, dtretorno,	puretorno,	indexadorcomp,	perindexcomp,	txoperacao,	classecomp from projeto_inv.xml_titpublico a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_titpublico where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             titpublico1 = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             titpublico = titpublico1[titpublico1.dtretorno.isnull()].copy()
-
             titpublico['quantidade'] = titpublico['qtdisponivel'] + titpublico['qtgarantia']
             titpublico['mtm_info'] = titpublico['puposicao'] * titpublico['quantidade']
             titpublico['ativo'] = titpublico['codativo']
@@ -243,12 +270,13 @@ def xml_quadro_operacoes(cnpj):
         except:
             return None
 
-
             # titpublico-tributos
         try:
 
             query = 'select sum(tributos) as tributos from projeto_inv.xml_titpublico a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_titpublico where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             titpublico_tributos = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             titpublico_tributos['mtm_info'] = -1 * titpublico_tributos['tributos']
             del titpublico_tributos['tributos']
             titpublico_tributos['produto'] = 'tributos'
@@ -264,6 +292,8 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select valorfindisp, classeoperacao, qtdisponivel, qtgarantia, codativo, valorfinemgar, isin, puposicao, pu_regra_xml from projeto_inv.xml_acoes a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_acoes where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             acoes = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             acoes['mtm_info'] = acoes['valorfindisp'].astype(float) + acoes['valorfinemgar'].astype(float)
             acoes['quantidade'] = acoes['qtdisponivel'] + acoes['qtgarantia']
             del acoes['qtdisponivel']
@@ -287,6 +317,8 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select sum(tributos) as tributos from projeto_inv.xml_acoes a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_acoes where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             acoes_tributos = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             acoes_tributos['mtm_info'] = -1 * acoes_tributos['tributos']
             del acoes_tributos['tributos']
             acoes_tributos['produto'] = 'tributos'
@@ -302,6 +334,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select saldo from projeto_inv.xml_caixa a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_caixa where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             caixa = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             caixa['produto'] = 'caixa'
             caixa = caixa.rename(columns={'saldo': 'mtm_info'})
@@ -317,6 +350,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select vlajuste, classeoperacao, quantidade, dtvencimento ,isin from projeto_inv.xml_futuros a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_futuros where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             futuro = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             futuro = futuro.rename(
                 columns={'vlajuste': 'mtm_info', 'classeoperacao': 'a_p_op', 'dtvencimento': 'dt_vencto'})
@@ -335,6 +369,8 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select sum(tributos) as tributos from projeto_inv.xml_futuros a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_futuros where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             futuro_tributos = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             futuro_tributos['mtm_info'] = -1 * futuro_tributos['tributos']
             del futuro_tributos['tributos']
             futuro_tributos['produto'] = 'tributos'
@@ -350,6 +386,7 @@ def xml_quadro_operacoes(cnpj):
             # exposicao de futuro
             query = 'select vltotalpos, ativo, serie, classeoperacao, quantidade, dtvencimento ,isin, pu_regra_xml from projeto_inv.xml_futuros a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_futuros where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             futuro_expo = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             futuro_expo = futuro_expo.rename(
                 columns={'vltotalpos': 'mtm_info', 'classeoperacao': 'a_p_op', 'dtvencimento': 'dt_vencto'})
@@ -373,6 +410,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select valorfin, dtoper, puposicao,	classeoperacao, qtd, dtvencimento, indexador, percindex, coupom , isin, principal, pu_mercado, pu_curva, pu_regra_xml from projeto_inv.xml_termorf a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_termorf where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             termorf = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             termorf['mtm_info'] = termorf['valorfin'].astype(float)
             termorf = termorf.rename(
@@ -393,6 +431,8 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select sum(tributos) as tributos from projeto_inv.xml_termorf a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_termorf where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             termorf_tributos = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             termorf_tributos['mtm_info'] = -1 * termorf_tributos['tributos']
             del termorf_tributos['tributos']
             termorf_tributos['produto'] = 'tributos'
@@ -409,6 +449,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select valorfinanceiro, ativo, puposicao,	dtoperacao, classeoperacao, quantidade, dtvencimento, isin, pu_regra_xml from projeto_inv.xml_termorv a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_termorv where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             termorv = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             termorv['mtm_info'] = termorv['valorfinanceiro'].astype(float)
             termorv = termorv.rename(
@@ -431,6 +472,8 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select sum(tributos) as tributos from projeto_inv.xml_termorv a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_termorv where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             termorv_tributos = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             termorv_tributos['mtm_info'] = -1 * termorv_tributos['tributos']
             del termorv_tributos['tributos']
             termorv_tributos['produto'] = 'tributos'
@@ -446,6 +489,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select vlmercadoativo, dtoperacao, dtvencimento,	indexadorativo, percindexativo, taxaativo, cnpjcontraparte, isin , mtm_ativo_regra_xml from projeto_inv.xml_swap a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_swap where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             swap_ativo = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             swap_ativo = swap_ativo.rename(
                 columns={'vlmercadoativo': 'mtm_info', 'dtoperacao': 'dt_compra', 'dtvencimento': 'dt_vencto',
@@ -466,6 +510,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select vlmercadopassivo, dtoperacao, dtvencimento, indexadorpassivo, percindexpassivo, taxapassivo, cnpjcontraparte, isin , mtm_passivo_regra_xml from projeto_inv.xml_swap a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_swap where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             swap_passivo = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             swap_passivo['mtm_info'] = -1 * swap_passivo['vlmercadopassivo'].astype(float)
             swap_passivo = swap_passivo.rename(
@@ -488,6 +533,8 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select sum(tributos) as tributos from projeto_inv.xml_swap a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_swap where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             swap_tributos = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             swap_tributos['mtm_info'] = -1 * swap_tributos['tributos']
             del swap_tributos['tributos']
             swap_tributos['produto'] = 'tributos'
@@ -503,6 +550,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select txadm from projeto_inv.xml_despesas a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_despesas where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             desp_adm = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             desp_adm['mtm_info'] = -1 * desp_adm['txadm']
             desp_adm['produto'] = 'despesas-taxa de adm.'
@@ -519,6 +567,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select tributos from projeto_inv.xml_despesas a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_despesas where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             desp_tributos = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             desp_tributos['mtm_info'] = -1 * desp_tributos['tributos']
             desp_tributos['produto'] = 'despesas-tributos'
@@ -536,6 +585,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select vltxperf from projeto_inv.xml_despesas a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_despesas where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             desp_perf = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             desp_perf['mtm_info'] = -1 * desp_perf['vltxperf']
             desp_perf['produto'] = 'despesas-taxa de perfom.'
@@ -552,6 +602,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select outtax from projeto_inv.xml_despesas a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_despesas where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             desp_outras = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             desp_outras['mtm_info'] = -1 * desp_outras['outtax']
             desp_outras['produto'] = 'despesas-outras taxas'
@@ -569,9 +620,11 @@ def xml_quadro_operacoes(cnpj):
         try:
             query = 'select valor, coddesp from projeto_inv.xml_outrasdespesas a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_outrasdespesas where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             outras_desp = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             query = 'select a.coddesp, a.descricao, a.tipo_registro from projeto_inv.anbima_coddesp a right join (select max(data_bd) as data_bd from projeto_inv.anbima_coddesp) b on a.data_bd=b.data_bd;'
             coddesp = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             outras_desp = pd.merge(outras_desp, coddesp, left_on='coddesp', right_on='coddesp', how='left')
             outras_desp = outras_desp[outras_desp.coddesp.notnull()]
@@ -595,6 +648,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select vlbov, vlrepassebov, vlbmf, vlrepassebmf, vloutbolsas, vlrepasseoutbol from projeto_inv.xml_corretagem a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_corretagem where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             corretagem = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             corretagem['mtm_info'] = -1 * (
             corretagem['vlbov'] + corretagem['vlrepassebov'] + corretagem['vlbmf'] + corretagem['vlrepassebmf'] +
@@ -613,6 +667,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select valorfinanceiro, ativo, serie, callput, classeoperacao,puposicao, quantidade, dtvencimento, isin, pu_regra_xml from projeto_inv.xml_opcoesderiv a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_opcoesderiv where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             opcoesderiv = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             opcoesderiv = opcoesderiv.rename(
                 columns={'valorfinanceiro': 'mtm_info', 'classeoperacao': 'a_p_op', 'dtvencimento': 'dt_vencto',
@@ -635,6 +690,8 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select sum(tributos) as tributos from projeto_inv.xml_opcoesderiv a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_opcoesderiv where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             opcoesderiv_trib = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             opcoesderiv_trib['mtm_info'] = -1 * opcoesderiv_trib['tributos']
             del opcoesderiv_trib['tributos']
             opcoesderiv_trib['produto'] = 'tributos'
@@ -651,6 +708,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select valorfinanceiro, codativo, classeoperacao, puposicao, qtdisponivel, dtvencimento, isin, pu_regra_xml from projeto_inv.xml_opcoesacoes a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_opcoesacoes where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             opcoesacoes = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             opcoesacoes['produto'] = 'Opções de ações-' + opcoesacoes['codativo']
             opcoesacoes = opcoesacoes.rename(
@@ -671,6 +729,8 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select sum(tributos) as tributos from projeto_inv.xml_opcoesacoes a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_opcoesacoes where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             opcoesacoes_trib = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             opcoesacoes_trib['mtm_info'] = -1 * opcoesacoes_trib['tributos']
             del opcoesacoes_trib['tributos']
             opcoesacoes_trib['produto'] = 'tributos'
@@ -687,6 +747,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select valorfinanceiro, callput, ativo, tipo, dtoperacao, classeoperacao, puposicao, quantidade, garantia, isin, pu_regra_xml from projeto_inv.xml_opcoesflx a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_opcoesflx where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             opcoesflx = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             opcoesflx['produto'] = 'Opções de ações-' + opcoesflx['callput'] + "-" + opcoesflx['ativo'] + "-" + opcoesflx[
                 'tipo']
@@ -708,6 +769,8 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select sum(tributos) as tributos from projeto_inv.xml_opcoesflx a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_opcoesflx where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             opcoesflx_trib = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             opcoesflx_trib['mtm_info'] = -1 * opcoesflx_trib['tributos']
             del opcoesflx_trib['tributos']
             opcoesflx_trib['produto'] = 'tributos'
@@ -724,6 +787,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select cnpj, valorreceber, valorpagar, vlcotasemitir, vlcotasresgatar  from projeto_inv.xml_header a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_header where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             header = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             valorreceber = header[['valorreceber', 'cnpj']]
             valorreceber['produto'] = 'valores a receber'
@@ -768,6 +832,7 @@ def xml_quadro_operacoes(cnpj):
 
             query = 'select a.* from projeto_inv.xml_cotas a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_cotas where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             cotas = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
 
             cotas['quantidade'] = cotas['qtdisponivel'] + cotas['qtgarantia']
             cotas['mtm_info_fundo'] = cotas['quantidade'] * cotas['puposicao']
@@ -787,6 +852,8 @@ def xml_quadro_operacoes(cnpj):
             # cotas tributos
             query = 'select a.* from (select header_id, data_bd, cnpjfundo, sum(tributos) as tributos from projeto_inv.xml_cotas group by 1,2,3) a right join (select header_id, max(data_bd) as data_bd1 from projeto_inv.xml_cotas where header_id=' + header_id + ') b on a.data_bd=b.data_bd1 and a.header_id=b.header_id;'
             cotas_tributos = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
             cotas_tributos = cotas_tributos[~cotas_tributos.tributos.isnull()]
             cotas_tributos['flag_desp'] = 1
             cotas_tributos['mtm_info_fundo'] = -1 * cotas_tributos['tributos']
@@ -818,8 +885,7 @@ def xml_quadro_operacoes(cnpj):
     # rodar código HDI seguros - carteira consolidada
     def parametrizacao(dt_base, cnpj):
         header_xml(dt_base, cnpj)
-        # dt_base= "2016-02-29"
-        # conso_xml(dt_base,'29980158000157')
+
         global lista_fundos
         global quadro_operacoes
         global fundos
@@ -828,10 +894,10 @@ def xml_quadro_operacoes(cnpj):
 
         conso_xml(dt_base, cnpj)
         # selecao de todos os xmls recebidos
-        senhabd = "projetoinvbd"
-        query = 'select distinct cnpj from projeto_inv.xml_header where cnpj<> "" and dtposicao=' + '"' + dt_base + '";'
 
+        query = 'select distinct cnpj from projeto_inv.xml_header where cnpj<> "" and dtposicao=' + '"' + dt_base + '";'
         lista_fundos = pd.read_sql(query, con=connection)
+        logger.info("Leitura do banco de dados executada com sucesso")
 
         quadro_operacoes = quadro_oper.copy()
         quadro_operacoes['cnpjfundo_xml'] = quadro_operacoes['cnpjfundo']
@@ -849,13 +915,6 @@ def xml_quadro_operacoes(cnpj):
             columns=['mtm_info', 'produto', 'dt_emissao', 'dt_compra', 'cnpj', 'contraparte', 'a_p_op', 'quantidade',
                      'dt_vencto', 'indexador', 'perc_index', 'tx_operacao', 'cnpjfundo', 'fundo', 'mtm_info_fundo', 'isin',
                      'caracteristica', 'header_id', 'patliq', 'cnpjfundo_xml', 'pu_curva', 'pu_regra_xml'])
-        y = 0
-
-        #    senhabd="projetoinvbd"
-        #    connection=db.connect('localhost', user = 'root', passwd = senhabd, db = 'projeto_inv', charset='utf8')
-        #    x='select distinct cnpj from projeto_inv.xml_header where cnpj>0 and dtposicao='+'"'+dt_base1+'";'
-
-        #    lista_fundos=pd.read_sql(x, con=connection)
 
         for y in range(len(lista_fundos)):
             # x=lista_fundos.get_value(y,'cnpj').astype(str)
@@ -957,7 +1016,6 @@ def xml_quadro_operacoes(cnpj):
         del quadro_conso['cnpjfundo']
         del quadro_conso['fundo']
         del quadro_conso['mtm_info_fundo']
-
         del quadro_conso['patliq']
         del quadro_conso['cnpjfundo_xml']
         del quadro_conso['mtm_info_fundo_posicao_cl']
@@ -968,6 +1026,8 @@ def xml_quadro_operacoes(cnpj):
         # nome do fundo
         global nome_fundo
         nome_fundo = pd.read_csv(depend_path_SPW_FI, sep='\t', header=0, encoding="iso-8859-1")
+        logger.info("Arquivos lidos com sucesso")
+
         nome_fundo_fim = nome_fundo[['DENOMINACAO_SOCIAL', 'CNPJ']]
         nome_fundo_fim = nome_fundo_fim.rename(columns={'DENOMINACAO_SOCIAL': 'fundo'})
         nome_fundo_fim['cnpj_fundo'] = nome_fundo_fim['CNPJ'].astype(str)
@@ -977,6 +1037,8 @@ def xml_quadro_operacoes(cnpj):
         del nome_fundo_fim['CNPJ']
 
         estruturados = pd.read_excel(depend_path_fundos_estruturados)
+        logger.info("Arquivos lidos com sucesso")
+
         estruturados = estruturados.rename(columns={'denominacao_social': 'fundo'})
         estruturados['cnpj_fundo'] = estruturados['cnpj'].astype(str)
         estruturados['cnpj_fundo'] = estruturados['cnpj_fundo'].str.zfill(14)
@@ -1031,41 +1093,19 @@ def xml_quadro_operacoes(cnpj):
         quadro_conso['mtm_regra_xml'] = np.where((quadro_conso['mtm_info'] >= 0) & (~quadro_conso['pu_regra_xml'].isnull()),
                                                  quadro_conso['pu_regra_xml'] * quadro_conso['quantidade'].abs(),
                                                  -1 * quadro_conso['pu_regra_xml'] * quadro_conso['quantidade'].abs())
-        ''''''
         quadro_conso.to_excel(save_path_validacao_quadroconso)
-
         quadro_conso['mtm_mercado'] = np.where((quadro_conso['mtm_info'] >= 0) & (~quadro_conso['pu_mercado'].isnull()),
                                                quadro_conso['pu_mercado'] * quadro_conso['quantidade'].abs(),
                                                -1 * quadro_conso['pu_mercado'] * quadro_conso['quantidade'].abs())
         quadro_conso['mtm_curva'] = np.where((quadro_conso['mtm_info'] >= 0) & (~quadro_conso['pu_curva'].isnull()),
                                              quadro_conso['pu_curva'] * quadro_conso['quantidade'].abs(),
                                              -1 * quadro_conso['pu_curva'] * quadro_conso['quantidade'].abs())
-        ''''''
-        #    global cotas_cvm
-        #    global cotas_cvm1
-        #    global cotas_cvm2
-        #
-        #    x="select a.* from (select * from projeto_inv.cvm_cotas where dt_ref='"+dt_base+"') a right join (select distinct cnpj_fundo, dt_ref, max(data_bd) as data_bd1 from projeto_inv.cvm_cotas  group by 1,2) b on a.data_bd=b.data_bd1 and a.cnpj_fundo=b.cnpj_fundo and a.dt_ref=b.dt_ref;"
-        #
-        #    cotas_cvm=pd.read_sql(x,con=connection)
-        #    cotas_cvm=cotas_cvm.sort(columns=['cnpj_fundo','dt_ref', 'data_bd'], ascending=[True, True, False])
-        #    cotas_cvm1=cotas_cvm.drop_duplicates(subset=['cnpj_fundo','dt_ref'], take_last=False)
-        #    cotas_cvm2=cotas_cvm1[['cnpj_fundo', 'quota']]
-        #
-        #    quadro_conso['cnpj_fundo_final']=np.where((quadro_conso['produto']=='fundo') & (quadro_conso['cnpjfundo_outros'].isnull()), quadro_conso['cnpjfundo_1nivel'], np.where(quadro_conso.produto=='fundo', quadro_conso['cnpjfundo_outros'],""))
-        #
-        #    temp=pd.merge(quadro_conso, cotas_cvm2, left_on=['cnpj_fundo_final'], right_on=['cnpj_fundo'], how='right')
-        #
-        #    quadro_conso=pd.merge(quadro_conso, cotas_cvm2, left_on=['cnpj_fundo_final'], right_on=['cnpj_fundo'], how='left')
-        #    quadro_conso['mtm_regra_xml']=np.where(~quadro_conso['quota'].isnull(), quadro_conso['quantidade']*quadro_conso['quota'], quadro_conso['mtm_regra_xml'])
         quadro_conso['flag_null'] = np.where(quadro_conso['mtm_regra_xml'].isnull(), 1, 0)
         quadro_conso['mtm_regra_xml'] = np.where(quadro_conso['flag_null'] == 1, quadro_conso['mtm_info'],
                                                  quadro_conso['mtm_regra_xml'])
 
         # cálculo de dias úteis
-
         # GERACAO DE SERIE DE DIAS ÚTEIS E DIAS CORRIDOS
-
         temp = quadro_conso[~quadro_conso['dt_vencto'].isnull()]
         dt_max = max(temp['dt_vencto'])
         dt_max = dt_max.strftime('%d-%m-%Y')
@@ -1088,13 +1128,12 @@ def xml_quadro_operacoes(cnpj):
         serie = serie_dias[['data_ref', 'indice_du']]
 
         quadro_conso = pd.merge(quadro_conso, serie, left_on='dt_vencto', right_on='data_ref', how='left')
-
         quadro_conso = quadro_conso.rename(columns={'indice_du': 'du'})
-
         quadro_conso['flag_desp'] = quadro_conso['flag_desp'].fillna(0)
 
-        x = 'select max(id_relatorio_qo) as id_relatorio_qo from projeto_inv.xml_quadro_operacoes;'
-        id_qo = pd.read_sql(x, con=connection)
+        query = 'select max(id_relatorio_qo) as id_relatorio_qo from projeto_inv.xml_quadro_operacoes;'
+        id_qo = pd.read_sql(query, con=connection)
+        logger.info("Leitura do banco de dados executada com sucesso")
 
         if id_qo['id_relatorio_qo'][0] == None:
             id_relatorio_qo = 0
@@ -1103,8 +1142,6 @@ def xml_quadro_operacoes(cnpj):
 
         quadro_conso['id_relatorio_qo'] = id_relatorio_qo
 
-        # del quadro_conso['cnpj_fundo_final']
-        # del quadro_conso['cnpj_fundo']
         del quadro_conso['data_ref']
 
         quadro_conso_fim = quadro_conso[(quadro_conso['flag_desp'] == 0) & (quadro_conso['mtm_info'] != 0)].copy()
@@ -1126,18 +1163,26 @@ def xml_quadro_operacoes(cnpj):
 
         quadro_conso_fim.replace((-np.inf), np.nan, inplace=True)
         quadro_conso_fim.replace(np.inf, np.nan, inplace=True)
+
+        logger.info("Salvando base de dados - xml_quadro_operacoes")
         pd.io.sql.to_sql(quadro_conso_fim, name='xml_quadro_operacoes', con=connection, if_exists="append", flavor='mysql',
                          index=0)
+
+        logger.info("Salvando base de dados - xml_quadro_despesas")
         pd.io.sql.to_sql(quadro_despesas, name='xml_quadro_despesas', con=connection, if_exists="append", flavor='mysql',
                          index=0)
 
     def fundosprimeironivel(dt, cnpj):
-        query = 'select * from projeto_inv.xml_header where cnpjcpf="' + cnpj + '" and dtposicao=' + '"' + dt_base + '";'
 
+        query = 'select * from projeto_inv.xml_header where cnpjcpf="' + cnpj + '" and dtposicao=' + '"' + dt_base + '";'
         df = pd.read_sql(query, con=connection)
+        logger.info("Leitura do banco de dados executada com sucesso")
+
         if len(df) == 0:
             query = 'select * from projeto_inv.xml_header where cnpj="' + cnpj + '" and dtposicao=' + '"' + dt_base + '";'
             df = pd.read_sql(query, con=connection)
+            logger.info("Leitura do banco de dados executada com sucesso")
+
         df = df.sort(['cnpj', 'cnpjcpf', 'data_bd'], ascending=[True, True, False])
         df = df.drop_duplicates(subset=['cnpj', 'cnpjcpf'], take_last=False)
         df = df.reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill='')
@@ -1150,9 +1195,11 @@ def xml_quadro_operacoes(cnpj):
         # e também uma lista dos FIDCs na carteira da HDI
         # as variaveis lista_aux, lista_cnpj, lista_fidc e lista_aux_fidc participam do processo de criação dessas listas
         # Tais listas serao utilizadas nos códigos posteriores
+
         global lista_primeiro_nivel
         x = 'select a.* from projeto_inv.xml_quadro_operacoes a right join (select header_id, max(data_bd) as data_bd from projeto_inv.xml_quadro_operacoes where header_id=' + header_id_carteira_fundos + ' group by 1) b on a.header_id=b.header_id and a.data_bd=b.data_bd;'
         qo = pd.read_sql(x, con=connection)
+        logger.info("Leitura do banco de dados executada com sucesso")
 
         lista_primeiro_nivel = qo[['cnpjfundo_1nivel', 'fundo']]
         lista_primeiro_nivel = lista_primeiro_nivel.sort_values(by=['cnpjfundo_1nivel'], ascending=True)
@@ -1162,7 +1209,6 @@ def xml_quadro_operacoes(cnpj):
         lista_primeiro_nivel = lista_primeiro_nivel[~(lista_primeiro_nivel['cnpjfundo_1nivel'].isnull())]
         global y
         y = 0
-        i = 0
         lista_cnpj = pd.DataFrame(columns=['nome', 'cnpj', 'header_id', 'dt_ref', 'data_bd'])
         lista_fidc = pd.DataFrame(columns=['nome', 'cnpj', 'header_id', 'dt_ref', 'data_bd'])
         lista_aux = pd.DataFrame(None, index=[0], columns=['nome', 'cnpj', 'header_id', 'dt_ref', 'data_bd'])
@@ -1194,16 +1240,11 @@ def xml_quadro_operacoes(cnpj):
         lista_fidc['data_bd'] = datetime.datetime.now()
         lista_fidc['header_id'] = header_id_carteira_fundos
 
+        logger.info("Salvando base de dados - lista_fundos")
         pd.io.sql.to_sql(lista_cnpj, name='lista_fundos', con=connection, if_exists="append", flavor='mysql', index=0)
-        pd.io.sql.to_sql(lista_fidc, name='lista_fidc', con=connection, if_exists="append", flavor='mysql', index=0)
 
-    import pandas as pd
-    import pymysql as db
-    import numpy as np
-    import datetime
-    from findt import FinDt
-    from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
-    from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+        logger.info("Salvando base de dados - lista_fidc")
+        pd.io.sql.to_sql(lista_fidc, name='lista_fidc', con=connection, if_exists="append", flavor='mysql', index=0)
 
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
@@ -1219,10 +1260,15 @@ def xml_quadro_operacoes(cnpj):
     feriados_sheet = full_path_from_database('feriados_nacionais') + 'feriados_nacionais.csv'
     end_val = full_path_from_database('get_output_quadro419')
 
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', charset='utf8')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
     query = 'select distinct nome_emissor, cnpj_emissor, data_criacao_emissor from projeto_inv.bmf_emissor where cnpj_emissor>0;'
     emissor = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
+
     emissor = emissor.sort(['cnpj_emissor', 'data_criacao_emissor'], ascending=[True, False])
     emissor1 = emissor.drop_duplicates(subset=['cnpj_emissor'], take_last=False)
     emissor1['cnpj'] = emissor1['cnpj_emissor'].astype(float)
@@ -1231,10 +1277,11 @@ def xml_quadro_operacoes(cnpj):
 
     # gerar o arquivo consolidado
     parametrizacao(dt_base, cnpj)
-    print("Fim parametrizacao")
+    logger.info("Fim parametrização")
 
     # gerar o arquivo para os fundos do primeiro nivel
     fundosprimeironivel(dt_base, cnpj)
-    print("Fim fundosprimeironivel")
+    logger.info("Fim geração arquivos para fundos de primeiro nível")
 
+    #Fecha conexão
     connection.close()

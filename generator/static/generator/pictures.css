@@ -1,0 +1,82 @@
+.database{
+    width: 128px;
+    height: 128px;
+    background-image: url(database.png);
+	position: absolute;
+	left: 250px;
+	bottom: 200px;
+	vertical-align: text-bottom;
+}
+
+.susep90{
+    width: 128px;
+    height: 128px;
+    background-image: url(newspaper.png);
+	position: absolute;
+	left: 500px;
+	bottom: 200px;
+	vertical-align: text-bottom;
+}
+
+.susep419{
+    width: 128px;
+    height: 128px;
+    background-image: url(newspaper.png);
+ 	position: absolute;
+	left: 750px;
+	bottom: 200px;
+	vertical-align: text-bottom;
+}
+
+
+.var{
+    width: 128px;
+    height: 128px;
+    background-image: url(bars-chart-ascending.png);
+ 	position: absolute;
+	left: 1000px;
+	bottom: 200px;
+	vertical-align: text-bottom;
+}
+
+
+.dia{
+    width: 128px;
+    height: 128px;
+    background-image: url(dia.png);
+ 	position: absolute;
+	left: 450px;
+	bottom: 200px;
+	vertical-align: text-bottom;
+}
+
+
+.mes{
+    width: 128px;
+    height: 128px;
+    background-image: url(mes.png);
+ 	position: absolute;
+	left: 800px;
+	bottom: 200px;
+	vertical-align: text-bottom;
+}
+
+
+.config{
+    width: 32px;
+    height: 32px;
+    background-image: url(config.png);
+ 	position: absolute;
+	top: 140px;
+	right: 5px;
+	vertical-align: text-bottom;
+}
+
+
+.p-alignment{
+    margin-top: 140px;
+    text-align: center;
+	color: black;
+	font-size: large;
+    
+}

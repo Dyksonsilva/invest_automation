@@ -1,22 +1,31 @@
 def fluxo_titpublico():
+
     import datetime
     import pandas as pd
     import numpy as np
     import pymysql as db
+    import logging
+
     from pandas.tseries.offsets import DateOffset
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
 
-    #Conexão com Banco de Dados
-    connection = db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv')
+    #Variables:
+    logger = logging.getLogger(__name__)
 
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
-
     dtbase_datetime = datetime.date(int(dtbase[0]),int(dtbase[1]),int(dtbase[2]))
 
-    query = 'SELECT * FROM projeto_inv.anbima_tpf'
+    #Conexão com Banco de Dados
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
+    query = 'SELECT * FROM projeto_inv.anbima_tpf'
     baseref1 = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
+
     #1 - ALTERACAO DO CODIGO POR MUDANCA DA QUERY
     #1.1 - Joga fora sujeira da base antiga
     baseref1 = baseref1[baseref1['dt_vencto2'].notnull()]
@@ -42,10 +51,9 @@ def fluxo_titpublico():
 
     n = len(baseref1)
 
-    i = 0
     i1 = 0
 
-    for i in range(0 , n):
+    for i in range(0, n):
         qtde = 1
         vencto = pd.to_datetime(baseref1['dt_vencto2'][i])
         temp = pd.to_datetime(baseref1['dt_vencto2'][i])
@@ -81,11 +89,11 @@ def fluxo_titpublico():
     anbima_fluxo_tpf['data_bd'] = pd.datetime.today()
 
     anbima_fluxo_tpf1 = anbima_fluxo_tpf.copy()
-
     anbima_fluxo_tpf1['dt_ref'] = anbima_fluxo_tpf1['dt_ref'].dt.date
 
     # Salvar no MySQL
     if len(anbima_fluxo_tpf1) > 0:
+        logger.info("Salvando base de dados - anbima_fluxo_tpf")
         pd.io.sql.to_sql(anbima_fluxo_tpf1, name='anbima_fluxo_tpf', con=connection, if_exists='append', flavor='mysql', index=0)
 
     connection.close()

@@ -201,15 +201,15 @@ def get_anbima_carteiras(ano, mes, dia):
 
     logger.info("Salvando base de dados")
 
-    pd.io.sql.to_sql(ima_geral, name='anbima_ima_geral', con=connection,if_exists="append", flavor='mysql', index=0)
+    pd.io.sql.to_sql(ima_geral, name='xml_ima_geral', con=connection,if_exists="append", flavor='mysql', index=0)
     logger.info("Tabela ima_geral salva no DB com sucesso")
-    pd.io.sql.to_sql(ima_irfm, name='anbima_ima_irfm', con=connection,if_exists="append", flavor='mysql', index=0)
+    pd.io.sql.to_sql(ima_irfm, name='xml_ima_irfm', con=connection,if_exists="append", flavor='mysql', index=0)
     logger.info("Tabela ima_irfm salva no DB com sucesso")
-    pd.io.sql.to_sql(ima_imab, name='anbima_ima_imab', con=connection,if_exists="append", flavor='mysql', index=0)
+    pd.io.sql.to_sql(ima_imab, name='xml_ima_imab', con=connection,if_exists="append", flavor='mysql', index=0)
     logger.info("Tabela ima_imab salva no DB com sucesso")
-    pd.io.sql.to_sql(ima_imac, name='anbima_ima_imac', con=connection,if_exists="append", flavor='mysql', index=0)
+    pd.io.sql.to_sql(ima_imac, name='xml_ima_imac', con=connection,if_exists="append", flavor='mysql', index=0)
     logger.info("Tabela ima_imac salva no DB com sucesso")
-    pd.io.sql.to_sql(ima_imas, name='anbima_ima_imas', con=connection,if_exists="append", flavor='mysql', index=0)
+    pd.io.sql.to_sql(ima_imas, name='xml_ima_imas', con=connection,if_exists="append", flavor='mysql', index=0)
     logger.info("Tabela ima_imas salva no DB com sucesso")
 
     logger.info("Todos os dados foram salvos no DB com sucesso")

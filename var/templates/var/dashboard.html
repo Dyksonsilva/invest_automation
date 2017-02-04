@@ -39,6 +39,7 @@ div#popupbox{
 <div style="padding-right:400px;padding-top: 20px;padding-bottom: 20px" class="container-fluid">
 
 <form method="post">
+    <div align="center">
 
         <table id="popupbox_list" class="table table-hover table-bordered table-condensed" align="center">
             <thead style = "color:black;background-color:#e0e0e0">
@@ -59,7 +60,7 @@ div#popupbox{
                     <td>{{ rotine.descricao_rotina }}</td>
                     <td>{{ rotine.tempo_execucao }}</td>
                     <td>{{ rotine.end_time }}</td>
-                    <td>{% csrf_token %}<button onclick="showDivAttid()" id={{ forloop.counter0 }} name={{ rotine.nome_execucao_rotina }}  type="submit">
+                    <td>{% csrf_token %}<button onclick="showDivAttid()" id={{ forloop.counter0 }} name={{ rotine.nome_execucao_rotina }} type="submit">
                             <span>Send</span></button>
                     </td>
                 </tr>

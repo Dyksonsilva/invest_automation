@@ -1,0 +1,16 @@
+
+{% extends 'generator/Template EY.html' %}
+
+{% block content %}
+
+<form method="POST" class="basic-grey">
+    <h1>Change Configuration</h1>
+    {% csrf_token %}
+        {{ form.as_p }}
+    <button class="button" type="submit"><span>Send </span></button>
+</form>
+
+
+
+{% endblock %}
+

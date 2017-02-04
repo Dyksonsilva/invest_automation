@@ -3,20 +3,43 @@ def quadro_operacoes(tipo_seguradora):
     import pandas as pd
     import numpy as np
     import pymysql as db
+    import datetime
+    import logging
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
     from dependencias.Metodos.funcoes_auxiliares import get_global_var
 
-    ################################################################################
+    logger = logging.getLogger(__name__)
     ## Parâmetros para gerar o relatório
-    ################################################################################
 
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
     dtbase_concat = dtbase[0] + dtbase[1] + dtbase[2]
-    dt_base = dtbase[0] + '-' + dtbase[1] + '-' + dtbase[2]
 
+    tipo_relatorio = "R"  ##Preencher se o relatório é regulatório (R) ou gerencial (G)
     end_val = full_path_from_database('get_output_quadro419')
+    colunas = ["EMFSEQ",
+               "ENTCODIGO",
+               "MRFMESANO",
+               "QUAID",
+               "ATVCODIGO",
+               "TPFOPERADOR",
+               "FTRCODIGO",
+               "LCRCODIGO",
+               "TCTCODIGO",
+               "TPECODIGO",
+               "EMFPRAZOFLUXO",
+               "EMFVLREXPRISCO",
+               "EMFCNPJFUNDO",
+               "EMFCODISIN",
+               "EMFCODCUSTODIA",
+               "EMFMULTIPLOFATOR",
+               "EMFTXCONTRATADO",
+               "EMFTXMERCADO",
+               "TPFOPERADORDERIVATIVO",
+               "EMFVLRDERIVATIVO",
+               "EMFCODGRUPO",
+               "tipo_produto"]
 
     if tipo_seguradora == 'hdi':
         id_relatorio_qo = int(get_global_var("id_relatorio_qo_hdi")) # Buscar esse valor na coluna id_relatorio_qo no Excel do quadro consolidado
@@ -26,29 +49,16 @@ def quadro_operacoes(tipo_seguradora):
         id_relatorio_qo = int(get_global_var("id_relatorio_qo_gerling")) # Buscar esse valor na coluna id_relatorio_qo no Excel do quadro consolidado
         ent_codigo = get_global_var("coent_gerling")
 
-    tipo_relatorio = "R"  ##Preencher se o relatório é regulatório (R) ou gerencial (G)
-
-    # Fluxos de pagamento
-    ano_mtm = dtbase[0]
-    mes_mtm = dtbase[1]
-    dia_mtm = dtbase[2]
-
-    ################################################################################
     # Fontes de dados
-    ################################################################################
-
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
     # Arquivo operacoes
-    arquivo_operacoes = pd.read_sql_query(
-        'SELECT * from projeto_inv.xml_quadro_operacoes where id_relatorio_qo=' + str(id_relatorio_qo), connection)
-
-    # Retira as compromissadas
-    # compromissados = arquivo_operacoes[['isin','produto']][arquivo_operacoes['produto'].str.contains('compromissada')]
-    # compromissados['marker']=1
-    # arquivo_operacoes = pd.merge(arquivo_operacoes,compromissados,left_on=['isin','produto'],right_on=['isin','produto'],how='left')
-    # arquivo_operacoes = arquivo_operacoes[arquivo_operacoes['marker'].isnull()].copy()
-    # del arquivo_operacoes['marker']
+    query = 'SELECT * from projeto_inv.xml_quadro_operacoes where id_relatorio_qo=' + str(id_relatorio_qo)
+    arquivo_operacoes = pd.read_sql_query(query, connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     # Altera o indexador dos títulos públicos que possam vir errados
     arquivo_operacoes['indexador'] = np.where(
@@ -61,26 +71,14 @@ def quadro_operacoes(tipo_seguradora):
         (arquivo_operacoes['produto'].isin(['titulo público'])) & (arquivo_operacoes['ativo'].isin(['210100'])), 'SEL',
         arquivo_operacoes['indexador'])
 
-
     query_fluxos = 'select a.codigo_isin, a.perc_mtm, a.tipo_ativo, a.prazo_du, a.indexador, a.taxa_juros, a.data_mtm, a.data_bd from projeto_inv.mtm_renda_fixa a right join (select codigo_isin, data_mtm, max(data_bd) as data_bd from projeto_inv.mtm_renda_fixa where data_mtm="' + dtbase_concat + '" group by 1,2) b on a.codigo_isin=b.codigo_isin and a.data_mtm=b.data_mtm and a.data_bd=b.data_bd;'
     fluxos = pd.read_sql_query(query_fluxos, connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
-    ###############################################################################
-    ###############################################################################
-    ###############################################################################
-    #
-    #  AMBIENTE DA CORA!!!! - CORREÇÃO FLUXO TÍTULOS PÚBLICOS
-    #
     # PROBLEMA IDENTIFICADO:
-    # FLUXO DAS NTNB (PELO MENOS) SEM PAGAMENTO DE CUPOM. VALOR DE MERCADO PAGO
-    # TODO NO VENCIMENTO
+    # FLUXO DAS NTNB (PELO MENOS) SEM PAGAMENTO DE CUPOM. VALOR DE MERCADO PAGO TUDO NO VENCIMENTO
 
     fluxos1 = fluxos.drop_duplicates(subset=['codigo_isin', 'prazo_du'])
-    fluxos1[fluxos1['tipo_ativo'] == 'TPF']
-    fluxos[fluxos['tipo_ativo'] == 'TPF']
-    ###############################################################################
-    ###############################################################################
-    ###############################################################################
 
     # Separação da taxa_operação vindo de cadastro
     indexadores = fluxos[['codigo_isin', 'taxa_juros', 'tipo_ativo']].copy()
@@ -95,11 +93,7 @@ def quadro_operacoes(tipo_seguradora):
     del arquivo_operacoes['taxa_juros']
     del arquivo_operacoes['tipo_ativo']
 
-
-    ################################################################################
     ## Códigos auxiliares
-    ################################################################################
-
     ## Código para encontrar o ATVCODIGO dada a descrição do produto
     def atvcodigo(linha):
         if linha == "debênture":
@@ -149,15 +143,12 @@ def quadro_operacoes(tipo_seguradora):
         elif "futuro" in linha:
             return "D0001"
 
-
     ### Código para dar o TPFOPERADOR
-
     def tpfoperador(linha):
         if linha == "V":
             return "-"
         else:
             return "+"
-
 
     ### Código para dar o TPECODIGO
     def tpecodigo(linha):
@@ -165,7 +156,6 @@ def quadro_operacoes(tipo_seguradora):
             return "PU01"
         else:
             return "PR01"
-
 
     ### Código para dar o LCRCODIGO
     def lcrcodigo(linha):
@@ -183,7 +173,6 @@ def quadro_operacoes(tipo_seguradora):
             return "N04"
         else:
             return "N05"
-
 
     ### Código para dar o FTRCODIGO
     def ftrcodigo(numero_linha):
@@ -225,32 +214,6 @@ def quadro_operacoes(tipo_seguradora):
             return "JJ1"
 
 
-    ################################################################################
-    ## Gerar arquivo base
-    ################################################################################
-    colunas = ["EMFSEQ",
-               "ENTCODIGO",
-               "MRFMESANO",
-               "QUAID",
-               "ATVCODIGO",
-               "TPFOPERADOR",
-               "FTRCODIGO",
-               "LCRCODIGO",
-               "TCTCODIGO",
-               "TPECODIGO",
-               "EMFPRAZOFLUXO",
-               "EMFVLREXPRISCO",
-               "EMFCNPJFUNDO",
-               "EMFCODISIN",
-               "EMFCODCUSTODIA",
-               "EMFMULTIPLOFATOR",
-               "EMFTXCONTRATADO",
-               "EMFTXMERCADO",
-               "TPFOPERADORDERIVATIVO",
-               "EMFVLRDERIVATIVO",
-               "EMFCODGRUPO",
-               "tipo_produto"]
-
     quaid_419 = pd.DataFrame(columns=colunas)
 
     for linha in range(len(arquivo_operacoes)):
@@ -287,11 +250,8 @@ def quadro_operacoes(tipo_seguradora):
     ## Limpar linhas vazias
     quaid_419.dropna(how='all', inplace=True)
 
-    ################################################################################
     ## Abertura fluxos de pagamento
-    ################################################################################
 
-    # quaid_419["EMFCODISIN"].fillna("", inplace=True)
     ## Lista de ISINs
     lista_isin = quaid_419["EMFCODISIN"].unique()
 
@@ -307,10 +267,6 @@ def quadro_operacoes(tipo_seguradora):
         teste = pd.merge(quaid_419[quaid_419["ATVCODIGO"] != "D0002"], fluxos, left_on=["EMFCODISIN"],
                          right_on=["codigo_isin"], how="left")
         teste = teste.append(compromissada)
-
-        ## Calcular valor exposição e dias úteis
-        # teste["EMFVLREXPRISCO"] = teste["perc_mtm"].isnull().map({True:teste["EMFVLREXPRISCO"],False:teste["perc_mtm"]*teste["EMFVLREXPRISCO"]})
-        # teste["EMFPRAZOFLUXO"]= teste["perc_mtm"].isnull().map({True:teste["EMFPRAZOFLUXO"],False:teste["prazo_du"]})
 
         teste["EMFVLREXPRISCO"] = np.where(np.isnan(teste["perc_mtm"]), teste["EMFVLREXPRISCO"],
                                            teste["perc_mtm"] * teste["EMFVLREXPRISCO"])
@@ -340,9 +296,6 @@ def quadro_operacoes(tipo_seguradora):
         del teste['data_mtm']
         del teste['indexador']
 
-        ##################################
-        # NA MAO NERVOSO!
-        #################################
         teste['EMFPRAZOFLUXO'] = np.where(teste['EMFCODISIN'] == 'BRSTNCLTN6W5', 1, teste['EMFPRAZOFLUXO'])
 
         ## Eliminar linhas dos fluxos anteriores a data de referência
@@ -353,10 +306,7 @@ def quadro_operacoes(tipo_seguradora):
         teste = teste.append(quaid_419[quaid_419["ATVCODIGO"] == "D0002"], ignore_index=True)
         quaid_419 = teste
 
-    ##################################################################################
     ## Ajustar Futuros
-    ##################################################################################
-
     futuros = quaid_419[quaid_419["ATVCODIGO"] == "D0001"]
 
     isins = futuros["EMFCODISIN"].unique()
@@ -412,13 +362,10 @@ def quadro_operacoes(tipo_seguradora):
 
     aux = pd.read_sql_query('SELECT * from projeto_inv.xml_quadro_operacoes where id_relatorio_qo=' + str(id_relatorio_qo),
                             connection)
-    # aux.to_excel(end_val+'teste_qo.xlsx')
+    logger.info("Leitura do banco de dados executada com sucesso")
 
-    ##################################################################################
     ## Agregação por CNPJ,Isin,Prazo
-    ##################################################################################
-
-    # Preenchecom 14 0 o cnpj
+        # Preenchecom 14 0 o cnpj
     quaid_419["EMFCNPJFUNDO"] = np.where(quaid_419["EMFCNPJFUNDO"].isin(['0000000000None']), '00000000000000',
                                          quaid_419["EMFCNPJFUNDO"])
     quaid_419["EMFCNPJFUNDO"] = np.where(quaid_419["EMFCNPJFUNDO"].isin([0]), '00000000000000', quaid_419["EMFCNPJFUNDO"])
@@ -459,65 +406,19 @@ def quadro_operacoes(tipo_seguradora):
     quaid_419['TPFOPERADOR'] = np.where(quaid_419['EMFVLREXPRISCO'] >= 0, "+", "-")
     quaid_419['TPFOPERADORDERIVATIVO'] = np.where(quaid_419['EMFVLRDERIVATIVO'] >= 0, "+", "-")
 
-    ##################################################################################
     ## Muda o fator de risco para fundos que foram abertos
-    ##################################################################################
-
     quaid_419['ATVCODIGO'] = np.where((quaid_419['tipo_produto'].isin(['fundo'])) & (~quaid_419['FTRCODIGO'].isin(['FF1'])),
                                       'A1001', quaid_419['ATVCODIGO'])
 
-    ##################################################################################
     ## Ajusta o TCTCODIGO
-    ##################################################################################
-
     quaid_419['TCTCODIGO'] = np.where(quaid_419['EMFCNPJFUNDO'].isin(['00000000000000']), '01', '02')
 
-    ##################################################################################
     ## Ajusta o TPFOPERADORDERIVATIVO
-    ##################################################################################
-
     quaid_419['TPFOPERADORDERIVATIVO'] = np.where(
         ~quaid_419['ATVCODIGO'].isin(['D0001', 'D1001', 'D1002', 'D2001', 'D2002', 'D3001']), '0',
         quaid_419['TPFOPERADORDERIVATIVO'])
 
-    ################################################################################
-    ## Linhas adicionais
-    ################################################################################
-
-    ### Linha adicional (imóveis= IMO , fii= FII, dpvat=DPV)
-    # def linha_adicional(valor, codigo, quaid_419):
-    #    posicao ={}
-    #    posicao["EMFSEQ"] = 1
-    #    posicao["ENTCODIGO"] = ent_codigo
-    #    posicao["MRFMESANO"] = dtbase
-    #    posicao["QUAID"] = 419
-    #    posicao["ATVCODIGO"]= "A9999" if codigo=="IMO" else "A1003"
-    #    posicao["TPFOPERADOR"]= "+"
-    #    posicao["FTRCODIGO"]= codigo
-    #    posicao["LCRCODIGO"]= "N05"
-    #    posicao["EMFCNPJFUNDO"]= 0
-    #    posicao["TCTCODIGO"]= "02"
-    #    posicao["TPECODIGO"]= "PR01"
-    #    posicao["EMFPRAZOFLUXO"]= 1
-    #    posicao["EMFVLREXPRISCO"]= valor
-    #    posicao["EMFCODISIN"]= 0
-    #    posicao["EMFCODCUSTODIA"]= 0
-    #    posicao["EMFMULTIPLOFATOR"]= 0
-    #    posicao["EMFTXCONTRATADO"]= 0
-    #    posicao["EMFTXMERCADO"]= 0
-    #    posicao["TPFOPERADORDERIVATIVO"]= 0
-    #    posicao["EMFVLRDERIVATIVO"]= 0
-    #    posicao["EMFCODGRUPO"] = 0
-    #    posicao["tipo_produto"]= "Outros"
-    #    quaid_419= quaid_419.append(pd.Series(posicao), ignore_index=True)
-    #    return quaid_419
-    #
-    # quaid_419 = linha_adicional(100000, "IMO", quaid_419)
-
-    ################################################################################
     ## Ajustes finais
-    ###############################################################################
-
     quaid_419["EMFVLREXPRISCO"] = quaid_419["EMFVLREXPRISCO"].abs()
     quaid_419["EMFVLRDERIVATIVO"] = quaid_419["EMFVLRDERIVATIVO"].abs()
 
@@ -527,9 +428,6 @@ def quadro_operacoes(tipo_seguradora):
     ## Reordenar contagem de linhas
     quaid_419["EMFSEQ"] = range(1, len(quaid_419["FTRCODIGO"]) + 1, 1)
 
-    ## Inserir data_bd
-    import datetime
-
     quaid_419["data_bd"] = datetime.datetime.now()
 
     ## Inserir identificadores do relatório
@@ -537,6 +435,7 @@ def quadro_operacoes(tipo_seguradora):
     quaid_419["tipo_relatorio"] = tipo_relatorio
 
     id_relatorio_quaid419 = pd.read_sql_query('SELECT max(id_relatorio_quaid419) from projeto_inv.quaid_419', connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     id_relatorio_quaid419 = id_relatorio_quaid419["max(id_relatorio_quaid419)"][0]
     try:
@@ -553,10 +452,9 @@ def quadro_operacoes(tipo_seguradora):
     ##JOGA FORA LINHAS COM EXPOSIÇÃO ZERADO
     quaid_419 = quaid_419[quaid_419['EMFVLREXPRISCO'] != 0].copy()
 
-    ########################################
     # Salvar informacoes no banco de dados
-    ########################################
 
+    logger.info("Salvando base de dados - quaid_419")
     pd.io.sql.to_sql(quaid_419, name='quaid_419', con=connection, if_exists="append", flavor='mysql', index=0,
                      chunksize=5000)
 
@@ -565,11 +463,10 @@ def quadro_operacoes(tipo_seguradora):
     aux['data_bd'] = horario_processo
     aux = aux.drop_duplicates()
 
+    logger.info("Salvando base de dados - count_quadros")
     pd.io.sql.to_sql(aux, name='count_quadros', con=connection, if_exists="append", flavor='mysql', index=0, chunksize=5000)
 
-    ###################################################
     # Prepara Excel para virar TXT
-    ###################################################
     quadro = quaid_419.copy()
     quadro['EMFTXMERCADO'] = quadro['EMFTXMERCADO'].astype(float)
     quadro['EMFVLREXPRISCO'] = quadro['EMFVLREXPRISCO'].round(2)
@@ -603,63 +500,44 @@ def quadro_operacoes(tipo_seguradora):
     quadro['EMFPRAZOFLUXO'] = quadro['EMFPRAZOFLUXO'].astype(str)
 
     # Previne contra a existencia de pontos nas strings
-
     quadro['ATVCODIGO'] = quadro['ATVCODIGO'].str.split('.')
     quadro['ATVCODIGO'] = quadro['ATVCODIGO'].str[0]
-
     quadro['EMFCNPJFUNDO'] = quadro['EMFCNPJFUNDO'].str.split('.')
     quadro['EMFCNPJFUNDO'] = quadro['EMFCNPJFUNDO'].str[0]
-
     quadro['EMFCODCUSTODIA'] = quadro['EMFCODCUSTODIA'].str.split('.')
     quadro['EMFCODCUSTODIA'] = quadro['EMFCODCUSTODIA'].str[0]
-
     quadro['EMFCODGRUPO'] = quadro['EMFCODGRUPO'].str.split('.')
     quadro['EMFCODGRUPO'] = quadro['EMFCODGRUPO'].str[0]
-
     quadro['EMFCODISIN'] = quadro['EMFCODISIN'].str.split('.')
     quadro['EMFCODISIN'] = quadro['EMFCODISIN'].str[0]
-
     quadro['EMFSEQ'] = quadro['EMFSEQ'].str.split('.')
     quadro['EMFSEQ'] = quadro['EMFSEQ'].str[0]
-
     quadro['ENTCODIGO'] = quadro['ENTCODIGO'].str.split('.')
     quadro['ENTCODIGO'] = quadro['ENTCODIGO'].str[0]
-
     quadro['FTRCODIGO'] = quadro['FTRCODIGO'].str.split('.')
     quadro['FTRCODIGO'] = quadro['FTRCODIGO'].str[0]
-
     quadro['LCRCODIGO'] = quadro['LCRCODIGO'].str.split('.')
     quadro['LCRCODIGO'] = quadro['LCRCODIGO'].str[0]
-
     quadro['MRFMESANO'] = quadro['MRFMESANO'].str.split('.')
     quadro['MRFMESANO'] = quadro['MRFMESANO'].str[0]
-
     quadro['QUAID'] = quadro['QUAID'].str.split('.')
     quadro['QUAID'] = quadro['QUAID'].str[0]
-
     quadro['TCTCODIGO'] = quadro['TCTCODIGO'].str.split('.')
     quadro['TCTCODIGO'] = quadro['TCTCODIGO'].str[0]
-
     quadro['TPFOPERADOR'] = quadro['TPFOPERADOR'].str.split('.')
     quadro['TPFOPERADOR'] = quadro['TPFOPERADOR'].str[0]
-
     quadro['EMFPRAZOFLUXO'] = quadro['EMFPRAZOFLUXO'].str.split('.')
     quadro['EMFPRAZOFLUXO'] = quadro['EMFPRAZOFLUXO'].str[0]
-
     quadro['TPFOPERADORDERIVATIVO'] = quadro['TPFOPERADORDERIVATIVO'].str.split('.')
     quadro['TPFOPERADORDERIVATIVO'] = quadro['TPFOPERADORDERIVATIVO'].str[0]
-
     quadro['EMFMULTIPLOFATOR'] = quadro['EMFMULTIPLOFATOR'].str.split('.')
     quadro['EMFMULTIPLOFATOR'] = quadro['EMFMULTIPLOFATOR'].str[0]
-
     quadro['TPECODIGO'] = quadro['TPECODIGO'].str.split('.')
     quadro['TPECODIGO'] = quadro['TPECODIGO'].str[0]
-
     quadro['LCRCODIGO'] = quadro['LCRCODIGO'].str.split('.')
     quadro['LCRCODIGO'] = quadro['LCRCODIGO'].str[0]
 
     # Preenche com a quantidade de caracteres requeridos pela SUSEP
-
     quadro['ATVCODIGO'] = quadro['ATVCODIGO'].str.zfill(5)
     quadro['EMFCNPJFUNDO'] = quadro['EMFCNPJFUNDO'].str.zfill(14)
     quadro['EMFCODCUSTODIA'] = quadro['EMFCODCUSTODIA'].str.zfill(12)
@@ -696,9 +574,5 @@ def quadro_operacoes(tipo_seguradora):
     quadro['EMFTXCONTRATADO'] = quadro['EMFTXCONTRATADO'].str.replace('.', ',')
     quadro['EMFVLRDERIVATIVO'] = quadro['EMFVLRDERIVATIVO'].str.replace('.', ',')
 
-    # quadro = quadro[quadro['EMFVLREXPRISCO']!='0,0']
-
     quadro.to_excel(end_val + 'quadro_419_txt_' + ent_codigo + '_' + dtbase_concat + '.xlsx')
-
-    # quaid_419.to_excel(end_val+'quaid_419_'+ent_codigo+'_'+str(id_relatorio_quaid419)+'_'+dtbase+'.xlsx')
-
+    logger.info("Arquivos salvos com sucesso")

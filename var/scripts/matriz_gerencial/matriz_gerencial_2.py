@@ -87,7 +87,7 @@ def matriz_gerencial_2(retornos):
     new_matriz_id = new_matriz_id['matriz_id'].iloc[0]
 
     cur = connection.cursor(db.cursors.DictCursor)
-    query = 'update global_variables set variable_value = '+str(new_matriz_id)+' where variable_name = '+ '\'matriz_id\''
+    query = 'update generator_global_variables set variable_value = '+str(new_matriz_id)+' where variable_name = '+ '\'matriz_id\''
 
     logger.info("Atualizando matriz_id na base de dados")
     cur.execute(query)

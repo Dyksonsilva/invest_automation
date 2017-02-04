@@ -1,0 +1,105 @@
+<!DOCUMENT html>
+
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link rel="stylesheet" href="{% static "/generator/reset.css" %}">
+        <link rel="stylesheet" href="{% static "/generator/style.css" %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
+		<link href="{% static "/generator/pictures.css" %}" rel="stylesheet">
+		
+        <!-- Bootstrap Core CSS -->
+
+        <link href="{% static "/generator/css/bootstrap.css" %}" rel="stylesheet">
+        <link href="{% static "/generator/css/bootstrap.min.css" %}" rel="stylesheet">
+        <link href="{% static "/generator/css/bootstrap-theme.css" %}" rel="stylesheet">
+        <link href="{% static "/generator/css/bootstrap-theme.min.css" %}" rel="stylesheet">
+
+
+        <!-- Custom CSS -->
+        <!--
+        <link href="{% static "/marketdb/css/simple-sidebar.css" %}" rel="stylesheet">
+        -->
+
+    </head>
+
+    <body>
+        <main>
+
+            <div style="display:none;" id="loader">
+            </div>
+
+            <h2 class="ey-h2-style"><a href="/generator/dashboard">Menu</a>{{ tipo_relatorio }}</h2>
+
+            <div class="ey-header-style"></div>
+                 <div class="ey-subheader-style"></div>
+            <h1 class="ey-h1-style">HDI Investment Report Generator</h1>
+            <img class="ey-logo" src="{% static "/generator/EYNewLogo.png" %}"/>
+            <a href="/logout" class="logout">Login teste</a>
+            <p class="welcome">Welcome, Fulano</p>
+			<a href="/generator/configuration/">
+				<div class="config">
+
+				</div>
+			</a>
+
+
+
+
+            {% block content %}
+            {% endblock %}
+
+            <!-- jQuery -->
+            <script src="{% static "/generator/js/jquery.js" %}"></script>
+
+            <!-- Bootstrap Core JavaScript -->
+            <script src="{% static "/generator/js/bootstrap.min.js" %}"></script>
+
+            <!-- Menu Toggle Script -->
+            <script>
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+
+            </script>
+
+            <script>
+
+            function showDivAttid(){
+                document.getElementById("loader").style.display = 'inline';
+            }
+
+        </script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+        <script type="text/javascript">
+
+        $(document).ready(function(){
+            $("div#popupbox").hide();
+
+            $("#popupbox_list tr").mouseover(function(){
+                
+                $("#popupbox",this).show();
+            }).mouseout(function(){
+                
+                $("#popupbox",this).hide();
+            });
+
+        });
+        </script>
+        </main>
+    </body>
+
+
+    <footer class="ey-footer-style">
+        <p class="p-footer-style">EY Brasil - Beta</p>
+        <p class="p-footer-style version-style">Version 0.2.0</p>
+    </footer>
+
+
+</html>

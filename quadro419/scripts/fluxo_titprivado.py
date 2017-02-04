@@ -4,24 +4,12 @@ def fluxo_titprivado():
     import datetime
     import numpy as np
     import pymysql as db
+    import logging
     from pandas.tseries.offsets import DateOffset
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
 
-    # Função aulixiliar para script
-    def tratamento_titprivado(titprivado_df, cod_frequencia_juros, pandas_dateoffset):
-
-        idx = titprivado_df[
-            (titprivado_df.data_primeiro_pagamento_juros.isnull()) & (titprivado_df.cod_frequencia_juros == cod_frequencia_juros)].index.tolist()
-        for i in idx:
-            titprivado_df['data_primeiro_pagamento_juros'][idx] = titprivado_df['data_emissao'][idx] + pandas_dateoffset
-
-        #print(titprivado_df['data_primeiro_pagamento_juros'][idx])
-        return titprivado_df
-
-    ###############################################################################
-    #1 - Declaração de constantes
-    ###############################################################################
+    logger = logging.getLogger(__name__)
 
     # Diretório de save de planilhas
     xlsx_path_fluxo_debenture = full_path_from_database("get_output_quadro419") + 'controle_fluxo_debentures.xlsx'
@@ -37,22 +25,23 @@ def fluxo_titprivado():
 
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
+    #dtbase = ['2016','11','30']
     dtbase_concat = dtbase[0] + dtbase[1] + dtbase[2]
 
-    ###############################################################################
     #2 - Cria conexão e importação: base de dados fluxo_titprivado
-    ###############################################################################
 
     #Conexão com Banco de Dados
-    connection=db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
     query = 'SELECT * FROM projeto_inv.titprivado_caracteristicas WHERE data_expiracao > ' + '"' + dtbase_concat + '";'
-
     bmf_numeraca = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
-    ###############################################################################
     #3 - Preparação da base
-    ###############################################################################
+    logger.info("Tratando dados")
 
     #Seleciona dados da última carga da data de relatório
     bmf_numeraca['dtrel'] = bmf_numeraca['id_papel'].str.split('_')
@@ -118,12 +107,45 @@ def fluxo_titprivado():
     titprivado['data_primeiro_pagamento_juros'] = pd.to_datetime(titprivado['data_primeiro_pagamento_juros'])
     titprivado['data_expiracao'] = pd.to_datetime(titprivado['data_expiracao'])
 
-    titprivado = tratamento_titprivado(titprivado, 'B', DateOffset(years=2))
-    titprivado = tratamento_titprivado(titprivado, 'A', DateOffset(years=1))
-    titprivado = tratamento_titprivado(titprivado, 'S', DateOffset(months=6))
-    titprivado = tratamento_titprivado(titprivado, 'Q', DateOffset(months=3))
-    titprivado = tratamento_titprivado(titprivado, 'M', DateOffset(months=1))
-    titprivado = tratamento_titprivado(titprivado, 'W', DateOffset(days=7))
+    idx = titprivado[
+        (titprivado.data_primeiro_pagamento_juros.isnull()) & (titprivado.cod_frequencia_juros == 'B')].index.tolist()
+    for i in idx:
+        titprivado['data_primeiro_pagamento_juros'][idx] = titprivado['data_emissao'][idx] + DateOffset(years=2)
+
+    print(titprivado['data_primeiro_pagamento_juros'][idx])
+
+    idx = titprivado[
+        (titprivado.data_primeiro_pagamento_juros.isnull()) & (titprivado.cod_frequencia_juros == 'A')].index.tolist()
+    for i in idx:
+        titprivado['data_primeiro_pagamento_juros'][idx] = titprivado['data_emissao'][idx] + DateOffset(years=1)
+
+    print(titprivado['data_primeiro_pagamento_juros'][idx])
+
+    idx = titprivado[
+        (titprivado.data_primeiro_pagamento_juros.isnull()) & (titprivado.cod_frequencia_juros == 'S')].index.tolist()
+    for i in idx:
+        titprivado['data_primeiro_pagamento_juros'][idx] = titprivado['data_emissao'][idx] + DateOffset(months=6)
+
+    print(titprivado['data_primeiro_pagamento_juros'][idx])
+
+    idx = titprivado[
+        (titprivado.data_primeiro_pagamento_juros.isnull()) & (titprivado.cod_frequencia_juros == 'Q')].index.tolist()
+    for i in idx:
+        titprivado['data_primeiro_pagamento_juros'][idx] = titprivado['data_emissao'][idx] + DateOffset(months=3)
+
+    print(titprivado['data_primeiro_pagamento_juros'][idx])
+
+    idx = titprivado[
+        (titprivado.data_primeiro_pagamento_juros.isnull()) & (titprivado.cod_frequencia_juros == 'M')].index.tolist()
+    for i in idx:
+        titprivado['data_primeiro_pagamento_juros'][idx] = titprivado['data_emissao'][idx] + DateOffset(months=1)
+
+    print(titprivado['data_primeiro_pagamento_juros'][idx])
+
+    idx = titprivado[
+        (titprivado.data_primeiro_pagamento_juros.isnull()) & (titprivado.cod_frequencia_juros == 'W')].index.tolist()
+    for i in idx:
+        titprivado['data_primeiro_pagamento_juros'][idx] = titprivado['data_emissao'][idx] + DateOffset(days=7)
 
     #A - ANUAL; B - BI-ANUAL; M – MENSAL; N - NÃO APLICÁVEL; Q – TRIMESTRAL; S – SEMESTRAL; W - SEMANAL X – OUTROS
 
@@ -166,9 +188,7 @@ def fluxo_titprivado():
 
     data_bd=datetime.datetime.now()
 
-    ###############################################################################
     #4 - Gera fluxo de papéis cod_frequencia_juros = "A": ANUAL
-    ###############################################################################
 
     titprivado_aux = titprivado[(titprivado['cod_frequencia_juros'] == 'A') & (titprivado.data_primeiro_pagamento_juros!=titprivado.data_expiracao)].copy()
     titprivado_aux = titprivado_aux.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
@@ -196,10 +216,8 @@ def fluxo_titprivado():
 
 
     bmf_fluxo_titprivado_A.to_excel(save_path_fluxo_A)
-    ###############################################################################
+
     #5 - Gera fluxo de papéis cod_frequencia_juros = "B": BIANUAL
-    ###############################################################################
-    k=0
     titprivado_aux = titprivado[(titprivado['cod_frequencia_juros'] == 'B') & (titprivado.data_primeiro_pagamento_juros!=titprivado.data_expiracao)].copy()
     titprivado_aux = titprivado_aux.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
@@ -225,10 +243,8 @@ def fluxo_titprivado():
             i1=i1+1
 
     bmf_fluxo_titprivado_B.to_excel(save_path_fluxo_B)
-    ###############################################################################
+
     #6 - Gera fluxo de papéis cod_frequencia_juros = "M": MENSAL
-    ###############################################################################
-    k = 0
     titprivado_aux = titprivado[(titprivado['cod_frequencia_juros'] == 'M') & (titprivado.data_primeiro_pagamento_juros!=titprivado.data_expiracao)].copy()
     titprivado_aux = titprivado_aux.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
@@ -254,10 +270,8 @@ def fluxo_titprivado():
             i1=i1+1
 
     bmf_fluxo_titprivado_M.to_excel(save_path_fluxo_M)
-    ###############################################################################
+
     #7 - Gera fluxo de papéis cod_frequencia_juros = "Q": TRIMESTRAL
-    ###############################################################################
-    k = 0
     titprivado_aux = titprivado[(titprivado['cod_frequencia_juros'] == 'Q') & (titprivado.data_primeiro_pagamento_juros!=titprivado.data_expiracao)].copy()
     titprivado_aux = titprivado_aux.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
@@ -283,10 +297,8 @@ def fluxo_titprivado():
             i1=i1+1
 
     bmf_fluxo_titprivado_Q.to_excel(save_path_fluxo_Q)
-    ###############################################################################
+
     #8 - Gera fluxo de papéis cod_frequencia_juros = "S": SEMESTRAL
-    ###############################################################################
-    k = 0
     titprivado_aux = titprivado[(titprivado['cod_frequencia_juros'] == 'S') & (titprivado.data_primeiro_pagamento_juros!=titprivado.data_expiracao)].copy()
     titprivado_aux = titprivado_aux.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
@@ -312,10 +324,8 @@ def fluxo_titprivado():
             i1=i1+1
 
     bmf_fluxo_titprivado_S.to_excel(save_path_fluxo_S)
-    ###############################################################################
+
     #9 - Gera fluxo de papéis cod_frequencia_juros = "W": SEMANAL
-    ###############################################################################
-    k = 0
     titprivado_aux = titprivado[(titprivado['cod_frequencia_juros'] == 'W') & (titprivado.data_primeiro_pagamento_juros!=titprivado.data_expiracao)].copy()
     titprivado_aux = titprivado_aux.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
@@ -342,10 +352,7 @@ def fluxo_titprivado():
 
     bmf_fluxo_titprivado_W.to_excel(save_path_fluxo_W)
 
-    ###############################################################################
     #10 - Gera fluxo de papéis cod_frequencia_juros = OUTROS, NÃO APLICAVEIS, BULLET
-    ###############################################################################
-
     #cod_frequencia_juros
     #A - ANUAL; B - BI-ANUAL; M – MENSAL; N - NÃO APLICÁVEL; Q – TRIMESTRAL; S – SEMESTRAL; W - SEMANAL X – OUTROS
     del titprivado_aux
@@ -357,8 +364,6 @@ def fluxo_titprivado():
     titprivado_aux = titprivado_aux[titprivado_aux['cod_frequencia_juros'] != 'S'].copy()
     titprivado_aux = titprivado_aux[titprivado_aux['cod_frequencia_juros'] != 'W'].copy()
     titprivado_aux = titprivado_aux.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
-
-
 
     bmf_fluxo_titprivado_aux = pd.DataFrame(columns=['codigo_isin',
                                                      'codigo_cetip',
@@ -480,7 +485,12 @@ def fluxo_titprivado():
     lista = lista_all.merge(lista_final,on=['id_papel','codigo_isin'],how='left')
 
     #Salvar no MySQL
-    connection = db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv')
+    logger.info("Salvando base de dados - fluxo_titprivado")
     pd.io.sql.to_sql(bmf_fluxo_titprivado, name='fluxo_titprivado', con=connection, if_exists='append', flavor='mysql', index=0)
 
+    #Fecha conexão
+    connection.close()
+
     bmf_fluxo_titprivado.to_excel(save_path_fluxo_titprivado)
+
+

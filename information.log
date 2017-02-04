@@ -2354,3 +2354,775 @@ urllib.error.URLError: <urlopen error [WinError 10060] A connection attempt fail
 2017-01-31 14:52:23,737	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
 2017-01-31 14:52:23,737	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
 2017-01-31 14:52:23,870	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:38,995	Not Found: /marketdb/img_tree.png	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-31 15:22:39,209	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:39,210	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:40,042	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:40,042	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:40,043	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:41,290	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:41,290	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:41,470	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:41,476	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:41,476	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:41,594	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:48,587	Not Found: /marketdb/img_tree.png	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-31 15:22:48,600	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:48,600	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:49,309	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:49,310	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:49,310	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:52,751	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:52,751	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:52,919	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:52,924	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:52,925	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:52,960	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:54,909	Not Found: /marketdb/img_tree.png	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-31 15:22:54,928	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:54,930	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:55,597	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:55,598	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:55,598	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:22:58,740	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:58,740	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:58,922	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:58,934	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:58,935	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:22:58,997	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:25:53,256	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:25:53,256	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:25:53,935	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:25:53,936	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:25:53,936	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:25:58,971	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:25:58,971	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:25:59,158	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:25:59,158	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:25:59,158	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:25:59,219	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:25:59,800	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:25:59,800	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:26:00,439	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:26:00,440	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:26:00,440	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:26:08,068	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:26:08,069	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:26:08,231	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:26:08,236	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:26:08,237	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:26:08,300	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:30:17,602	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:30:17,602	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:30:18,412	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:30:18,412	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:30:18,413	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:30:31,292	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:30:31,293	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:30:31,487	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:30:31,500	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:30:31,501	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:30:31,661	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:34:26,032	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:34:26,032	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:34:26,975	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:34:26,975	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:34:26,976	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:34:29,643	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:34:29,645	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:34:29,934	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:34:29,952	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:34:29,955	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:34:30,137	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:36:49,066	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:36:49,066	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:36:49,900	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:36:49,900	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:36:49,901	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:36:52,482	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:36:52,483	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:36:52,640	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:36:52,645	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:36:52,646	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:36:52,798	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:36:59,949	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:36:59,950	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:37:00,664	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:37:00,665	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:37:00,665	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:37:24,925	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:37:24,925	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:37:25,124	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:37:25,138	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:37:25,139	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:37:25,196	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:46:28,571	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:46:28,572	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:46:29,414	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:46:29,415	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:46:29,416	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:46:33,530	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:46:33,531	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:46:33,692	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:46:33,697	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:46:33,698	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:46:33,832	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:47:21,997	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:47:21,998	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:47:22,860	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:47:22,861	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:47:22,862	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 15:47:26,762	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:47:26,762	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:47:26,920	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:47:26,925	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:47:26,926	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 15:47:27,033	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:02:19,654	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:02:19,654	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:02:20,425	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:02:20,426	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:02:20,426	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:02:22,822	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:02:22,823	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:02:22,987	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:02:22,993	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:02:22,993	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:02:23,104	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:05:23,471	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:05:23,471	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:05:24,168	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:05:24,168	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:05:24,169	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:05:27,840	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:05:27,841	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:05:28,018	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:05:28,023	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:05:28,023	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:05:28,131	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:08:57,479	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:08:57,480	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:08:58,443	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:08:58,444	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:08:58,445	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:09:05,629	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:09:05,630	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:09:05,860	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:09:05,880	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:09:05,880	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:09:06,057	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:15:00,734	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:15:00,735	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:15:01,514	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:15:01,515	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:15:01,516	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:15:04,916	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:15:04,917	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:15:05,089	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:15:05,095	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:15:05,096	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:15:05,240	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:15:48,112	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:15:48,114	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:15:48,917	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:15:48,918	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:15:48,919	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:15:49,418	Conexão com URL executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 16:15:49,421	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 16:15:49,422	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 16:15:49,456	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 16:15:49,463	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 16:15:49,464	Salvando dados no DB	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 16:15:49,588	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 16:30:38,648	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:30:38,649	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:30:39,637	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:30:39,637	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:30:39,638	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:30:43,211	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:30:43,212	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:30:43,386	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:30:43,391	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:30:43,392	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:30:43,536	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 16:59:53,784	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:59:53,785	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:59:54,629	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:59:54,630	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 16:59:54,630	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 17:00:13,771	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 17:00:13,772	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 17:00:13,982	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 17:00:13,989	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 17:00:13,989	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 17:00:14,130	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 17:00:14,375	Internal Server Error: /marketdb/diario	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\mysql\base.py", line 110, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\connections.py", line 42, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\connections.py", line 270, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''SELECT exec_dash.*, exec_log.end_time, round(exec_log.end_time - exec_log.start' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 109, in dashboard_diario
+    return render(request, 'marketdb/dashboard_diario.html', {'ExecutionDashboard': ExecutionDashboard.objects.raw(query), 'control_status' : control_status})
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 70, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 165, in render
+    values = list(values)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1240, in __iter__
+    query = iter(self.query)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\query.py", line 79, in __iter__
+    self._execute_query()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\query.py", line 113, in _execute_query
+    self.cursor.execute(self.sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\mysql\base.py", line 110, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\connections.py", line 42, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\connections.py", line 270, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''SELECT exec_dash.*, exec_log.end_time, round(exec_log.end_time - exec_log.start' at line 1")
+2017-01-31 17:00:39,556	Internal Server Error: /marketdb/diario	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\mysql\base.py", line 110, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\connections.py", line 42, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\connections.py", line 270, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''SELECT exec_dash.*, exec_log.end_time, round(exec_log.end_time - exec_log.start' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 109, in dashboard_diario
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 208, in render
+    return self._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 174, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 70, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 994, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\defaulttags.py", line 165, in render
+    values = list(values)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1240, in __iter__
+    query = iter(self.query)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\query.py", line 79, in __iter__
+    self._execute_query()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\query.py", line 113, in _execute_query
+    self.cursor.execute(self.sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\mysql\base.py", line 110, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\connections.py", line 42, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\connections.py", line 270, in query
+    _mysql.connection.query(self, query)
+django.db.utils.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''SELECT exec_dash.*, exec_log.end_time, round(exec_log.end_time - exec_log.start' at line 1")
+2017-01-31 19:07:11,878	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:11,878	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:12,690	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:12,691	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:12,692	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:13,858	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 19:07:13,858	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 19:07:14,122	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 19:07:14,129	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 19:07:14,129	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 19:07:14,302	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py
+2017-01-31 19:07:28,011	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:28,012	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:28,701	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:28,702	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:28,702	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:29,166	Conexão com URL executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 19:07:29,168	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 19:07:29,169	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 19:07:29,204	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 19:07:29,208	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 19:07:29,209	Salvando dados no DB	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 19:07:29,257	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_titpublico.py
+2017-01-31 19:07:32,218	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:32,219	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:33,293	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:33,295	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:33,297	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-01-31 19:07:37,020	Leitura da página executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py
+2017-01-31 19:07:37,020	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py
+2017-01-31 19:07:37,037	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py
+2017-01-31 19:07:37,042	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py
+2017-01-31 19:07:37,043	Salvando base de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py
+2017-01-31 19:07:37,086	Dados salvos no DB com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_anbima_vna.py
+2017-01-31 19:19:39,638	Not Found: /project/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-01-31 19:19:39,873	Not Found: /favicon.ico	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-01 09:18:38,952	Not Found: /project/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-01 09:18:39,075	Not Found: /favicon.ico	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-01 09:49:22,908	Leitura do DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-02-01 09:49:22,908	Definindo calendário Anbima	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-02-01 09:49:23,594	Calculando último dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-02-01 09:49:23,595	Ajustando se o dia anterior não for dia útil	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-02-01 09:49:23,596	Calculo data base executado com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\calculo_data_atual.py
+2017-02-01 09:50:09,632	Internal Server Error: /marketdb/diario	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\urllib\request.py", line 1254, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1106, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1151, in _send_request
+    self.endheaders(body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 1102, in endheaders
+    self._send_output(message_body)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\http\client.py", line 849, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 711, in create_connection
+    raise err
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\socket.py", line 702, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 51, in dashboard_diario
+    get_bmf_precos_futuros(array_data[0], array_data[1], array_data[2])
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\scripts\Diaria\Robo_Multiplo_Diario\get_bmf_precos_futuros.py", line 15, in get_bmf_precos_futuros
+    dadospd = pd.read_html(endereco_data, thousands=".")
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 874, in read_html
+    parse_dates, tupleize_cols, thousands, attrs, encoding)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\io\html.py", line 736, in _parse
+    raise_with_traceback(retained)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\pandas\compat\__init__.py", line 333, in raise_with_traceback
+    raise exc.with_traceback(traceback)
+urllib.error.URLError: <urlopen error [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond>
+2017-02-01 10:09:51,209	Internal Server Error: /marketdb/mensal	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\mysql\base.py", line 110, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\connections.py", line 42, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\connections.py", line 270, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`projeto_inv`.`generator_executionlog`, CONSTRAINT `generator_exec_execution_id_1870566b_fk_generator_reporttypes_id` FOREIGN KEY (`execution_id`) REFERENCES `generator_reporttypes` (`id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\marketdb\views.py", line 204, in dashboard_mensal
+    ExecutionLog(start_time=start_time, end_time=end_time, execution_id=13).save()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 796, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 824, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 908, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\base.py", line 947, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\query.py", line 1045, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\models\sql\compiler.py", line 1054, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\db\backends\mysql\base.py", line 110, in execute
+    return self.cursor.execute(query, args)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\connections.py", line 42, in defaulterrorhandler
+    raise errorvalue
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
+    res = self._query(query)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
+    db.query(q)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\MySQLdb\connections.py", line 270, in query
+    _mysql.connection.query(self, query)
+django.db.utils.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`projeto_inv`.`generator_executionlog`, CONSTRAINT `generator_exec_execution_id_1870566b_fk_generator_reporttypes_id` FOREIGN KEY (`execution_id`) REFERENCES `generator_reporttypes` (`id`))')
+2017-02-01 14:37:11,452	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:11,455	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:11,456	Tratando dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:11,456	Lendo DB	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:11,489	Lendo XML CTLZHDIGERLING_20161230_20170103172404_LZHDIGERLING.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:11,628	Lendo XML CTLZHDIPORTFOLIO_20161230_20170103172404_LZHDIPORTFOLIO.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:12,371	Lendo XML FD00322699000106_20161230_20161230221440_BRADESCO H FI RF REF DI CRED PRIV LP EXECUTIVO.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:20,935	Lendo XML FD00885762000112_20161230_20161230221518_BRADESCO H FI RF REF DI LP TÍTULOS PÚBLICOS.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:21,525	Lendo XML FD01597187000115_20161230_20170104130736_SPECIAL DI 192.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:26,400	Lendo XML FD02296928000190_20161230_20170103121503_PosicaoFundo_4086.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:27,647	Lendo XML FD03069104000140_20161230_20170104112102_SantanderFICFICorporateRendaFixaReferenciadoDI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:27,744	Lendo XML FD03399411000190_20161230_20161231004222_BRADESCO+FI+RF+REFERENCIADO+DI+PREMIUM.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:28,930	Lendo XML FD04931948000111_20161230_20170102153017_BRAM H FUNDO DE INVESTIMENTO RENDA FIXA REFERENCIADO DI CASH.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:28,994	Lendo XML FD05207090000100_20161230_20161230221604_BRAM H FI RF REF DI CASH II.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:29,107	Lendo XML FD05314815000169_20161230_20170103172404_LZINTRHSBC60317.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:30,053	Lendo XML FD05902521000158_20161230_20170104130707_XZTOPDI51210.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:30,145	Lendo XML FD07096435000120_20161230_20170104130635_INVEGRADERF1625.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:30,977	Lendo XML FD07541281000139_20161230_17 12333_BB INST FEDERAL FIC RF LP.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:31,019	Lendo XML FD07561993000110_20161230_20170103172404_LZINTRCSHG60315.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:31,721	Lendo XML FD07892335000100_20161230_20161231021941_PosicaoFundo_18533205.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:33,299	Lendo XML FD07907396000102_20161229_20170106145748_SantanderFICFIRendaFixaReferenc....xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:33,348	Lendo XML FD07907396000102_20161230_20170104112212_SantanderFICFIRendaFixaReferenciadoDI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:33,403	Lendo XML FD07966986000106_20161230_20170104113032_SANTANDERFITITULOSPUBLICOSRENDAFIXAREFERENCIADODI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:33,784	Lendo XML FD08623582000174_20161230_20170103172404_LZINTRABTG60314.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:34,934	Lendo XML FD08915927000163_20161230_20170103192535_BEM FI RF REFERENCIADO DI TPF.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:35,679	Lendo XML FD09093883000104_20161230_20170104130634_XZFICFI50351.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:35,730	Lendo XML FD09577447000100_20161230_20170104112406_SantanderFICFISoberanoRendaFixaReferenciadoDI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:35,930	Lendo XML FD09636393000107_20161230_20170103154055_BNPParibasMatchDIFIRFReferenciadoCréditoPrivado.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:40,332	Lendo XML FD09639924000107_20161230_20170105230957_LZHGRIFFO47848.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:40,446	Lendo XML FD10408947000190_20161230_20170103154323_BNPParibasTermoFIRendaFixa.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:41,155	Lendo XML FD10474513000198_20161230_0 - ITAU INSTITUCIONAL RENDA FIXA INFLAÇÃO FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:41,259	Lendo XML FD10813716000161_20161230_20161230205518_BRADESCO H FI RF CRED PRIV LP PERFORMANCE INST.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:42,875	Lendo XML FD11046618000109_20161230_20170105114759_PosicaoFundo.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:43,674	Lendo XML FD11122001000125_20161230_20170103172404_LZINTRABNP60313.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:44,197	Lendo XML FD11419792000150_20161230_0 - ITAÚ CUSTÓDIA RF CURTO PRAZO FI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:37:44,686	Lendo XML FD11419818000160_20161230_1 - ITAÚ RENDA FIXA IMAB5+ FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:01,745	Lendo XML FD11419818000160_20161230_20170104130655_XZFIDELILCMM771.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:23,361	Lendo XML FD13028340000172_20161230_1 - ITAÚ RENDA FIXA IMAB5+ FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:35,658	Lendo XML FD14437684000106_20161230_0 - ITAÚ RENDA FIXA IMAB5+ FICFI.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:35,733	Lendo XML FD14507681000193_20161230_20161230114947.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:36,665	Lendo XML FD14507711000161_20161230_20161230114937.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:36,785	Lendo XML FD15348108000147_20161230_20170105081612_FIRFBRLREFERENCIADODILP.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:37,609	Lendo XML FD15477891000149_20161230_20161231022648_PosicaoFundo_34840125.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:40,891	Lendo XML FD17136970000111_20161230_20161231004433_VINCI FI RF IMOBILIARIO - CRED PRIV.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:41,171	Lendo XML FD17138474000105_20161230_20170104110815_SANTANDERFIMASTERRENDAFIXACREDITOPRIVADOLONGOPRAZO.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:43,371	Lendo XML FD20977554000150_20161229_20170106145416_SANTANDERFIIIRENDAFIXAREFERENCI....xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:45,726	Lendo XML FD20977554000150_20161230_20170104111318_SANTANDERFIIIRENDAFIXAREFERENCIADODI.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:48,108	Lendo XML FD21320420000125_20161230_20170102093239_TB_ITACARE_FI_RF_LP.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:48,560	Lendo XML FD21624715000195_20161230_20170103172404_LZINTRATAG61298.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:48,661	Lendo XML FIC_PERFORMANCE.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:48,746	Lendo XML FIRF_INSTITUCIO.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:49,359	Lendo XML FI_TIT_PUBLICOS.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:49,779	Lendo XML FI_TIT_PUB_ALOC.XML	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:51,094	Lendo XML hannover.xml	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:51,521	Corrigindo tabela Título Privado	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:51,541	Corrigindo tabela debenture	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:51,558	Salvando fundos	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:51,788	Salvando tabela header no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:51,931	Salvando tabela partplanprev no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:56,896	Salvando tabela titpublico no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:38:59,466	Salvando tabela titprivado no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:00,670	Salvando tabela debenture no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:01,010	Salvando tabela acoes no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:01,120	Salvando tabela opcoesacoes no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:01,195	Salvando tabela opcoesderiv no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:01,270	Salvando tabela opcoesflx no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:01,379	Salvando tabela termorv no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:01,502	Salvando tabela termorf no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:01,612	Salvando tabela futuros no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:01,734	Salvando tabela swap no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:01,843	Salvando tabela caixa no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:01,986	Salvando tabela cotas no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:02,176	Salvando tabela despesas no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:02,447	Salvando tabela outrasdespesas no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:02,788	Salvando tabela provisao no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:02,932	Salvando tabela corretagem no banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 14:39:02,956	Base de dados salva com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro90\scripts\xml_parser\xml_parser.py
+2017-02-01 16:05:05,413	Not Found: /	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-01 16:05:19,545	Internal Server Error: /var/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\var\views.py", line 77, in dashboard_escolha
+    return render(request, 'var/dashboard_escolha.html', {'ExecutionDashboard': ExecutionDashboard.objects.raw('SELECT exec_dash.*, exec_log.end_time, round(exec_log.end_time - exec_log.start_time) AS tempo_execucao FROM generator_executiondashboard AS exec_dash LEFT JOIN ( SELECT MAX(id) AS id, MAX(start_time) AS start_time, MAX(end_time) AS end_time, MAX(execution_id) AS execution_id  FROM generator_executionlog  GROUP BY execution_id ) AS exec_log ON exec_dash.id = exec_log.execution_id WHERE report_type_id = ' + str(report_id)), 'control_status' : control_status, 'tipo_relatorio': tipo_relatorio})
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: var/dashboard_escolha.html
+2017-02-01 16:07:04,429	Internal Server Error: /var/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\var\views.py", line 77, in dashboard
+    return render(request, 'var/dashboard.html', {'ExecutionDashboard': ExecutionDashboard.objects.raw('SELECT exec_dash.*, exec_log.end_time, round(exec_log.end_time - exec_log.start_time) AS tempo_execucao FROM generator_executiondashboard AS exec_dash LEFT JOIN ( SELECT MAX(id) AS id, MAX(start_time) AS start_time, MAX(end_time) AS end_time, MAX(execution_id) AS execution_id  FROM generator_executionlog  GROUP BY execution_id ) AS exec_log ON exec_dash.id = exec_log.execution_id WHERE report_type_id = ' + str(report_id)), 'control_status' : control_status, 'tipo_relatorio': tipo_relatorio})
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: var/dashboard_escolha.html
+2017-02-01 22:43:08,730	Internal Server Error: /generator/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\generator\views.py", line 5, in dashboard
+    return render(request, 'generator/dashboard.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loaders\base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 584, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'. Looking for one of: endblock.
+2017-02-01 22:45:30,149	Internal Server Error: /generator/	ERROR	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py
+Traceback (most recent call last):
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\exception.py", line 39, in inner
+    response = get_response(request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\generator\views.py", line 5, in dashboard
+    return render(request, 'generator/dashboard.html')
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader.py", line 21, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\backends\django.py", line 39, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 160, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\engine.py", line 134, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loaders\base.py", line 44, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 191, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 233, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\loader_tags.py", line 242, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+  File "C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\template\base.py", line 584, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'. Looking for one of: endblock.
+2017-02-01 23:07:36,419	Not Found: /generator/generator/database.png	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-01 23:08:06,355	Not Found: /generator/generator/database.png	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-01 23:08:07,284	Not Found: /generator/generator/database.png	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-01 23:12:04,837	Not Found: /generator/generator/database.png	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-01 23:17:14,396	Not Found: /generator/diario	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:16:55,249	Not Found: /logout/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:18:01,331	Not Found: /configuration/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:25:03,394	Not Found: /configuration/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:28:26,055	Not Found: /configuration/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:29:10,944	Not Found: /generator/configuration	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:29:20,459	Not Found: /generator/configuration	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:29:21,011	Not Found: /generator/configuration	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:29:21,199	Not Found: /generator/configuration	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:29:56,165	Not Found: /generator/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:31:08,161	Not Found: /generator/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:31:08,694	Not Found: /generator/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:31:08,869	Not Found: /generator/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:31:09,019	Not Found: /generator/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:31:23,186	Not Found: /configuration/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 02:31:51,621	Not Found: /configuration/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 14:45:06,020	Not Found: /project/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 14:45:06,200	Not Found: /favicon.ico	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 17:05:17,307	Not Found: /logout/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 17:05:23,829	Not Found: /generator/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 17:05:54,978	Not Found: /logout/	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py
+2017-02-02 20:21:19,821	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro419\scripts\mtm_titulo_debenture.py
+2017-02-02 20:21:19,837	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro419\scripts\mtm_titulo_debenture.py
+2017-02-02 21:09:42,193	Conectando no Banco de dados	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro419\scripts\mtm_titulo_debenture.py
+2017-02-02 21:09:42,193	Conexão com DB executada com sucesso	INFO	C:\Users\Caio.Deutsch\Documents\Trabalho_EY\Projetos\HDI_automacao_relatorios\invest_automation\quadro419\scripts\mtm_titulo_debenture.py
+2017-02-03 17:20:02,766	Not Found: /favicon.ico	WARNING	C:\Users\Caio.Deutsch\AppData\Local\Programs\Python\Python35\lib\site-packages\django\core\handlers\base.py

@@ -4,9 +4,13 @@ def mtm_curva_titprivado():
     import pandas as pd
     import numpy as np
     import pymysql as db
+    import logging
+
     from pandas import ExcelWriter
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+
+    logger = logging.getLogger(__name__)
 
     # Pega a data do último dia útil do mês anterior e deixa no formato específico para utilização da função
     dtbase = get_data_ultimo_dia_util_mes_anterior()
@@ -17,38 +21,32 @@ def mtm_curva_titprivado():
     save_path_titprivado_perc = full_path_from_database('get_output_quadro419') + 'titprivado_perc.xlsx'
 
     tol = 0.20
-
     writer = ExcelWriter(save_path_puposicao)
 
-    horario_bd = datetime.datetime.today()
-
-    ###############################################################################
     # 1 - Leitura e criação de tabelas
-    ###############################################################################
-
     # Informações do cálculo de MTM
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', charset='utf8')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
 
     query = 'select * from projeto_inv.mtm_titprivado'
     #query = "SELECT * tipo_ativo FROM mtm_titprivado WHERE tipo_ativo <> 'DBS' AND tipo_ativo <> 'CTF'"
-
     mtm_titprivado0 = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
+    logger.info("Tratando dados")
     mtm_titprivado = mtm_titprivado0.copy()
 
     # Tira debentures
     mtm_titprivado = mtm_titprivado[(mtm_titprivado.tipo_ativo != 'DBS') & (mtm_titprivado.tipo_ativo != 'CTF')]
-
     mtm_titprivado['dtrel'] = mtm_titprivado['id_papel'].str.split('_')
     mtm_titprivado['dtrel'] = mtm_titprivado['dtrel'].str[0]
-
     mtm_titprivado = mtm_titprivado[mtm_titprivado.dtrel == dtbase_concat].copy()
     mtm_titprivado = mtm_titprivado[mtm_titprivado.data_bd == max(mtm_titprivado.data_bd)]
 
     del mtm_titprivado['dtrel']
-
     mtm_titprivado = mtm_titprivado.rename(columns={'data_fim': 'dt_ref', 'dtoperacao': 'dtoperacao_mtm'})
-
     mtm_titprivado['dt_ref'] = pd.to_datetime(mtm_titprivado['dt_ref'])
     mtm_titprivado['dt_ref'] = np.where(mtm_titprivado['indexador'] == 'DI1',
                                         mtm_titprivado['dt_ref'] + pd.DateOffset(months=0, days=1),
@@ -67,16 +65,15 @@ def mtm_curva_titprivado():
     del mtm_titprivado['data_bd']
 
     # Informações XML
-
     query = 'SELECT * FROM projeto_inv.xml_titprivado_org'
-
     xml_titprivado = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
+    #Fecha conexão
     connection.close()
 
     xml_titprivado['dtrel'] = xml_titprivado['id_papel'].str.split('_')
     xml_titprivado['dtrel'] = xml_titprivado['dtrel'].str[0]
-
     xml_titprivado = xml_titprivado[xml_titprivado.dtrel == dtbase_concat].copy()
     xml_titprivado = xml_titprivado[xml_titprivado.data_bd == max(xml_titprivado.data_bd)]
 
@@ -97,24 +94,18 @@ def mtm_curva_titprivado():
     titprivado['data_referencia'] = titprivado['id_papel'].str[0:8]
     titprivado['data_referencia'] = pd.to_datetime(titprivado['data_referencia']).dt.date
 
-    ###############################################################################
+    logger.info("Escolha do melhor mtm")
     # 2 - Escolha do melhor mtm
-    ###############################################################################
 
     titprivado_mercado = titprivado[(titprivado.caracteristica == 'N') & (titprivado.mtm.notnull()) & (titprivado.mtm != 0)]
-
     titprivado_mercado['dif_mtm'] = titprivado_mercado['puposicao'] / titprivado_mercado['mtm'] - 1
     titprivado_mercado['dif_mtm'] = titprivado_mercado['dif_mtm'].abs()
-
     titprivado_mercado = titprivado_mercado[titprivado_mercado.dt_ref == titprivado_mercado.data_referencia].copy()
-
     titprivado_mercado = titprivado_mercado[['id_papel_old', 'id_papel', 'codigo_isin', 'dif_mtm']].copy()
-
     titprivado_mercado = titprivado_mercado.sort(['dif_mtm'], ascending=[True])
     titprivado_mercado = titprivado_mercado.drop_duplicates(subset=['id_papel'], take_last=False)
 
     titprivado = titprivado.merge(titprivado_mercado, on=['id_papel_old', 'id_papel', 'codigo_isin'], how='left')
-
     titprivado = titprivado[
         ((titprivado.caracteristica == 'N') & (titprivado.dif_mtm.notnull())) | (titprivado.caracteristica == 'V')].copy()
 
@@ -124,9 +115,8 @@ def mtm_curva_titprivado():
 
     titprivado = titprivado.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    ###############################################################################
+    logger.info("Cálculo marcação na curva")
     # 3 - Cálculo marcação na curva
-    ###############################################################################
 
     titprivado_curva = titprivado[titprivado.caracteristica == 'V'].copy()
 
@@ -148,11 +138,9 @@ def mtm_curva_titprivado():
     del tp_curva_dtop['pucompra']
 
     titprivado_curva = titprivado_curva.merge(tp_curva_dtop, on=['id_papel_old'], how='left')
-
     titprivado_curva['principal_perc_acum'] = 1 - titprivado_curva['principal_perc']
     titprivado_curva['principal_perc_acum'] = titprivado_curva[['id_papel_old', 'principal_perc_acum']].groupby(
         ['id_papel_old']).agg(['cumprod'])
-
     titprivado_curva['vne'] = titprivado_curva['vne'] * titprivado_curva['principal_perc_acum']
     titprivado_curva['pagto_juros'] = titprivado_curva['vne'] * titprivado_curva['pagto_juros_perc']
     titprivado_curva['vna'] = titprivado_curva['vne'] * titprivado_curva['fator_index_per']
@@ -161,31 +149,23 @@ def mtm_curva_titprivado():
     titprivado_curva['saldo_dev_juros'] = titprivado_curva['vna'] * titprivado_curva['saldo_dev_juros_perc']
     titprivado_curva['pupar'] = titprivado_curva['vna'] + titprivado_curva['saldo_dev_juros'] + titprivado_curva[
         'pagto_juros']
-
     titprivado_curva['dif_curva'] = titprivado_curva['pupar'] / titprivado_curva['puposicao'] - 1
     titprivado_curva['dif_curva'] = titprivado_curva['dif_curva'].abs()
-
     titprivado_curva = titprivado_curva[titprivado_curva.dt_ref == titprivado_curva.data_referencia].copy()
-
     titprivado_curva = titprivado_curva[['id_papel_old', 'id_papel', 'codigo_isin', 'dif_curva', 'pupar']].copy()
-
     titprivado_curva = titprivado_curva.sort(['dif_curva'], ascending=[True])
     titprivado_curva = titprivado_curva.drop_duplicates(subset=['id_papel'], take_last=False)
 
     titprivado = titprivado.merge(titprivado_curva, on=['id_papel_old', 'id_papel', 'codigo_isin'], how='left')
-
     titprivado = titprivado[
         ((titprivado.caracteristica == 'V') & (titprivado.dif_curva.notnull())) | (titprivado.caracteristica == 'N')].copy()
-
     titprivado = titprivado.reset_index(level=None, drop=True, inplace=False, col_level=0, col_fill='')
 
-    ###############################################################################
+    logger.info("Separação dos pu's que ficaram muito distantes do informado")
     # 4 - Separação dos pu's que ficaram muito distantes do informado
-    ###############################################################################
 
     titprivado['dif_curva'] = titprivado['dif_curva'].fillna(0)
     titprivado['dif_mtm'] = titprivado['dif_mtm'].fillna(0)
-
     titprivado['dif'] = titprivado['dif_curva'] + titprivado['dif_mtm']
 
     # Retirar atualizar valores de papéis cujo dif é grande em apenas uma das observações
@@ -205,7 +185,6 @@ def mtm_curva_titprivado():
     x1['codigo_isin'] = x['codigo_isin']
     x1['count_0'] = x['id_papel']
     titprivado = titprivado.merge(x1, on=['codigo_isin'], how='left')
-
     titprivado['count_0'] = np.where(titprivado['dif'] < tol, titprivado['count_all'], titprivado['count_0'])
     titprivado['count_dif'] = titprivado['count_all'] - titprivado['count_0']
 
@@ -241,9 +220,8 @@ def mtm_curva_titprivado():
     titprivado['dif'] = titprivado['mtm'] / titprivado['puposicao1'] - 1
     titprivado['dif'] = titprivado['dif'].abs()
 
-    ###############################################################################
+    logger.info("Cálculo spread de crédito")
     # 4 - Cálculo spread de crédito
-    ###############################################################################
 
     titprivado_spread = \
     titprivado[['id_papel', 'codigo_isin', 'data_referencia', 'puposicao1', 'dt_ref', 'prazo_du', 'pv']][
@@ -300,9 +278,8 @@ def mtm_curva_titprivado():
 
     titprivado = titprivado.merge(spread_aux, on=['id_papel'], how='left')
 
-    ###############################################################################
+    logger.info("Seleção dos papéis cuja marcação não ficou boa")
     # 5 - Seleção dos papéis cuja marcação não ficou boa
-    ###############################################################################
 
     tp_bigdif = titprivado[['data_referencia',
                             'codigo_isin',
@@ -347,9 +324,8 @@ def mtm_curva_titprivado():
         (tp_bigdif.dif > tol) | (tp_bigdif.dif < -tol) | (tp_bigdif.spread > tol) | (tp_bigdif.spread < -tol)].to_excel(
         writer, 'bigdif')
 
-    ###############################################################################
+    logger.info("Atualização do fluxo de % de mtm com o spread e carregamento da tabela")
     # 6 - Atualização do fluxo de percentual de mtm com o spread e carregamento da tabela para preenchimento do quadro 419
-    ###############################################################################
 
     titprivado_perc = titprivado.copy()
 
@@ -464,12 +440,6 @@ def mtm_curva_titprivado():
     del titprivado_perc['dif_old']
 
     writer.save()
-
-    '''
-
-        Alteração de formato das colunas que são int e foram lidas como float (sabe lá pq...)
-
-    '''
 
     # id_mtm_titprivado
     titprivado_perc['id_mtm_titprivado'] = titprivado_perc['id_mtm_titprivado'].astype(int)
@@ -605,19 +575,22 @@ def mtm_curva_titprivado():
 
     # titprivado_perc['data_bd'] = horario_bd
     titprivado_perc['data_bd'] = datetime.datetime.today()
-
     titprivado_perc = titprivado_perc.where((pd.notnull(titprivado_perc)), None)
-
     titprivado_perc.to_excel(save_path_titprivado_perc)
 
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
+
+    logger.info("Salvando base de dados - mtm_renda_fixa")
     pd.io.sql.to_sql(titprivado_perc, name='mtm_renda_fixa', con=connection, if_exists='append', flavor='mysql', index=0)
+
+    #Fecha conexão
     connection.close()
 
-    ###############################################################################
+    logger.info("Preenchimento tabela xml")
     # 6 - Preenchimento tabela xml
-    ###############################################################################
-
     del original['id_xml_titprivado']
     del original['pu_mercado']
     del original['mtm_mercado']
@@ -626,18 +599,13 @@ def mtm_curva_titprivado():
     del original['pu_regra_xml']
     del original['mtm_regra_xml']
     del original['data_referencia']
-
     del titprivado['mtm']
 
     titprivado = titprivado.merge(finalizacao, on=['codigo_isin'], how='left')
-
     titprivado_xml = titprivado[titprivado.dt_ref == titprivado.data_referencia].copy()
-
     titprivado_xml = titprivado_xml.rename(columns={'mtm': 'mtm_calculado'})
-
     titprivado_xml['pu_mercado'] = np.where(titprivado_xml['caracteristica'] == 'N', titprivado_xml['mtm_calculado'], 0)
     titprivado_xml['pu_curva'] = np.where(titprivado_xml['caracteristica'] == 'V', titprivado_xml['pupar'], 0)
-
     titprivado_xml = titprivado_xml[['id_papel', 'pu_mercado', 'pu_curva', 'data_referencia']].copy()
 
     final = original.merge(titprivado_xml, on=['id_papel'], how='left')
@@ -654,6 +622,13 @@ def mtm_curva_titprivado():
 
     final['data_bd'] = datetime.datetime.today()
 
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
+, use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
+
+    logger.info("Salvando base de dados - xml_titprivado")
     pd.io.sql.to_sql(final, name='xml_titprivado', con=connection, if_exists='append', flavor='mysql', index=0)
+
+    #Fecha conexão
     connection.close()
