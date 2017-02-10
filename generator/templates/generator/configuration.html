@@ -3,13 +3,50 @@
 
 {% block content %}
 
-<form method="POST" class="basic-grey">
-    <h1>Change Configuration</h1>
-    {% csrf_token %}
-        {{ form.as_p }}
-    <button class="button" type="submit"><span>Send </span></button>
-</form>
+<div style="padding-right:400px;padding-top: 20px;padding-bottom: 20px" class="container-fluid">
 
+
+	<form method="post">
+		<div align="center">
+
+		   <table id="popupbox_list" class="table table-hover table-bordered table-condensed" align="center">
+				<thead style = "color:black;background-color:#e0e0e0">
+					<tr>
+						<td>ID Variável Global</td>
+						<td>Nome da Variável</td>
+						<td>Valor da Variável</td>
+					</tr>
+				</thead>
+				<tbody>
+                {% for var in Global_Variables %}
+					<tr>
+						<td>{{ var.id }}<!--div id="popupbox">{{ rotine.passo_a_passo_execucao }}</div--></td>
+						<td>{{ var.variable_name }}</td>
+						<td><input type="text" name="variable_update" value={{ var.variable_value }}></td>
+					</tr>
+				{% endfor%}
+
+				{% if control_status == 1 %}
+					<script>
+						alert("Alteração efetuada com sucesso!");
+					</script>
+				{% endif %}
+
+                {% if control_status == 2 %}
+					<script>
+						alert("Sem alteração...");
+					</script>
+				{% endif %}
+
+
+				</tbody>
+			</table>
+            {% csrf_token %}<button onclick="showDivAttid()" id="4" name="update_table" type="submit">
+								<span>Send</span></button>
+		</div>
+
+	</form>
+</div>
 
 
 {% endblock %}
