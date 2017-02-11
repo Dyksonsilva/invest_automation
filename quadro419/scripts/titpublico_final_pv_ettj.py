@@ -8,6 +8,7 @@ def titpublico_final_pv_ettj():
     from findt import FinDt
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+    from dependencias.Metodos.funcoes_auxiliares import get_global_var
 
     logger = logging.getLogger(__name__)
 
@@ -17,7 +18,8 @@ def titpublico_final_pv_ettj():
     dtbase = get_data_ultimo_dia_util_mes_anterior()
 
     # Auxiliar para pegar vna existente na base - versão dummie
-    dt_vna = datetime.date(2016, 11, 29)
+    dt_vna = get_global_var(dt_vna)
+    dt_vna = datetime.date(int(dt_vna[0:4]), int(dt_vna[4:6]), int(dt_vna[6:8]))
     # Quando tiver vna da data de posicao
     # dt_vna = dt_base
 
@@ -189,9 +191,7 @@ def titpublico_final_pv_ettj():
 
     del base_anbima['dt_carga']
 
-    ###############################################################################
     #----União das colunas de marcação a mercado e marcação na curva
-    ###############################################################################
 
     tpf = tpf_curva.merge(base_anbima,on=['codativo','dtvencimento'],how='left')
 

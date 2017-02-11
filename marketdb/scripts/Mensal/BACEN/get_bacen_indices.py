@@ -3,26 +3,33 @@ def get_bacen_indices():
     import pandas as pd
     import pymysql as db
     import datetime
+    import logging
+
     from pandas import DateOffset
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
     from findt import FinDt
     from pandas import ExcelWriter
 
-    ###############################################################################
+    logger = logging.getLogger(__name__)
+
     #----Declaração de constantes
-    ###############################################################################
-    connection=db.connect('localhost', user = 'root', passwd = "root", db = 'projeto_inv')
+    logger.info("Conectando no Banco de dados")
+
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+
+    logger.info("Conexão com DB executada com sucesso")
 
     var_path = full_path_from_database("feriados_nacionais") + "feriados_nacionais.csv"
     save_path = full_path_from_database("get_bacen_indices")
 
-    ###############################################################################
     #----Input incremental baixado robos_diarios_bacen
-    ###############################################################################
 
     # Fazer a query do que foi baixado pelo robo_diario_bacen
     query = 'SELECT * FROM projeto_inv.bacen_series;'
     bacen_series = pd.read_sql(query, con = connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
+
+    logger.info("Tratando dados")
 
     # Retira duplicatas
     bacen_series = bacen_series.sort(['codigo','data_referencia','data_bd'],ascending=[True,True,False])
@@ -68,13 +75,13 @@ def get_bacen_indices():
     del bacen_series['id_bacen_series']
     del bacen_series['data_referencia']
 
-    ###############################################################################
     #----ATUALIZAÇÃO ÍNDICES - CARREGAMENTO HISTÓRICO
-    ###############################################################################
+    logger.info("Atualizando índices")
 
     #Fazer a query do que foi baixado pelo robo_diario_anbima_projecoes
     query = 'SELECT * FROM projeto_inv.bacen_series_hist;'
     bacen_series_hist = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     bacen_series_hist = bacen_series_hist.sort(['indice','dt_ref','data_bd'],ascending=[True,True,False])
     bacen_series_hist = bacen_series_hist.drop_duplicates(subset=['indice','dt_ref'],take_last=False)
@@ -84,18 +91,15 @@ def get_bacen_indices():
 
     horario_bd = datetime.datetime.now()
 
-    ###############################################################################
     #----ATUALIZAÇÃO ÍNDICES - APPEND DAS INFO NOVAS DAS SERIES BACEN
-    ###############################################################################
 
     bacen_series_hist = bacen_series_hist.append(bacen_series)
 
     bacen_series_hist = bacen_series_hist.sort(['indice','dt_ref'],ascending=[True,True])
     bacen_series_hist = bacen_series_hist.drop_duplicates(subset=['indice','dt_ref'],take_last=False)
 
-    ###############################################################################
     #----------CRIAÇÃO SÉRIE DIÁRIA
-    ###############################################################################
+    logger.info("Criando séries diária")
 
     #Seleciona o última dia do mês vigente
     mesfim = datetime.date.today().month + 1
@@ -147,9 +151,8 @@ def get_bacen_indices():
 
     serie_dias = serie_dias.merge(serie_dias_group_sum_filter, on = ['ano', 'mes'], how='left')
 
-    ###############################################################################
     #----------CRIAÇÃO BASE DIÁRIA
-    ###############################################################################
+    logger.info("Criando bases diárias")
 
     #----IPCA
     ipca = bacen_series_hist[['mes','ano','valor','indice']][bacen_series_hist.indice=='IPCA'].copy()
@@ -218,12 +221,11 @@ def get_bacen_indices():
 
     serie_dias_indices['data_bd'] = horario_bd
 
-    ###############################################################################
     #----------VERIFICAÇÃO PARA CRIAR A TABELA INCREMENTAL
-    ###############################################################################
 
     query = 'SELECT * FROM projeto_inv.bacen_series_fatores;'
     bc_series = pd.read_sql(query, con=connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     bc_series = bc_series[['indice','dt_ref']].copy()
     bc_series['marker'] = 1
@@ -233,11 +235,9 @@ def get_bacen_indices():
 
     del serie_dias_indices['marker']
 
-    print("inserindo no banco")
-
-    #Conexão com Banco de Dados
-    connection = db.connect('localhost', user = 'root', passwd = "root", db = 'projeto_inv')
+    logger.info("Salvando base de dados -  Tabela bacen_series_fatores")
     #Salvar no MySQL
     pd.io.sql.to_sql(serie_dias_indices, name='bacen_series_fatores', con=connection, if_exists='append', flavor='mysql', index=0)
 
+    #Fecha conexao
     connection.close()

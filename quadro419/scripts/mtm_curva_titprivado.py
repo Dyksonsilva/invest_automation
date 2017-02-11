@@ -9,6 +9,7 @@ def mtm_curva_titprivado():
     from pandas import ExcelWriter
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+    from dependencias.Metodos.funcoes_auxiliares import get_global_var
 
     logger = logging.getLogger(__name__)
 
@@ -20,7 +21,7 @@ def mtm_curva_titprivado():
     save_path_puposicao = full_path_from_database('get_output_quadro419') + 'puposicao_final.xlsx'
     save_path_titprivado_perc = full_path_from_database('get_output_quadro419') + 'titprivado_perc.xlsx'
 
-    tol = 0.20
+    tol = float(get_global_var("tol"))
     writer = ExcelWriter(save_path_puposicao)
 
     # 1 - Leitura e criação de tabelas

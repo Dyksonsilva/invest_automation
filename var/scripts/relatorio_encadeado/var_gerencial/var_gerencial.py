@@ -1,8 +1,5 @@
 def var_gerencial(id_relatorio_quaid419,relatorio_tipo,dtbase):
 
-    #id_relatorio_quaid419 ='3696'
-    #relatorio_tipo='normal'
-
     import pandas as pd
     import numpy as np
     import datetime
@@ -14,17 +11,14 @@ def var_gerencial(id_relatorio_quaid419,relatorio_tipo,dtbase):
     from pandas import ExcelWriter
     from scipy.stats import norm
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
-    from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
     from dependencias.Metodos.funcoes_auxiliares import get_global_var
     from var.scripts.relatorio_encadeado.var_gerencial.value_at_risk import value_at_risk
 
-    matriz_id = 30
-    #matriz_id = get_global_var("matriz_id")
-    #id_relatorio_quaid419 = get_global_var("id_qua419") #arg1
-    fator_confianca = 0.99
+    matriz_id = get_global_var("matriz_id_var_gerencial")
+
+    fator_confianca = float(get_global_var("fator_confianca"))
     horizonte_em_dias = 1
     t = math.sqrt(horizonte_em_dias)
-    #relatorio_tipo="" #arg2
 
     logger = logging.getLogger(__name__)
 
@@ -48,10 +42,8 @@ def var_gerencial(id_relatorio_quaid419,relatorio_tipo,dtbase):
     logger.info("Conexão com DB executada com sucesso")
 
     ### Dados matriz regulatória
-    ##################################LIMIT 100################################
-    #dados_matriz = pd.read_sql_query('SELECT * from projeto_inv.matriz_gerencial where matriz_id='+str(matriz_id), connection) #CORRETO
-    #+' limit 10'
-    dados_matriz = pd.read_sql_query('SELECT * from projeto_inv.matriz_gerencial where matriz_id='+str(matriz_id)+' limit 100', connection) #TESTE
+    dados_matriz = pd.read_sql_query('SELECT * from projeto_inv.matriz_gerencial where matriz_id='+str(matriz_id), connection) #CORRETO
+
     logger.info("Leitura do banco de dados executada com sucesso")
 
     #Salva planilha
@@ -75,10 +67,8 @@ def var_gerencial(id_relatorio_quaid419,relatorio_tipo,dtbase):
                 matriz_reconstruida[coluna].iloc[linha]=dados_matriz[(dados_matriz["linha"]==coluna) & (dados_matriz["coluna"]==matriz_reconstruida.columns[linha])]["valor"].values[0]
 
     ### Vetor de exposicoes
-    ##################################LIMIT 100################################
-    #+' limit 10'
-    query_total="SELECT * FROM projeto_inv.vetor_exposicoes where id_relatorio_quaid419="+str(id_relatorio_quaid419)+" and data_bd= (SELECT MAX(data_bd) FROM  projeto_inv.vetor_exposicoes where id_relatorio_quaid419="+str(id_relatorio_quaid419)+" ) limit 100"
-    query_sep="SELECT * FROM projeto_inv.vetor_exposicoes_sep where id_relatorio_quaid419="+str(id_relatorio_quaid419)+" and data_bd= (SELECT MAX(data_bd) FROM  projeto_inv.vetor_exposicoes_sep where id_relatorio_quaid419="+str(id_relatorio_quaid419)+" ) limit limit 100"
+    query_total="SELECT * FROM projeto_inv.vetor_exposicoes where id_relatorio_quaid419="+str(id_relatorio_quaid419)+" and data_bd= (SELECT MAX(data_bd) FROM  projeto_inv.vetor_exposicoes where id_relatorio_quaid419="+str(id_relatorio_quaid419)+" )"
+    query_sep="SELECT * FROM projeto_inv.vetor_exposicoes_sep where id_relatorio_quaid419="+str(id_relatorio_quaid419)+" and data_bd= (SELECT MAX(data_bd) FROM  projeto_inv.vetor_exposicoes_sep where id_relatorio_quaid419="+str(id_relatorio_quaid419)+" )"
 
     vetor_exposicoes_total = pd.read_sql_query(query_total, connection)
     logger.info("Leitura do banco de dados executada com sucesso")
@@ -87,8 +77,7 @@ def var_gerencial(id_relatorio_quaid419,relatorio_tipo,dtbase):
     logger.info("Leitura do banco de dados executada com sucesso")
 
     #Ajuste por causa da saida da bd que é crazy
-    #+' limit 10'
-    quaid_419_aux = pd.read_sql_query('SELECT * from projeto_inv.quaid_419 where id_relatorio_quaid419='+str(id_relatorio_quaid419)+' LIMIT 100', connection)
+    quaid_419_aux = pd.read_sql_query('SELECT * from projeto_inv.quaid_419 where id_relatorio_quaid419='+str(id_relatorio_quaid419), connection)
     logger.info("Leitura do banco de dados executada com sucesso")
 
     if len(quaid_419_aux[quaid_419_aux['FTRCODIGO']=='AA1']):
@@ -101,8 +90,7 @@ def var_gerencial(id_relatorio_quaid419,relatorio_tipo,dtbase):
 
         vetor_separado_temp['valor_exposicao'] = np.where(vetor_separado_temp['categoria_alocacao'].isin(['ações','RV']),1,vetor_separado_temp['valor_exposicao'])
 
-        #+' limit 10'
-        quaid_419_aux = pd.read_sql_query('SELECT * from projeto_inv.quaid_419 where id_relatorio_quaid419='+str(id_relatorio_quaid419)+' limit 100', connection)
+        quaid_419_aux = pd.read_sql_query('SELECT * from projeto_inv.quaid_419 where id_relatorio_quaid419='+str(id_relatorio_quaid419), connection)
         logger.info("Leitura do banco de dados executada com sucesso")
 
         #Fecha conexão

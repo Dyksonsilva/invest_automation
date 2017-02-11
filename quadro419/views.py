@@ -20,6 +20,7 @@ from .scripts.tabelas_xml_final import *
 from .scripts.titpublico_final_pv_ettj import *
 from .scripts.xml_quadro_operacoes import *
 from .scripts.quadro_operacoes import *
+from dependencias.Metodos.funcoes_auxiliares import get_global_var
 
 def dashboard(request):
 
@@ -191,7 +192,7 @@ def dashboard(request):
         start_time = datetime.datetime.now()
 
         # Atualiza os Fluxos de Títulos Privados
-        xml_quadro_operacoes('29980158000157')
+        xml_quadro_operacoes(get_global_var("cnpj_hdi"))
         print("Atualização dos xml_quadro_operacoes_hdi com sucesso!")
 
         end_time = datetime.datetime.now()
@@ -203,7 +204,7 @@ def dashboard(request):
         start_time = datetime.datetime.now()
 
         # Atualiza os Fluxos de Títulos Privados
-        xml_quadro_operacoes('18096627000153')
+        xml_quadro_operacoes(get_global_var("cnpj_gerling"))
         print("Atualização dos xml_quadro_operacoes_gerling com sucesso!")
 
         end_time = datetime.datetime.now()

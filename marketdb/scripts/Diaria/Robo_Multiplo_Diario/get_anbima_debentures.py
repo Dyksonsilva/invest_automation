@@ -7,9 +7,11 @@ def get_anbima_debentures(ano, mes, dia):
     import numpy as np
     import logging
 
+    from dependencias.Metodos.funcoes_auxiliares import get_global_var
+
     logger = logging.getLogger(__name__)
 
-    pagina_debentures_anbima = "http://www.anbima.com.br/merc_sec_debentures/arqs/db"+ano[2:]+mes+dia+".txt"
+    pagina_debentures_anbima = get_global_var("pagina_debentures_anbima")+ano[2:]+mes+dia+".txt"
 
     # Pega o .txt e joga em uma variável
     pagina_debentures = urllib.request.urlopen(pagina_debentures_anbima)
@@ -73,6 +75,6 @@ def get_anbima_debentures(ano, mes, dia):
                      flavor='mysql',
                      index=0)
 
-    logger.info("Dados salvos no DB com sucesso")
+    logger.info("Dados salvos no DB com sucesso - Tabela anbima_debentures")
     # Fecha conexão com o banco de dados
     connection.close()

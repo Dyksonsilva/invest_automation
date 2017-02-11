@@ -5,7 +5,7 @@ def matriz_gerencial_1():
     import numpy as np
     import pandas as pd
     import logging
-    #import time
+    import pickle
 
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
@@ -15,16 +15,17 @@ def matriz_gerencial_1():
     logger = logging.getLogger(__name__)
     save_path = full_path_from_database("get_output_var")
     dt_base = get_data_ultimo_dia_util_mes_anterior()
-    #data_final = str(dt_base[0]) + '-' + str(dt_base[1]) + '-' + str(dt_base[2])
-    data_final = '2016-11-30'
+    data_final = str(dt_base[0]) + '-' + str(dt_base[1]) + '-' + str(dt_base[2])
+    #data_final = '2016-11-30'
     dt_base = dt_base[0] + dt_base[1] + dt_base[2]
-    dt_base = '20161130'
+    #dt_base = '20161130'
     data_inicial = "2010-03-31"
+    retornos_path=full_path_from_database("pickles")
 
     #################################################################################################################
     # VARIÁVEL PRECISA SER PARAMETRIZADA DE ACORDO COM O CÓDIGO GERADO NO SCRIPT 17-XML_QUADRO_OPERACOES_NAO_ORG.PY
-    #id_relatorio_quaid419 = get_global_var("id_qua419")
-    id_relatorio_quaid419 = '3650' # para novembro
+    id_relatorio_quaid419 = get_global_var("id_qua419")
+    #id_relatorio_quaid419 = '3650' # para novembro
     #################################################################################################################
 
     #Cotas cujo histórico é ruim
@@ -257,4 +258,6 @@ def matriz_gerencial_1():
 
     connection.close()
 
-    return retornos
+    pickle_file=open(retornos_path+'matriz_gerencial_retornos'+".pkl","w")
+    pickle.dump(retornos,pickle_file)
+    pickle_file.close()

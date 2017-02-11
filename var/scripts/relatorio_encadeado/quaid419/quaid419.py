@@ -42,8 +42,8 @@ def quaid419(id_relatorio_qo, dtbase, ent_codigo, tipo_relatorio, horario_proces
     connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True, charset="utf8")
 
     logger.info("Conexão com DB executada com sucesso")
-    #+'limit 10'
-    query = 'SELECT * from projeto_inv.xml_quadro_operacoes where id_relatorio_qo='+str(id_relatorio_qo)+' limit 10'
+
+    query = 'SELECT * from projeto_inv.xml_quadro_operacoes where id_relatorio_qo='+str(id_relatorio_qo)
     arquivo_operacoes = pd.read_sql_query(query, connection)
 
     logger.info("Leitura do banco de dados executada com sucesso")
@@ -54,8 +54,8 @@ def quaid419(id_relatorio_qo, dtbase, ent_codigo, tipo_relatorio, horario_proces
     arquivo_operacoes['indexador'] = np.where((arquivo_operacoes['produto'].isin(['titulo público']))&(arquivo_operacoes['ativo'].isin(['760100','760199'])),'IAP',arquivo_operacoes['indexador'])
     arquivo_operacoes['indexador'] = np.where((arquivo_operacoes['produto'].isin(['titulo público']))&(arquivo_operacoes['ativo'].isin(['770100'])),'IGM',arquivo_operacoes['indexador'])
     arquivo_operacoes['indexador'] = np.where((arquivo_operacoes['produto'].isin(['titulo público']))&(arquivo_operacoes['ativo'].isin(['210100'])),'SEL',arquivo_operacoes['indexador'])
-    #+'limit 10'
-    query_fluxos = 'select a.codigo_isin, a.perc_mtm, a.tipo_ativo, a.prazo_du, a.indexador, a.taxa_juros, a.data_mtm, a.data_bd from projeto_inv.mtm_renda_fixa a right join (select codigo_isin, data_mtm, max(data_bd) as data_bd from projeto_inv.mtm_renda_fixa where data_mtm="'+dtbase+'" group by 1,2) b on a.codigo_isin=b.codigo_isin and a.data_mtm=b.data_mtm and a.data_bd=b.data_bd limit 10;'
+
+    query_fluxos = 'select a.codigo_isin, a.perc_mtm, a.tipo_ativo, a.prazo_du, a.indexador, a.taxa_juros, a.data_mtm, a.data_bd from projeto_inv.mtm_renda_fixa a right join (select codigo_isin, data_mtm, max(data_bd) as data_bd from projeto_inv.mtm_renda_fixa where data_mtm="'+dtbase+'" group by 1,2) b on a.codigo_isin=b.codigo_isin and a.data_mtm=b.data_mtm and a.data_bd=b.data_bd;'
     fluxos = pd.read_sql_query(query_fluxos, connection)
     logger.info("Leitura do banco de dados executada com sucesso")
     

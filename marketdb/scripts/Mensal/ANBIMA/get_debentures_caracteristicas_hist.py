@@ -4,14 +4,19 @@ def get_debentures_caracteristicas_hist():
     import pymysql as db
     import datetime
     import os
+    import logging
+
     from dependencias.Metodos.funcoes_auxiliares import get_current_date_in_array
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
 
+    logger = logging.getLogger(__name__)
     # Cria um array com a data de hoje (ano, mes e dia)
     array_current_day = get_current_date_in_array()
 
     # Retorna o path utilizado para acesso aos dados baixados
     full_path = full_path_from_database("debentures")
+
+    logger.info("Tratando dados")
 
     nome_arquivo_parcial = "Debentures.com.br_Caracteristica_em_" + \
                            str(array_current_day[2]) + "-" + \
@@ -19,6 +24,8 @@ def get_debentures_caracteristicas_hist():
                            str(array_current_day[0]) + "_as_"
 
     nome_total = glob.glob(full_path + nome_arquivo_parcial + "*.xls")
+
+    logger.info("Arquivos lidos com sucesso")
 
     # Mudança de extensão para corrigir BOF/arquivo corrompido durante a leitura
     os.rename(nome_total[0], nome_total[0].replace("xls", "csv"))
@@ -136,7 +143,11 @@ def get_debentures_caracteristicas_hist():
     # Colocar data de carga no BD
     debentures_caracteristicas["data_bd"] = datetime.datetime.now()
 
-    connection = db.connect('localhost', user = 'root', passwd = 'root', db = 'projeto_inv', use_unicode=True, charset="utf8")
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True,charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
+
+    logger.info("Salvando base de dados - Tabela anbima_debentures_caracteristicas")
 
     #Salvar informação no BD
     pd.io.sql.to_sql(debentures_caracteristicas,
@@ -145,6 +156,7 @@ def get_debentures_caracteristicas_hist():
                      if_exists="append",
                      flavor='mysql', index=0)
 
+    #Fecha conexão
     connection.close()
 
     #Apagar arquivo

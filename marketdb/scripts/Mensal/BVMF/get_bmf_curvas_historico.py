@@ -1,11 +1,19 @@
 def get_bmf_curvas_historico():
+
     import pandas as pd
     import pymysql as db
     import datetime
+    import logging
+
+    from dependencias.Metodos.funcoes_auxiliares import get_global_var
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
+
+    logger = logging.getLogger(__name__)
 
     # Retorna um array (ano, mes e dia) referente ao útimo dia útil do mês anterior configurado no banco de dados
     dtbase = get_data_ultimo_dia_util_mes_anterior()
+
+    logger.info("Tratando dados")
 
     # Retorna um range de datas do mes anterior
     dt_ref = pd.date_range(start=datetime.date(int(dtbase[0]),int(dtbase[1]),1),
@@ -85,7 +93,7 @@ def get_bmf_curvas_historico():
         try:
             for curva in lista_curvas:
                 # curva = lista_curvas[0]
-                endereco_curvas = "http://www2.bmf.com.br/pages/portal/bmfbovespa/boletim1/TxRef1.asp?Data=" + dia + "/" + mes + "/" + ano + "&slcTaxa=" + curva
+                endereco_curvas = get_global_var(endereco_curvas) + dia + "/" + mes + "/" + ano + "&slcTaxa=" + curva
                 dados_curvas = pd.read_html(endereco_curvas, thousands=".")
 
                 if not (len(
@@ -136,8 +144,11 @@ def get_bmf_curvas_historico():
         # troca NaN por None
         matriz_curvas = matriz_curvas.where((pd.notnull(matriz_curvas)), None)
 
-        connection = db.connect('localhost', user='root', passwd="root", db='projeto_inv')
+        logger.info("Conectando no Banco de dados")
+        connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True,charset="utf8")
+        logger.info("Conexão com DB executada com sucesso")
 
-        pd.io.sql.to_sql(matriz_curvas, name='bmf_curvas', con=connection, if_exists="append", flavor='mysql', index=0)
+        logger.info("Salvando base de dados - Tabela bmf_curvas")
+        pd.io.sql.to_sql(matriz_curvas, name='bmf_curvas_'+str(ano)+'_'+str(mes), con=connection, if_exists="append", flavor='mysql', index=0)
 
         connection.close()

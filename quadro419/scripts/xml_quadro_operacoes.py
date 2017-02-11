@@ -8,8 +8,12 @@ def xml_quadro_operacoes(cnpj):
     from findt import FinDt
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+    from dependencias.Metodos.funcoes_auxiliares import get_global_var
 
     logger = logging.getLogger(__name__)
+
+    cnpj_hdi = get_global_var("cnpj_hdi")
+    cnpj_gerling = get_global_var("cnpj_gerling")
 
     def header_xml(dt_base, cnpj):
 
@@ -1227,8 +1231,8 @@ def xml_quadro_operacoes(cnpj):
                     lista_aux_fidc.set_value(lista_aux.index[0], 'nome', lista_primeiro_nivel['fundo'][y])
                     lista_fidc = lista_fidc.append(lista_aux_fidc)
 
-        lista_cnpj.loc[-2] = ['HDI Brasil', '29980158000157', None, None, None]
-        lista_cnpj.loc[-1] = ['HDI Global', '18096627000153', None, None, None]
+        lista_cnpj.loc[-2] = ['HDI Brasil', cnpj_hdi, None, None, None]
+        lista_cnpj.loc[-1] = ['HDI Global', cnpj_gerling, None, None, None]
         lista_cnpj['dt_ref'] = dtbase_concat
         lista_cnpj['data_bd'] = datetime.datetime.now()
         lista_cnpj['header_id'] = header_id_carteira_fundos
@@ -1261,8 +1265,7 @@ def xml_quadro_operacoes(cnpj):
     end_val = full_path_from_database('get_output_quadro419')
 
     logger.info("Conectando no Banco de dados")
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
-, use_unicode=True, charset="utf8")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True, charset="utf8")
     logger.info("Conexão com DB executada com sucesso")
 
     query = 'select distinct nome_emissor, cnpj_emissor, data_criacao_emissor from projeto_inv.bmf_emissor where cnpj_emissor>0;'

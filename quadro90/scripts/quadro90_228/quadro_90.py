@@ -7,11 +7,12 @@ def quadro90(data_relat, cnpj):
 
     from quadro90.scripts.quadro90_228.quadro_oper import quadro_oper
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+    from dependencias.Metodos.funcoes_auxiliares import get_global_var
     from datetime import date
 
     #Define variaveis
     logger = logging.getLogger(__name__)
-    limite_fgc = 20000000
+    limite_fgc = int(get_global_var("limite_fgc"))
 
     #Chama quadro de operações
     qo = quadro_oper(data_relat, cnpj)

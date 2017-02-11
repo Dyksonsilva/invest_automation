@@ -5,10 +5,12 @@ def get_anbima_curvas():
     import datetime
     import logging
 
+    from dependencias.Metodos.funcoes_auxiliares import get_global_var
+
     logger = logging.getLogger(__name__)
 
     # Url da Anbima
-    pagina_curvas_anbima="http://www.anbima.com.br/est_termo/CZ.asp"
+    pagina_curvas_anbima=get_global_var("pagina_curvas_anbima")
 
     # Lê página da Anbima
     dados_curvas_anbima = pd.read_html(pagina_curvas_anbima, thousands=".")
@@ -57,7 +59,7 @@ def get_anbima_curvas():
                      flavor = 'mysql',
                      index = 0)
 
-    logger.info("Dados salvos no DB com sucesso")
+    logger.info("Dados salvos no DB com sucesso - Tabela anbima_parametros_nss")
 
     # Fecha conexão com o banco de dados
     connection.close()

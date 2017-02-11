@@ -8,7 +8,7 @@ def get_data_ultimo_dia_util_mes_anterior():
 
     # Query que retorna valor do último dia útil do mês anterior
     dtbase = pd.read_sql_query(
-        'SELECT variable_value from projeto_inv.global_variables where variable_name = "dtbase"', connection)
+        'SELECT variable_value from projeto_inv.generator_global_variables where variable_name = "dtbase"', connection)
 
     dtbase = str(dtbase["variable_value"].iloc[0])
 
@@ -58,7 +58,7 @@ def get_global_var(var):
 
     # Query que retorna variavel global
     global_var = pd.read_sql_query(
-        'SELECT variable_value from projeto_inv.global_variables where variable_name = "'+var+'"', connection)
+        'SELECT variable_value from projeto_inv.generator_global_variables where variable_name = "'+var+'"', connection)
 
     global_var = str(global_var["variable_value"].iloc[0])
 

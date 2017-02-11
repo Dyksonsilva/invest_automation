@@ -20,6 +20,7 @@ def xml_parser():
     #Diretório com os arquivos do cliente:
     full_path = full_path_from_database("xml_dir")
     xml_dir = full_path+'ano_'+array_data[0]+'/'+'XML_'+str(array_data[0])+str(array_data[1])+str(array_data[2])
+    #xml_dir = full_path_from_database("xml_dir")
 
     # Diretório de saída dos arquivos:
     output_path = full_path_from_database("get_output_quadro90")
@@ -84,7 +85,7 @@ def xml_parser():
 
         logger.info("Lendo XML "+arquivo[(start_string+13):])
 
-        header_id= len(tabela_header)
+        header_id=len(tabela_header)
         try:
             endereco=xmlFundo['arquivoposicao_4_01']['fundo']
         except:
@@ -189,7 +190,7 @@ def xml_parser():
     globals()['tabela_%s' % x][['cnpj','nome']].to_excel(output_path+'fundos.xlsx')
 
     for y in range(len(lista_tabelas)):
-        x= lista_tabelas[y]
+        x = lista_tabelas[y]
         globals()['tabela_%s' % x].to_excel(output_path+'tabela_'+lista_tabelas[y]+'_'+dt_base_str+'.xlsx', encoding='utf-8', index=True, index_label="id")
 
         logger.info("Salvando tabela " + x + " no banco de dados")

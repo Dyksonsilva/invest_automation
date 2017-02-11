@@ -1,10 +1,15 @@
 def get_bacen_series_hist():
+
     import pymysql as db
     import pandas as pd
     import numpy as np
     import datetime
+    import logging
+
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
     from os import listdir
+
+    logger = logging.getLogger(__name__)
 
     # Retorna o path utilizado para acesso aos dados baixados
     base_dir = full_path_from_database("bacen")
@@ -13,11 +18,12 @@ def get_bacen_series_hist():
 
     output = pd.DataFrame(columns=['data_referencia','valor','codigo','nome','frequencia','data_bd'])
 
+    logger.info("Conectando no Banco de dados")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True,charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
+
     # Apenda os arquivos em uma estrutura utilizada a posteriori
     for i in lista_arquivos:
-
-        connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True,
-                                charset="utf8")
 
         aux = pd.DataFrame(columns=['data_referencia', 'valor', 'codigo', 'nome', 'frequencia', 'data_bd'])
         tabela = pd.read_csv(base_dir+i, skiprows=0, sep =";",header=0, encoding ="iso-8859-1")
@@ -65,6 +71,8 @@ def get_bacen_series_hist():
 
     output['nome'] = np.where(output['codigo']==7811,'TR',output['nome'])
 
+    logger.info("Salvando base de dados - Tabela bacen_series")
+
     pd.io.sql.to_sql(output, name='bacen_series', con=connection, if_exists="append", flavor='mysql', index=False)
 
     #Preenchimento do bacen_series_hist
@@ -93,6 +101,8 @@ def get_bacen_series_hist():
     del bacen_series_hist['dt_ref1']
 
     #Salvar no MySQL
+    logger.info("Salvando base de dados - Tabela bacen_series_hist")
     pd.io.sql.to_sql(bacen_series_hist, name='bacen_series_hist', con=connection, if_exists='append', flavor='mysql', index=0)
 
+    #Fecha conexão
     connection.close()

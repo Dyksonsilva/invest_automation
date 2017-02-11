@@ -62,8 +62,7 @@ def exposicoes_sep(id_relatorio_quaid419):
     logger.info("Conexão com DB executada com sucesso")
 
     # Arquivo operacoes
-    #+' limit 100'
-    query = 'SELECT * from projeto_inv.quaid_419 where id_relatorio_quaid419=' + str(id_relatorio_quaid419)+' limit 10'
+    query = 'SELECT * from projeto_inv.quaid_419 where id_relatorio_quaid419=' + str(id_relatorio_quaid419)
     quaid_419 = pd.read_sql_query(query, connection)
     logger.info("Leitura do banco de dados executada com sucesso")
 

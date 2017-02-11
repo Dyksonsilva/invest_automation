@@ -5,19 +5,19 @@ def upload_manual_cotas(query, columns, table):
     import pymysql as db
     import datetime
     import numpy as np
+    import logging
+
     from findt import FinDt
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
+
+    logger = logging.getLogger(__name__)
 
     # Definindo os paths
     path_feriados = full_path_from_database("feriados_nacionais") + "feriados_nacionais.csv"
     path_cotas = full_path_from_database("bloomberg_cotas")
 
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True,
-                            charset="utf8")
-
-    ###############################################################################
     #Criação série diária
-    ###############################################################################
+    logger.info("Tratando dados")
 
     #Seleciona o última dia do mês vigente
     mesfim = datetime.date.today().month
@@ -68,9 +68,7 @@ def upload_manual_cotas(query, columns, table):
 
     serie_dias = serie_dias.merge(serie_dias_group_sum_filter, on = ['ano', 'mes'], how='left')
 
-    ###############################################################################
     #Criação da série de cotas
-    ###############################################################################
 
     lista_cotas = os.listdir(path_cotas)
 
@@ -97,7 +95,14 @@ def upload_manual_cotas(query, columns, table):
     del cotasdf['mes']
     del cotasdf['dia']
 
+    logger.info("Conectando no Banco de dados")
+
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv')
+
+    logger.info("Conexão com DB executada com sucesso")
+
     cnpj = pd.read_sql_query(query, connection)
+    logger.info("Leitura do banco de dados executada com sucesso")
 
     cnpj['cnpjfundo_outros'] = np.where(cnpj['cnpjfundo_outros'].isnull(),cnpj['cnpjfundo_1nivel'],cnpj['cnpjfundo_outros'])
     cnpj['cnpj'] = cnpj['cnpjfundo_outros']
@@ -112,6 +117,7 @@ def upload_manual_cotas(query, columns, table):
     cotasdf = cotasdf.rename(columns=columns)
     cotasdf['data_bd'] = datetime.datetime.today()
 
+    logger.info("Salvando base de dados")
     pd.io.sql.to_sql(cotasdf, name=table, con=connection,if_exists="append", flavor='mysql', index=0, chunksize=5000)
 
     connection.close()

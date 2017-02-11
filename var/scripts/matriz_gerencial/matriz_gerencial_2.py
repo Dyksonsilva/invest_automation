@@ -1,26 +1,36 @@
-def matriz_gerencial_2(retornos):
+def matriz_gerencial_2():
 
     import pymysql as db
     import datetime
     import numpy as np
     import pandas as pd
     import logging
+    import pickle
 
     from dependencias.Metodos.funcoes_auxiliares import full_path_from_database
     from dependencias.Metodos.funcoes_auxiliares import get_data_ultimo_dia_util_mes_anterior
+    from dependencias.Metodos.funcoes_auxiliares import get_global_var
     from var.scripts.matriz_gerencial.definicao_lambda import definicao_lambda
     from var.scripts.matriz_gerencial.definicao_nome import definicao_nome
 
     #Define variáveis:
     logger = logging.getLogger(__name__)
     save_path = full_path_from_database("get_output_var")
+    retornos_path = full_path_from_database("pickles")
+    # data_final = '2016-11-30'
+    # dt_base = '20161130'
+    # data_inicial = "2010-03-31"
+
     dt_base = get_data_ultimo_dia_util_mes_anterior()
-    #data_final = data_final = str(dt_base[0])+'-'+str(dt_base[1])+'-'+str(dt_base[2])
-    data_final = '2016-11-30'
+    data_final = str(dt_base[0])+'-'+str(dt_base[1])+'-'+str(dt_base[2])
     dt_base = dt_base[0] + dt_base[1] + dt_base[2]
-    dt_base = '20161130'
-    data_inicial = "2010-03-31"
+
+    data_inicial = get_global_var("dt_ini_matriz_gerencial_2")
+    data_inicial = str(data_inicial[0:4])+'-'+str(data_inicial[4:6])+'-'+str(data_inicial[6:8])
+
     lambda_geral = definicao_lambda('outro') #lambda_geral = 0.95
+
+    retornos = open(retornos_path+'matriz_gerencial_retornos'+".pkl","w")
 
     # Conecta no DB
     logger.info("Conectando no Banco de dados")

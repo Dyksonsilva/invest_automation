@@ -16,16 +16,14 @@ def processo_quaid_expo_var():
     logger = logging.getLogger(__name__)
     dtbase = get_data_ultimo_dia_util_mes_anterior()
     dtbase = dtbase[0] + '-' + dtbase[1] + '-' + dtbase[2]
-    #######################
-    dtbase = '2016-11-30'
-    #######################
+    #dtbase = '2016-11-30' #Caso seja necessário forçar uma data
     horario_inicio= datetime.datetime.now()
 
     #Parametros gerados pelo arquivo 17-xml_quadro_operacoes_nao_org.py ao final da função parametrização
-    inicio_hdi = 401 #Parametrizar Dezembro
-    fim_hdi = 421 #Parametrizar Dezembro
-    inicio_gerling = 422 #Parametrizar Dezembro
-    fim_gerling = 428 #Parametrizar Dezembro
+    inicio_hdi = int(get_global_var("inicio_hdi_quaid_expo_var"))
+    fim_hdi = int(get_global_var("fim_hdi_quaid_expo_var"))
+    inicio_gerling = int(fim_hdi)+1
+    fim_gerling = int(get_global_var("fim_gerling_quaid_expo_var"))
     coent_hdi = get_global_var("coent_hdi")
     coent_gerling = get_global_var("coent_gerling")
 
@@ -39,8 +37,7 @@ def processo_quaid_expo_var():
     connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True, charset="utf8")
     logger.info("Conexão com DB executada com sucesso")
 
-    #query = 'SELECT * FROM count_quadros where ENTCODIGO = "'+coent_hdi+'" and tipo_relatorio = "G" and data_bd = (SELECT max(data_bd) from count_quadros where ENTCODIGO = "'+coent_hdi+'" and tipo_relatorio = "G" )'
-    query= 'SELECT * FROM count_quadros where ENTCODIGO = "6572" and tipo_relatorio = "G" and (data_bd) ='+'\''+'2016-12-28 22:20:07'+'\''
+    query = 'SELECT * FROM count_quadros where ENTCODIGO = "'+coent_hdi+'" and tipo_relatorio = "G" and data_bd = (SELECT max(data_bd) from count_quadros where ENTCODIGO = "'+coent_hdi+'" and tipo_relatorio = "G" )'
     lista = pd.read_sql(query, connection)
     logger.info("Leitura do banco de dados executada com sucesso")
 
@@ -48,7 +45,7 @@ def processo_quaid_expo_var():
     connection.close()
 
     for j in lista['id_relatorio_quaid419']:
-        #logger.info("Executando Relatório para HDI - ID: "+j)
+        logger.info("Executando Relatório para HDI - ID: "+j)
         print("Executando Relatório para HDI - ID: " + j)
         exposicoes_conso(j)
         exposicoes_sep(j)

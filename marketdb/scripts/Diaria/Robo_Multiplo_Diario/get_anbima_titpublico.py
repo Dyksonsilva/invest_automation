@@ -6,22 +6,20 @@ def get_anbima_titpublico(ano, mes, dia):
     
     robo_tit_publico('2016','02','23')
     """
-    
-    #######
-
-    from pandas.tseries.offsets import DateOffset
     import urllib
     import pandas as pd
     import pymysql as db
     import datetime
     import logging
+    from pandas.tseries.offsets import DateOffset
+    from dependencias.Metodos.funcoes_auxiliares import get_global_var
 
     logger = logging.getLogger(__name__)
 
     ### Conexão com a página ###
     #paginaTitulosPublicos = urllib.request.urlopen("http://www.anbima.com.br/merc_sec/arqs/ms160215.txt")
     
-    paginaTitulosPublicos = urllib.request.urlopen("http://www.anbima.com.br/merc_sec/arqs/ms"+ str(ano)[2:4]+str(mes)+str(dia)+".txt")
+    paginaTitulosPublicos = urllib.request.urlopen(get_global_var("paginaTitulosPublicos")+str(ano)[2:4]+str(mes)+str(dia)+".txt")
 
     logger.info("Conexão com URL executado com sucesso")
 
@@ -85,7 +83,7 @@ def get_anbima_titpublico(ano, mes, dia):
                      flavor='mysql',
                      index=0)
 
-    logging.info("Dados salvos no DB com sucesso")
+    logging.info("Dados salvos no DB com sucesso - anbima_tpf")
 
     # Fecha conexão
     connection.close()

@@ -1,0 +1,1 @@
+O script simulacao_credito_original.py possui o código original da Betty com um calculo diferente do feito no simulacao_credito.py

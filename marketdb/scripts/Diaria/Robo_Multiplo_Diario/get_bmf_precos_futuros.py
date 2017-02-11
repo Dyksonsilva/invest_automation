@@ -5,12 +5,14 @@ def get_bmf_precos_futuros(ano, mes, dia):
     import datetime
     import logging
 
+    from dependencias.Metodos.funcoes_auxiliares import get_global_var
+
     logger = logging.getLogger(__name__)
 
     #Robo BMF PREÇOS FUTUROS
     dataBusca = dia+"/"+mes+"/"+ano
-    endereco = "http://www2.bmf.com.br/pages/portal/bmfbovespa/boletim1/Ajustes1.asp?txtData="
-    endereco_data = endereco + dataBusca
+    endereco_bmf = get_global_var("endereco_bmf")
+    endereco_data = endereco_bmf + dataBusca
 
     dadospd = pd.read_html(endereco_data, thousands=".")
 
@@ -78,7 +80,7 @@ def get_bmf_precos_futuros(ano, mes, dia):
                      flavor = 'mysql',
                      index = 0)
 
-    logger.info("Dados salvos no DB com sucesso")
+    logger.info("Dados salvos no DB com sucesso - Tabela bmf_ajustes_pregao")
 
     #Fecha conexão
     connection.close()

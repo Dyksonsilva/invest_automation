@@ -1,6 +1,3 @@
-#Importa library de log
-import logging
-
 # Imports do Django
 from django.shortcuts import render
 import logging
@@ -18,7 +15,7 @@ from quadro90.scripts.xml_quadro_operacoes_org.xml_quadro_operacoes_org import x
 
 def dashboard(request):
 
-    # Variável que condição de where par query relativo ao tipo de atualização no banco
+    # Variável que condição de where para query relativo ao tipo de atualização no banco
     report_id = 3
     # Variável de controle para loading da página
     control_status = 0
@@ -31,7 +28,6 @@ def dashboard(request):
 
         # Parsea XMLs
         xml_parser()
-        #print("BMF Preços Futuros OK!")
 
         end_time = datetime.datetime.now()
         ExecutionLog(start_time=start_time, end_time=end_time, execution_id=20).save()
@@ -59,10 +55,10 @@ def dashboard(request):
         #array_data = '2016-12-30'
 
         quadro90(array_data, get_global_var('cnpj_hdi'))
-        #logger.info("Sucesso na execução do Quadro 90 para HDI")
+        logger.info("Sucesso na execução do Quadro 90 para HDI")
 
-        #quadro90(array_data, get_global_var('cnpj_gerling'))
-        #logger.info('Sucesso na execução do Quadro 90 para Gerling')
+        quadro90(array_data, get_global_var('cnpj_gerling'))
+        logger.info('Sucesso na execução do Quadro 90 para Gerling')
         print("quadro_operacoes_consolidado")
 
         end_time = datetime.datetime.now()

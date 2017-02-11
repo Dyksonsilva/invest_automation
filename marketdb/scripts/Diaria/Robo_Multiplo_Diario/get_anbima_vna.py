@@ -8,9 +8,11 @@ def get_anbima_vna():
     import datetime
     import logging
 
+    from dependencias.Metodos.funcoes_auxiliares import get_global_var
+
     logger = logging.getLogger(__name__)
 
-    endereco_vna = "http://www.anbima.com.br/vna/vna.asp"
+    endereco_vna = get_global_var("endereco_vna")
 
     pagina_vna = pd.read_html(endereco_vna, thousands=".")
 
@@ -65,7 +67,7 @@ def get_anbima_vna():
     
     pd.io.sql.to_sql(dados_vna, name='anbima_vna', con=connection,if_exists="append", flavor='mysql', index=0)
 
-    logger.info("Dados salvos no DB com sucesso")
+    logger.info("Dados salvos no DB com sucesso - Tabela anbima_vna")
 
     # Fecha conexão
     connection.close()

@@ -1,4 +1,5 @@
 def anbima_debentures_ajustes_cadastro():
+
     import pandas as pd
     import datetime
     import pymysql as db
@@ -24,8 +25,7 @@ def anbima_debentures_ajustes_cadastro():
 
     #Leitura e tratamento das tabelas
     logger.info("Conectando no Banco de dados")
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv'
-, use_unicode=True, charset="utf8")
+    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True, charset="utf8")
     logger.info("Conexão com DB executada com sucesso")
 
     query = 'SELECT * FROM projeto_inv.anbima_debentures_caracteristicas'

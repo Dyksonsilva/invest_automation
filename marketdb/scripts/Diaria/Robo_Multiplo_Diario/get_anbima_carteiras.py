@@ -5,9 +5,11 @@ def get_anbima_carteiras(ano, mes, dia):
     import datetime
     import logging
 
+    from dependencias.Metodos.funcoes_auxiliares import get_global_var
+
     logger = logging.getLogger(__name__)
 
-    pagina_anbima_carteira_xml = "http://www.anbima.com.br/ima/arqs/ima_completo.xls"
+    pagina_anbima_carteira_xml = get_global_var("pagina_anbima_carteira_xml")
 
     #Leitura Arquivos
 
@@ -82,6 +84,7 @@ def get_anbima_carteiras(ano, mes, dia):
     'valornegociado',
     'prazo'
     ]
+
     horario_bd = datetime.datetime.now()
     ima_irfm["data_bd"] = horario_bd
     ima_irfm["data_ref"] = ano+mes+dia

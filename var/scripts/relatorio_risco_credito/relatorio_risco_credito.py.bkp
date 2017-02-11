@@ -14,13 +14,19 @@ def relatorio_risco_credito():
 
     global header_id_carteira_fundos
 
-    logger = logging.getLogger(__name__)
-
     dt_base = get_data_ultimo_dia_util_mes_anterior()
     dt_base = dt_base[0]+'-'+dt_base[1]+'-'+dt_base[2]
-    nivel_confianca=int(get_global_var("nivel_confianca_relatorio_credito"))
+    logger = logging.getLogger(__name__)
+    nivel_confianca=0.95
     end = full_path_from_database("get_output_var")+'relatorios/'
     cnpj_hdi=get_global_var("cnpj_hdi")
+
+    logger.info("Conectando no Banco de dados")
+    connection=db.connect('localhost',user='root',passwd='root', db='projeto_inv', use_unicode=True, charset="utf8")
+    logger.info("Conexão com DB executada com sucesso")
+
+    #Fecha conexão
+    connection.close()
 
     def relatorio_credito(dt_base,cnpj,nivel_confianca,horario_bd):
 
@@ -131,14 +137,13 @@ def relatorio_risco_credito():
             tp['contraparte']=tp['contraparte'].fillna('a')
 
             # selecionar simulação de perda de crédito
-            #query='select a.* from projeto_inv.simulacao_credito a right join (select id_relatorio_qo, max(data_bd) as data_bd from projeto_inv.simulacao_credito where id_relatorio_qo = "51" group by 1) b on a.id_relatorio_qo=b.id_relatorio_qo and a.data_bd=b.data_bd;'
-            query ='SELECT contraparte, isin, pv, perda_perc, pv_perda, duration, dt_base FROM projeto_inv.simulacao_credito_consolidado;'
+            query='select a.* from projeto_inv.simulacao_credito a right join (select id_relatorio_qo, max(data_bd) as data_bd from projeto_inv.simulacao_credito where id_relatorio_qo = "51" group by 1) b on a.id_relatorio_qo=b.id_relatorio_qo and a.data_bd=b.data_bd;'
             sim=pd.read_sql(query,con=connection)
             sim['perda_perc']=sim['perda_perc'].fillna(0)
 
             # perda esperada por isin
             perda_isin=sim[['isin', 'perda_perc']].copy()
-            #perda_isin=perda_isin.groupby(['isin'], as_index=False).mean()
+            perda_isin=perda_isin.groupby(['isin'], as_index=False).mean()
             perda_isin=perda_isin.rename(columns={'perda_perc':'perc_pe'})
 
             tp_isin_mtm=tp[['cnpj','contraparte','isin','tipo_prod', 'mtm_info']].copy()
@@ -166,7 +171,7 @@ def relatorio_risco_credito():
             prod.to_excel(writer,index=False, sheet_name='Resumo', startrow =14, startcol=1, header =['Tipo de produto', 'Exposição (R$)', '% PL de crédito', '% PL total', '% Perda Esperada'])
 
             # perda inesperada
-            sim1=sim[['isin', 'pv_perda', 'pv']]
+            sim1=sim[['isin','numero_simulacao', 'pv_perda', 'pv']]
 
             isin_mtm=tp[['isin','mtm_info']].copy()
             isin_mtm=isin_mtm.groupby(['isin'],as_index=False).sum()
@@ -177,7 +182,7 @@ def relatorio_risco_credito():
             del sim2['perc_perda']
             del sim2['pv']
             del sim2['pv_perda']
-            sim_agr = sim2
+            sim_agr=sim2.groupby(['numero_simulacao'], as_index=False).sum()
             sim_agr['perda']=sim_agr['perda'].fillna(0)
             sim_agr['perc_perda']=sim_agr['perda']/sim_agr['mtm_info']
             sim_agr=sim_agr.sort(columns=['perc_perda'], ascending=True )
@@ -233,6 +238,7 @@ def relatorio_risco_credito():
             rtg_carteira2=rtg_carteira2.reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill='')
 
             rtg_lp=rtg_carteira2.get_value(0,'rtg')
+
 
             # rating por produto
             query='select cod_rtg, rtg from projeto_inv.de_para_rtg a right join (select max(data_bd) as data_bd from projeto_inv.de_para_rtg) b on a.data_bd = b.data_bd;'
@@ -501,7 +507,7 @@ def relatorio_risco_credito():
                     cell.border=borderObj2
 
             #Formata os formatos de número
-            for row in sheet1.range('E5:E24'):
+            for row in sheet1.range('E5:E20'):
                 for cell in row:
                     cell.number_format = "0.0%"
 
@@ -522,10 +528,6 @@ def relatorio_risco_credito():
             cnpj_sem_credito['id_relatorio_qo'] = id_relatorio_qo_str
             cnpj_sem_credito['data_bd'] = horario_bd
             pd.io.sql.to_sql(cnpj_sem_credito, name='rel_credito_log', con=connection,if_exists="append", flavor='mysql', index=0, chunksize=5000)
-
-    logger.info("Conectando no Banco de dados")
-    connection = db.connect('localhost', user='root', passwd='root', db='projeto_inv', use_unicode=True, charset="utf8")
-    logger.info("Conexão com DB executada com sucesso")
 
     #Busca lista dos fundos de primeiro nivel na carteira da HDI
     query='select * from projeto_inv.xml_header where cnpjcpf="' + cnpj_hdi +'" and dtposicao='+'"'+dt_base+'";'
